@@ -1,2 +1,2 @@
 # CritterCrush
-App developed for CSCI Capstone.
+App developed for CSCI Capstone..
