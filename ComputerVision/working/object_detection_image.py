@@ -49,3 +49,12 @@ for detection in output[0, 0, :, :]:  # output[0, 0, :, :] has a shape of: (100,
 
 cv2.imshow('Image', image)
 cv2.waitKey()
+
+# $ python3 -m venv v 
+
+# $ . v/bin/activate
+
+# (v) $ pip install --upgrade pip
+
+# (v) $ pip freeze > requirements.txt
+# (v) $ pip install -r requirements.txt
