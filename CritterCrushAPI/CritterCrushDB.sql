@@ -1,3 +1,5 @@
+CREATE DATABASE CritterCrushDB;
+
 USE CritterCrushDB;
 
 CREATE TABLE Users(
@@ -12,7 +14,7 @@ CREATE TABLE Reports(
 	ReportID INT NOT NULL AUTO_INCREMENT,
     ReportDate datetime,
     UserID int,
-    Species VARCHAR(100),
+    SpeciesID int,
     PRIMARY KEY (ReportID)
 );
 
