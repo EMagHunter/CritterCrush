@@ -1,0 +1,6 @@
+framework module Pods_CritterCrushTests {
+  umbrella header "Pods-CritterCrushTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

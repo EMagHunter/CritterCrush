@@ -7,76 +7,181 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F70A06F9299C02970099ADA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A06F8299C02970099ADA8 /* AppDelegate.swift */; };
-		F70A06FB299C02970099ADA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A06FA299C02970099ADA8 /* SceneDelegate.swift */; };
-		F70A06FD299C02970099ADA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A06FC299C02970099ADA8 /* ViewController.swift */; };
-		F70A0700299C02970099ADA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70A06FE299C02970099ADA8 /* Main.storyboard */; };
-		F70A0702299C02980099ADA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70A0701299C02980099ADA8 /* Assets.xcassets */; };
-		F70A0705299C02980099ADA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70A0703299C02980099ADA8 /* LaunchScreen.storyboard */; };
+		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
+		5A0776897B4B5D0E9457A61C /* Pods_CritterCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FF08653469CC622A37B258 /* Pods_CritterCrush.framework */; };
+		DC5A6FA5BC2D8ED3FD3E6697 /* Pods_CritterCrushTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA263DE938F21F2F193B2B02 /* Pods_CritterCrushTests.framework */; };
+		F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C5D29A473A0007B6909 /* AppDelegate.swift */; };
+		F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */; };
+		F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F8C6329A473A1007B6909 /* Main.storyboard */; };
+		F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F71F8C6629A473A2007B6909 /* Assets.xcassets */; };
+		F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F8C6829A473A2007B6909 /* LaunchScreen.storyboard */; };
+		F71F8C7529A473A2007B6909 /* CritterCrushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C7429A473A2007B6909 /* CritterCrushTests.swift */; };
+		F71F8C7F29A473A2007B6909 /* CritterCrushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C7E29A473A2007B6909 /* CritterCrushUITests.swift */; };
+		F71F8C8129A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C8029A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift */; };
+		F7E6D96C29A4873400A5CE3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */; };
+		F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F71F8C7129A473A2007B6909 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F71F8C5229A473A0007B6909 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F71F8C5929A473A0007B6909;
+			remoteInfo = CritterCrush;
+		};
+		F71F8C7B29A473A2007B6909 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F71F8C5229A473A0007B6909 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F71F8C5929A473A0007B6909;
+			remoteInfo = CritterCrush;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		F70A06F5299C02970099ADA8 /* CritterCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CritterCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F70A06F8299C02970099ADA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F70A06FA299C02970099ADA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F70A06FC299C02970099ADA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F70A06FF299C02970099ADA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F70A0701299C02980099ADA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F70A0704299C02980099ADA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F70A0706299C02980099ADA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1416A7328B3E46B5A03744D8 /* Pods-CritterCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.release.xcconfig"; sourceTree = "<group>"; };
+		270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrush_CritterCrushUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.debug.xcconfig"; sourceTree = "<group>"; };
+		60AB81438588CF65EBC9CCB4 /* Pods-CritterCrushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrushTests.release.xcconfig"; path = "Target Support Files/Pods-CritterCrushTests/Pods-CritterCrushTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A60D8D9FC4E4A3CEB073605 /* Pods-CritterCrushTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrushTests.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrushTests/Pods-CritterCrushTests.debug.xcconfig"; sourceTree = "<group>"; };
+		801DB90AA8C5B2B8AD563E4A /* Pods-CritterCrush-CritterCrushUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush-CritterCrushUITests.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA263DE938F21F2F193B2B02 /* Pods_CritterCrushTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrushTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5FF08653469CC622A37B258 /* Pods_CritterCrush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4BC80174C54B743228FE08E /* Pods-CritterCrush-CritterCrushUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush-CritterCrushUITests.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F71F8C5A29A473A0007B6909 /* CritterCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CritterCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F71F8C5D29A473A0007B6909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F71F8C6429A473A1007B6909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F71F8C6629A473A2007B6909 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F71F8C6929A473A2007B6909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F71F8C6B29A473A2007B6909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F71F8C7029A473A2007B6909 /* CritterCrushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CritterCrushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F71F8C7429A473A2007B6909 /* CritterCrushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterCrushTests.swift; sourceTree = "<group>"; };
+		F71F8C7A29A473A2007B6909 /* CritterCrushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CritterCrushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F71F8C7E29A473A2007B6909 /* CritterCrushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterCrushUITests.swift; sourceTree = "<group>"; };
+		F71F8C8029A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterCrushUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F70A06F2299C02970099ADA8 /* Frameworks */ = {
+		F71F8C5729A473A0007B6909 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0776897B4B5D0E9457A61C /* Pods_CritterCrush.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F71F8C6D29A473A2007B6909 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC5A6FA5BC2D8ED3FD3E6697 /* Pods_CritterCrushTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F71F8C7729A473A2007B6909 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F70A06EC299C02970099ADA8 = {
+		603F76E2936693771DDB5667 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F70A06F7299C02970099ADA8 /* CritterCrush */,
-				F70A06F6299C02970099ADA8 /* Products */,
+				2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */,
+				1416A7328B3E46B5A03744D8 /* Pods-CritterCrush.release.xcconfig */,
+				801DB90AA8C5B2B8AD563E4A /* Pods-CritterCrush-CritterCrushUITests.debug.xcconfig */,
+				F4BC80174C54B743228FE08E /* Pods-CritterCrush-CritterCrushUITests.release.xcconfig */,
+				6A60D8D9FC4E4A3CEB073605 /* Pods-CritterCrushTests.debug.xcconfig */,
+				60AB81438588CF65EBC9CCB4 /* Pods-CritterCrushTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		77DAD49311DCF7F0E0AD6E68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5FF08653469CC622A37B258 /* Pods_CritterCrush.framework */,
+				270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */,
+				BA263DE938F21F2F193B2B02 /* Pods_CritterCrushTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F71F8C5129A473A0007B6909 = {
+			isa = PBXGroup;
+			children = (
+				F71F8C5C29A473A0007B6909 /* CritterCrush */,
+				F71F8C7329A473A2007B6909 /* CritterCrushTests */,
+				F71F8C7D29A473A2007B6909 /* CritterCrushUITests */,
+				F71F8C5B29A473A0007B6909 /* Products */,
+				603F76E2936693771DDB5667 /* Pods */,
+				77DAD49311DCF7F0E0AD6E68 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		F70A06F6299C02970099ADA8 /* Products */ = {
+		F71F8C5B29A473A0007B6909 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F70A06F5299C02970099ADA8 /* CritterCrush.app */,
+				F71F8C5A29A473A0007B6909 /* CritterCrush.app */,
+				F71F8C7029A473A2007B6909 /* CritterCrushTests.xctest */,
+				F71F8C7A29A473A2007B6909 /* CritterCrushUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F70A06F7299C02970099ADA8 /* CritterCrush */ = {
+		F71F8C5C29A473A0007B6909 /* CritterCrush */ = {
 			isa = PBXGroup;
 			children = (
-				F70A06F8299C02970099ADA8 /* AppDelegate.swift */,
-				F70A06FA299C02970099ADA8 /* SceneDelegate.swift */,
-				F70A06FC299C02970099ADA8 /* ViewController.swift */,
-				F70A06FE299C02970099ADA8 /* Main.storyboard */,
-				F70A0701299C02980099ADA8 /* Assets.xcassets */,
-				F70A0703299C02980099ADA8 /* LaunchScreen.storyboard */,
-				F70A0706299C02980099ADA8 /* Info.plist */,
+				F71F8C5D29A473A0007B6909 /* AppDelegate.swift */,
+				F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */,
+				F71F8C6329A473A1007B6909 /* Main.storyboard */,
+				F71F8C6629A473A2007B6909 /* Assets.xcassets */,
+				F71F8C6829A473A2007B6909 /* LaunchScreen.storyboard */,
+				F71F8C6B29A473A2007B6909 /* Info.plist */,
+				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
+				F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */,
 			);
 			path = CritterCrush;
+			sourceTree = "<group>";
+		};
+		F71F8C7329A473A2007B6909 /* CritterCrushTests */ = {
+			isa = PBXGroup;
+			children = (
+				F71F8C7429A473A2007B6909 /* CritterCrushTests.swift */,
+			);
+			path = CritterCrushTests;
+			sourceTree = "<group>";
+		};
+		F71F8C7D29A473A2007B6909 /* CritterCrushUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F71F8C7E29A473A2007B6909 /* CritterCrushUITests.swift */,
+				F71F8C8029A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift */,
+			);
+			path = CritterCrushUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F70A06F4299C02970099ADA8 /* CritterCrush */ = {
+		F71F8C5929A473A0007B6909 /* CritterCrush */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F70A0709299C02980099ADA8 /* Build configuration list for PBXNativeTarget "CritterCrush" */;
+			buildConfigurationList = F71F8C8429A473A2007B6909 /* Build configuration list for PBXNativeTarget "CritterCrush" */;
 			buildPhases = (
-				F70A06F1299C02970099ADA8 /* Sources */,
-				F70A06F2299C02970099ADA8 /* Frameworks */,
-				F70A06F3299C02970099ADA8 /* Resources */,
+				38B4B157F48B9CB754B2B18B /* [CP] Check Pods Manifest.lock */,
+				F71F8C5629A473A0007B6909 /* Sources */,
+				F71F8C5729A473A0007B6909 /* Frameworks */,
+				F71F8C5829A473A0007B6909 /* Resources */,
+				1937EF82C9DDBBE22AFB2DA2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,25 +189,72 @@
 			);
 			name = CritterCrush;
 			productName = CritterCrush;
-			productReference = F70A06F5299C02970099ADA8 /* CritterCrush.app */;
+			productReference = F71F8C5A29A473A0007B6909 /* CritterCrush.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F71F8C6F29A473A2007B6909 /* CritterCrushTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F71F8C8729A473A2007B6909 /* Build configuration list for PBXNativeTarget "CritterCrushTests" */;
+			buildPhases = (
+				BFC53AD98D50CB02A1E9304A /* [CP] Check Pods Manifest.lock */,
+				F71F8C6C29A473A2007B6909 /* Sources */,
+				F71F8C6D29A473A2007B6909 /* Frameworks */,
+				F71F8C6E29A473A2007B6909 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F71F8C7229A473A2007B6909 /* PBXTargetDependency */,
+			);
+			name = CritterCrushTests;
+			productName = CritterCrushTests;
+			productReference = F71F8C7029A473A2007B6909 /* CritterCrushTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F71F8C7929A473A2007B6909 /* CritterCrushUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F71F8C8A29A473A2007B6909 /* Build configuration list for PBXNativeTarget "CritterCrushUITests" */;
+			buildPhases = (
+				62E79AE2C681E00BAC6A89AF /* [CP] Check Pods Manifest.lock */,
+				F71F8C7629A473A2007B6909 /* Sources */,
+				F71F8C7729A473A2007B6909 /* Frameworks */,
+				F71F8C7829A473A2007B6909 /* Resources */,
+				338A1763B87869453A2E46B8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F71F8C7C29A473A2007B6909 /* PBXTargetDependency */,
+			);
+			name = CritterCrushUITests;
+			productName = CritterCrushUITests;
+			productReference = F71F8C7A29A473A2007B6909 /* CritterCrushUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F70A06ED299C02970099ADA8 /* Project object */ = {
+		F71F8C5229A473A0007B6909 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					F70A06F4299C02970099ADA8 = {
+					F71F8C5929A473A0007B6909 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					F71F8C6F29A473A2007B6909 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F71F8C5929A473A0007B6909;
+					};
+					F71F8C7929A473A2007B6909 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F71F8C5929A473A0007B6909;
 					};
 				};
 			};
-			buildConfigurationList = F70A06F0299C02970099ADA8 /* Build configuration list for PBXProject "CritterCrush" */;
+			buildConfigurationList = F71F8C5529A473A0007B6909 /* Build configuration list for PBXProject "CritterCrush" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +262,205 @@
 				en,
 				Base,
 			);
-			mainGroup = F70A06EC299C02970099ADA8;
-			productRefGroup = F70A06F6299C02970099ADA8 /* Products */;
+			mainGroup = F71F8C5129A473A0007B6909;
+			productRefGroup = F71F8C5B29A473A0007B6909 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F70A06F4299C02970099ADA8 /* CritterCrush */,
+				F71F8C5929A473A0007B6909 /* CritterCrush */,
+				F71F8C6F29A473A2007B6909 /* CritterCrushTests */,
+				F71F8C7929A473A2007B6909 /* CritterCrushUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F70A06F3299C02970099ADA8 /* Resources */ = {
+		F71F8C5829A473A0007B6909 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F70A0705299C02980099ADA8 /* LaunchScreen.storyboard in Resources */,
-				F70A0702299C02980099ADA8 /* Assets.xcassets in Resources */,
-				F70A0700299C02970099ADA8 /* Main.storyboard in Resources */,
+				F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */,
+				F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */,
+				F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F71F8C6E29A473A2007B6909 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F71F8C7829A473A2007B6909 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1937EF82C9DDBBE22AFB2DA2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CritterCrush/Pods-CritterCrush-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CritterCrush/Pods-CritterCrush-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CritterCrush/Pods-CritterCrush-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		338A1763B87869453A2E46B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38B4B157F48B9CB754B2B18B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CritterCrush-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62E79AE2C681E00BAC6A89AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CritterCrush-CritterCrushUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFC53AD98D50CB02A1E9304A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CritterCrushTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		F70A06F1299C02970099ADA8 /* Sources */ = {
+		F71F8C5629A473A0007B6909 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F70A06FD299C02970099ADA8 /* ViewController.swift in Sources */,
-				F70A06F9299C02970099ADA8 /* AppDelegate.swift in Sources */,
-				F70A06FB299C02970099ADA8 /* SceneDelegate.swift in Sources */,
+				F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */,
+				F7E6D96C29A4873400A5CE3E /* LoginViewController.swift in Sources */,
+				F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */,
+				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F71F8C6C29A473A2007B6909 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F71F8C7529A473A2007B6909 /* CritterCrushTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F71F8C7629A473A2007B6909 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F71F8C8129A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift in Sources */,
+				F71F8C7F29A473A2007B6909 /* CritterCrushUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F71F8C7229A473A2007B6909 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F71F8C5929A473A0007B6909 /* CritterCrush */;
+			targetProxy = F71F8C7129A473A2007B6909 /* PBXContainerItemProxy */;
+		};
+		F71F8C7C29A473A2007B6909 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F71F8C5929A473A0007B6909 /* CritterCrush */;
+			targetProxy = F71F8C7B29A473A2007B6909 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		F70A06FE299C02970099ADA8 /* Main.storyboard */ = {
+		F71F8C6329A473A1007B6909 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F70A06FF299C02970099ADA8 /* Base */,
+				F71F8C6429A473A1007B6909 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F70A0703299C02980099ADA8 /* LaunchScreen.storyboard */ = {
+		F71F8C6829A473A2007B6909 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F70A0704299C02980099ADA8 /* Base */,
+				F71F8C6929A473A2007B6909 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +468,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F70A0707299C02980099ADA8 /* Debug */ = {
+		F71F8C8229A473A2007B6909 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +528,7 @@
 			};
 			name = Debug;
 		};
-		F70A0708299C02980099ADA8 /* Release */ = {
+		F71F8C8329A473A2007B6909 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,8 +582,9 @@
 			};
 			name = Release;
 		};
-		F70A070A299C02980099ADA8 /* Debug */ = {
+		F71F8C8529A473A2007B6909 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -307,8 +610,9 @@
 			};
 			name = Debug;
 		};
-		F70A070B299C02980099ADA8 /* Release */ = {
+		F71F8C8629A473A2007B6909 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1416A7328B3E46B5A03744D8 /* Pods-CritterCrush.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,28 +638,122 @@
 			};
 			name = Release;
 		};
+		F71F8C8829A473A2007B6909 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A60D8D9FC4E4A3CEB073605 /* Pods-CritterCrushTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anacfg.com.CritterCrushTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CritterCrush.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CritterCrush";
+			};
+			name = Debug;
+		};
+		F71F8C8929A473A2007B6909 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60AB81438588CF65EBC9CCB4 /* Pods-CritterCrushTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anacfg.com.CritterCrushTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CritterCrush.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CritterCrush";
+			};
+			name = Release;
+		};
+		F71F8C8B29A473A2007B6909 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 801DB90AA8C5B2B8AD563E4A /* Pods-CritterCrush-CritterCrushUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anacfg.com.CritterCrushUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CritterCrush;
+			};
+			name = Debug;
+		};
+		F71F8C8C29A473A2007B6909 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4BC80174C54B743228FE08E /* Pods-CritterCrush-CritterCrushUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anacfg.com.CritterCrushUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CritterCrush;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F70A06F0299C02970099ADA8 /* Build configuration list for PBXProject "CritterCrush" */ = {
+		F71F8C5529A473A0007B6909 /* Build configuration list for PBXProject "CritterCrush" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F70A0707299C02980099ADA8 /* Debug */,
-				F70A0708299C02980099ADA8 /* Release */,
+				F71F8C8229A473A2007B6909 /* Debug */,
+				F71F8C8329A473A2007B6909 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F70A0709299C02980099ADA8 /* Build configuration list for PBXNativeTarget "CritterCrush" */ = {
+		F71F8C8429A473A2007B6909 /* Build configuration list for PBXNativeTarget "CritterCrush" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F70A070A299C02980099ADA8 /* Debug */,
-				F70A070B299C02980099ADA8 /* Release */,
+				F71F8C8529A473A2007B6909 /* Debug */,
+				F71F8C8629A473A2007B6909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F71F8C8729A473A2007B6909 /* Build configuration list for PBXNativeTarget "CritterCrushTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F71F8C8829A473A2007B6909 /* Debug */,
+				F71F8C8929A473A2007B6909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F71F8C8A29A473A2007B6909 /* Build configuration list for PBXNativeTarget "CritterCrushUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F71F8C8B29A473A2007B6909 /* Debug */,
+				F71F8C8C29A473A2007B6909 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F70A06ED299C02970099ADA8 /* Project object */;
+	rootObject = F71F8C5229A473A0007B6909 /* Project object */;
 }
