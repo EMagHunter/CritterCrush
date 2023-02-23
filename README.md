@@ -9,4 +9,4 @@
 App developed for CSCI Capstone.
 
 ## Wireframes
-<img width="936" alt="wireframe" src="https://user-images.githubusercontent.com/56377738/219255625-d18c0f9c-cf09-4b9f-9ba7-582b401fbdc8.png">
+<img width="872" alt="Screenshot 2023-02-23 at 3 23 20 PM" src="https://user-images.githubusercontent.com/56377738/221021733-8d9b9651-3682-4d67-bcf8-11ec70a17b88.png">
