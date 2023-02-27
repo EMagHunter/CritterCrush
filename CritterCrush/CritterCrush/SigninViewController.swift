@@ -20,6 +20,7 @@ class SigninViewController: UIViewController {
         if(UsernameTextField.text == "" || PasswordTextField.text == ""){
             ResultLabel.text = "Please Enter Username and Password"
         }else{
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
             //will make an http request using alamofire
         }
     }
