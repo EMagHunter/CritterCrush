@@ -219,7 +219,7 @@
         <!--Item-->
         <scene sceneID="a4v-C6-YH9">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="8p7-wK-flg" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="8p7-wK-flg" customClass="MapViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sq0-kw-pXO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,6 +239,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Zo7-DJ-0gi"/>
+                    <connections>
+                        <outlet property="mapView" destination="T5W-ED-fIb" id="gPP-Sn-gtb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hp-dT-DiF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
