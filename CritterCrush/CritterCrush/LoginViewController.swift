@@ -13,7 +13,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var UsernameTextField: UITextField!
     
     
+    @IBOutlet weak var ResultLabel: UILabel!
     @IBAction func LoginButton(_ sender: Any) {
+        guard let email = UsernameTextField.text else{return}
+        guard let password = PasswordTextField.text else{return}
+        
+        if (UsernameTextField.text == "" && PasswordTextField.text == ""){
+            ResultLabel.text = "Enter UserName and password"
+        }
+        else{
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

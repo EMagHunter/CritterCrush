@@ -10,6 +10,7 @@
 		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
 		5A0776897B4B5D0E9457A61C /* Pods_CritterCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FF08653469CC622A37B258 /* Pods_CritterCrush.framework */; };
 		DC5A6FA5BC2D8ED3FD3E6697 /* Pods_CritterCrushTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA263DE938F21F2F193B2B02 /* Pods_CritterCrushTests.framework */; };
+		F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700DB3929AD207B00E83929 /* TabBarViewController.swift */; };
 		F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C5D29A473A0007B6909 /* AppDelegate.swift */; };
 		F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */; };
 		F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F8C6329A473A1007B6909 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		BA263DE938F21F2F193B2B02 /* Pods_CritterCrushTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrushTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FF08653469CC622A37B258 /* Pods_CritterCrush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4BC80174C54B743228FE08E /* Pods-CritterCrush-CritterCrushUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush-CritterCrushUITests.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F700DB3929AD207B00E83929 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F71F8C5A29A473A0007B6909 /* CritterCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CritterCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71F8C5D29A473A0007B6909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				F71F8C6B29A473A2007B6909 /* Info.plist */,
 				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
 				F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */,
+				F700DB3929AD207B00E83929 /* TabBarViewController.swift */,
 			);
 			path = CritterCrush;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */,
 				F7E6D96C29A4873400A5CE3E /* LoginViewController.swift in Sources */,
 				F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */,
+				F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
