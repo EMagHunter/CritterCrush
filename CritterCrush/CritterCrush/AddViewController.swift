@@ -45,13 +45,15 @@ class AddViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         print("didUpdateLocations\(newLocation)")
-        
+        //location was too long ago
         if newLocation.timestamp.timeIntervalSinceNow < -6 {
             return
         }
+        // invalid if the accuracy is less then 0
         if newLocation.horizontalAccuracy < 0{
             return
         }
+        // measures if the location distance is improving
         var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
         if let location = location {
             distance = newLocation.distance(from: location)
@@ -91,7 +93,7 @@ class AddViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - Actions
     @IBAction func getLocation(){
         let authorizationStatus = locationManager.authorizationStatus
-        // ask permistion to use locatiob
+        // ask permistion to use location
         if authorizationStatus == .notDetermined{
             locationManager.requestWhenInUseAuthorization()
             return
@@ -174,7 +176,7 @@ class AddViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation  = true
-            // checks location for 55 min if it does work then timeout
+            // checks location for 55 sec if it does work then timeout
             timer = Timer.scheduledTimer(
                 timeInterval: 55,
                 target: self,

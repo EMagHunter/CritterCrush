@@ -17,10 +17,10 @@ class SigninViewController: UIViewController {
     
     @IBOutlet weak var ResultLabel: UILabel!
     @IBAction func SignupButton(_ sender: Any) {
-        if(UsernameTextField.text == "" || PasswordTextField.text == ""){
-            ResultLabel.text = "Please Enter Username and Password"
+        if(UsernameTextField.text == "" || PasswordTextField.text == "" || rePasswordTextField.text == "" || EmailTextField.text == ""){
+            ResultLabel.text = "Please Fill all the Information"
         }else{
-            self.performSegue(withIdentifier: "loginSegue", sender: self)
+            self.performSegue(withIdentifier: "signupSegue", sender: self)
             //will make an http request using alamofire
         }
     }
