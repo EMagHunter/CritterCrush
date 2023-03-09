@@ -1,21 +1,23 @@
 //
-//  SpeciecsViewController.swift
+//  SpeciesDetailViewController.swift
 //  CritterCrush
 //
-//  Created by Ana Fuentes on 3/5/23.
+//  Created by min joo on 3/9/23.
 //
 
 import UIKit
 
-class SpeciecsViewController: UIViewController {
+class SpeciesDetailViewController: UIViewController {
 
+    //programatically based on species
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
