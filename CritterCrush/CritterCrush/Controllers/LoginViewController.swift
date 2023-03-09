@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var PasswordTextField: UITextField!
@@ -15,13 +16,18 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var ResultLabel: UILabel!
     @IBAction func LoginButton(_ sender: Any) {
-        guard let email = UsernameTextField.text else{return}
+        guard let username = UsernameTextField.text else{return}
         guard let password = PasswordTextField.text else{return}
         
         if (UsernameTextField.text == "" && PasswordTextField.text == ""){
             ResultLabel.text = "Enter UserName and password"
         }
         else{
+            let url  = "http://69.125.216.66/api/users/login"
+            let paremeter = ["username": username, "password": password]
+            AF.request(url, method: .get, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
+                debugPrint(response)
+            }
             self.performSegue(withIdentifier: "loginSegue", sender: self)
         }
     }
