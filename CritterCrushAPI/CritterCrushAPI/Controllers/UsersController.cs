@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using CritterCrushAPI.Models;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
+using System.Xml.Linq;
+using System.Numerics;
+using Microsoft.AspNetCore.Identity;
 
 namespace CritterCrushAPI.Controllers
 {
@@ -28,7 +31,7 @@ namespace CritterCrushAPI.Controllers
             _context = context;
         }
 
-        // POST: api/register
+        // POST: api/users/register
         // username, email, password
         [HttpPost("register")]
         public async Task<ActionResult<string>> RegisterUser(string username, string password, string email)
@@ -43,6 +46,29 @@ namespace CritterCrushAPI.Controllers
             _context.Users.Add(newuser);
             await _context.SaveChangesAsync();
             return "Success";
+        }
+
+        [HttpGet("login")]
+        public async Task<ActionResult<string>> TryLogin(string username, string password)
+        {
+            if (IsStringEmpty(username) || IsStringEmpty(password)) {
+                return BadRequest("Fields cannot be empty");
+            }
+            IQueryable<User> query = (from u in _context.Users where u.UserName == username select u);
+            User user = query.Count() == 0 ? null : query.First<User>();
+            if (user == null)
+            {
+                return BadRequest("DEBUG - User not found");
+            }
+            string passwordhash = HashPassword(password);
+            if (passwordhash == user.Pass)
+            {
+                return "Success"; //TODO
+            } else
+            {
+                return BadRequest("DEBUG - Password does not match");
+            }
+
         }
 
         // GET: api/Users
@@ -127,6 +153,10 @@ namespace CritterCrushAPI.Controllers
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.UserID == id);
+        }
+        private bool UserNameExists(string name)
+        {
+            return _context.Users.Any(e => e.UserName == name);
         }
         private bool IsStringEmpty(string value)
         {
