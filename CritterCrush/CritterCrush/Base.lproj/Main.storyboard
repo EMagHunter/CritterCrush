@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
         <!--Signin View Controller-->
         <scene sceneID="GI8-SS-pEf">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="15V-Sl-QUk" customClass="SigninViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signin" modalPresentationStyle="fullScreen" id="15V-Sl-QUk" customClass="SigninViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6yS-xN-fgQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,7 +282,7 @@
         <!--Map-->
         <scene sceneID="a4v-C6-YH9">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="8p7-wK-flg" customClass="MapViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" modalPresentationStyle="fullScreen" id="8p7-wK-flg" customClass="MapViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sq0-kw-pXO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,7 @@
         <!--Add-->
         <scene sceneID="vir-ZB-9BR">
             <objects>
-                <viewController id="y93-wG-v8x" customClass="AddViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add" id="y93-wG-v8x" customClass="AddViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXe-z3-T9T">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -523,7 +523,7 @@
         <!--Profile-->
         <scene sceneID="hZ1-K5-HET">
             <objects>
-                <viewController id="0dM-LC-rrt" customClass="ProfileViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="0dM-LC-rrt" customClass="ProfileViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r9a-w7-AoM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -546,7 +546,7 @@
         <!--Settings-->
         <scene sceneID="8hp-e5-TNM">
             <objects>
-                <viewController title="Settings" id="lQE-U6-hhh" customClass="SettingsViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" title="Settings" id="lQE-U6-hhh" customClass="SettingsViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mIV-3s-4Vt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -562,7 +562,7 @@
         <!--Species-->
         <scene sceneID="xu7-qp-LAV">
             <objects>
-                <viewController id="053-Jm-tuU" customClass="SpeciecsViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="species" id="053-Jm-tuU" customClass="SpeciecsViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aKf-9J-G1s">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -585,7 +585,7 @@
         <!--Species Detail-->
         <scene sceneID="YI5-ms-BSY">
             <objects>
-                <viewController title="Species Detail" id="utV-Cd-eDq" customClass="SpeciesDetailViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="species" title="Species Detail" id="utV-Cd-eDq" customClass="SpeciesDetailViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ogA-Sp-BUj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -619,7 +619,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="TQe-uw-L9L">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="NUe-Cm-v35" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="NUe-Cm-v35" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZGp-G8-Nkf"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4eo-eQ-XZ1">
