@@ -12,3 +12,8 @@ class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     var managedObjectContext: NSManagedObjectContext!
 }
+
+//TO DO:
+//set default location on map
+//40.7128° N, 74.0060° W
+//User defaults = 

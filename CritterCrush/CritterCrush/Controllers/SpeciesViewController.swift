@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  SpeciecsViewController.swift
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 3/5/23.
@@ -7,16 +7,20 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-    //PROGRAM BUTTON TO GO TO SETTINGS
-    
+class SpeciesViewController: UIViewController {
+//we gotta rename this
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    //TableView: icons of our bugs
+    // 2 columns
+    //links to species detail view
+    
+    
+    
     /*
     // MARK: - Navigation
 
@@ -26,5 +30,6 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
