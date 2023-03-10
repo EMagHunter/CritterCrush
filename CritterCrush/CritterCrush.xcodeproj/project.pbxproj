@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
+		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
+		411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -52,6 +54,8 @@
 		1416A7328B3E46B5A03744D8 /* Pods-CritterCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.release.xcconfig"; sourceTree = "<group>"; };
 		270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrush_CritterCrushUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.debug.xcconfig"; sourceTree = "<group>"; };
+		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
+		411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionViewController.swift; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
+				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
+				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
 				F77ADBDC29B5267F00045ABF /* AddViewController.swift */,
 				F700DB3B29AD25AA00E83929 /* MapViewController.swift */,
@@ -454,7 +460,9 @@
 			files = (
 				F77ADBD929B5254100045ABF /* SpeciesViewController.swift in Sources */,
 				F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */,
+				411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */,
 				F77ADBDD29B5267F00045ABF /* AddViewController.swift in Sources */,
+				411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */,
 				419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */,
 				419CC03829BA88CE002A587A /* Species.swift in Sources */,
 				F700DB3C29AD25AA00E83929 /* MapViewController.swift in Sources */,
