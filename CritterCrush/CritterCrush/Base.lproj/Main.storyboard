@@ -527,6 +527,13 @@
                     <view key="view" contentMode="scaleToFill" id="r9a-w7-AoM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTf-CJ-goo">
+                                <rect key="frame" x="273" y="45" width="79" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Setting"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aWE-Br-aIE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -534,7 +541,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VW-ja-MTN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3984" y="532"/>
+            <point key="canvasLocation" x="3983.969465648855" y="531.69014084507046"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="8hp-e5-TNM">
+            <objects>
+                <viewController title="Settings" id="lQE-U6-hhh" customClass="SettingsViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mIV-3s-4Vt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5mV-bH-zW2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="fTA-yV-yWO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRF-Eo-v2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3989" y="1211"/>
         </scene>
         <!--Species-->
         <scene sceneID="xu7-qp-LAV">
@@ -559,10 +582,10 @@
             </objects>
             <point key="canvasLocation" x="2209.9236641221373" y="532.3943661971831"/>
         </scene>
-        <!--Item-->
+        <!--Species Detail-->
         <scene sceneID="YI5-ms-BSY">
             <objects>
-                <viewController id="utV-Cd-eDq" customClass="SpeciesDetailViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Species Detail" id="utV-Cd-eDq" customClass="SpeciesDetailViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ogA-Sp-BUj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -573,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaK-5T-LcU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1465" y="665"/>
+            <point key="canvasLocation" x="1760" y="1241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="taf-EU-ovS">
@@ -610,6 +633,7 @@
                         <segue destination="y93-wG-v8x" kind="relationship" relationship="viewControllers" id="BaH-Lb-haH"/>
                         <segue destination="0dM-LC-rrt" kind="relationship" relationship="viewControllers" id="9VI-a6-iNP"/>
                         <segue destination="utV-Cd-eDq" kind="relationship" relationship="viewControllers" id="YAg-UR-IiL"/>
+                        <segue destination="lQE-U6-hhh" kind="relationship" relationship="viewControllers" id="JaR-fd-w8b"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Pv-z6-q2c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

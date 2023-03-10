@@ -1,15 +1,14 @@
 //
-//  ProfileViewController.swift
+//  SettingsViewController.swift
 //  CritterCrush
 //
-//  Created by Ana Fuentes on 3/5/23.
+//  Created by min joo on 3/9/23.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-    //PROGRAM BUTTON TO GO TO SETTINGS
-    
+class SettingsViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
