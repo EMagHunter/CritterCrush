@@ -7,10 +7,15 @@
 
 import UIKit
 
-class SpeciesTableViewCell: UITableViewCell {
+class SpeciesCell: UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var bugImage: UIImage!
+    @IBOutlet var scienceLabel: UILabel!
+    
+    //@IBOutlet var bugImage: UIImage!
+    //we dont have images yet
+    //but naming convention:
+    //species_icon_{ID}.png
     
     override func awakeFromNib() {
         super.awakeFromNib()
