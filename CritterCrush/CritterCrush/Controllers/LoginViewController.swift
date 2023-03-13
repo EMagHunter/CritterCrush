@@ -20,9 +20,12 @@ class LoginViewController: UIViewController {
         guard let password = PasswordTextField.text else{return}
         
         if (UsernameTextField.text == "" && PasswordTextField.text == ""){
-            ResultLabel.text = "Enter UserName and password"
-        }
-        else{
+            ResultLabel.text = "Please enter username and password"
+        } else if (UsernameTextField.text != "" && PasswordTextField.text == "") {
+            ResultLabel.text = "Please enter password"
+        } else if (UsernameTextField.text == "" && PasswordTextField.text != "") {
+            ResultLabel.text = "Please enter username"
+        } else{
             let url  = "http://69.125.216.66/api/users/login"
             let paremeter = ["username": username, "password": password]
             AF.request(url, method: .get, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
@@ -47,5 +50,4 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

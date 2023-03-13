@@ -21,7 +21,9 @@ class SigninViewController: UIViewController {
         if(UsernameTextField.text == "" || PasswordTextField.text == "" || rePasswordTextField.text == "" || EmailTextField.text == ""){
             ResultLabel.text = "Please Fill all the Information"
         // check if the password and repassword or the same
-        }else{
+        }
+        
+        else{
             let url  = "http://69.125.216.66/api/users/register"
             let paremeter = ["username": UsernameTextField.text!, "password": PasswordTextField.text!, "email": EmailTextField.text!]
             AF.request(url, method: .post, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
