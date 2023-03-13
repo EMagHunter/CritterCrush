@@ -16,7 +16,6 @@ class AddSpeciesViewController: UITableViewController {
     @IBOutlet var speciesNameLabel: UILabel!
     @IBOutlet var speciesDescriptionTextView: UITextView!
     @IBOutlet var addressLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
     var placemark: CLPlacemark?
     var Address = ""
     var speciesName = ""

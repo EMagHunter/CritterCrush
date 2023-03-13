@@ -30,7 +30,6 @@
 		F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77ADBDA29B5264300045ABF /* ProfileViewController.swift */; };
 		F77ADBDD29B5267F00045ABF /* AddressUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */; };
 		F7CAF3C329BE327D00404D96 /* AddSpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */; };
-		F7CAF3C529BE8F7D00404D96 /* species.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAF3C429BE8F7D00404D96 /* species.swift */; };
 		F7CAF3C729BE98A000404D96 /* selectSpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */; };
 		F7E6D96C29A4873400A5CE3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */; };
 		F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */; };
@@ -87,7 +86,6 @@
 		F77ADBDA29B5264300045ABF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUploadViewController.swift; sourceTree = "<group>"; };
 		F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpeciesViewController.swift; sourceTree = "<group>"; };
-		F7CAF3C429BE8F7D00404D96 /* species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = species.swift; sourceTree = "<group>"; };
 		F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectSpeciesViewController.swift; sourceTree = "<group>"; };
 		F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 		F74C524029BA651100AAB7DA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F7CAF3C429BE8F7D00404D96 /* species.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,7 +474,6 @@
 				419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */,
 				419CC03829BA88CE002A587A /* Species.swift in Sources */,
 				F700DB3C29AD25AA00E83929 /* MapViewController.swift in Sources */,
-				F7CAF3C529BE8F7D00404D96 /* species.swift in Sources */,
 				F7E6D96C29A4873400A5CE3E /* LoginViewController.swift in Sources */,
 				F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */,
 				F7CAF3C729BE98A000404D96 /* selectSpeciesViewController.swift in Sources */,
