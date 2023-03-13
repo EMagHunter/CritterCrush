@@ -973,10 +973,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xZv-0W-0wv" kind="relationship" relationship="viewControllers" id="Zjg-AE-V6j"/>
                         <segue destination="8p7-wK-flg" kind="relationship" relationship="viewControllers" id="KOG-B6-bN0"/>
-                        <segue destination="Yl0-rZ-XYu" kind="relationship" relationship="viewControllers" id="9VI-a6-iNP"/>
+                        <segue destination="xZv-0W-0wv" kind="relationship" relationship="viewControllers" id="Zjg-AE-V6j"/>
                         <segue destination="Bme-ki-p7k" kind="relationship" relationship="viewControllers" id="1cI-vP-a5v"/>
+                        <segue destination="Yl0-rZ-XYu" kind="relationship" relationship="viewControllers" id="9VI-a6-iNP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Pv-z6-q2c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1042,7 +1042,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4Uc-as-k48"/>
         <segue reference="mE5-pP-MiW"/>
         <segue reference="V5j-79-0Dm"/>
     </inferredMetricsTieBreakers>
