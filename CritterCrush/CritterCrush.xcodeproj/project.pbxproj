@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
+		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
+		411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
+		41E6AEC929BEDCD7009031EF /* GlobalArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6AEC829BEDCD7009031EF /* GlobalArray.swift */; };
+		41E6AECC29BEED0A009031EF /* SpeciesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6AECA29BEED0A009031EF /* SpeciesCell.swift */; };
+		41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E6AECB29BEED0A009031EF /* SpeciesCell.xib */; };
 		5A0776897B4B5D0E9457A61C /* Pods_CritterCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FF08653469CC622A37B258 /* Pods_CritterCrush.framework */; };
 		DC5A6FA5BC2D8ED3FD3E6697 /* Pods_CritterCrushTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA263DE938F21F2F193B2B02 /* Pods_CritterCrushTests.framework */; };
 		F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700DB3929AD207B00E83929 /* TabBarViewController.swift */; };
@@ -23,10 +28,11 @@
 		F71F8C7529A473A2007B6909 /* CritterCrushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C7429A473A2007B6909 /* CritterCrushTests.swift */; };
 		F71F8C7F29A473A2007B6909 /* CritterCrushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C7E29A473A2007B6909 /* CritterCrushUITests.swift */; };
 		F71F8C8129A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C8029A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift */; };
-		F74C524429BA6C2C00AAB7DA /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C524329BA6C2C00AAB7DA /* userData.swift */; };
 		F77ADBD929B5254100045ABF /* SpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77ADBD829B5254000045ABF /* SpeciesViewController.swift */; };
 		F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77ADBDA29B5264300045ABF /* ProfileViewController.swift */; };
-		F77ADBDD29B5267F00045ABF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77ADBDC29B5267F00045ABF /* AddViewController.swift */; };
+		F77ADBDD29B5267F00045ABF /* AddressUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */; };
+		F7CAF3C329BE327D00404D96 /* AddSpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */; };
+		F7CAF3C729BE98A000404D96 /* selectSpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */; };
 		F7E6D96C29A4873400A5CE3E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */; };
 		F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,9 +58,14 @@
 		1416A7328B3E46B5A03744D8 /* Pods-CritterCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.release.xcconfig"; sourceTree = "<group>"; };
 		270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrush_CritterCrushUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.debug.xcconfig"; sourceTree = "<group>"; };
+		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
+		411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionViewController.swift; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		41E6AEC829BEDCD7009031EF /* GlobalArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalArray.swift; sourceTree = "<group>"; };
+		41E6AECA29BEED0A009031EF /* SpeciesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesCell.swift; sourceTree = "<group>"; };
+		41E6AECB29BEED0A009031EF /* SpeciesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeciesCell.xib; sourceTree = "<group>"; };
 		60AB81438588CF65EBC9CCB4 /* Pods-CritterCrushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrushTests.release.xcconfig"; path = "Target Support Files/Pods-CritterCrushTests/Pods-CritterCrushTests.release.xcconfig"; sourceTree = "<group>"; };
 		6A60D8D9FC4E4A3CEB073605 /* Pods-CritterCrushTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrushTests.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrushTests/Pods-CritterCrushTests.debug.xcconfig"; sourceTree = "<group>"; };
 		801DB90AA8C5B2B8AD563E4A /* Pods-CritterCrush-CritterCrushUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush-CritterCrushUITests.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,10 +86,11 @@
 		F71F8C7A29A473A2007B6909 /* CritterCrushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CritterCrushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71F8C7E29A473A2007B6909 /* CritterCrushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterCrushUITests.swift; sourceTree = "<group>"; };
 		F71F8C8029A473A2007B6909 /* CritterCrushUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CritterCrushUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F74C524329BA6C2C00AAB7DA /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		F77ADBD829B5254000045ABF /* SpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewController.swift; sourceTree = "<group>"; };
 		F77ADBDA29B5264300045ABF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		F77ADBDC29B5267F00045ABF /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUploadViewController.swift; sourceTree = "<group>"; };
+		F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpeciesViewController.swift; sourceTree = "<group>"; };
+		F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectSpeciesViewController.swift; sourceTree = "<group>"; };
 		F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,15 +204,22 @@
 			isa = PBXGroup;
 			children = (
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
+				F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */,
+				F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */,
+				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
+				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
-				F77ADBDC29B5267F00045ABF /* AddViewController.swift */,
+				F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */,
 				F700DB3B29AD25AA00E83929 /* MapViewController.swift */,
 				F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */,
 				F700DB3929AD207B00E83929 /* TabBarViewController.swift */,
 				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
 				F77ADBD829B5254000045ABF /* SpeciesViewController.swift */,
+				41E6AECA29BEED0A009031EF /* SpeciesCell.swift */,
+				41E6AECB29BEED0A009031EF /* SpeciesCell.xib */,
 				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
 				419CC03729BA88CE002A587A /* Species.swift */,
+				41E6AEC829BEDCD7009031EF /* GlobalArray.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,7 +227,6 @@
 		F74C524029BA651100AAB7DA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F74C524329BA6C2C00AAB7DA /* userData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */,
 				F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */,
 				F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */,
 				F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */,
@@ -454,16 +473,21 @@
 			files = (
 				F77ADBD929B5254100045ABF /* SpeciesViewController.swift in Sources */,
 				F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */,
-				F77ADBDD29B5267F00045ABF /* AddViewController.swift in Sources */,
+				41E6AECC29BEED0A009031EF /* SpeciesCell.swift in Sources */,
+				411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */,
+				F77ADBDD29B5267F00045ABF /* AddressUploadViewController.swift in Sources */,
+				F7CAF3C329BE327D00404D96 /* AddSpeciesViewController.swift in Sources */,
+				411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */,
 				419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */,
 				419CC03829BA88CE002A587A /* Species.swift in Sources */,
 				F700DB3C29AD25AA00E83929 /* MapViewController.swift in Sources */,
 				F7E6D96C29A4873400A5CE3E /* LoginViewController.swift in Sources */,
 				F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */,
+				F7CAF3C729BE98A000404D96 /* selectSpeciesViewController.swift in Sources */,
 				F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */,
+				41E6AEC929BEDCD7009031EF /* GlobalArray.swift in Sources */,
 				F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */,
 				419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */,
-				F74C524429BA6C2C00AAB7DA /* userData.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreLocation
-class AddViewController: UIViewController, CLLocationManagerDelegate {
+class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var StreetAddressTextField: UITextField!
     
@@ -30,6 +30,7 @@ class AddViewController: UIViewController, CLLocationManagerDelegate {
     var performingReverseGeocoding = false
     var lastGeocodingError: Error?
     var timer: Timer?
+    var addressAdded = ""
     
     //MARK: -CCLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -164,7 +165,7 @@ class AddViewController: UIViewController, CLLocationManagerDelegate {
               } else if updatingLocation {
                   Message = "Searching..."
               } else {
-                  Message = "Click"
+                  Message = ""
               }
               messageLabel.text = Message
               }
@@ -176,9 +177,9 @@ class AddViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation  = true
-            // checks location for 55 sec if it does work then timeout
+            // checks location for 50 sec if it does work then timeout
             timer = Timer.scheduledTimer(
-                timeInterval: 55,
+                timeInterval: 50,
                 target: self,
                 selector: #selector(timeOut),
                 userInfo: nil,
@@ -221,28 +222,43 @@ class AddViewController: UIViewController, CLLocationManagerDelegate {
         //fancy name for house number
         if let tmp = placemark.subThoroughfare{
             streetAddress += tmp + " "
+            addressAdded += tmp + " "
             
         }
         //street name
         if let temp = placemark.thoroughfare{
             streetAddress += temp
+            addressAdded += temp + " "
         }
         //4
         StreetAddressTextField.text = streetAddress
         
         if let temp = placemark.locality{
             cityTextField.text = temp
+            addressAdded += temp + " "
         }
         if let temp = placemark.administrativeArea {
             stateTextField.text = temp
+            addressAdded += temp + " "
           }
           if let temp = placemark.postalCode {
               zipcodeTextField.text = temp
+              addressAdded += temp + " "
           }
+    }
+    @IBAction func cancel() {
+        navigationController?.popViewController(animated: true)
+    }
+    @IBAction func submit() {
+        navigationController?.popViewController(animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let placemark = placemark {
+            addressConversion(from: placemark)
+            
+        }
         updateLabels()
 
         // Do any additional setup after loading the view.
