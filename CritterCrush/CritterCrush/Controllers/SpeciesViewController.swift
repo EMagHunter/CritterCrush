@@ -65,6 +65,7 @@ class SpeciesViewController: UIViewController, UITableViewDelegate, UITableViewD
             let bugIndex = tableView.indexPathForSelectedRow?.row
         {
             destination.titleStringViaSegue = speciesList[bugIndex].name
+            destination.bugID = speciesList[bugIndex].id
         }
     }
 
