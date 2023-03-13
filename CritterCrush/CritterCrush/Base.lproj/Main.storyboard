@@ -198,7 +198,7 @@
                                     <action selector="SignupButton:" destination="15V-Sl-QUk" eventType="touchUpInside" id="uCk-ps-Yg1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwL-nw-jiv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwL-nw-jiv">
                                 <rect key="frame" x="59" y="143" width="275" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1059,7 +1059,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mE5-pP-MiW"/>
+        <segue reference="nuZ-8l-G5N"/>
         <segue reference="V5j-79-0Dm"/>
     </inferredMetricsTieBreakers>
     <resources>
