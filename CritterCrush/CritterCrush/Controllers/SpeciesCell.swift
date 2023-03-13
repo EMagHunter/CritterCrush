@@ -15,7 +15,7 @@ class SpeciesCell: UITableViewCell {
     //@IBOutlet var bugImage: UIImage!
     //we dont have images yet
     //but naming convention:
-    //species_icon_{ID}.png
+    //icon_species{ID}.png
     
     override func awakeFromNib() {
         super.awakeFromNib()
