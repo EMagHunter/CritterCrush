@@ -28,10 +28,15 @@ class LoginViewController: UIViewController {
         } else{
             let url  = "http://69.125.216.66/api/users/login"
             let paremeter = ["username": username, "password": password]
-            AF.request(url, method: .get, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
+            AF.request(url, method: .get, parameters: paremeter, encoding: URLEncoding.queryString).response{ response in
                 debugPrint(response)
+                // if response is success (200) then perform segue
+                if (response.response?.statusCode == 200) {
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                } else {
+                    self.ResultLabel.text = "Incorrect username or password"
+                }
             }
-            self.performSegue(withIdentifier: "loginSegue", sender: self)
         }
     }
     override func viewDidLoad() {
