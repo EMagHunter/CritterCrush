@@ -45,7 +45,8 @@ namespace CritterCrushAPI.Controllers
             newuser.Email = email;
             _context.Users.Add(newuser);
             await _context.SaveChangesAsync();
-            return "Success";
+            string token = await GetOrIssueAuthToken(newuser.UserID);
+            return token; //TODO
         }
 
         [HttpGet("login")]
@@ -56,6 +57,7 @@ namespace CritterCrushAPI.Controllers
             }
             IQueryable<User> query = (from u in _context.Users where u.UserName == username select u);
             User user = query.Count() == 0 ? null : query.First<User>();
+
             if (user == null)
             {
                 return BadRequest("DEBUG - User not found");
@@ -63,7 +65,8 @@ namespace CritterCrushAPI.Controllers
             string passwordhash = HashPassword(password);
             if (passwordhash == user.Pass)
             {
-                return "Success"; //TODO
+                string token = await GetOrIssueAuthToken(user.UserID);
+                return token; //TODO
             } else
             {
                 return BadRequest("DEBUG - Password does not match");
@@ -150,6 +153,47 @@ namespace CritterCrushAPI.Controllers
             return NoContent();
         }
 
+        private async Task<string> GetOrIssueAuthToken(int UserID)
+        {
+            AuthToken t = GetTokenForUser(UserID);
+            if (t == null)
+            {
+                return await IssueAuthToken(UserID);
+            }
+            else
+            {
+                return t.Token;
+            }
+        }
+        private async Task<string> IssueAuthToken(int UserID)
+        {
+            AuthToken newtoken = new AuthToken();
+            newtoken.UserID = UserID;
+            newtoken.IssuedOn = DateTime.UtcNow;
+            newtoken.Token = GenerateRandomToken();
+            newtoken.IsValid = true;
+
+            _context.AuthTokens.Add(newtoken);
+            await _context.SaveChangesAsync();
+            return newtoken.Token;
+        }
+        private string GenerateRandomToken()
+        {
+            var random = new Random();
+            string t = "";
+            for (int i = 0; i < 256; i++)
+            {
+                t = t + (char)((random.Next(0, 2)*32) + random.Next(65, 91));
+            }
+            if (TokenInUse(t))
+            {
+                return GenerateRandomToken();
+            } else
+            {
+                return t;
+            }
+        }
+
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.UserID == id);
@@ -157,6 +201,16 @@ namespace CritterCrushAPI.Controllers
         private bool UserNameExists(string name)
         {
             return _context.Users.Any(e => e.UserName == name);
+        }
+        private bool TokenInUse(string token)
+        {
+            return _context.AuthTokens.Any(e => e.Token == token);
+        }
+        private AuthToken GetTokenForUser(int UserID)
+        {
+            IQueryable<AuthToken> query = (from t in _context.AuthTokens where t.UserID == UserID select t);
+            AuthToken token = query.Count() == 0 ? null : query.First<AuthToken>();
+            return token;
         }
         private bool IsStringEmpty(string value)
         {
