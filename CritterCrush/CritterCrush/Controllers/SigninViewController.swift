@@ -26,9 +26,9 @@ class SigninViewController: UIViewController {
         } else{
             let url  = "http://69.125.216.66/api/users/register"
             let paremeter = ["username": UsernameTextField.text!, "password": PasswordTextField.text!, "email": EmailTextField.text!]
-            AF.request(url, method: .post, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
-                debugPrint(response)
-            }
+//            AF.request(url, method: .post, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
+//                debugPrint(response)
+//            }
             // need to only go into this segue when the post request is sucessful
             self.performSegue(withIdentifier: "signupSegue", sender: self)
           
