@@ -3,7 +3,7 @@
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Wireframes](#Wireframes)
-3. [API Reference](#APIReference)
+3. [API Reference](#API_Reference)
 
 ## Overview
 ### Description
