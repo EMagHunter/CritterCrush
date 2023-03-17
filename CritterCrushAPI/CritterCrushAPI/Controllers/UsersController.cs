@@ -34,10 +34,12 @@ namespace CritterCrushAPI.Controllers
         // POST: api/users/register
         // username, email, password
         [HttpPost("register")]
-        public async Task<ActionResult<string>> RegisterUser(string username, string password, string email)
+        public async Task<ActionResult<Response>> RegisterUser(string username, string password, string email)
         {
             if (IsStringEmpty(username) || IsStringEmpty(password) || IsStringEmpty(email)) 
-                return BadRequest("Fields cannot be empty");
+                return BadRequest(new ResponseError(400, "All fields are required"));
+            if (GetUserByName(username) != null)
+                return BadRequest(new ResponseError(400, "Username already in use"));
             string passwordhash = HashPassword(password);
             User newuser = new User();
             newuser.UserName = username;
@@ -46,111 +48,31 @@ namespace CritterCrushAPI.Controllers
             _context.Users.Add(newuser);
             await _context.SaveChangesAsync();
             string token = await GetOrIssueAuthToken(newuser.UserID);
-            return token; //TODO
+            return new ResponseData<string>(token);
         }
 
         [HttpGet("login")]
-        public async Task<ActionResult<string>> TryLogin(string username, string password)
+        public async Task<ActionResult<Response>> TryLogin(string username, string password)
         {
             if (IsStringEmpty(username) || IsStringEmpty(password)) {
-                return BadRequest("Fields cannot be empty");
+                return BadRequest(new ResponseError(400, "All fields are required"));
             }
-            IQueryable<User> query = (from u in _context.Users where u.UserName == username select u);
-            User user = query.Count() == 0 ? null : query.First<User>();
+
+            User user = GetUserByName(username);
 
             if (user == null)
             {
-                return BadRequest("DEBUG - User not found");
+                return BadRequest(new ResponseError(400, "User and password do not match"));
             }
             string passwordhash = HashPassword(password);
             if (passwordhash == user.Pass)
             {
                 string token = await GetOrIssueAuthToken(user.UserID);
-                return token; //TODO
+                return new ResponseData<string>(token);
             } else
             {
-                return BadRequest("DEBUG - Password does not match");
+                return BadRequest(new ResponseError(400, "User and password do not match"));
             }
-
-        }
-
-        // GET: api/Users
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-        {
-            return await _context.Users.ToListAsync();
-        }
-
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
-        {
-            var user = await _context.Users.FindAsync(id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return user;
-        }
-
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
-        {
-            if (id != user.UserID)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
-        {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUser", new { id = user.UserID }, user);
-        }
-
-        // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
-        {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
         }
 
         private async Task<string> GetOrIssueAuthToken(int UserID)
@@ -211,6 +133,12 @@ namespace CritterCrushAPI.Controllers
             IQueryable<AuthToken> query = (from t in _context.AuthTokens where t.UserID == UserID select t);
             AuthToken token = query.Count() == 0 ? null : query.First<AuthToken>();
             return token;
+        }
+        private User GetUserByName(string username)
+        {
+            IQueryable<User> query = (from u in _context.Users where u.UserName == username select u);
+            User user = query.Count() == 0 ? null : query.First<User>();
+            return user;
         }
         private bool IsStringEmpty(string value)
         {

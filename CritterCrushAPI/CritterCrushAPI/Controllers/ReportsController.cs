@@ -22,9 +22,9 @@ namespace CritterCrushAPI.Controllers
 
         // GET: api/Reports
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Report>>> GetReports()
+        public async Task<ActionResult<Response>> GetReports()
         {
-            return await _context.Reports.ToListAsync();
+            return new ResponseData<List<Report>>(await _context.Reports.ToListAsync());
         }
 
         // GET: api/Reports/5
