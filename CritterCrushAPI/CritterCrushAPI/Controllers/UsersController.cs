@@ -11,6 +11,7 @@ using System.Text;
 using System.Xml.Linq;
 using System.Numerics;
 using Microsoft.AspNetCore.Identity;
+using MessagePack;
 
 namespace CritterCrushAPI.Controllers
 {
@@ -75,6 +76,30 @@ namespace CritterCrushAPI.Controllers
             }
         }
 
+        [HttpGet("verifylogin")]
+        public ActionResult<Response> VerifyToken(string username)
+        {
+            var h = Request.Headers;
+            if (!h.ContainsKey("Authorization"))
+            {
+                return new ResponseError(400, "Authorization header is required");
+            }
+            string token = h.Authorization.ToString();
+            if (IsStringEmpty(username) || IsStringEmpty(token)) {
+                return new ResponseError(400, "All fields are required");
+            }
+            User u = GetUserByName(username);
+            if (u == null) {
+                return new ResponseError(400, "User not found");
+            }
+            AuthToken t = GetTokenForUser(u.UserID);
+            if (t == null)
+            {
+                return new ResponseError(400, "User has no auth token");
+            }
+            return new ResponseData<bool>(VerifyTokenForUser(u.UserID, token));
+        }
+
         private async Task<string> GetOrIssueAuthToken(int UserID)
         {
             AuthToken t = GetTokenForUser(UserID);
@@ -133,6 +158,15 @@ namespace CritterCrushAPI.Controllers
             IQueryable<AuthToken> query = (from t in _context.AuthTokens where t.UserID == UserID select t);
             AuthToken token = query.Count() == 0 ? null : query.First<AuthToken>();
             return token;
+        }
+        private bool VerifyTokenForUser(int UserID, string token)
+        {
+            AuthToken t = GetTokenForUser(UserID);
+            if (t == null)
+            {
+                return false;
+            }
+            return t.Token == token;
         }
         private User GetUserByName(string username)
         {
