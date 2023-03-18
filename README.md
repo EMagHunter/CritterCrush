@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Wireframes](#Wireframes)
+3. [API Reference](#API_Reference)
 
 ## Overview
 ### Description
@@ -13,3 +14,11 @@ Develop an iOS app for users to take pictures of invasive species of insects in 
 
 ### Prototype
 <img src="http://g.recordit.co/O2gJGXhWig.gif" width="300" height="600">
+
+## API Reference
+|        API        |    Description   | Request Parameters | Response Body |
+| ----------------- | ---------------- | ----------------- | ------------- |
+| GET /api/reports      | Returns list of reports | None | List of Report objects |
+| GET /api/users/login | Recieve auth token for user from username and password | Username, Password | Auth token |
+| POST /api/users/register | Register new user into database | Username, Password, Email | Auth token |
+| GET /api/users/verifylogin | Verify auth token | Username | Boolean (true if token is valid) |

@@ -11,6 +11,7 @@ using System.Text;
 using System.Xml.Linq;
 using System.Numerics;
 using Microsoft.AspNetCore.Identity;
+using MessagePack;
 
 namespace CritterCrushAPI.Controllers
 {
@@ -34,10 +35,12 @@ namespace CritterCrushAPI.Controllers
         // POST: api/users/register
         // username, email, password
         [HttpPost("register")]
-        public async Task<ActionResult<string>> RegisterUser(string username, string password, string email)
+        public async Task<ActionResult<Response>> RegisterUser(string username, string password, string email)
         {
             if (IsStringEmpty(username) || IsStringEmpty(password) || IsStringEmpty(email)) 
-                return BadRequest("Fields cannot be empty");
+                return BadRequest(new ResponseError(400, "All fields are required"));
+            if (GetUserByName(username) != null)
+                return BadRequest(new ResponseError(400, "Username already in use"));
             string passwordhash = HashPassword(password);
             User newuser = new User();
             newuser.UserName = username;
@@ -45,109 +48,97 @@ namespace CritterCrushAPI.Controllers
             newuser.Email = email;
             _context.Users.Add(newuser);
             await _context.SaveChangesAsync();
-            return "Success";
+            string token = await GetOrIssueAuthToken(newuser.UserID);
+            return new ResponseData<string>(token);
         }
 
         [HttpGet("login")]
-        public async Task<ActionResult<string>> TryLogin(string username, string password)
+        public async Task<ActionResult<Response>> TryLogin(string username, string password)
         {
             if (IsStringEmpty(username) || IsStringEmpty(password)) {
-                return BadRequest("Fields cannot be empty");
+                return BadRequest(new ResponseError(400, "All fields are required"));
             }
-            IQueryable<User> query = (from u in _context.Users where u.UserName == username select u);
-            User user = query.Count() == 0 ? null : query.First<User>();
+
+            User user = GetUserByName(username);
+
             if (user == null)
             {
-                return BadRequest("DEBUG - User not found");
+                return BadRequest(new ResponseError(400, "User and password do not match"));
             }
             string passwordhash = HashPassword(password);
             if (passwordhash == user.Pass)
             {
-                return "Success"; //TODO
+                string token = await GetOrIssueAuthToken(user.UserID);
+                return new ResponseData<string>(token);
             } else
             {
-                return BadRequest("DEBUG - Password does not match");
+                return BadRequest(new ResponseError(400, "User and password do not match"));
             }
-
         }
 
-        // GET: api/Users
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        [HttpGet("verifylogin")]
+        public ActionResult<Response> VerifyToken(string username)
         {
-            return await _context.Users.ToListAsync();
+            var h = Request.Headers;
+            if (!h.ContainsKey("Authorization"))
+            {
+                return new ResponseError(400, "Authorization header is required");
+            }
+            string token = h.Authorization.ToString();
+            if (IsStringEmpty(username) || IsStringEmpty(token)) {
+                return new ResponseError(400, "All fields are required");
+            }
+            User u = GetUserByName(username);
+            if (u == null) {
+                return new ResponseError(400, "User not found");
+            }
+            AuthToken t = GetTokenForUser(u.UserID);
+            if (t == null)
+            {
+                return new ResponseError(400, "User has no auth token");
+            }
+            return new ResponseData<bool>(VerifyTokenForUser(u.UserID, token));
         }
 
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        private async Task<string> GetOrIssueAuthToken(int UserID)
         {
-            var user = await _context.Users.FindAsync(id);
-
-            if (user == null)
+            AuthToken t = GetTokenForUser(UserID);
+            if (t == null)
             {
-                return NotFound();
+                return await IssueAuthToken(UserID);
             }
-
-            return user;
+            else
+            {
+                return t.Token;
+            }
         }
-
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        private async Task<string> IssueAuthToken(int UserID)
         {
-            if (id != user.UserID)
-            {
-                return BadRequest();
-            }
+            AuthToken newtoken = new AuthToken();
+            newtoken.UserID = UserID;
+            newtoken.IssuedOn = DateTime.UtcNow;
+            newtoken.Token = GenerateRandomToken();
+            newtoken.IsValid = true;
 
-            _context.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
-        {
-            _context.Users.Add(user);
+            _context.AuthTokens.Add(newtoken);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUser", new { id = user.UserID }, user);
+            return newtoken.Token;
         }
-
-        // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        private string GenerateRandomToken()
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var random = new Random();
+            string t = "";
+            for (int i = 0; i < 256; i++)
             {
-                return NotFound();
+                t = t + (char)((random.Next(0, 2)*32) + random.Next(65, 91));
             }
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            if (TokenInUse(t))
+            {
+                return GenerateRandomToken();
+            } else
+            {
+                return t;
+            }
         }
 
         private bool UserExists(int id)
@@ -157,6 +148,31 @@ namespace CritterCrushAPI.Controllers
         private bool UserNameExists(string name)
         {
             return _context.Users.Any(e => e.UserName == name);
+        }
+        private bool TokenInUse(string token)
+        {
+            return _context.AuthTokens.Any(e => e.Token == token);
+        }
+        private AuthToken GetTokenForUser(int UserID)
+        {
+            IQueryable<AuthToken> query = (from t in _context.AuthTokens where t.UserID == UserID select t);
+            AuthToken token = query.Count() == 0 ? null : query.First<AuthToken>();
+            return token;
+        }
+        private bool VerifyTokenForUser(int UserID, string token)
+        {
+            AuthToken t = GetTokenForUser(UserID);
+            if (t == null)
+            {
+                return false;
+            }
+            return t.Token == token;
+        }
+        private User GetUserByName(string username)
+        {
+            IQueryable<User> query = (from u in _context.Users where u.UserName == username select u);
+            User user = query.Count() == 0 ? null : query.First<User>();
+            return user;
         }
         private bool IsStringEmpty(string value)
         {
