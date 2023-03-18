@@ -28,10 +28,14 @@ class SigninViewController: UIViewController {
             let paremeter = ["username": UsernameTextField.text!, "password": PasswordTextField.text!, "email": EmailTextField.text!]
             AF.request(url, method: .post, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
                 debugPrint(response)
+                
+                // check if user exists in database
+                if (response.response?.statusCode == 200) {
+                    self.performSegue(withIdentifier: "signupSegue", sender: self)
+                } else {
+                    self.ResultLabel.text = "A user already exists"
+                }
             }
-            // need to only go into this segue when the post request is sucessful
-            self.performSegue(withIdentifier: "signupSegue", sender: self)
-          
         }
     }
     override func viewDidLoad() {
