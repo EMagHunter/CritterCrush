@@ -846,6 +846,17 @@
                     <view key="view" contentMode="scaleToFill" id="mIV-3s-4Vt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-xt-mPX">
+                                <rect key="frame" x="183" y="151" width="75" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="UgO-Os-lpz" kind="show" id="fCJ-QX-RKp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5mV-bH-zW2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -854,7 +865,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRF-Eo-v2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4903" y="1459"/>
+            <point key="canvasLocation" x="4901.5267175572517" y="1458.4507042253522"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="laP-GX-98Z">
+            <objects>
+                <viewController id="UgO-Os-lpz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wtg-tv-0Fb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oaf-lo-xb0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0AQ-K4-HoU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HcY-V5-rA9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5619" y="1468"/>
         </scene>
         <!--Species Detail-->
         <scene sceneID="YI5-ms-BSY">
