@@ -11,6 +11,7 @@ class SpeciesCell: UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var scienceLabel: UILabel!
+    @IBOutlet var iconImage: UIImageView!
     
     //@IBOutlet var bugImage: UIImage!
     //we dont have images yet
