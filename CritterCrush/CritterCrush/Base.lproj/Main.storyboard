@@ -809,15 +809,15 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Gfh-s6-lOL">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReportCell" id="Gfh-s6-lOL">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M0w-OB-CaM">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M0w-OB-CaM" customClass="ReportCell" customModule="CritterCrush" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <segue destination="UwK-gy-WKF" kind="show" id="S2R-XS-7TP"/>
+                                            <segue destination="UwK-gy-WKF" kind="show" identifier="showSingleReport" id="S2R-XS-7TP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -834,6 +834,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Submission" id="3cL-xl-fAg"/>
+                    <connections>
+                        <outlet property="speciesName" destination="zDg-HD-et0" id="vfQ-rE-URk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43J-a6-Wz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
