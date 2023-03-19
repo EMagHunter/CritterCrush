@@ -7,8 +7,9 @@
 
 import UIKit
 
-class DetailSubmissionViewController: UIViewController {
+class DetailSubmissionViewController: UIViewController{
     
+    //UICollectionViewDelegate, UICollectionViewDataSource
     @IBOutlet var speciesName: UILabel!
     
     var titleStringViaSegue: String!
@@ -21,7 +22,16 @@ class DetailSubmissionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    //MARK:
+    /*
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }*/
+    
     /*
     // MARK: - Navigation
 

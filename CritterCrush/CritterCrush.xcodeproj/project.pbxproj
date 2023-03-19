@@ -11,6 +11,8 @@
 		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
 		411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */; };
 		4157DF8D29C6D5930066ECBA /* qns_test_lanternfly.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */; };
+		4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF8E29C6D8F60066ECBA /* ReportCell.swift */; };
+		4157DF9129C6D8F60066ECBA /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8F29C6D8F60066ECBA /* ReportCell.xib */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -61,6 +63,8 @@
 		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
 		411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionViewController.swift; sourceTree = "<group>"; };
 		4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qns_test_lanternfly.csv; sourceTree = "<group>"; };
+		4157DF8E29C6D8F60066ECBA /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
+		4157DF8F29C6D8F60066ECBA /* ReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCell.xib; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
 				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
+				4157DF8E29C6D8F60066ECBA /* ReportCell.swift */,
+				4157DF8F29C6D8F60066ECBA /* ReportCell.xib */,
 				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
 				41E6AECA29BEED0A009031EF /* SpeciesCell.swift */,
 				41E6AECB29BEED0A009031EF /* SpeciesCell.xib */,
@@ -341,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */,
+				4157DF9129C6D8F60066ECBA /* ReportCell.xib in Resources */,
 				4157DF8D29C6D5930066ECBA /* qns_test_lanternfly.csv in Resources */,
 				F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */,
 				F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */,
@@ -489,6 +496,7 @@
 				F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */,
 				419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
+				4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
