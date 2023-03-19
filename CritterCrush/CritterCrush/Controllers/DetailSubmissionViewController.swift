@@ -9,12 +9,15 @@ import UIKit
 
 class DetailSubmissionViewController: UIViewController {
     
+    @IBOutlet var speciesName: UILabel!
+    
     var titleStringViaSegue: String!
     var bugID: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.speciesName.text = self.titleStringViaSegue
+        
         // Do any additional setup after loading the view.
     }
     
