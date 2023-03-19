@@ -1,0 +1,26 @@
+LocationLon,LocationLat,SpeciesName,NumberSpecimens,ReportID,UserID,SpeciesID,VerifyTrueCount,VerifyFalseCount,ReportDate,Image
+-73.8359042,40.7075444,Spotted Lanternfly,1,1,99999,1,0,0,2023-03-15 04:16:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241037789/medium.jpg
+-73.818105,40.736635,Spotted Lanternfly,1,2,99999,1,0,0,2023-03-14 02:14:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241045120/medium.jpeg
+-73.9593146,40.7439884,Spotted Lanternfly,1,3,99999,1,0,0,2023-03-13 02:16:00,https://static.inaturalist.org/photos/241063825/medium.jpg
+-73.9095352,40.7795765,Spotted Lanternfly,1,4,99999,1,0,0,2023-03-12 02:40:00,https://static.inaturalist.org/photos/241063856/medium.jpg
+-73.9568811,40.747951,Spotted Lanternfly,1,5,99999,1,0,0,2023-03-16 02:21:00,https://static.inaturalist.org/photos/241063894/medium.jpg
+-73.8658724,40.7670653,Spotted Lanternfly,1,6,99999,1,0,0,2023-03-15 00:42:00,https://static.inaturalist.org/photos/241063922/medium.jpg
+-73.934969,40.5443079,Spotted Lanternfly,1,7,99999,1,0,0,2023-03-14 03:07:00,https://static.inaturalist.org/photos/241064220/medium.jpg
+-73.9560167,40.7483778,Spotted Lanternfly,1,8,99999,1,0,0,2023-03-13 00:34:00,https://static.inaturalist.org/photos/241064328/medium.jpg
+-73.955021,40.7476492,Spotted Lanternfly,1,9,99999,1,0,0,2023-03-12 02:56:00,https://static.inaturalist.org/photos/241064655/medium.jpg
+-73.9579539,40.7438026,Spotted Lanternfly,1,10,99999,1,0,0,2023-03-16 02:28:00,https://static.inaturalist.org/photos/241064750/medium.jpg
+-73.959396,40.7435804,Spotted Lanternfly,1,11,99999,1,0,0,2023-03-15 03:32:00,https://static.inaturalist.org/photos/241064967/medium.jpg
+-73.9605229,40.7385308,Spotted Lanternfly,1,12,99999,1,0,0,2023-03-14 03:00:00,https://static.inaturalist.org/photos/241065065/medium.jpg
+-73.9553087,40.747927,Spotted Lanternfly,1,13,99999,1,0,0,2023-03-13 00:21:00,https://static.inaturalist.org/photos/241065165/medium.jpg
+-73.9552212,40.7479147,Spotted Lanternfly,1,14,99999,1,0,0,2023-03-12 04:04:00,https://static.inaturalist.org/photos/241065237/medium.jpg
+-73.9585018,40.7437493,Spotted Lanternfly,1,15,99999,1,0,0,2023-03-16 03:34:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241071017/medium.jpg
+-73.9550502,40.7477,Spotted Lanternfly,1,16,99999,1,0,0,2023-03-15 03:47:00,https://static.inaturalist.org/photos/241072649/medium.jpg
+-73.9596261,40.7432257,Spotted Lanternfly,1,17,99999,1,0,0,2023-03-14 03:28:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241075288/medium.jpg
+-73.9558306,40.7481812,Spotted Lanternfly,1,18,99999,1,0,0,2023-03-13 02:15:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241075341/medium.jpg
+-73.9562098,40.7484469,Spotted Lanternfly,1,19,99999,1,0,0,2023-03-12 04:10:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241075363/medium.jpg
+-73.955667,40.7481138,Spotted Lanternfly,1,20,99999,1,0,0,2023-03-16 00:49:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241081192/medium.jpg
+-73.9564259,40.747758,Spotted Lanternfly,1,21,99999,1,0,0,2023-03-15 04:05:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241086685/medium.jpeg
+-73.9564417,40.7477594,Spotted Lanternfly,1,22,99999,1,0,0,2023-03-14 02:33:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241083145/medium.jpg
+-73.9568637,40.746151,Spotted Lanternfly,1,23,99999,1,0,0,2023-03-13 05:44:00,https://static.inaturalist.org/photos/241087879/medium.jpeg
+-73.9550246,40.7476174,Spotted Lanternfly,1,24,99999,1,0,0,2023-03-12 03:02:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241090169/medium.jpeg
+-73.9589712,40.7437368,Spotted Lanternfly,1,25,99999,1,0,0,2023-03-16 03:24:00,https://inaturalist-open-data.s3.amazonaws.com/photos/241093285/medium.jpg
