@@ -33,3 +33,5 @@ let SLF = Species(name: "Spotted Lanternfly", science: "Lycorma delicatula", id:
 let ALB = Species(name: "Asian Longhorned Beetle", science: "Anoplophora glabripennis", id: 2)
 let EAB = Species(name: "Emerald Ash Borer", science:"Agrilus planipennis", id: 3)
 let SPM = Species(name: "Spongy Moth", science:"Lymantria dispar", id: 4)
+
+let speciesList = [SLF,ALB,EAB,SPM]
