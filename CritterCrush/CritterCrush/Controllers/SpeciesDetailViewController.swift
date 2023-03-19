@@ -28,6 +28,8 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
     
     var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     
+    //API
+    var apiURL:URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,11 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(images.count), height: scrollView.frame.size.height)
         scrollView.delegate = self
+        //SCROLL
+        
+        apiURL = wikiMedia()
+        apiCall(url:apiURL!)
+        
     }
     
     //Image scrolling
@@ -64,8 +71,78 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         }
     
     //detail information
-    //do API calls
+    //MARK: do API calls
+    func wikiMedia() -> URL {
+        var bugName = ""
+        
+        if let i = speciesList.firstIndex(where: { $0.id == bugID }) {
+            bugName = speciesList[i].name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
+        }
+        
+        let urlSearch = String("https://en.wikipedia.org/w/api.php?action=query&exlimit=1&explaintext=1&exsentences=3&formatversion=2&prop=extracts&titles=\(bugName)&format=json")
+        
+       let wikiURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts%7Cpageimages&titles=\(bugName)&formatversion=2&exsentences=3&exlimit=1&explaintext=1&piprop=thumbnail%7Cname&pithumbsize=300"
+        
+        let url = URL(string: wikiURL)
+        return (url)!
+    } //get wiki URL
     
+    func apiCall(url: URL) {
+        //session
+        let session = URLSession.shared
+        //
+        let dataTask = session.dataTask(with: url) {data, response, error in
+            if let error = error {
+                print("FAIL! \(error.localizedDescription)")
+            }
+            else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Data retrieved: \(data!)")
+                let jsonString = String(data: data!, encoding: .utf8)
+                //test.json = "\(jsonString)"
+                print(jsonString)
+                var resultText = jsonString
+                do {
+                   let decoder = JSONDecoder()
+                   decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    
+                   let result = try decoder.decode(WikiImage.self, from: data!)
+                    
+                    //let imgLink = URL(string:imgURLString)
+                    
+                    //print(result.query.pages?[0].extract!)
+                    resultText = (result.query.pages?[0].extract!) ?? ""
+                    
+                    
+                    //var apiResult:APIResults = result.items!
+                   // print("\(apiResult)")
+                } catch {
+                  print(error)
+                }
+                
+               // print("THIS SHOULD BE UPDATED \(test.json)")
+                DispatchQueue.main.async {
+                    self.bugDescribe.text =  "(From Wikipedia.org)  \(resultText)"
+                    //var wikiIMG = imgLink
+                    //self.wikiImage.image
+                }
+                
+            }
+            else {
+                print("nice!\(response!)")
+            }
+        }
+        dataTask.resume()
+    }
+    
+    func apiDisplay(searchResult:WikiImage)-> String {
+        
+        var text = ""
+        
+        text = (searchResult.query.pages?[0].extract)!
+        
+        return text
+    }
+
     /*
     // MARK: - Navigation
 

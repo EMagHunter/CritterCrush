@@ -13,6 +13,7 @@
 		4157DF8D29C6D5930066ECBA /* qns_test_lanternfly.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */; };
 		4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF8E29C6D8F60066ECBA /* ReportCell.swift */; };
 		4157DF9129C6D8F60066ECBA /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8F29C6D8F60066ECBA /* ReportCell.xib */; };
+		4157DF9329C6DFE20066ECBA /* WikiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9229C6DFE20066ECBA /* WikiImage.swift */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -65,6 +66,7 @@
 		4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qns_test_lanternfly.csv; sourceTree = "<group>"; };
 		4157DF8E29C6D8F60066ECBA /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		4157DF8F29C6D8F60066ECBA /* ReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCell.xib; sourceTree = "<group>"; };
+		4157DF9229C6DFE20066ECBA /* WikiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiImage.swift; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
 				F77ADBD829B5254000045ABF /* SpeciesViewController.swift */,
 				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
+				4157DF9229C6DFE20066ECBA /* WikiImage.swift */,
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
 				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
 				4157DF8E29C6D8F60066ECBA /* ReportCell.swift */,
@@ -495,6 +498,7 @@
 				F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */,
 				F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */,
 				419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */,
+				4157DF9329C6DFE20066ECBA /* WikiImage.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
 				4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */,
 			);

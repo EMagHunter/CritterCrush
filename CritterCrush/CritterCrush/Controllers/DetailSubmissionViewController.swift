@@ -12,6 +12,8 @@ class DetailSubmissionViewController: UIViewController{
     //UICollectionViewDelegate, UICollectionViewDataSource
     @IBOutlet var speciesName: UILabel!
     
+    @IBOutlet var scienceName: UILabel!
+
     var titleStringViaSegue: String!
     var bugID: Int!
     
@@ -20,6 +22,13 @@ class DetailSubmissionViewController: UIViewController{
         self.speciesName.text = self.titleStringViaSegue
         
         // Do any additional setup after loading the view.
+        
+        self.speciesName.text = self.titleStringViaSegue
+
+        if let i = speciesList.firstIndex(where: { $0.id == bugID }) {
+            self.scienceName.text = speciesList[i].science
+        }
+
     }
     
     //MARK:
