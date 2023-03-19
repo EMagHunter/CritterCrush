@@ -14,7 +14,7 @@ class SpeciesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //let speciesList = listSpecies
     
-    let speciesList:Array<Species> = [SLF,ALB,EAB,SPM]
+    //let speciesList:Array<Species> = [SLF,ALB,EAB,SPM]
     
     override func viewDidLoad() {
         super.viewDidLoad()

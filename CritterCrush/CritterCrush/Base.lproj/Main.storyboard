@@ -733,7 +733,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="w79-Ns-Qei">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpeciesCell" rowHeight="100" id="w79-Ns-Qei">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w79-Ns-Qei" id="lZn-c1-PQ2">
@@ -754,7 +754,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zgM-AU-ALk" kind="show" id="w8w-6J-tc5"/>
+                                            <segue destination="zgM-AU-ALk" kind="show" identifier="showDetailSubmission" id="w8w-6J-tc5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -772,12 +772,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="aLC-Ca-lUE"/>
+                    <connections>
+                        <outlet property="tableView" destination="fra-sz-020" id="daS-3c-ckd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VW-ja-MTN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3959.5419847328244" y="1458.4507042253522"/>
         </scene>
-        <!--Detail Submission-->
+        <!--Submissions-->
         <scene sceneID="fiN-zc-lIh">
             <objects>
                 <viewController storyboardIdentifier="detailsubmission" id="zgM-AU-ALk" customClass="DetailSubmissionViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
@@ -813,15 +816,36 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYr-Zf-rFd">
+                                <rect key="frame" x="222" y="163" width="61" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Science Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPs-NO-awi">
+                                <rect key="frame" x="222" y="202" width="118" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qx3-gk-5iY">
+                                <rect key="frame" x="222" y="240" width="118" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lcm-U6-Vtf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail Submission" id="3cL-xl-fAg"/>
+                    <navigationItem key="navigationItem" title="Submissions" id="3cL-xl-fAg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43J-a6-Wz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4097" y="2380"/>
+            <point key="canvasLocation" x="4096.9465648854957" y="2379.5774647887324"/>
         </scene>
         <!--Individual Submission-->
         <scene sceneID="3bg-pS-lYC">

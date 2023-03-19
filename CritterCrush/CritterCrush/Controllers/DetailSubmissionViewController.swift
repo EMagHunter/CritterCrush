@@ -8,7 +8,10 @@
 import UIKit
 
 class DetailSubmissionViewController: UIViewController {
-
+    
+    var titleStringViaSegue: String!
+    var bugID: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
