@@ -11,6 +11,8 @@
 		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
 		411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */; };
 		413D33BF29C69CC300BDB940 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413D33BE29C69CC300BDB940 /* CurrentUser.swift */; };
+		413D33C329C6BF9E00BDB940 /* ReportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413D33C229C6BF9E00BDB940 /* ReportCollectionViewCell.swift */; };
+		413D33C529C6C0C500BDB940 /* qns_test_lanternfly.csv in Resources */ = {isa = PBXBuildFile; fileRef = 413D33C429C6C0C500BDB940 /* qns_test_lanternfly.csv */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -61,6 +63,8 @@
 		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
 		411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionViewController.swift; sourceTree = "<group>"; };
 		413D33BE29C69CC300BDB940 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		413D33C229C6BF9E00BDB940 /* ReportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCollectionViewCell.swift; sourceTree = "<group>"; };
+		413D33C429C6C0C500BDB940 /* qns_test_lanternfly.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qns_test_lanternfly.csv; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -203,9 +207,9 @@
 		F74C523F29BA64AC00AAB7DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				413D33C429C6C0C500BDB940 /* qns_test_lanternfly.csv */,
 				F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */,
 				F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */,
-				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
 				F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */,
 				F700DB3B29AD25AA00E83929 /* MapViewController.swift */,
@@ -215,6 +219,8 @@
 				413D33BE29C69CC300BDB940 /* CurrentUser.swift */,
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
 				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
+				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
+				413D33C229C6BF9E00BDB940 /* ReportCollectionViewCell.swift */,
 				F77ADBD829B5254000045ABF /* SpeciesViewController.swift */,
 				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
 				41E6AECA29BEED0A009031EF /* SpeciesCell.swift */,
@@ -341,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */,
+				413D33C529C6C0C500BDB940 /* qns_test_lanternfly.csv in Resources */,
 				F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */,
 				F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */,
 				F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */,
@@ -486,6 +493,7 @@
 				F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */,
 				F7CAF3C729BE98A000404D96 /* selectSpeciesViewController.swift in Sources */,
 				F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */,
+				413D33C329C6BF9E00BDB940 /* ReportCollectionViewCell.swift in Sources */,
 				F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */,
 				419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,

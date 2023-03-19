@@ -7,7 +7,9 @@
 
 import UIKit
 
-class DetailSubmissionViewController: UIViewController {
+class DetailSubmissionViewController: UIViewController, UICollectionViewDelegate {
+    
+    @IBOutlet var reportCollect: UICollectionView!
     
     @IBOutlet var speciesName: UILabel!
     @IBOutlet var scienceName: UILabel!
