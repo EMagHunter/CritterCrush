@@ -842,6 +842,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Submissions" id="3cL-xl-fAg"/>
+                    <connections>
+                        <outlet property="scienceName" destination="fPs-NO-awi" id="ceR-ec-nrf"/>
+                        <outlet property="speciesName" destination="rYr-Zf-rFd" id="gcK-l3-zun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43J-a6-Wz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

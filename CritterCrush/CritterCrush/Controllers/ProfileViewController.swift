@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.performSegue(withIdentifier: "showDetailView", sender: self)
+        self.performSegue(withIdentifier: "showDetailSubmission", sender: self)
         
     }
     
@@ -56,9 +56,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    let detailSegueIdentifier = "showDetailSubmission"
     
     // MARK: - Navigation
+    
+    let detailSegueIdentifier = "showDetailSubmission"
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == detailSegueIdentifier,
             let destination = segue.destination as? DetailSubmissionViewController,

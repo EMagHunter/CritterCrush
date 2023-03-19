@@ -216,9 +216,9 @@
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
 				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
 				F77ADBD829B5254000045ABF /* SpeciesViewController.swift */,
+				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
 				41E6AECA29BEED0A009031EF /* SpeciesCell.swift */,
 				41E6AECB29BEED0A009031EF /* SpeciesCell.xib */,
-				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
 				419CC03729BA88CE002A587A /* Species.swift */,
 			);
 			path = Controllers;

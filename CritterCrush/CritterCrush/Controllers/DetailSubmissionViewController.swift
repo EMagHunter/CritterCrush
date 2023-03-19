@@ -9,12 +9,22 @@ import UIKit
 
 class DetailSubmissionViewController: UIViewController {
     
+    @IBOutlet var speciesName: UILabel!
+    @IBOutlet var scienceName: UILabel!
+    
     var titleStringViaSegue: String!
     var bugID: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.speciesName.text = self.titleStringViaSegue
+        
+        if let i = speciesList.firstIndex(where: { $0.id == bugID }) {
+            self.scienceName.text = speciesList[i].science
+        }
+        
+        self.scienceName.text = titleStringViaSegue
         // Do any additional setup after loading the view.
     }
     
