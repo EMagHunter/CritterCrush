@@ -10,6 +10,7 @@
 		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
 		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
 		411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */; };
+		4157DF8D29C6D5930066ECBA /* qns_test_lanternfly.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -59,6 +60,7 @@
 		2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.debug.xcconfig"; sourceTree = "<group>"; };
 		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
 		411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionViewController.swift; sourceTree = "<group>"; };
+		4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qns_test_lanternfly.csv; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -201,11 +203,9 @@
 		F74C523F29BA64AC00AAB7DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
+				4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */,
 				F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */,
 				F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */,
-				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
-				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
 				F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */,
 				F700DB3B29AD25AA00E83929 /* MapViewController.swift */,
@@ -213,9 +213,12 @@
 				F700DB3929AD207B00E83929 /* TabBarViewController.swift */,
 				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
 				F77ADBD829B5254000045ABF /* SpeciesViewController.swift */,
+				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
+				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
+				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
+				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
 				41E6AECA29BEED0A009031EF /* SpeciesCell.swift */,
 				41E6AECB29BEED0A009031EF /* SpeciesCell.xib */,
-				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
 				419CC03729BA88CE002A587A /* Species.swift */,
 			);
 			path = Controllers;
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */,
+				4157DF8D29C6D5930066ECBA /* qns_test_lanternfly.csv in Resources */,
 				F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */,
 				F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */,
 				F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */,
