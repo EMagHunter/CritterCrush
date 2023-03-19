@@ -8,7 +8,9 @@
 import UIKit
 
 class ReportCell: UICollectionViewCell {
-
+    @IBOutlet weak var reportImg: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

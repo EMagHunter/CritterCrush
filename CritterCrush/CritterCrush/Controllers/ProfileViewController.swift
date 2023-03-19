@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //PROGRAM BUTTON TO GO TO SETTINGS
     // @IBOutlet var speciesTitle: UILabel!
-     @IBOutlet var tableView: UITableView!
+     @IBOutlet weak var tableView: UITableView!
      
      //let speciesList = listSpecies
      
@@ -52,6 +52,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          cell.nameLabel.text = speciesList[indexPath.row].name
          
          cell.scienceLabel.text = speciesList[indexPath.row].science
+         
+         let imgName = "icon/icon_bug\(speciesList[indexPath.row].id)"
+         cell.iconImage.image = UIImage(named: imgName)
          
          return cell
      }

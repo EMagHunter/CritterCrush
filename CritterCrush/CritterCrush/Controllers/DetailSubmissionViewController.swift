@@ -7,12 +7,13 @@
 
 import UIKit
 
-class DetailSubmissionViewController: UIViewController{
+class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource{
     
-    //UICollectionViewDelegate, UICollectionViewDataSource
-    @IBOutlet var speciesName: UILabel!
+    //
+    @IBOutlet weak var imgGrid: UICollectionView!
+    @IBOutlet weak var speciesName: UILabel!
     
-    @IBOutlet var scienceName: UILabel!
+    @IBOutlet weak var scienceName: UILabel!
 
     var titleStringViaSegue: String!
     var bugID: Int!
@@ -30,16 +31,25 @@ class DetailSubmissionViewController: UIViewController{
         }
 
     }
+    //MARK: Image grabbing
+    
+    /*
+     https://inaturalist-open-data.s3.amazonaws.com/photos/241037789/medium.jpg
+     */
+    
     
     //MARK:
-    /*
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
-    }*/
+        
+        let cell = imgGrid.dequeueReusableCell(withReuseIdentifier: "ReportCell", for: indexPath) as! ReportCell
+        
+        return cell
+    }
     
     /*
     // MARK: - Navigation
