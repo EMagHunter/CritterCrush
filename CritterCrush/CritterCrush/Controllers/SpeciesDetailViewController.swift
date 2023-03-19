@@ -17,6 +17,8 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var bugDescribe: UILabel!
+    
     var titleStringViaSegue: String!
     var bugID: Int!
     
