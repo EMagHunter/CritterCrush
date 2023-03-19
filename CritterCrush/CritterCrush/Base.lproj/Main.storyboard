@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eEP-h3-8l1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -335,6 +335,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e94-PL-lOS">
+                                                    <rect key="frame" x="248" y="-4" width="125" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="5am-aY-2CD" firstAttribute="top" secondItem="nlq-ar-Ko2" secondAttribute="topMargin" id="14U-TG-l7P"/>
@@ -516,13 +520,15 @@
                     <connections>
                         <outlet property="addressLabel" destination="UPg-5G-Ubj" id="vQ1-yO-8II"/>
                         <outlet property="datePicker" destination="DaR-cl-eJv" id="KLh-0g-vd5"/>
+                        <outlet property="imageView" destination="e94-PL-lOS" id="6QA-YW-NNd"/>
                         <outlet property="speciesDescriptionTextView" destination="pBv-By-E4d" id="gEJ-H2-wZH"/>
                         <outlet property="speciesNameLabel" destination="HXg-ca-pxh" id="Gs0-6w-x78"/>
+                        <outlet property="uploadImageLabel" destination="5am-aY-2CD" id="5YR-Ti-NtV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdL-jt-0aQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2940" y="1458"/>
+            <point key="canvasLocation" x="2938.1679389312976" y="1457.7464788732395"/>
         </scene>
         <!--Select Species View Controller-->
         <scene sceneID="27P-lc-ZWM">
@@ -623,7 +629,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
                                 <connections>
                                     <action selector="submit" destination="y93-wG-v8x" eventType="touchUpInside" id="4p0-Zb-dmq"/>
-                                    <segue destination="zI9-Qm-KW9" kind="unwind" identifier="AddressAdded" unwindAction="AddressAdded:" id="YEa-t2-ON2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFx-S4-ahB">
@@ -713,6 +718,7 @@
                         <outlet property="messageLabel" destination="6Hu-TQ-Z34" id="3wv-qW-n0Q"/>
                         <outlet property="stateTextField" destination="ucw-MI-fqn" id="Cd4-Ph-X6c"/>
                         <outlet property="zipcodeTextField" destination="EYd-3e-QKm" id="6oB-ac-GQU"/>
+                        <segue destination="zI9-Qm-KW9" kind="unwind" identifier="AddressAdded" unwindAction="AddressAdded:" id="QeI-Xr-loJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acU-fI-uJw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -926,24 +932,6 @@
             </objects>
             <point key="canvasLocation" x="1101.5267175572519" y="2214.7887323943664"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="taf-EU-ovS">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eEP-h3-8l1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3re-jr-bM8">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9Jv-au-bTu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DZA-be-HCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-875.36231884057975" y="-74.330357142857139"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TQe-uw-L9L">
             <objects>
@@ -1086,8 +1074,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nuZ-8l-G5N"/>
-        <segue reference="V5j-79-0Dm"/>
+        <segue reference="mE5-pP-MiW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
