@@ -10,10 +10,12 @@
 		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
 		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
 		411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */; };
-		4157DF8D29C6D5930066ECBA /* qns_test_lanternfly.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */; };
 		4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF8E29C6D8F60066ECBA /* ReportCell.swift */; };
 		4157DF9129C6D8F60066ECBA /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8F29C6D8F60066ECBA /* ReportCell.xib */; };
 		4157DF9329C6DFE20066ECBA /* WikiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9229C6DFE20066ECBA /* WikiImage.swift */; };
+		4157DF9529C7F9320066ECBA /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9429C7F9320066ECBA /* TestData.swift */; };
+		4157DF9729C7FA230066ECBA /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9629C7FA230066ECBA /* Submission.swift */; };
+		4157DFA529C80B330066ECBA /* test_slf.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DFA429C80B320066ECBA /* test_slf.csv */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -63,10 +65,12 @@
 		2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.debug.xcconfig"; sourceTree = "<group>"; };
 		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
 		411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionViewController.swift; sourceTree = "<group>"; };
-		4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qns_test_lanternfly.csv; sourceTree = "<group>"; };
 		4157DF8E29C6D8F60066ECBA /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		4157DF8F29C6D8F60066ECBA /* ReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCell.xib; sourceTree = "<group>"; };
 		4157DF9229C6DFE20066ECBA /* WikiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiImage.swift; sourceTree = "<group>"; };
+		4157DF9429C7F9320066ECBA /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		4157DF9629C7FA230066ECBA /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
+		4157DFA429C80B320066ECBA /* test_slf.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_slf.csv; path = ../../../../../capstone/test_slf.csv; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -209,7 +213,7 @@
 		F74C523F29BA64AC00AAB7DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4157DF8C29C6D5930066ECBA /* qns_test_lanternfly.csv */,
+				4157DFA429C80B320066ECBA /* test_slf.csv */,
 				F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */,
 				F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
@@ -223,6 +227,8 @@
 				4157DF9229C6DFE20066ECBA /* WikiImage.swift */,
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
 				411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */,
+				4157DF9429C7F9320066ECBA /* TestData.swift */,
+				4157DF9629C7FA230066ECBA /* Submission.swift */,
 				4157DF8E29C6D8F60066ECBA /* ReportCell.swift */,
 				4157DF8F29C6D8F60066ECBA /* ReportCell.xib */,
 				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
@@ -349,9 +355,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4157DFA529C80B330066ECBA /* test_slf.csv in Resources */,
 				41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */,
 				4157DF9129C6D8F60066ECBA /* ReportCell.xib in Resources */,
-				4157DF8D29C6D5930066ECBA /* qns_test_lanternfly.csv in Resources */,
 				F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */,
 				F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */,
 				F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */,
@@ -485,6 +491,8 @@
 				F77ADBD929B5254100045ABF /* SpeciesViewController.swift in Sources */,
 				F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */,
 				41E6AECC29BEED0A009031EF /* SpeciesCell.swift in Sources */,
+				4157DF9729C7FA230066ECBA /* Submission.swift in Sources */,
+				4157DF9529C7F9320066ECBA /* TestData.swift in Sources */,
 				411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */,
 				F77ADBDD29B5267F00045ABF /* AddressUploadViewController.swift in Sources */,
 				F7CAF3C329BE327D00404D96 /* AddSpeciesViewController.swift in Sources */,
