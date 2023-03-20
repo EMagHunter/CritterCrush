@@ -20,7 +20,13 @@ class AddSpeciesViewController: UITableViewController {
     var Address = ""
     var speciesName = ""
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var uploadImageLabel : UILabel!
+    var image: UIImage?
   // MARK: - Actions
+    
+  
+    
     @IBAction func submit() {
         navigationController?.popViewController(animated: true)
     }
@@ -32,6 +38,7 @@ class AddSpeciesViewController: UITableViewController {
         speciesDescriptionTextView.text = ""
         speciesNameLabel.text = speciesName
         if Address != ""{
+            addressLabel.text = ""
             addressLabel.text = Address
         } else {
             addressLabel.text = "No Address Found"
@@ -66,13 +73,77 @@ class AddSpeciesViewController: UITableViewController {
         speciesNameLabel.text = speciesName
     }
     
-    // MARK: - Table View Delegates
-//    override func tableView( _ tableView: UITableView, willSelectRowAt indexPath: IndexPath
-//    ) -> IndexPath? {
-//      if indexPath.section == 0 || indexPath.section == 1 {
-//        return indexPath
-//      } else {
-//    return nil
-//    } }
+   
+    override func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath ) {
+        if indexPath.section == 0 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            choosePhoto()
+        }
+    }
+    func show(image: UIImage) {
+        imageView.image = image
+        imageView.isHidden = false
+        uploadImageLabel.text = "Image Uploaded"
+    }
+    
+}
+extension AddSpeciesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func getPicWithCamera() {
+      let pickerImg = UIImagePickerController()
+      pickerImg.sourceType = .camera
+      pickerImg.delegate = self
+      pickerImg.allowsEditing = true
+      present(pickerImg, animated: true, completion: nil)
+  }
+    func imagePickerController( _ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any] ){
+        image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+          if let theImage = image {
+            show(image: theImage)
+          }
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel( _ picker: UIImagePickerController ){
+        dismiss(animated: true, completion: nil)
+    }
+    func pickImgFromLibrary() {
+        let pickerImg = UIImagePickerController()
+        pickerImg.sourceType = .photoLibrary
+        pickerImg.delegate = self
+        pickerImg.allowsEditing = true
+        
+        
+      present(pickerImg, animated: true, completion: nil)
+    }
+    func choosePhoto() {
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        showPhotoMenu()
+      } else {
+          pickImgFromLibrary()
+      }
+    }
+    func showPhotoMenu() {
+        let alert = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet)
+        let actCancel = UIAlertAction(
+            title: "Exit",
+            style: .cancel,
+            handler: nil)
+        alert.addAction(actCancel)
+        let actPhoto = UIAlertAction(
+            title: "Camera",
+            style: .default) { _ in
+                self.getPicWithCamera()
+            }
+        alert.addAction(actPhoto)
+        let actLibrary = UIAlertAction(
+            title: "Gallery",
+            style: .default){_ in
+                self.pickImgFromLibrary()
+            }
+        alert.addAction(actLibrary)
+        present(alert, animated: true, completion: nil)
+        }
     
 }
