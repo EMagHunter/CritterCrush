@@ -39,7 +39,6 @@ class TestData:NSObject {
             for q in library {
                 
                 //let reportID: Int? = Int(q[5])
-                let reportTime = q[9]
                 /*
                 let dateFormatter = DateFormatter()
                 dateFormatter.locale = Locale(identifier: "en_us")
