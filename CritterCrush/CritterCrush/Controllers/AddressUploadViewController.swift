@@ -131,8 +131,22 @@ class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
 
     
     }
+    func addressNotCorrecctAlert(){
+        let alert = UIAlertController(
+        title: "Address not Found",
+        message: "Please verify the address you entered" ,
+        preferredStyle: .alert)
+        let Action = UIAlertAction(
+            title: "Exit",
+            style: .default,
+            handler: nil)
+        alert.addAction(Action)
+        present(alert, animated: true,completion: nil)
+        
+        
+    }
     func updateLabels(){
-        if let location = location {
+        if location != nil {
             messageLabel.text = ""
             if let placemark = placemark {
                 addressConversion(from: placemark)
@@ -222,7 +236,7 @@ class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
         //fancy name for house number
         if let tmp = placemark.subThoroughfare{
             streetAddress += tmp + " "
-            addressAdded += tmp + " "
+            addressAdded = tmp + " "
             
         }
         //street name
@@ -246,11 +260,33 @@ class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
               addressAdded += temp + " "
           }
     }
+    
     @IBAction func cancel() {
         navigationController?.popViewController(animated: true)
     }
-    @IBAction func submit() {
-        navigationController?.popViewController(animated: true)
+    @IBAction func submit(){
+        addressAdded = ""
+        if ((StreetAddressTextField.text != nil) && (cityTextField.text != nil) &&  (stateTextField.text != nil) && (zipcodeTextField.text != nil)){
+            addressAdded += " \((StreetAddressTextField.text)!) \((cityTextField.text)!) \((stateTextField.text)!) \((zipcodeTextField.text)!)"
+            geocoder.geocodeAddressString(self.addressAdded) {
+                placemarks, error in
+                if error == nil {
+                    self.placemark = nil
+                    self.placemark = placemarks?[0]
+                    print("city")
+                    print(self.placemark)
+                    self.performSegue(withIdentifier: "AddressAdded", sender: self)
+                    }
+                else {
+                    self.addressNotCorrecctAlert()
+                    }
+                }
+        }
+        else{
+            self.addressNotCorrecctAlert()
+            
+        }
+        
     }
 
     override func viewDidLoad() {

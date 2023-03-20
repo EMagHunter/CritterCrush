@@ -14,7 +14,7 @@ class SpeciesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //let speciesList = listSpecies
     
-    let speciesList:Array<Species> = [SLF,ALB,EAB,SPM]
+    //let speciesList:Array<Species> = [SLF,ALB,EAB,SPM]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,9 @@ class SpeciesViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.nameLabel.text = speciesList[indexPath.row].name
         
         cell.scienceLabel.text = speciesList[indexPath.row].science
+        
+        let imgName = "icon/icon_bug\(speciesList[indexPath.row].id)"
+        cell.iconImage.image = UIImage(named: imgName)
         
         return cell
     }
