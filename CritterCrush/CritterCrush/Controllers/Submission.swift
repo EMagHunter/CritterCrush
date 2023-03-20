@@ -5,13 +5,16 @@
 //  Created by min joo on 3/19/23.
 //
 import UIKit
+import MapKit
 import Foundation
 //custom class to store CSV read object in
-class Submission: NSObject {
+class Submission: NSObject, MKAnnotation {
+    let coordinate: CLLocationCoordinate2D
+    
     //LocationLon,LocationLat,SpeciesName,NumberSpecimens,ReportID,UserID,SpeciesID,VerifyTrueCount,VerifyFalseCount,ReportDate,Image
     
-    var locationLon: Float
-    var locationLat: Float
+    var locationLon: Double
+    var locationLat: Double
     var speciesName: String
     var numberSpecimens: Int
     var reportID: Int
@@ -23,7 +26,7 @@ class Submission: NSObject {
     //CHANGE REPORTDATE TO DATE LATER
     var imageURL: String
     
-    init(locationLon: Float, locationLat: Float, speciesName: String, numberSpecimens: Int, reportID: Int, userID: Int, speciesID: Int, verifyTrueCount: Int, verifyFalseCount: Int, reportDate: String, imageURL: String) {
+    init(locationLon: Double, locationLat: Double, speciesName: String, numberSpecimens: Int, reportID: Int, userID: Int, speciesID: Int, verifyTrueCount: Int, verifyFalseCount: Int, reportDate: String, imageURL: String, coordinate: CLLocationCoordinate2D) {
         self.locationLon = locationLon
         self.locationLat = locationLat
         self.speciesName = speciesName
@@ -35,5 +38,6 @@ class Submission: NSObject {
         self.verifyFalseCount = verifyFalseCount
         self.reportDate = reportDate
         self.imageURL = imageURL
+        self.coordinate = coordinate
     }
 }
