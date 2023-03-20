@@ -8,7 +8,28 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var userEmailLabel: UILabel!
+    
+    @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var seePointsSwitch: UISwitch!
+    
+    
+    
+    @IBAction func onEdit(_ sender: Any) {
+        
+    }
+    
+    @IBAction func onLogout(_ sender: Any) {
+        
+    }
+    
+    @IBAction func onDeleteData(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
