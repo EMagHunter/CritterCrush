@@ -802,7 +802,7 @@
                                 <rect key="frame" x="16" y="344" width="361" height="425"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bn5-AT-20q">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7O6-vw-F8U">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -812,12 +812,12 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReportCell" id="Gfh-s6-lOL">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M0w-OB-CaM" customClass="ReportCell" customModule="CritterCrush" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M0w-OB-CaM" customClass="UICollectionViewCell">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmb-Ms-csd">
-                                                    <rect key="frame" x="-56" y="8" width="240" height="128"/>
+                                                    <rect key="frame" x="0.0" y="8" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkF-uM-1LI">
@@ -828,10 +828,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <connections>
-                                                <outlet property="dateLabel" destination="KkF-uM-1LI" id="XwS-RN-kpg"/>
-                                                <outlet property="reportImg" destination="rmb-Ms-csd" id="M6e-aS-usd"/>
-                                            </connections>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <segue destination="UwK-gy-WKF" kind="show" identifier="showSingleReport" id="S2R-XS-7TP"/>
@@ -859,7 +855,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail Submission" id="3cL-xl-fAg"/>
                     <connections>
-                        <outlet property="imgGrid" destination="7sI-y6-PHz" id="c4c-BU-t7S"/>
+                        <outlet property="bugIcon" destination="p4j-pc-obC" id="jne-vl-0he"/>
+                        <outlet property="collectionView" destination="7sI-y6-PHz" id="0ez-eZ-dOy"/>
                         <outlet property="scienceName" destination="bb9-Hm-Pr3" id="GI7-Nf-esD"/>
                         <outlet property="speciesName" destination="zDg-HD-et0" id="vfQ-rE-URk"/>
                     </connections>
