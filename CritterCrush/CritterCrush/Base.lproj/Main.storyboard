@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -302,7 +303,9 @@
                             <constraint firstItem="T5W-ED-fIb" firstAttribute="leading" secondItem="ASI-qo-s4R" secondAttribute="leading" id="zhd-Kq-ImS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="Zo7-DJ-0gi"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="Zo7-DJ-0gi">
+                        <imageReference key="image" image="map" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="T5W-ED-fIb" id="gPP-Sn-gtb"/>
                     </connections>
@@ -1198,8 +1201,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="xZv-0W-0wv" kind="relationship" relationship="viewControllers" id="Zjg-AE-V6j"/>
-                        <segue destination="8p7-wK-flg" kind="relationship" relationship="viewControllers" id="KOG-B6-bN0"/>
                         <segue destination="Bme-ki-p7k" kind="relationship" relationship="viewControllers" id="1cI-vP-a5v"/>
+                        <segue destination="8p7-wK-flg" kind="relationship" relationship="viewControllers" id="KOG-B6-bN0"/>
                         <segue destination="Yl0-rZ-XYu" kind="relationship" relationship="viewControllers" id="9VI-a6-iNP"/>
                     </connections>
                 </tabBarController>
@@ -1211,7 +1214,9 @@
         <scene sceneID="p5W-as-ddy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yl0-rZ-XYu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="mbH-kL-CAb"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="mbH-kL-CAb">
+                        <imageReference key="image" image="person.fill" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3M4-f2-Qig">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1230,7 +1235,9 @@
         <scene sceneID="7iC-xs-pgh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xZv-0W-0wv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Species" id="n6M-GI-H0Q"/>
+                    <tabBarItem key="tabBarItem" title="Species" id="n6M-GI-H0Q">
+                        <imageReference key="image" image="ant" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cth-f0-4xA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1249,7 +1256,9 @@
         <scene sceneID="1nf-aq-Ylp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bme-ki-p7k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" id="ude-WY-bBH"/>
+                    <tabBarItem key="tabBarItem" title="Add" id="ude-WY-bBH">
+                        <imageReference key="image" image="plus" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D5N-Rg-nKd">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1347,8 +1356,12 @@
         <segue reference="mE5-pP-MiW"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="ant" catalog="system" width="106" height="128"/>
         <image name="icon/icons8-moon-and-stars-30" width="30" height="30"/>
         <image name="icon/icons8-multiple-stars-48" width="48" height="48"/>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
