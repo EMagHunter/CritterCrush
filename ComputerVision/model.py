@@ -37,7 +37,7 @@ def inference(RES_DIR, data_path):
     print(INFER_DIR)
     # Inference on images.
     exec(open('detect.py').read()) --weights /runs/train/{RES_DIR}/weights/best.pt \
-    --source {data_path} --name {INFER_DIR}
+    --source /data_path --name /INFER_DIR
     return INFER_DIR
 
 IMAGE_INFER_DIR = inference(RES_DIR, 'inference_images')
