@@ -1,5 +1,0 @@
-data/obj_train_data/bugpic01.jpeg
-data/obj_train_data/bugpic02.jpeg
-data/obj_train_data/bugpic03.jpeg
-data/obj_train_data/bugpic04.jpeg
-data/obj_train_data/bugpic05.jpeg
