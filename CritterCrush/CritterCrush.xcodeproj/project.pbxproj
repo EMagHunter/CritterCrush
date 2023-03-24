@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
+		2B3A56E929CE39B0003690BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A56E829CE39B0003690BC /* EditViewController.swift */; };
 		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
 		411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */; };
 		4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF8E29C6D8F60066ECBA /* ReportCell.swift */; };
@@ -63,6 +64,7 @@
 		1416A7328B3E46B5A03744D8 /* Pods-CritterCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.release.xcconfig"; sourceTree = "<group>"; };
 		270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrush_CritterCrushUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.debug.xcconfig"; sourceTree = "<group>"; };
+		2B3A56E829CE39B0003690BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
 		411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionViewController.swift; sourceTree = "<group>"; };
 		4157DF8E29C6D8F60066ECBA /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				41E6AECA29BEED0A009031EF /* SpeciesCell.swift */,
 				41E6AECB29BEED0A009031EF /* SpeciesCell.xib */,
 				419CC03729BA88CE002A587A /* Species.swift */,
+				2B3A56E829CE39B0003690BC /* EditViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */,
 				4157DF9329C6DFE20066ECBA /* WikiImage.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
+				2B3A56E929CE39B0003690BC /* EditViewController.swift in Sources */,
 				4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

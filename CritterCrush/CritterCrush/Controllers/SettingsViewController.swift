@@ -19,16 +19,16 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func onEdit(_ sender: Any) {
-        
     }
     
     @IBAction func onLogout(_ sender: Any) {
-        
+        print("Logout clicked")
     }
     
-    @IBAction func onDeleteData(_ sender: Any) {
-        
+    @IBAction func onDelete(_ sender: Any) {
+        print("Delete Data clicked")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

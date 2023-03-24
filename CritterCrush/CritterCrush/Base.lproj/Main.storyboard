@@ -979,6 +979,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onEdit:" destination="lQE-U6-hhh" eventType="touchUpInside" id="qrc-GG-Cp0"/>
+                                    <segue destination="z5j-rc-Eor" kind="show" id="W3i-bZ-f3M"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Preferences" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-UB-CC9">
@@ -1040,7 +1041,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete Data"/>
                                 <connections>
-                                    <action selector="deleteData:" destination="lQE-U6-hhh" eventType="touchUpInside" id="tgo-Vp-iem"/>
+                                    <action selector="onDelete:" destination="lQE-U6-hhh" eventType="touchUpInside" id="6Tw-cx-hrQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYw-iC-bYb">
@@ -1054,7 +1055,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
                                 <connections>
-                                    <action selector="logOut:" destination="lQE-U6-hhh" eventType="touchUpInside" id="hf6-aC-zLN"/>
+                                    <action selector="onLogout:" destination="lQE-U6-hhh" eventType="touchUpInside" id="aJa-q1-kg9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1112,22 +1113,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRF-Eo-v2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4901.5267175572517" y="1458.4507042253522"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="laP-GX-98Z">
-            <objects>
-                <viewController id="UgO-Os-lpz" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wtg-tv-0Fb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="oaf-lo-xb0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="0AQ-K4-HoU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HcY-V5-rA9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5619" y="1468"/>
         </scene>
         <!--Species Detail-->
         <scene sceneID="YI5-ms-BSY">
@@ -1321,10 +1306,25 @@
             </objects>
             <point key="canvasLocation" x="1101.5267175572519" y="1388.7323943661972"/>
         </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="Lkj-gk-cbL">
+            <objects>
+                <viewController id="z5j-rc-Eor" customClass="EditViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vbl-9x-Akk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5Vk-Q0-l0i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SED-Cn-3dr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Fg-5a-A5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5712" y="1458"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mE5-pP-MiW"/>
-        <segue reference="V5j-79-0Dm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
