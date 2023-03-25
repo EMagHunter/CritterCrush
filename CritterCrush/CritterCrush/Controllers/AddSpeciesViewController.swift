@@ -20,18 +20,31 @@ class AddSpeciesViewController: UITableViewController {
     var Address = ""
     var speciesName = ""
     @IBOutlet weak var datePicker: UIDatePicker!
+    var date:String = ""
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var uploadImageLabel : UILabel!
     var image: UIImage?
+    var locationLon: Double = 0
+    var locationLat: Double = 0
+    let formatter = DateFormatter()
   // MARK: - Actions
     
   
     
     @IBAction func submit() {
-        navigationController?.popViewController(animated: true)
+        formatter.locale = Locale(identifier: "en_us")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        date = formatter.string(from: datePicker.date)
+        let speciesSubmission = Submission(locationLon: self.locationLon, locationLat: self.locationLat, speciesName: speciesName, numberSpecimens: 0, reportID: 0, userID: 0, speciesID: 0, verifyTrueCount: 0, verifyFalseCount: 0, reportDate: date, imageURL: "ok", coordinate: CLLocationCoordinate2D(latitude: locationLon, longitude: locationLat))
+        testSLF.append(speciesSubmission)
+        print(testSLF.count)
+        resetLabels()
+    
+        showSubmitAlert()
     }
     @IBAction func reset() {
-        navigationController?.popViewController(animated: true)
+        showResetAlert()
+        resetLabels()
     }
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -52,6 +65,8 @@ class AddSpeciesViewController: UITableViewController {
         Address = controller.addressAdded
         placemark = controller.placemark
         addressLabel.text = Address
+        locationLat = controller.location!.coordinate.longitude
+        locationLon = controller.location!.coordinate.latitude
     }
     override func prepare(for segue: UIStoryboardSegue, sender:
     Any?) {
@@ -144,6 +159,48 @@ extension AddSpeciesViewController: UIImagePickerControllerDelegate, UINavigatio
             }
         alert.addAction(actLibrary)
         present(alert, animated: true, completion: nil)
+        }
+    func showSubmitAlert(){
+            let alert = UIAlertController(
+                title: "Submittion Sucess",
+                message: "Thank you For submitting. You can go to the map Screen to see your pins" ,
+                preferredStyle: .alert)
+            let Action = UIAlertAction(
+                title: "Exit",
+                style: .default,
+                handler: nil)
+            alert.addAction(Action)
+            present(alert, animated: true,completion: nil)
+            
+        }
+        func showResetAlert(){
+            let alert = UIAlertController(
+                title: "Reset Sucess",
+                message: "The information has been reset" ,
+                preferredStyle: .alert)
+    //        let Action = UIAlertAction(
+    //            title: "Exit",
+    //            style: .default,
+    //            handler: nil)
+    //        alert.addAction(Action)
+            present(alert, animated: true,completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            alert.dismiss(animated: true, completion: nil)
+                        }
+        }
+        func resetLabels(){
+            speciesName = ""
+            speciesNameLabel.text = speciesName
+            speciesDescriptionTextView.text = ""
+            imageView.image = nil
+            imageView.isHidden = true
+            Address = ""
+            addressLabel.text = Address
+            locationLat = 0
+            locationLon = 0
+            placemark = nil
+            datePicker.setDate(Date(), animated: true)
+            
         }
     
 }

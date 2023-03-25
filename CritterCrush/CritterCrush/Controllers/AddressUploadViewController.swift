@@ -273,8 +273,6 @@ class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
                 if error == nil {
                     self.placemark = nil
                     self.placemark = placemarks?[0]
-                    print("city")
-                    print(self.placemark)
                     self.performSegue(withIdentifier: "AddressAdded", sender: self)
                     }
                 else {

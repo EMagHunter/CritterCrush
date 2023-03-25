@@ -12,10 +12,10 @@ class selectSpeciesViewController: UITableViewController {
     
     let allSpecies = [
         "",
-        "spotted lanternfly",
-        "asian longhorned beetle",
-        "emerald ash borer",
-        "spongy moth"
+        SLF.name,
+        ALB.name,
+        EAB.name,
+        SPM.name
     ]
     var selectedPath = IndexPath()
     var indexPath = 0

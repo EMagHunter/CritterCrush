@@ -62,4 +62,4 @@ class TestData:NSObject {
 }
 
 let testData = TestData()
-let testSLF:Array<Submission> = testData.getCSVData()
+var testSLF:Array<Submission> = testData.getCSVData()
