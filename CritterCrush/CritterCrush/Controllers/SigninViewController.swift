@@ -4,6 +4,10 @@
 //
 //  Created by Ana Fuentes on 2/21/23.
 //
+//GET: sign up approval
+//PARAM: email, username, password
+//200: Success
+//400: fail, 201: get json, 401: unauthorized
 
 import UIKit
 import Alamofire

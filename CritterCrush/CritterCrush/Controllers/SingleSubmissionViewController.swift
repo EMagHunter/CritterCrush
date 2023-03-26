@@ -8,8 +8,11 @@
 import UIKit
 
 class SingleSubmissionViewController: UIViewController {
-
-    override func viewDidLoad() {
+    @IBOutlet weak var reportImg: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var speciesName: UILabel!
+    
+        override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

@@ -3,7 +3,10 @@
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 3/12/23.
-//
+//POST: Report
+//200: Success
+//400: fail, 201: get json, 401: unauthorized
+
 import UIKit
 import CoreLocation
 //private let dateFormatter: DateFormatter = {

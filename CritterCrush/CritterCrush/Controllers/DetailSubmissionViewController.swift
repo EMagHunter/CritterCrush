@@ -4,6 +4,11 @@
 //
 //  Created by min joo on 3/10/23.
 //
+//MARK: API CALLS
+//
+//PARAM: speciesID, userID (logged in)
+//400: fail, 201: get json, 401: unauthorized
+
 import Alamofire
 import AlamofireImage
 
@@ -11,6 +16,13 @@ import UIKit
 
 class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource{
     
+    //STRUCT TO PASS REPORTS
+    struct bugReport{
+        var subID: Int = 0 //report ID
+        var bugID: Int = 0 //bugID
+        var subDate: String
+        //we only need report ID lol
+    }
     //
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var speciesName: UILabel!
@@ -92,7 +104,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         let labelDate = testSLF[indexPath.row].reportDate
         
         let bug = testSLF[indexPath.row]
-        
+        //get bug.id into navigation segue
         print(labelDate)
         cell.dateLabel?.text = labelDate
         
@@ -109,28 +121,26 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
                 cell.reportImg?.image = image
             }
         }
-        /*
-        Alamofire.request(URL(string: bug.imageURL),method: .get).responseImage { response in
-               DispatchQueue.main.async {
-                    if let image = response.result.value {
-                        cell.reportImg?.image = image
-                    }
-                }
-        }*/
+        
         
         
         return cell
     }
     
-    
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*https://developer.apple.com/forums/thread/105484
+    
+   let detailSegueIdentifier = "showIndividualReport"
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        if  segue.identifier == detailSegueIdentifier,
+            let destination = segue.destination as? SingleSubmissionViewController,
+            let bugIndex = collectionView.indexPathForSelectedRow?.row
+        {
+            destination.titleStringViaSegue = speciesList[bugIndex].name
+            destination.bugID = speciesList[bugIndex].id
+        }
+    }*/
+    
 
 }

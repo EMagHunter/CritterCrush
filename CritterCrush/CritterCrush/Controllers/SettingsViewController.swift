@@ -3,7 +3,12 @@
 //  CritterCrush
 //
 //  Created by min joo on 3/9/23.
-//
+//GET:
+//POST: Change password
+//PARAM: User, Token
+//200: Success
+//400: fail, 201: get json, 401: unauthorized
+
 
 import UIKit
 
