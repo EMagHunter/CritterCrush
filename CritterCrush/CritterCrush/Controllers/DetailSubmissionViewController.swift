@@ -92,7 +92,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         let labelDate = testSLF[indexPath.row].reportDate
         
         let bug = testSLF[indexPath.row]
-        
+        //get bug.id into navigation segue
         print(labelDate)
         cell.dateLabel?.text = labelDate
         
@@ -122,7 +122,19 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         return cell
     }
     
-    
+    // MARK: - Navigation
+   
+   let detailSegueIdentifier = "showIndividualReport"
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == detailSegueIdentifier,
+            let destination = segue.destination as? SingleSubmissionViewController,
+            let bugIndex = collectionView.indexPathForSelectedRow?.row
+        {
+            destination.titleStringViaSegue = speciesList[bugIndex].name
+            destination.bugID = speciesList[bugIndex].id
+        }
+    }
     /*
     // MARK: - Navigation
 
