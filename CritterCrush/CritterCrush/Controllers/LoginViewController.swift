@@ -3,7 +3,11 @@
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 2/20/23.
-//
+//MARK: API CALLS
+//GET: authentication token
+//PARAM: username, password
+//200: Success
+//400: fail, 201: get json, 401: unauthorized
 
 import UIKit
 import Alamofire
