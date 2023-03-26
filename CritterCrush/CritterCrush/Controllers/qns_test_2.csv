@@ -1,0 +1,26 @@
+LocationLon,LocationLat,SpeciesName,NumberSpecimens,ReportID,UserID,SpeciesID,VerifyTrueCount,VerifyFalseCount,ReportDate,Image
+-73.8359042,40.7075444,Spotted Lanternfly,1,1,11,1,0,0,3/25/23 4:16,https://inaturalist-open-data.s3.amazonaws.com/photos/241037789/medium.jpg
+-73.818105,40.736635,Spotted Lanternfly,1,2,11,1,0,0,3/24/23 2:14,https://inaturalist-open-data.s3.amazonaws.com/photos/241045120/medium.jpeg
+-73.9593146,40.7439884,Spotted Lanternfly,1,3,11,1,0,0,3/23/23 2:16,https://static.inaturalist.org/photos/241063825/medium.jpg
+-73.9095352,40.7795765,Spotted Lanternfly,1,4,11,1,0,0,3/22/23 2:40,https://static.inaturalist.org/photos/241063856/medium.jpg
+-73.9568811,40.747951,Spotted Lanternfly,1,5,11,1,0,0,3/21/23 2:21,https://static.inaturalist.org/photos/241063894/medium.jpg
+-73.8658724,40.7670653,Spotted Lanternfly,1,6,11,1,0,0,3/25/23 0:42,https://static.inaturalist.org/photos/241063922/medium.jpg
+-73.934969,40.5443079,Asian Longhorned Beetle,1,7,11,2,0,0,3/24/23 3:07,https://static.inaturalist.org/photos/8088672/medium.jpg
+-73.9560167,40.7483778,Asian Longhorned Beetle,1,8,11,2,0,0,3/23/23 0:34,https://inaturalist-open-data.s3.amazonaws.com/photos/8740790/medium.jpg
+-73.955021,40.7476492,Asian Longhorned Beetle,1,9,11,2,0,0,3/22/23 2:56,https://static.inaturalist.org/photos/8892596/medium.jpg
+-73.9579539,40.7438026,Asian Longhorned Beetle,1,10,11,2,0,0,3/21/23 2:28,https://static.inaturalist.org/photos/9972330/medium.jpg
+-73.959396,40.7435804,Asian Longhorned Beetle,1,11,11,2,0,0,3/25/23 3:32,https://static.inaturalist.org/photos/11856513/medium.jpg
+-73.9605229,40.7385308,Spotted Lanternfly,1,12,3,1,0,0,3/24/23 3:00,https://static.inaturalist.org/photos/241065065/medium.jpg
+-73.9553087,40.747927,Spotted Lanternfly,1,13,3,1,0,0,3/23/23 0:21,https://static.inaturalist.org/photos/241065165/medium.jpg
+-73.9552212,40.7479147,Spotted Lanternfly,1,14,3,1,0,0,3/22/23 4:04,https://static.inaturalist.org/photos/241065237/medium.jpg
+-73.9585018,40.7437493,Spotted Lanternfly,1,15,3,1,0,0,3/21/23 3:34,https://inaturalist-open-data.s3.amazonaws.com/photos/241071017/medium.jpg
+-73.9550502,40.7477,Spotted Lanternfly,1,16,3,1,0,0,3/25/23 3:47,https://static.inaturalist.org/photos/241072649/medium.jpg
+-73.9596261,40.7432257,Spotted Lanternfly,1,17,3,1,0,0,3/24/23 3:28,https://inaturalist-open-data.s3.amazonaws.com/photos/241075288/medium.jpg
+-73.9558306,40.7481812,Spotted Lanternfly,1,18,3,1,0,0,3/23/23 2:15,https://inaturalist-open-data.s3.amazonaws.com/photos/241075341/medium.jpg
+-73.9562098,40.7484469,Spotted Lanternfly,1,19,3,1,0,0,3/22/23 4:10,https://inaturalist-open-data.s3.amazonaws.com/photos/241075363/medium.jpg
+-73.955667,40.7481138,Spotted Lanternfly,1,20,3,1,0,0,3/21/23 0:49,https://inaturalist-open-data.s3.amazonaws.com/photos/241081192/medium.jpg
+-73.9564259,40.747758,Asian Longhorned Beetle,1,21,3,2,0,0,3/25/23 4:05,https://inaturalist-open-data.s3.amazonaws.com/photos/21275565/medium.jpg
+-73.9564417,40.7477594,Asian Longhorned Beetle,1,22,3,2,0,0,3/24/23 2:33,https://static.inaturalist.org/photos/21390666/medium.jpg
+-73.9568637,40.746151,Asian Longhorned Beetle,1,23,3,2,0,0,3/23/23 5:44,https://inaturalist-open-data.s3.amazonaws.com/photos/22360268/medium.jpeg
+-73.9550246,40.7476174,Asian Longhorned Beetle,1,24,3,2,0,0,3/22/23 3:02,https://static.inaturalist.org/photos/22346722/medium.jpeg
+-73.9589712,40.7437368,Asian Longhorned Beetle,1,25,3,2,0,0,3/21/23 3:24,https://static.inaturalist.org/photos/23225994/medium.jpg

@@ -17,6 +17,7 @@
 		4157DF9529C7F9320066ECBA /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9429C7F9320066ECBA /* TestData.swift */; };
 		4157DF9729C7FA230066ECBA /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9629C7FA230066ECBA /* Submission.swift */; };
 		4157DFA729C8E2F50066ECBA /* test_slf.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DFA629C8E2F50066ECBA /* test_slf.csv */; };
+		4157DFAB29CFEE9E0066ECBA /* qns_test_2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -73,6 +74,7 @@
 		4157DF9429C7F9320066ECBA /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		4157DF9629C7FA230066ECBA /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		4157DFA629C8E2F50066ECBA /* test_slf.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_slf.csv; sourceTree = "<group>"; };
+		4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qns_test_2.csv; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		F74C523F29BA64AC00AAB7DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */,
 				4157DFA629C8E2F50066ECBA /* test_slf.csv */,
 				F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */,
 				F7CAF3C229BE327D00404D96 /* AddSpeciesViewController.swift */,
@@ -360,6 +363,7 @@
 			files = (
 				4157DFA729C8E2F50066ECBA /* test_slf.csv in Resources */,
 				41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */,
+				4157DFAB29CFEE9E0066ECBA /* qns_test_2.csv in Resources */,
 				4157DF9129C6D8F60066ECBA /* ReportCell.xib in Resources */,
 				F71F8C6A29A473A2007B6909 /* LaunchScreen.storyboard in Resources */,
 				F71F8C6729A473A2007B6909 /* Assets.xcassets in Resources */,
