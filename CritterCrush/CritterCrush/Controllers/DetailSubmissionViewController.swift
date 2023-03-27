@@ -21,7 +21,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         var subID: Int = 0 //report ID
         var bugID: Int = 0 //bugID
         var subDate: String
-        //we only need report ID lol
+        //we only need report ID
     }
     //
     @IBOutlet weak var collectionView: UICollectionView!
@@ -31,7 +31,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     
     var titleStringViaSegue: String!
     var bugID: Int!
-    
+    var selectedBug: bugReport!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,25 +60,6 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     }
     
     //MARK: Image grabbing
-    
-    /*
-     https://inaturalist-open-data.s3.amazonaws.com/photos/241037789/medium.jpg
-     */
-    /*
-    func getImage(URL: imgLink) {
-        AF.request(imgLink).responseImage { response in
-            debugPrint(response)
-
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-
-            if case .success(let image) = response.result {
-                print("image downloaded: \(image)")
-            }
-        }
-    }*/
-    
     //TEST FILE
     //testSLF is an array of test submissions
     
@@ -93,18 +74,11 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         //@IBOutlet weak var dateLabel: UILabel!
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReportCell", for: indexPath) as! ReportCell
-        /*
-         // Create Date Formatter
-         let dateFormatter = DateFormatter()
-         
-         // Set Date/Time Style
-         dateFormatter.dateStyle = .long
-         dateFormatter.timeStyle = .short
-         */
-        let labelDate = testSLF[indexPath.row].reportDate
         
+        let labelDate = testSLF[indexPath.row].reportDate
         let bug = testSLF[indexPath.row]
-        //get bug.id into navigation segue
+        
+        //update labels and images
         print(labelDate)
         cell.dateLabel?.text = labelDate
         
@@ -123,11 +97,33 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         }
         
         
+        //get bug.id into navigation segue
         
         return cell
     }
     
     // MARK: - Navigation
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let bug = testSLF[indexPath.item]
+        
+        selectedBug = bugReport(subID:bug.reportID, bugID:bug.speciesID, subDate:bug.reportDate)
+        
+        self.performSegue(withIdentifier: "showSingleReport", sender: self)
+        
+      }
+    
+    let singleSegue = "showSingleReport"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        if segue.identifier == singleSegue {
+            if let destVC = segue.destination as? SingleSubmissionViewController {
+                destVC.selectedReportID = selectedBug.bugID
+            }
+        }
+    }
+    
     /*https://developer.apple.com/forums/thread/105484
     
    let detailSegueIdentifier = "showIndividualReport"
