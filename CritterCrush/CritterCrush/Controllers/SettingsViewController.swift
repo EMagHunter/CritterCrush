@@ -13,13 +13,18 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
-    
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var seePointsSwitch: UISwitch!
+    
+    var password: String?
+    
+    func passData(username: String, email: String) {
+        usernameLabel.text = username
+        userEmailLabel.text = email
+    }
     
     @IBAction func onEdit(_ sender: Any) {
     }
@@ -35,6 +40,5 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 }
