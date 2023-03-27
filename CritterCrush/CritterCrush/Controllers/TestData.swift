@@ -46,7 +46,7 @@ class TestData:NSObject {
                 let date = dateFormatter.date(from:reportTime)
                 print(date)
                  */
-                let newSubmission = Submission(locationLon:Double(q[0])!, locationLat:Double(q[1])!, speciesName:q[2], numberSpecimens:Int(q[3])!, reportID: Int(q[4])!, userID:Int(q[5])!, speciesID:Int(q[6])!, verifyTrueCount:Int(q[7])!,  verifyFalseCount:Int(q[8])!, reportDate: q[9], imageURL:q[10], coordinate: CLLocationCoordinate2D(latitude: Double(q[1])!, longitude: Double(q[0])!)
+                let newSubmission = Submission(locationLon:Double(q[0])!, locationLat:Double(q[1])!, speciesName:q[2], numberSpecimens:Int(q[3])!, reportID: Int(q[4])!, userID:Int(q[5])!, speciesID:Int(q[6])!, verifyTrueCount:Int(q[7])!,  verifyFalseCount:Int(q[8])!, reportDate: q[9], imageURL:q[10], coordinate: CLLocationCoordinate2D(latitude: Double(q[1])!, longitude: Double(q[0])!), title: q[2]
                 );
                 
                 subList.append(newSubmission)

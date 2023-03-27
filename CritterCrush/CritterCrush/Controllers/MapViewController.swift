@@ -46,7 +46,39 @@ class MapViewController: UIViewController {
     
     ///
 }
-    
+extension MapViewController: MKMapViewDelegate {
+
+    func mapView( _ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+      
+       //  1
+        guard annotation is Submission else {
+          
+            return nil
+        }
+       //  2
+        print("Bye")
+        let identifier = "Submission1"
+        var annotationView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: identifier)
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+        }
+        if let annotationView = annotationView {
+
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "https://inaturalist-open-data.s3.amazonaws.com/photos/241037789/medium.jpg")
+        }
+        else{
+            annotationView?.annotation = annotation
+       }
+//        annotationView?.image = UIImage(named:"icon/icon_bug1")
+//      if let imageName = annotation.imageName {
+//          annotationView?.image = UIImage (name: imageName)
+//      }
+        return annotationView
+   }
+}
 private extension MKMapView {
   func centerToLocation(
     _ location: CLLocation,

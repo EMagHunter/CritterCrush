@@ -25,8 +25,9 @@ class Submission: NSObject, MKAnnotation {
     var reportDate: String
     //CHANGE REPORTDATE TO DATE LATER
     var imageURL: String
+    var title: String?
     
-    init(locationLon: Double, locationLat: Double, speciesName: String, numberSpecimens: Int, reportID: Int, userID: Int, speciesID: Int, verifyTrueCount: Int, verifyFalseCount: Int, reportDate: String, imageURL: String, coordinate: CLLocationCoordinate2D) {
+    init(locationLon: Double, locationLat: Double, speciesName: String, numberSpecimens: Int, reportID: Int, userID: Int, speciesID: Int, verifyTrueCount: Int, verifyFalseCount: Int, reportDate: String, imageURL: String, coordinate: CLLocationCoordinate2D, title: String?) {
         self.locationLon = locationLon
         self.locationLat = locationLat
         self.speciesName = speciesName
@@ -39,5 +40,6 @@ class Submission: NSObject, MKAnnotation {
         self.reportDate = reportDate
         self.imageURL = imageURL
         self.coordinate = coordinate
+        self.title = title
     }
 }
