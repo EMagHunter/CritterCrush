@@ -22,10 +22,10 @@ class SingleSubmissionViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var tableView: UITableView!
     
     var selectedReportID: Int?
-  
+    
         override func viewDidLoad() {
         super.viewDidLoad()
-
+            
         // Do any additional setup after loading the view.
     }
     
@@ -40,6 +40,36 @@ class SingleSubmissionViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "singlesubmissioncell", for: indexPath) as! SingleSubmissionCell
+        /*
+            
+        if let report = testSLF.enumerated().first(where: {$0.element.reportID == selectedReportID}) {
+            print(report)
+            
+            cell.dateLabel.text = testSLF[report].reportDate
+            
+            cell.userName.text = testSLF[report].userID
+            
+            
+            let afLink = bug.imageURL
+            AF.request(afLink).responseImage { response in
+                debugPrint(response)
+
+                print(response.request)
+                print(response.response)
+                debugPrint(response.result)
+
+                if case .success(let image) = response.result {
+                    print("image downloaded: \(image)")
+                    cell.reportImg?.image = image
+                }
+            }
+            
+            cell.reportImg.image
+           // do something with foo.offset and foo.element
+        } else {
+           // item could not be found
+        }
+        */
         
         return cell
     }
