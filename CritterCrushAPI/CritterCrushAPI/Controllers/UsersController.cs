@@ -13,6 +13,19 @@ using System.Numerics;
 using Microsoft.AspNetCore.Identity;
 using MessagePack;
 
+struct UserProfileObj
+{
+    public int userid { get; set; }
+    public string username { get; set; }
+    public string email { get; set; }
+    public UserProfileObj(int userid, string username, string email)
+    {
+        this.userid = userid;
+        this.username = username;
+        this.email = email;
+    }
+}
+
 namespace CritterCrushAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -100,6 +113,27 @@ namespace CritterCrushAPI.Controllers
             return new ResponseData<bool>(VerifyTokenForUser(u.UserID, token));
         }
 
+        [HttpGet("userprofile")]
+        public ActionResult<Response> GetUserData()
+        {
+            var h = Request.Headers;
+            if (!h.ContainsKey("Authorization"))
+            {
+                return new ResponseError(400, "Authorization header is required");
+            }
+            string token = h.Authorization.ToString();
+            if (IsStringEmpty(token)) {
+                return new ResponseError(400, "Authorization header is empty");
+            }
+            User u = GetUserFromToken(token);
+            if (u == null || !VerifyTokenForUser(u.UserID, token))
+            {
+                return new ResponseError(400, "Auth token not valid");
+            }
+            return new ResponseData<UserProfileObj>(new UserProfileObj(u.UserID, u.UserName, u.Email));
+
+        }
+
         private async Task<string> GetOrIssueAuthToken(int UserID)
         {
             AuthToken t = GetTokenForUser(UserID);
@@ -167,6 +201,16 @@ namespace CritterCrushAPI.Controllers
                 return false;
             }
             return t.Token == token;
+        }
+        private User GetUserFromToken(string token)
+        {
+            AuthToken tkn = _context.AuthTokens.FirstOrDefault(t => t.Token == token);
+            if (tkn == null)
+            {
+                return null;
+            }
+            User usr = _context.Users.FirstOrDefault(u => u.UserID == tkn.UserID);
+            return usr;
         }
         private User GetUserByName(string username)
         {
