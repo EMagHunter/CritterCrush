@@ -987,7 +987,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onEdit:" destination="lQE-U6-hhh" eventType="touchUpInside" id="qrc-GG-Cp0"/>
+                                    <action selector="onEdit:" destination="lQE-U6-hhh" eventType="touchUpInside" id="SjM-09-ZRo"/>
                                     <segue destination="z5j-rc-Eor" kind="show" identifier="editSegue" id="W3i-bZ-f3M"/>
                                 </connections>
                             </button>
@@ -1355,7 +1355,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JohnDoe@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79s-l4-rAm">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79s-l4-rAm">
                                 <rect key="frame" x="16" y="214" width="361" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="bd5-aM-TrX"/>
@@ -1405,7 +1405,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Edit"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfN-m9-Dab">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfN-m9-Dab">
                                 <rect key="frame" x="160" y="103" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1439,6 +1439,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SED-Cn-3dr"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="79s-l4-rAm" id="Z0f-Ft-VyB"/>
+                        <outlet property="passwordTextField" destination="QC7-Wn-hn3" id="jws-hk-t7T"/>
+                        <outlet property="rePasswordTextField" destination="jJP-Zd-qoC" id="GXo-xc-8Nv"/>
+                        <outlet property="usernameLabel" destination="NfN-m9-Dab" id="JFJ-ul-YQN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Fg-5a-A5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

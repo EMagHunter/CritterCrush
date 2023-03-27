@@ -19,11 +19,13 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var seePointsSwitch: UISwitch!
     
-    var password: String?
-    
-    func passData(username: String, email: String) {
-        usernameLabel.text = username
-        userEmailLabel.text = email
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "editSegue") {
+            if let editVC = segue.destination as? EditViewController {
+                editVC.usernameData = usernameLabel.text
+                editVC.emailData = userEmailLabel.text
+            }
+        }
     }
     
     @IBAction func onEdit(_ sender: Any) {
