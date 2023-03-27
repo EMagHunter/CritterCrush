@@ -868,20 +868,20 @@
             </objects>
             <point key="canvasLocation" x="4096.9465648854957" y="2379.5774647887324"/>
         </scene>
-        <!--Individual Submission-->
+        <!--Single Submission View Controller-->
         <scene sceneID="3bg-pS-lYC">
             <objects>
-                <viewController id="UwK-gy-WKF" customClass="SingleSubmissionViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="singlesubmission" id="UwK-gy-WKF" customClass="SingleSubmissionViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Wn-kr-SfV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FCF-HQ-DAI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="500" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FCF-HQ-DAI">
                                 <rect key="frame" x="0.0" y="141" width="393" height="596"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="526" id="oIC-Bm-TLT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="526" id="oIC-Bm-TLT" customClass="SingleSubmissionCell" customModule="CritterCrush" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="526"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oIC-Bm-TLT" id="tsn-Wo-gFV">
@@ -913,7 +913,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U44-6F-5dG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U44-6F-5dG">
                                                     <rect key="frame" x="20" y="465" width="302" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -922,6 +922,13 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="qbZ-Gm-2uz" id="1Ao-Og-KB1"/>
+                                            <outlet property="descLabel" destination="U44-6F-5dG" id="hpN-BM-ZaP"/>
+                                            <outlet property="locationLabel" destination="e68-HN-fNa" id="tQX-Y8-v3y"/>
+                                            <outlet property="reportImg" destination="bR5-y8-PH6" id="oq6-jt-HSc"/>
+                                            <outlet property="userName" destination="08E-cP-EIG" id="F3y-Er-aE9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -929,7 +936,7 @@
                         <viewLayoutGuide key="safeArea" id="HS9-pG-1Y1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Individual Submission" id="F6U-w7-daN"/>
+                    <navigationItem key="navigationItem" id="F6U-w7-daN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY5-jI-8P8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
