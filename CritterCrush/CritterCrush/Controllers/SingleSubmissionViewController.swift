@@ -8,6 +8,11 @@
 import UIKit
 
 class SingleSubmissionViewController: UIViewController {
+    
+    struct reportSelected {
+        var bugID: Int
+        var reportID: Int
+    }
     @IBOutlet weak var reportImg: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var speciesName: UILabel!
