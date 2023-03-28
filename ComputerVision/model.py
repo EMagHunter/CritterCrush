@@ -5,6 +5,13 @@ import cv2
 import requests
 import random
 import numpy as np
+import argparse
+import subprocess
+
+#import ROOT
+
+
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 TRAIN = True
 
@@ -36,8 +43,14 @@ def inference(RES_DIR, data_path):
     INFER_DIR = f"inference_{infer_dir_count+1}"
     print(INFER_DIR)
     # Inference on images.
-    exec(open('detect.py').read()) --weights /runs/train/{RES_DIR}/weights/best.pt \
-    --source /data_path --name /INFER_DIR
+    # exec(open('detect.py').read()) --weights /runs/train/{RES_DIR}/weights/best.pt \
+    # --source /data_path --name /INFER_DIR
+
+
+    command = f"python detect.py --weights runs/train/{RES_DIR}/weights/best.pt --source {data_path} --name {INFER_DIR}"
+
+    subprocess.run(command, shell=True)
+
     return INFER_DIR
 
 IMAGE_INFER_DIR = inference(RES_DIR, 'inference_images')
