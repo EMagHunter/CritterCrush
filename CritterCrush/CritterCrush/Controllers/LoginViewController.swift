@@ -12,10 +12,6 @@
 import UIKit
 import Alamofire
 
-struct authToken {
-    static var token: String?
-}
-
 struct user {
     static var username: String?
     static var password: String?
@@ -51,7 +47,8 @@ class LoginViewController: UIViewController {
                 do {
                     let asJSON = try JSONSerialization.jsonObject(with: data)
                     if let data = asJSON as? [String: Any] {
-                        authToken.token = (data["data"] as? String)
+                        let authToken = (data["data"] as? String)
+                        UserDefaults.standard.set(authToken, forKey: "authToken")
                     }
                     
                     // pass username and password to struct

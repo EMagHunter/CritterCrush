@@ -54,26 +54,29 @@ class SettingsViewController: UIViewController {
         usernameLabel.text = user.username
         
         let url  = "http://69.125.216.66/api/users/userprofile"
-        let headers: HTTPHeaders = [
-            "Authorization": authToken.token!
-        ]
+        
+        if let authToken = UserDefaults.standard.string(forKey: "authToken") {
+            let headers: HTTPHeaders = [
+                "Authorization": authToken
+            ]
+            
+            AF.request(url, method: .get, headers: headers).responseData { response in
+                debugPrint(response)
 
-        AF.request(url, method: .get, headers: headers).responseData { response in
-            debugPrint(response)
-
-            // get the email
-            switch response.result {
-            case .success(let data):
-                do {
-                    let asJSON = try JSONSerialization.jsonObject(with: data)
-                    if let data = asJSON as? [String: Any] {
-                        if let dict = data["data"] as? [String: Any], let email = dict["email"] as? String {
-                            self.userEmailLabel.text = email
+                // get the email
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let asJSON = try JSONSerialization.jsonObject(with: data)
+                        if let data = asJSON as? [String: Any] {
+                            if let dict = data["data"] as? [String: Any], let email = dict["email"] as? String {
+                                self.userEmailLabel.text = email
+                            }
                         }
+                    } catch {
                     }
-                } catch {
+                case .failure(_): break
                 }
-            case .failure(_): break
             }
         }
     }

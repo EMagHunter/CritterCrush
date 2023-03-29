@@ -43,7 +43,8 @@ class SigninViewController: UIViewController {
                     do {
                         let asJSON = try JSONSerialization.jsonObject(with: data)
                         if let data = asJSON as? [String: Any] {
-                            authToken.token = (data["data"] as! String)
+                            let authToken = (data["data"] as? String)
+                            UserDefaults.standard.set(authToken, forKey: "authToken")
                         }
                         user.username = self.UsernameTextField.text
                         user.email = self.EmailTextField.text
