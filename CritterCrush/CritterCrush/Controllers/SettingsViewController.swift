@@ -38,7 +38,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onLogout(_ sender: Any) {
-        print("Logout clicked")
+        // Remove the auth token
+        UserDefaults.standard.removeObject(forKey: "authToken")
+        
+        // redirect user to login screen
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "login")
+        self.present(loginViewController, animated: true, completion: nil)
     }
     
     @IBAction func onDelete(_ sender: Any) {
