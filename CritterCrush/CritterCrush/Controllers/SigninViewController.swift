@@ -35,8 +35,23 @@ class SigninViewController: UIViewController {
         } else{
             let url  = "http://69.125.216.66/api/users/register"
             let paremeter = ["username": UsernameTextField.text!, "password": PasswordTextField.text!, "email": EmailTextField.text!]
-            AF.request(url, method: .post, parameters: paremeter,encoding: URLEncoding.queryString).response{ response in
+            AF.request(url, method: .post, parameters: paremeter, encoding: URLEncoding.queryString).responseData { response in
                 debugPrint(response)
+                
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let asJSON = try JSONSerialization.jsonObject(with: data)
+                        if let data = asJSON as? [String: Any] {
+                            authToken.token = (data["data"] as! String)
+                        }
+                        user.username = self.UsernameTextField.text
+                        user.email = self.EmailTextField.text
+                    } catch {
+                        self.ResultLabel.text = "A user already exists"
+                    }
+                case .failure(_): break
+                }
                 
                 // check if user exists in database
                 if (response.response?.statusCode == 200) {

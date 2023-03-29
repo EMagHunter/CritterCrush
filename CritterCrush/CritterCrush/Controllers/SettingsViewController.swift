@@ -51,18 +51,16 @@ class SettingsViewController: UIViewController {
         
         usernameLabel.text = usernameData
         userEmailLabel.text = userEmailData
-        
         usernameLabel.text = user.username
         
         let url  = "http://69.125.216.66/api/users/userprofile"
-        
         let headers: HTTPHeaders = [
             "Authorization": authToken.token!
         ]
-        
+
         AF.request(url, method: .get, headers: headers).responseData { response in
-//            debugPrint(response)
-            
+            debugPrint(response)
+
             // get the email
             switch response.result {
             case .success(let data):

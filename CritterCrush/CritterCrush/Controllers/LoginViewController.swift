@@ -19,6 +19,7 @@ struct authToken {
 struct user {
     static var username: String?
     static var password: String?
+    static var email: String? 
 }
 
 class LoginViewController: UIViewController {
@@ -50,18 +51,21 @@ class LoginViewController: UIViewController {
                 do {
                     let asJSON = try JSONSerialization.jsonObject(with: data)
                     if let data = asJSON as? [String: Any] {
-                        authToken.token = (data["data"] as! String)
+                        authToken.token = (data["data"] as? String)
                     }
                     
                     // pass username and password to struct
                     user.username = username
                     user.password = password
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
-
                 } catch {
-                    self.ResultLabel.text = "Incorrect username or password"
                 }
             case .failure(_): break
+            }
+            
+            if (response.response?.statusCode == 200) {
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+            } else {
+                self.ResultLabel.text = "Incorrect Username or Password"
             }
         }
     }
