@@ -16,13 +16,13 @@ class EditViewController: UIViewController {
     @IBOutlet weak var rePasswordTextField: UITextField!
     
     var usernameData: String?
-    var emailData: String?
+    var userEmailData: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         usernameLabel.text = usernameData
-        emailTextField.text = emailData
+        emailTextField.text = userEmailData
     }
 }

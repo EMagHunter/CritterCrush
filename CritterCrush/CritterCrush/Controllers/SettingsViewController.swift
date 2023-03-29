@@ -11,6 +11,7 @@
 
 
 import UIKit
+import Alamofire
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
@@ -19,16 +20,21 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var seePointsSwitch: UISwitch!
     
+    var usernameData = ""
+    var userEmailData = ""
+    var userPasswordData = ""
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "editSegue") {
             if let editVC = segue.destination as? EditViewController {
                 editVC.usernameData = usernameLabel.text
-                editVC.emailData = userEmailLabel.text
+                editVC.userEmailData = userEmailLabel.text
             }
         }
     }
     
     @IBAction func onEdit(_ sender: Any) {
+
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -42,5 +48,35 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameLabel.text = usernameData
+        userEmailLabel.text = userEmailData
+        
+        usernameLabel.text = user.username
+        
+        let url  = "http://69.125.216.66/api/users/userprofile"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": authToken.token!
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseData { response in
+//            debugPrint(response)
+            
+            // get the email
+            switch response.result {
+            case .success(let data):
+                do {
+                    let asJSON = try JSONSerialization.jsonObject(with: data)
+                    if let data = asJSON as? [String: Any] {
+                        if let dict = data["data"] as? [String: Any], let email = dict["email"] as? String {
+                            self.userEmailLabel.text = email
+                        }
+                    }
+                } catch {
+                }
+            case .failure(_): break
+            }
+        }
     }
 }
