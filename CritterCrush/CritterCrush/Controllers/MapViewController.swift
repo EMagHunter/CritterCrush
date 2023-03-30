@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var managedObjectContext: NSManagedObjectContext!
+    var annotationView = MKMarkerAnnotationView()
     
     
     override func viewDidLoad() {
@@ -51,31 +52,61 @@ extension MapViewController: MKMapViewDelegate {
     func mapView( _ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
       
        //  1
-        guard annotation is Submission else {
-          
+        guard let  annotation  = annotation as? Submission else {
             return nil
+            
         }
+        var image = ""
+        var color = UIColor.red
+        if annotation.speciesName == "Spotted Lanternfly"{
+            image = "icon/icon_bug1"
+            color = .blue
+        }
+        else if annotation.speciesName == "Asian Longhorned Beetle"{
+            image = "icon/icon_bug2"
+            color = .red
+        }
+                else if annotation.speciesName == "Emerald ash borer"{
+                    image = "icon/icon_bug3"
+                    color = .white
+        
+                }
+                else if annotation.speciesName == "Spongy moth"{
+                    image = "icon/icon_bug4"
+                    color = .yellow
+        
+                }
+
        //  2
         print("Bye")
         let identifier = "Submission1"
         var annotationView = mapView.dequeueReusableAnnotationView(
-            withIdentifier: identifier)
+            withIdentifier: identifier) as? MKMarkerAnnotationView
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
+            
         }
         if let annotationView = annotationView {
 
-            annotationView.canShowCallout = true
-            annotationView.image = UIImage(named: "https://inaturalist-open-data.s3.amazonaws.com/photos/241037789/medium.jpg")
+//            annotationView.canShowCallout = true
+            let glyphImage = UIImage(named: image)
+//            annotationView.markerTintColor = UIColor.white
+            annotationView.glyphImage = glyphImage
+            annotationView.markerTintColor = color
+//            annotationView.glyphImage =
+            
+//            if let glyphImage = annotationView.glyphImage {
+//                let naturalGlyphImage = glyphImage.withRenderingMode(.alwaysOriginal)
+//                annotationView.glyphImage = naturalGlyphImage
+//            }
+//            annotationView.markerTintColor = .blue
         }
         else{
             annotationView?.annotation = annotation
        }
 //        annotationView?.image = UIImage(named:"icon/icon_bug1")
-//      if let imageName = annotation.imageName {
-//          annotationView?.image = UIImage (name: imageName)
-//      }
+//        annotationView.ima
         return annotationView
    }
 }
