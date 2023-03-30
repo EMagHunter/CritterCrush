@@ -14,6 +14,8 @@ import Foundation
 import UIKit
 import MapKit
 import CoreData
+import Alamofire
+import AlamofireImage
 
 class MapViewController: UIViewController {
     let initialLocation = CLLocation(latitude: 40.73, longitude: -73.8181)
@@ -77,38 +79,42 @@ extension MapViewController: MKMapViewDelegate {
         
                 }
 
-       //  2
-        print("Bye")
-        let identifier = "Submission1"
+        let identifier = "Submission"
         var annotationView = mapView.dequeueReusableAnnotationView(
             withIdentifier: identifier) as? MKMarkerAnnotationView
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+            if let url = URL(string: annotation.imageURL) {
+                AF.request(url).responseImage {
+                    response in
+                    switch response.result {
+                    case .success(let image1):
+                        imageView.image = image1
+                    case .failure(_):
+                        break
+                    }
+                }
+            }
+            annotationView!.leftCalloutAccessoryView = imageView
+            let rightButton = UIButton(type: .detailDisclosure)
+            rightButton.addTarget(self, action: #selector(showDetail(_:)), for: .touchUpInside)
+            annotationView?.rightCalloutAccessoryView = rightButton
         }
         if let annotationView = annotationView {
 
-//            annotationView.canShowCallout = true
             let glyphImage = UIImage(named: image)
-//            annotationView.markerTintColor = UIColor.white
             annotationView.glyphImage = glyphImage
             annotationView.markerTintColor = color
-//            annotationView.glyphImage =
-            
-//            if let glyphImage = annotationView.glyphImage {
-//                let naturalGlyphImage = glyphImage.withRenderingMode(.alwaysOriginal)
-//                annotationView.glyphImage = naturalGlyphImage
-//            }
-//            annotationView.markerTintColor = .blue
         }
         else{
             annotationView?.annotation = annotation
        }
-//        annotationView?.image = UIImage(named:"icon/icon_bug1")
-//        annotationView.ima
         return annotationView
    }
+    @objc func showDetail(_ sender: UIButton) {
+    }
 }
 private extension MKMapView {
   func centerToLocation(
