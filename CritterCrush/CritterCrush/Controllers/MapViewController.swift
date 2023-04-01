@@ -18,6 +18,8 @@ import Alamofire
 import AlamofireImage
 
 class MapViewController: UIViewController {
+    //var reportsLocation = [Submission]()
+    
     let initialLocation = CLLocation(latitude: 40.73, longitude: -73.8181)
     
     @IBOutlet var mapView: MKMapView!
@@ -46,8 +48,14 @@ class MapViewController: UIViewController {
             mapView.setCameraZoomRange(zoomRange, animated: true)
         
     }
-    
-    ///
+    func mapView(_ mapView: MKMapView, didSelect annotationView: MKAnnotationView) {
+        mapView.selectAnnotation(annotationView.annotation!, animated: true)
+      
+
+       // performSegue(withIdentifier: "EditReport", sender: self)
+       // mapView.deselectAnnotation(annotationView.annotation, animated: true)
+
+    }
 }
 extension MapViewController: MKMapViewDelegate {
 
@@ -85,6 +93,10 @@ extension MapViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
+//            annotationView?.titleVisibility = .hidden
+//
+//
+//
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             if let url = URL(string: annotation.imageURL) {
                 AF.request(url).responseImage {
@@ -97,24 +109,41 @@ extension MapViewController: MKMapViewDelegate {
                     }
                 }
             }
-            annotationView!.leftCalloutAccessoryView = imageView
+            annotationView?.leftCalloutAccessoryView = imageView
             let rightButton = UIButton(type: .detailDisclosure)
             rightButton.addTarget(self, action: #selector(showDetail(_:)), for: .touchUpInside)
             annotationView?.rightCalloutAccessoryView = rightButton
+            
+                
+                
         }
-        if let annotationView = annotationView {
-
-            let glyphImage = UIImage(named: image)
-            annotationView.glyphImage = glyphImage
-            annotationView.markerTintColor = color
-        }
+//        if let annotationView = annotationView {
+////            annotationView.isSelected = true
+//            annotationView.annotation = annotation
+//
+//
+////            let glyphImage = UIImage(named: image)
+////            annotationView.glyphImage = glyphImage
+////            annotationView.markerTintColor = color
+//            //annotationView.isSelected = true
+//        }
         else{
             annotationView?.annotation = annotation
        }
+        let glyphImage = UIImage(named: image)
+        annotationView?.glyphImage = glyphImage
+        annotationView?.markerTintColor = color
         return annotationView
    }
     @objc func showDetail(_ sender: UIButton) {
-    }
+        performSegue(withIdentifier: "EditReport", sender: sender)
+       }
+    override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
+           if segue.identifier == "EditReport" {
+               let controller = segue.destination as! AddReportViewController
+               controller.title = "Edit Report"
+           }
+       }
 }
 private extension MKMapView {
   func centerToLocation(
