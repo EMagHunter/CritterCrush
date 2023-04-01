@@ -16,7 +16,7 @@ import CoreLocation
 //    return formatter
 //}()
 
-class AddSpeciesViewController: UITableViewController {
+class AddReportViewController: UITableViewController {
     @IBOutlet var speciesNameLabel: UILabel!
     @IBOutlet var speciesDescriptionTextView: UITextView!
     @IBOutlet var addressLabel: UILabel!
@@ -105,7 +105,7 @@ class AddSpeciesViewController: UITableViewController {
     }
     
 }
-extension AddSpeciesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AddReportViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func getPicWithCamera() {
       let pickerImg = UIImagePickerController()
       pickerImg.sourceType = .camera

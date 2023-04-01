@@ -45,7 +45,7 @@ class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
-        print("didUpdateLocations\(newLocation)")
+        //\print("didUpdateLocations\(newLocation)")
         //location was too long ago
         if newLocation.timestamp.timeIntervalSinceNow < -6 {
             return
