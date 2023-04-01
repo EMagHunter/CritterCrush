@@ -17,7 +17,12 @@ import CoreData
 import Alamofire
 import AlamofireImage
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+            print(text)
+    }
+    
     //var reportsLocation = [Submission]()
     
     let initialLocation = CLLocation(latitude: 40.73, longitude: -73.8181)
@@ -50,11 +55,6 @@ class MapViewController: UIViewController {
     }
     func mapView(_ mapView: MKMapView, didSelect annotationView: MKAnnotationView) {
         mapView.selectAnnotation(annotationView.annotation!, animated: true)
-      
-
-       // performSegue(withIdentifier: "EditReport", sender: self)
-       // mapView.deselectAnnotation(annotationView.annotation, animated: true)
-
     }
 }
 extension MapViewController: MKMapViewDelegate {
@@ -66,6 +66,12 @@ extension MapViewController: MKMapViewDelegate {
             return nil
             
         }
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Search Report"
+        navigationItem.searchController = search
+           
         var image = ""
         var color = UIColor.red
         if annotation.speciesName == "Spotted Lanternfly"{
@@ -93,10 +99,6 @@ extension MapViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-//            annotationView?.titleVisibility = .hidden
-//
-//
-//
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             if let url = URL(string: annotation.imageURL) {
                 AF.request(url).responseImage {
@@ -117,16 +119,6 @@ extension MapViewController: MKMapViewDelegate {
                 
                 
         }
-//        if let annotationView = annotationView {
-////            annotationView.isSelected = true
-//            annotationView.annotation = annotation
-//
-//
-////            let glyphImage = UIImage(named: image)
-////            annotationView.glyphImage = glyphImage
-////            annotationView.markerTintColor = color
-//            //annotationView.isSelected = true
-//        }
         else{
             annotationView?.annotation = annotation
        }
