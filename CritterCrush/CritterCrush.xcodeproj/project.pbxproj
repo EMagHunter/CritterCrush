@@ -225,14 +225,15 @@
 			children = (
 				4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */,
 				4157DFA629C8E2F50066ECBA /* test_slf.csv */,
+				F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */,
+				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
 				F7CAF3C629BE98A000404D96 /* selectSpeciesViewController.swift */,
 				F7CAF3C229BE327D00404D96 /* AddReportViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
+				2B3A56E829CE39B0003690BC /* EditViewController.swift */,
 				F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */,
 				F700DB3B29AD25AA00E83929 /* MapViewController.swift */,
-				F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */,
 				F700DB3929AD207B00E83929 /* TabBarViewController.swift */,
-				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
 				F77ADBD829B5254000045ABF /* SpeciesViewController.swift */,
 				419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */,
 				4157DF9229C6DFE20066ECBA /* WikiImage.swift */,
@@ -249,7 +250,6 @@
 				41E6AECB29BEED0A009031EF /* SpeciesCell.xib */,
 				419CC03729BA88CE002A587A /* Species.swift */,
 				F70E95B229D1654C00F1EB4A /* DataModel.swift */,
-				2B3A56E829CE39B0003690BC /* EditViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
