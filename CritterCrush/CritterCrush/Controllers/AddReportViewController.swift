@@ -28,8 +28,8 @@ class AddReportViewController: UITableViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var uploadImageLabel : UILabel!
     var image: UIImage?
-  //  var locationLon: Double = 0
-   // var locationLat: Double = 0
+    var locationLon: Double = 0
+    var locationLat: Double = 0
     let formatter = DateFormatter()
     var selectedReportEdit:Submission? = nil
    
@@ -53,7 +53,7 @@ class AddReportViewController: UITableViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
         if title == "Edit Report"{
-            print(selectedReportEdit)
+//            print(selectedReportEdit)
         }
         speciesDescriptionTextView.text = ""
         speciesNameLabel.text = speciesName
