@@ -28,9 +28,10 @@ class AddReportViewController: UITableViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var uploadImageLabel : UILabel!
     var image: UIImage?
-    var locationLon: Double = 0
-    var locationLat: Double = 0
+  //  var locationLon: Double = 0
+   // var locationLat: Double = 0
     let formatter = DateFormatter()
+    var selectedReportEdit:Submission? = nil
    
   // MARK: - Actions
     
@@ -40,7 +41,7 @@ class AddReportViewController: UITableViewController {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         date = formatter.string(from: datePicker.date)
         let speciesSubmission = Submission(locationLon: self.locationLon, locationLat: self.locationLat, speciesName: speciesName, numberSpecimens: 0, reportID: 0, userID: 0, speciesID: 0, verifyTrueCount: 0, verifyFalseCount: 0, reportDate: date, imageURL: "ok", coordinate: CLLocationCoordinate2D(latitude: locationLon, longitude: locationLat), title: self.speciesName)
-        DataModel().submissionList.append(speciesSubmission)
+       testSLF.append(speciesSubmission)
         resetLabels()
     
         showSubmitAlert()
@@ -51,6 +52,9 @@ class AddReportViewController: UITableViewController {
     }
     override func viewDidLoad() {
       super.viewDidLoad()
+        if title == "Edit Report"{
+            print(selectedReportEdit)
+        }
         speciesDescriptionTextView.text = ""
         speciesNameLabel.text = speciesName
         if Address != ""{
