@@ -23,8 +23,6 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
             print(text)
     }
     
-    //var reportsLocation = [Submission]()
-    
     let initialLocation = CLLocation(latitude: 40.73, longitude: -73.8181)
     
     @IBOutlet var mapView: MKMapView!
@@ -66,6 +64,7 @@ extension MapViewController: MKMapViewDelegate {
             return nil
             
         }
+        print(annotation)
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
@@ -119,6 +118,17 @@ extension MapViewController: MKMapViewDelegate {
                 
                 
         }
+        if let annotationView = annotationView {
+            annotationView.annotation = annotation
+            // a reference to part of the list it reference to
+            let buttonRight = annotationView.rightCalloutAccessoryView as! UIButton
+            if let index = testSLF.firstIndex(of: annotation) {
+                buttonRight.tag = index
+            }
+
+            
+            
+        }
         else{
             annotationView?.annotation = annotation
        }
@@ -129,10 +139,29 @@ extension MapViewController: MKMapViewDelegate {
    }
     @objc func showDetail(_ sender: UIButton) {
         performSegue(withIdentifier: "EditReport", sender: sender)
+        
        }
     override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
            if segue.identifier == "EditReport" {
                let controller = segue.destination as! AddReportViewController
+               let buttonRight = sender as! UIButton
+               let editReport = testSLF[buttonRight.tag]
+               controller.selectedReportEdit = testSLF[buttonRight.tag]
+               controller.speciesName = editReport.speciesName
+               if let url = URL(string: editReport.imageURL) {
+                   AF.request(url).responseImage {
+                       response in
+                       switch response.result {
+                       case .success(let image1):
+                           controller.show(image: image1)
+                       case .failure(_):
+                           break
+                       }
+                   }
+               }
+
+               controller.locationLat = editReport.locationLat
+               controller.locationLon = editReport.locationLon
                controller.title = "Edit Report"
            }
        }
