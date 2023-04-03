@@ -40,15 +40,15 @@ class LoginViewController: UIViewController {
         let paremeter = ["username": username, "password": password]
         
         AF.request(url, method: .get, parameters: paremeter, encoding: URLEncoding.queryString).responseData { response in
-//            debugPrint(response)
+            debugPrint(response)
             
             switch response.result {
             case .success(let data):
                 do {
                     let asJSON = try JSONSerialization.jsonObject(with: data)
-                    if let data = asJSON as? [String: Any] {
-                        let authToken = (data["data"] as? String)
-                        UserDefaults.standard.set(authToken, forKey: "authToken")
+                    
+                    if let responseDict = asJSON as? [String: Any], let dataDict = responseDict["data"] as? [String: Any], let token = dataDict["token"] as? String {
+                        UserDefaults.standard.set(token, forKey: "authToken")
                     }
                     
                     // pass username and password to struct
