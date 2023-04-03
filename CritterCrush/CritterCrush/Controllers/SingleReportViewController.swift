@@ -19,39 +19,50 @@ class SingleReportViewController: UIViewController{
     
     var subID: Int = 0 //report ID
     var selectedReportID: Int?
+    var indReport:IndividualReport?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-    
-    //image
-    let afLink = "https://static.inaturalist.org/photos/241063922/medium.jpg"
-    AF.request(afLink).responseImage { response in
-        debugPrint(response)
-
-        print(response.request)
-        print(response.response)
-        debugPrint(response.result)
-
-        if case .success(let image) = response.result {
-            print("image downloaded: \(image)")
-            self.reportImg.image = image
+        
+        //image
+        let afLink = "https://static.inaturalist.org/photos/241063922/medium.jpg"
+        AF.request(afLink).responseImage { response in
+            debugPrint(response)
+            
+            print(response.request)
+            print(response.response)
+            debugPrint(response.result)
+            
+            if case .success(let image) = response.result {
+                print("image downloaded: \(image)")
+                self.reportImg.image = image
+            }
         }
-    }
-    
+        
         self.userName.text = "USER1"
-    
-        print("Data retrieved: \(apiReport(repID:1))")
+        apiReport(repID: 1){ (result: Result<IndividualReport, Error>) in
+            switch result {
+            case .success(let report):
+                self.indReport = report
+                print(report)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            self.dateLabel.text = self.indReport?.reportDate
+            self.locationLabel.text = "\(String(describing: self.indReport?.longitude)),\(String(describing: self.indReport?.latitude))"
+            
         }
+        
+    }
             
     
-    func apiReport(repID: Int, completion: @escaping (Result<IndividualReport, Error>) -> Void) {
+    func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
         //takes report ID of selected report
         //uses
         let url = "http://69.125.216.66/api/reports/\(repID)"
         
         // make the GET request using Alamofire
-        
         AF.request(url, method:.get, encoding:URLEncoding.queryString).responseData { response in
             //debugPrint(response)
             switch response.result {
@@ -64,16 +75,16 @@ class SingleReportViewController: UIViewController{
                         let decoder = JSONDecoder()
                         
                         let result = try decoder.decode(IndividualReport.self, from: data)
-                        print(result)
-                        
-                        completion(.success(result))
+                        DispatchQueue.main.async {
+                            completionHandler(.success(result))
+                        }
                     } catch {
                         print(error)
-                        completion(.failure(error))
+                        completionHandler(.failure(error))
                     }
                 }
             case .failure(let error):
-                completion(.failure(error))
+                completionHandler(.failure(error))
                 print("error")
                 break
             }
