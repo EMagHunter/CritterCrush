@@ -39,15 +39,19 @@ class LoginViewController: UIViewController {
         let url  = "http://69.125.216.66/api/users/login"
         let paremeter = ["username": username, "password": password]
         
+        // Call /api/users/login end point
         AF.request(url, method: .get, parameters: paremeter, encoding: URLEncoding.queryString).responseData { response in
             debugPrint(response)
             
             switch response.result {
             case .success(let data):
                 do {
+                    // pull the auth token and store it in user defaults
                     let asJSON = try JSONSerialization.jsonObject(with: data)
                     
-                    if let responseDict = asJSON as? [String: Any], let dataDict = responseDict["data"] as? [String: Any], let token = dataDict["token"] as? String {
+                    if let responseDict = asJSON as? [String: Any],
+                        let dataDict = responseDict["data"] as? [String: Any],
+                        let token = dataDict["token"] as? String {
                         UserDefaults.standard.set(token, forKey: "authToken")
                     }
                     
@@ -59,6 +63,7 @@ class LoginViewController: UIViewController {
             case .failure(_): break
             }
             
+            // if response is success, perform segue
             if (response.response?.statusCode == 200) {
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
             } else {

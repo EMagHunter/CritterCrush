@@ -957,8 +957,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6pG-fK-t5K">
-                                <rect key="frame" x="16" y="82" width="108" height="99"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6pG-fK-t5K">
+                                <rect key="frame" x="16" y="83" width="108" height="97.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="Tec-fB-dvb"/>
                                     <constraint firstAttribute="width" constant="108" id="xhQ-2o-0dZ"/>
@@ -1471,6 +1471,7 @@
         <image name="icon/icons8-moon-and-stars-30" width="30" height="30"/>
         <image name="icon/icons8-multiple-stars-48" width="48" height="48"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

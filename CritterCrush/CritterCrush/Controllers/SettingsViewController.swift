@@ -33,9 +33,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func onEdit(_ sender: Any) {
-
-    }
+    @IBAction func onEdit(_ sender: Any) {}
     
     @IBAction func onLogout(_ sender: Any) {
         // Remove the auth token
@@ -61,18 +59,21 @@ class SettingsViewController: UIViewController {
         
         let url  = "http://69.125.216.66/api/users/userprofile"
         
+        // get the auth token from user defaults
         if let authToken = UserDefaults.standard.string(forKey: "authToken") {
+            // set the header for the AF request
             let headers: HTTPHeaders = [
                 "Authorization": authToken
             ]
             
+            // call /api/users/userprofile end point to get user information
             AF.request(url, method: .get, headers: headers).responseData { response in
                 debugPrint(response)
 
-                // get the email
                 switch response.result {
                 case .success(let data):
                     do {
+                        // get the email
                         let asJSON = try JSONSerialization.jsonObject(with: data)
                         if let data = asJSON as? [String: Any] {
                             if let dict = data["data"] as? [String: Any], let email = dict["email"] as? String {
