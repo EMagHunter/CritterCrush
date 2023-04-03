@@ -109,7 +109,9 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         
         selectedBug = bugReport(subID:bug.reportID, bugID:bug.speciesID, subDate:bug.reportDate)
         
-        self.performSegue(withIdentifier: "showSingleReport", sender: self)
+        let singleSegue = "showSingleReport"
+        
+        self.performSegue(withIdentifier: singleSegue, sender: self)
         
       }
     
@@ -118,25 +120,10 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
         if segue.identifier == singleSegue {
-            if let destVC = segue.destination as? SingleSubmissionViewController {
+            if let destVC = segue.destination as? SingleReportViewController {
                 destVC.selectedReportID = selectedBug.bugID
             }
         }
     }
-    
-    /*https://developer.apple.com/forums/thread/105484
-    
-   let detailSegueIdentifier = "showIndividualReport"
-   
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == detailSegueIdentifier,
-            let destination = segue.destination as? SingleSubmissionViewController,
-            let bugIndex = collectionView.indexPathForSelectedRow?.row
-        {
-            destination.titleStringViaSegue = speciesList[bugIndex].name
-            destination.bugID = speciesList[bugIndex].id
-        }
-    }*/
-    
 
 }
