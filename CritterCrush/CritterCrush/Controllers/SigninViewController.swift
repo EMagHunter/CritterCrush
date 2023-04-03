@@ -42,9 +42,8 @@ class SigninViewController: UIViewController {
                 case .success(let data):
                     do {
                         let asJSON = try JSONSerialization.jsonObject(with: data)
-                        if let data = asJSON as? [String: Any] {
-                            let authToken = (data["data"] as? String)
-                            UserDefaults.standard.set(authToken, forKey: "authToken")
+                        if let responseDict = asJSON as? [String: Any], let dataDict = responseDict["data"] as? [String: Any], let token = dataDict["token"] as? String {
+                            UserDefaults.standard.set(token, forKey: "authToken")
                         }
                         user.username = self.UsernameTextField.text
                         user.email = self.EmailTextField.text

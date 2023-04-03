@@ -21,8 +21,6 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        usernameLabel.text = usernameData
         emailTextField.text = userEmailData
     }
 }
