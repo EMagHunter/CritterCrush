@@ -35,16 +35,23 @@ class SigninViewController: UIViewController {
         } else{
             let url  = "http://69.125.216.66/api/users/register"
             let paremeter = ["username": UsernameTextField.text!, "password": PasswordTextField.text!, "email": EmailTextField.text!]
+            
+            // Call /api/users/register end point to create a user
             AF.request(url, method: .post, parameters: paremeter, encoding: URLEncoding.queryString).responseData { response in
                 debugPrint(response)
                 
                 switch response.result {
                 case .success(let data):
                     do {
+                        // pull the auth token and store it in user defaults
                         let asJSON = try JSONSerialization.jsonObject(with: data)
-                        if let responseDict = asJSON as? [String: Any], let dataDict = responseDict["data"] as? [String: Any], let token = dataDict["token"] as? String {
+                        if let responseDict = asJSON as? [String: Any],
+                            let dataDict = responseDict["data"] as? [String: Any],
+                            let token = dataDict["token"] as? String {
                             UserDefaults.standard.set(token, forKey: "authToken")
                         }
+                        
+                        // pass username and password to struct
                         user.username = self.UsernameTextField.text
                         user.email = self.EmailTextField.text
                     } catch {
