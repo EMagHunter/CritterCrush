@@ -20,6 +20,7 @@
 		4157DFAB29CFEE9E0066ECBA /* qns_test_2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */; };
 		4157DFAE29D153DA0066ECBA /* SingleSubmissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DFAC29D153DA0066ECBA /* SingleSubmissionCell.swift */; };
 		4157DFAF29D153DA0066ECBA /* SingleSubmissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4157DFAD29D153DA0066ECBA /* SingleSubmissionCell.xib */; };
+		4159F48029DA214800125FE1 /* IndividualReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4159F47F29DA214800125FE1 /* IndividualReport.swift */; };
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
@@ -80,6 +81,7 @@
 		4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qns_test_2.csv; sourceTree = "<group>"; };
 		4157DFAC29D153DA0066ECBA /* SingleSubmissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSubmissionCell.swift; sourceTree = "<group>"; };
 		4157DFAD29D153DA0066ECBA /* SingleSubmissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleSubmissionCell.xib; sourceTree = "<group>"; };
+		4159F47F29DA214800125FE1 /* IndividualReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualReport.swift; sourceTree = "<group>"; };
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				4157DF9629C7FA230066ECBA /* Submission.swift */,
 				4157DF8E29C6D8F60066ECBA /* ReportCell.swift */,
 				4157DF8F29C6D8F60066ECBA /* ReportCell.xib */,
+				4159F47F29DA214800125FE1 /* IndividualReport.swift */,
 				411FE64829BBC1E500329B02 /* SingleSubmissionViewController.swift */,
 				4157DFAC29D153DA0066ECBA /* SingleSubmissionCell.swift */,
 				4157DFAD29D153DA0066ECBA /* SingleSubmissionCell.xib */,
@@ -510,6 +513,7 @@
 				41E6AECC29BEED0A009031EF /* SpeciesCell.swift in Sources */,
 				4157DF9729C7FA230066ECBA /* Submission.swift in Sources */,
 				4157DF9529C7F9320066ECBA /* TestData.swift in Sources */,
+				4159F48029DA214800125FE1 /* IndividualReport.swift in Sources */,
 				F70E95B329D1654C00F1EB4A /* DataModel.swift in Sources */,
 				411FE64929BBC1E500329B02 /* SingleSubmissionViewController.swift in Sources */,
 				F77ADBDD29B5267F00045ABF /* AddressUploadViewController.swift in Sources */,
