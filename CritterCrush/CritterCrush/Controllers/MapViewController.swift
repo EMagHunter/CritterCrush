@@ -14,12 +14,20 @@ import Foundation
 import UIKit
 import MapKit
 import CoreData
+import Alamofire
+import AlamofireImage
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+            print(text)
+    }
+    
     let initialLocation = CLLocation(latitude: 40.73, longitude: -73.8181)
     
     @IBOutlet var mapView: MKMapView!
     var managedObjectContext: NSManagedObjectContext!
+    var annotationView = MKMarkerAnnotationView()
     
     
     override func viewDidLoad() {
@@ -43,41 +51,120 @@ class MapViewController: UIViewController {
             mapView.setCameraZoomRange(zoomRange, animated: true)
         
     }
-    
-    ///
+    func mapView(_ mapView: MKMapView, didSelect annotationView: MKAnnotationView) {
+        mapView.selectAnnotation(annotationView.annotation!, animated: true)
+    }
 }
 extension MapViewController: MKMapViewDelegate {
 
     func mapView( _ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
       
        //  1
-        guard annotation is Submission else {
-          
+        guard let  annotation  = annotation as? Submission else {
             return nil
+            
         }
-       //  2
-        print("Bye")
-        let identifier = "Submission1"
+        print(annotation)
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Search Report"
+        navigationItem.searchController = search
+           
+        var image = ""
+        var color = UIColor.red
+        if annotation.speciesName == "Spotted Lanternfly"{
+            image = "icon/icon_bug1"
+            color = .blue
+        }
+        else if annotation.speciesName == "Asian Longhorned Beetle"{
+            image = "icon/icon_bug2"
+            color = .red
+        }
+                else if annotation.speciesName == "Emerald ash borer"{
+                    image = "icon/icon_bug3"
+                    color = .white
+        
+                }
+                else if annotation.speciesName == "Spongy moth"{
+                    image = "icon/icon_bug4"
+                    color = .yellow
+        
+                }
+
+        let identifier = "Submission"
         var annotationView = mapView.dequeueReusableAnnotationView(
-            withIdentifier: identifier)
+            withIdentifier: identifier) as? MKMarkerAnnotationView
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+            if let url = URL(string: annotation.imageURL) {
+                AF.request(url).responseImage {
+                    response in
+                    switch response.result {
+                    case .success(let image1):
+                        imageView.image = image1
+                    case .failure(_):
+                        break
+                    }
+                }
+            }
+            annotationView?.leftCalloutAccessoryView = imageView
+            let rightButton = UIButton(type: .detailDisclosure)
+            rightButton.addTarget(self, action: #selector(showDetail(_:)), for: .touchUpInside)
+            annotationView?.rightCalloutAccessoryView = rightButton
+            
+                
+                
         }
         if let annotationView = annotationView {
+            annotationView.annotation = annotation
+            // a reference to part of the list it reference to
+            let buttonRight = annotationView.rightCalloutAccessoryView as! UIButton
+            if let index = testSLF.firstIndex(of: annotation) {
+                buttonRight.tag = index
+            }
 
-            annotationView.canShowCallout = true
-            annotationView.image = UIImage(named: "https://inaturalist-open-data.s3.amazonaws.com/photos/241037789/medium.jpg")
+            
+            
         }
         else{
             annotationView?.annotation = annotation
        }
-//        annotationView?.image = UIImage(named:"icon/icon_bug1")
-//      if let imageName = annotation.imageName {
-//          annotationView?.image = UIImage (name: imageName)
-//      }
+        let glyphImage = UIImage(named: image)
+        annotationView?.glyphImage = glyphImage
+        annotationView?.markerTintColor = color
         return annotationView
    }
+    @objc func showDetail(_ sender: UIButton) {
+        performSegue(withIdentifier: "EditReport", sender: sender)
+        
+       }
+    override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
+           if segue.identifier == "EditReport" {
+               let controller = segue.destination as! AddReportViewController
+               let buttonRight = sender as! UIButton
+               let editReport = testSLF[buttonRight.tag]
+               controller.selectedReportEdit = testSLF[buttonRight.tag]
+               controller.speciesName = editReport.speciesName
+               if let url = URL(string: editReport.imageURL) {
+                   AF.request(url).responseImage {
+                       response in
+                       switch response.result {
+                       case .success(let image1):
+                           controller.show(image: image1)
+                       case .failure(_):
+                           break
+                       }
+                   }
+               }
+
+               controller.locationLat = editReport.locationLat
+               controller.locationLon = editReport.locationLon
+               controller.title = "Edit Report"
+           }
+       }
 }
 private extension MKMapView {
   func centerToLocation(

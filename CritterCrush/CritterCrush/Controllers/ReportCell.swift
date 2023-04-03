@@ -3,7 +3,7 @@
 //  CritterCrush
 //
 //  Created by min joo on 3/19/23.
-//
+//For use in Collection View
 
 import UIKit
 
