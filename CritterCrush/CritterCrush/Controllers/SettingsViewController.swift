@@ -33,7 +33,9 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func onEdit(_ sender: Any) {}
+    @IBAction func onEdit(_ sender: Any) {
+        // test edit
+    }
     
     @IBAction func onLogout(_ sender: Any) {
         // Remove the auth token
