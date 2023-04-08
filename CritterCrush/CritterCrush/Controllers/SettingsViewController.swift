@@ -33,13 +33,11 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func onEdit(_ sender: Any) {
-        // test edit
-    }
+    @IBAction func onEdit(_ sender: Any) {}
     
     @IBAction func onLogout(_ sender: Any) {
-        // Remove the auth token
-        UserDefaults.standard.removeObject(forKey: "authToken")
+        // Remove the auth token from keychain
+        KeychainHelper.standard.delete(service: "com.crittercrush.authToken", account: "authToken")
         
         // redirect user to login screen
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -61,31 +59,29 @@ class SettingsViewController: UIViewController {
         
         let url  = "http://69.125.216.66/api/users/userprofile"
         
-        // get the auth token from user defaults
-        if let authToken = UserDefaults.standard.string(forKey: "authToken") {
-            // set the header for the AF request
-            let headers: HTTPHeaders = [
-                "Authorization": authToken
-            ]
-            
-            // call /api/users/userprofile end point to get user information
-            AF.request(url, method: .get, headers: headers).responseData { response in
-                debugPrint(response)
+        let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "\(authToken!)"
+        ]
+        
+        // call /api/users/userprofile end point to get user information
+        AF.request(url, method: .get, headers: headers).responseData { response in
+            debugPrint(response)
 
-                switch response.result {
-                case .success(let data):
-                    do {
-                        // get the email
-                        let asJSON = try JSONSerialization.jsonObject(with: data)
-                        if let data = asJSON as? [String: Any] {
-                            if let dict = data["data"] as? [String: Any], let email = dict["email"] as? String {
-                                self.userEmailLabel.text = email
-                            }
+            switch response.result {
+            case .success(let data):
+                do {
+                    // get the email and pass it to settings page
+                    let asJSON = try JSONSerialization.jsonObject(with: data)
+                    if let data = asJSON as? [String: Any] {
+                        if let dict = data["data"] as? [String: Any], let email = dict["email"] as? String {
+                            self.userEmailLabel.text = email
                         }
-                    } catch {
                     }
-                case .failure(_): break
+                } catch {
                 }
+            case .failure(_): break
             }
         }
     }

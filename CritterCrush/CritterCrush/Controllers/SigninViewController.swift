@@ -44,12 +44,13 @@ class SigninViewController: UIViewController {
                 switch response.result {
                 case .success(let data):
                     do {
-                        // pull the auth token and store it in user defaults
+//                      pull the auth token and store it in keychain
                         let asJSON = try JSONSerialization.jsonObject(with: data)
                         if let responseDict = asJSON as? [String: Any],
                             let dataDict = responseDict["data"] as? [String: Any],
                             let token = dataDict["token"] as? String {
-                            UserDefaults.standard.set(token, forKey: "authToken")
+
+                            KeychainHelper.standard.save(token, service: "com.crittercrush.authToken", account: "authToken")
                         }
                         
                         // pass username and password to struct
