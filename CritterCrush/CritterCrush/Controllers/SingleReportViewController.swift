@@ -23,22 +23,6 @@ class SingleReportViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
-        //image
-        let afLink = "https://static.inaturalist.org/photos/241063922/medium.jpg"
-        AF.request(afLink).responseImage { response in
-            debugPrint(response)
-            
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-            
-            if case .success(let image) = response.result {
-                print("image downloaded: \(image)")
-                self.reportImg.image = image
-            }
-        }
         
         self.userName.text = "USER1"
         apiReport(repID: 1){ (result: Result<IndividualReport, Error>) in
@@ -49,15 +33,31 @@ class SingleReportViewController: UIViewController{
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            self.dateLabel.text = self.indReport?.data.reportDate
+            self.dateLabel.text = self.indReport!.data.reportDate
             
             //location
-            self.locationLabel.text = "\(String(describing: self.indReport?.data.longitude)),\(String(describing: self.indReport?.data.latitude))"
+            self.locationLabel.text = "\(String(describing: self.indReport!.data.longitude)),\(String(describing: self.indReport!.data.latitude))"
+            
+            //image
+            //print(self.indReport!.data.image)
+            
+            let img = self.indReport!.data.image
+            let hostname = "69.125.216.66"
+            let url = "http://\(hostname)/api/reports/image/\(img)"
+            
+            AF.request(url).responseImage { response in
+                debugPrint(response)
+                debugPrint(response.result)
+                
+                if case .success(let image) = response.result {
+                    print("image downloaded: \(image)")
+                    self.reportImg.image = image
+                }
+            }
             
         }
         
-    }
-            
+    }//view
     
     func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
         //takes report ID of selected report
@@ -96,6 +96,9 @@ class SingleReportViewController: UIViewController{
             }
         }
     }//apiReport
+    
+    //delete report
+    // let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
     
     /*
     // MARK: - Navigation

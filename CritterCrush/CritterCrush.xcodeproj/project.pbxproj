@@ -218,6 +218,14 @@
 			name = SeeReports;
 			sourceTree = "<group>";
 		};
+		41AE478129E22CB9006E560C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F700DB3B29AD25AA00E83929 /* MapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		603F76E2936693771DDB5667 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,7 +309,7 @@
 				41AE477829E0B5DB006E560C /* Login */,
 				41AE477929E0B637006E560C /* Reports */,
 				41AE477A29E0B6E8006E560C /* Setting */,
-				F700DB3B29AD25AA00E83929 /* MapViewController.swift */,
+				41AE478129E22CB9006E560C /* Map */,
 				41AE477B29E0B71D006E560C /* Navigation */,
 				41AE477C29E0B73A006E560C /* Species */,
 				41AE477E29E0B779006E560C /* SeeReports */,

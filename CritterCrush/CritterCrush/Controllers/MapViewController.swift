@@ -125,8 +125,6 @@ extension MapViewController: MKMapViewDelegate {
             if let index = testSLF.firstIndex(of: annotation) {
                 buttonRight.tag = index
             }
-
-            
             
         }
         else{
