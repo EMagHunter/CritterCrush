@@ -7,16 +7,22 @@
 import MapKit
 import Foundation
 
-//{"reportId":1,"reportDate":"2023-03-17T13:38:22","userID":1,"speciesID":1,"numberSpecimens":1,"longitude":0,"latitude":0,"verifyTrueCount":0,"verifyFalseCount":0}
-
+// MARK: - IndividualReport
 struct IndividualReport: Codable {
+    let data: DataClass
+    let status: Int
+}
+
+// MARK: - DataClass
+struct DataClass: Codable {
     let reportId: Int
     let reportDate: String
-    let userID: Int
-    let speciesID: Int
-    let numberSpecimens: Int
-    let longitude: Float
-    let latitude: Float
-    let verifyTrueCount: Int
-    let verifyFalseCount: Int
+    let userID, speciesID, numberSpecimens, longitude: Int
+    let latitude: Int
+    let image: String
+
+    enum CodingKeys: String, CodingKey {
+        case reportId = "reportId"
+        case reportDate, userID, speciesID, numberSpecimens, longitude, latitude, image
+    }
 }
