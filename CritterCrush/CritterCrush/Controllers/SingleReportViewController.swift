@@ -49,8 +49,10 @@ class SingleReportViewController: UIViewController{
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            self.dateLabel.text = self.indReport?.reportDate
-            self.locationLabel.text = "\(String(describing: self.indReport?.longitude)),\(String(describing: self.indReport?.latitude))"
+            self.dateLabel.text = self.indReport?.data.reportDate
+            
+            //location
+            self.locationLabel.text = "\(String(describing: self.indReport?.data.longitude)),\(String(describing: self.indReport?.data.latitude))"
             
         }
         
@@ -60,7 +62,8 @@ class SingleReportViewController: UIViewController{
     func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
         //takes report ID of selected report
         //uses
-        let url = "http://69.125.216.66/api/reports/\(repID)"
+        let hostname = "69.125.216.66"
+        let url = "http://\(hostname)/api/reports/\(repID)"
         
         // make the GET request using Alamofire
         AF.request(url, method:.get, encoding:URLEncoding.queryString).responseData { response in
@@ -70,6 +73,9 @@ class SingleReportViewController: UIViewController{
                 do {
                     
                     print("Data retrieved: \(data)")
+                    if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+                       print(JSONString)
+                    }
                     
                     do {
                         let decoder = JSONDecoder()
