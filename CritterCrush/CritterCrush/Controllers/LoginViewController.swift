@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
             ResultLabel.text = "Please enter password"
             return
         }
-        
-        let url  = "http://69.125.216.66/api/users/login"
+        let hostname = "69.125.216.66"
+        let url  = "http://\(hostname)/api/users/login"
         let paremeter = ["username": username, "password": password]
         
         // Call /api/users/login end point
