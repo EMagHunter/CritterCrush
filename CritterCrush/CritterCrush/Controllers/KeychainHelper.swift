@@ -34,7 +34,7 @@ final class KeychainHelper {
             kSecAttrService: service,
             kSecAttrAccount: account,
             kSecClass: kSecClassGenericPassword
-        ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
 
         // Add data in query to keychain
         let status = SecItemAdd(query, nil)
@@ -45,7 +45,7 @@ final class KeychainHelper {
                 kSecAttrService: service,
                 kSecAttrAccount: account,
                 kSecClass: kSecClassGenericPassword,
-            ] as CFDictionary
+            ] as [CFString : Any] as CFDictionary
 
             let attributesToUpdate = [kSecValueData: data] as CFDictionary
 
@@ -61,7 +61,7 @@ final class KeychainHelper {
             kSecAttrAccount: account,
             kSecClass: kSecClassGenericPassword,
             kSecReturnData: true
-        ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
         
         var result: AnyObject?
         SecItemCopyMatching(query, &result)
@@ -75,7 +75,7 @@ final class KeychainHelper {
             kSecAttrService: service,
             kSecAttrAccount: account,
             kSecClass: kSecClassGenericPassword,
-            ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
         
         // Delete item from keychain
         SecItemDelete(query)
@@ -112,5 +112,4 @@ extension KeychainHelper {
             return nil
         }
     }
-    
 }
