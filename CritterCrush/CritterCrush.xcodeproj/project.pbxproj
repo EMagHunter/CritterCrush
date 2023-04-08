@@ -22,6 +22,7 @@
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
+		41AE478029E0BC57006E560C /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE477F29E0BC57006E560C /* KeychainHelper.swift */; };
 		41E6AECC29BEED0A009031EF /* SpeciesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6AECA29BEED0A009031EF /* SpeciesCell.swift */; };
 		41E6AECD29BEED0A009031EF /* SpeciesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E6AECB29BEED0A009031EF /* SpeciesCell.xib */; };
 		5A0776897B4B5D0E9457A61C /* Pods_CritterCrush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FF08653469CC622A37B258 /* Pods_CritterCrush.framework */; };
@@ -81,6 +82,7 @@
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		41AE477F29E0BC57006E560C /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		41E6AECA29BEED0A009031EF /* SpeciesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesCell.swift; sourceTree = "<group>"; };
 		41E6AECB29BEED0A009031EF /* SpeciesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeciesCell.xib; sourceTree = "<group>"; };
 		60AB81438588CF65EBC9CCB4 /* Pods-CritterCrushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrushTests.release.xcconfig"; path = "Target Support Files/Pods-CritterCrushTests/Pods-CritterCrushTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				F7E6D96D29A49B0F00A5CE3E /* SigninViewController.swift */,
 				F7E6D96B29A4873400A5CE3E /* LoginViewController.swift */,
+				41AE477F29E0BC57006E560C /* KeychainHelper.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				F77ADBD929B5254100045ABF /* SpeciesViewController.swift in Sources */,
 				F7E6D96E29A49B0F00A5CE3E /* SigninViewController.swift in Sources */,
 				41E6AECC29BEED0A009031EF /* SpeciesCell.swift in Sources */,
+				41AE478029E0BC57006E560C /* KeychainHelper.swift in Sources */,
 				4157DF9729C7FA230066ECBA /* Submission.swift in Sources */,
 				4159F48629DA6C1B00125FE1 /* SingleReportViewController.swift in Sources */,
 				4157DF9529C7F9320066ECBA /* TestData.swift in Sources */,

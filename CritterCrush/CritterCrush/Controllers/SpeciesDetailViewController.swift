@@ -1,10 +1,6 @@
 //
 //  SpeciesDetailViewController.swift
 //  CritterCrush
-//horizontal gallery:
-//https://github.com/zhiyao92/Horizontal-Sliding-Image
-//images:
-//https://www.dec.ny.gov/animals/113303.html
 //  Created by min joo on 3/9/23.
 //
 
