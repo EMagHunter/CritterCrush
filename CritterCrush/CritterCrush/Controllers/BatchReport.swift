@@ -20,7 +20,8 @@ class BatchReport:NSObject {
         let reports = [IndividualReport]()
         
         //use apiReport to return report
-        
+        //only if unwrapped
+        //http://69.125.216.66/api/reports?userid=1
         
         return reports
     } //get report, return array
