@@ -26,11 +26,12 @@ class BatchReport:NSObject {
         return reports
     } //get report, return array
     
-    func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
+    func apiReport(userID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
         //takes report ID of selected report
         //uses
         let hostname = "69.125.216.66"
-        let url = "http://\(hostname)/api/reports/\(repID)"
+        let param = userID
+        let url = "http://\(hostname)/api/reports"
         
         // make the GET request using Alamofire
         AF.request(url, method:.get, encoding:URLEncoding.queryString).responseData { response in
