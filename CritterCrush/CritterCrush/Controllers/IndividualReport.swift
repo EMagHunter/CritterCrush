@@ -17,8 +17,9 @@ struct IndividualReport: Codable {
 struct DataClass: Codable {
     let reportId: Int
     let reportDate: String
-    let userID, speciesID, numberSpecimens, longitude: Int
-    let latitude: Int
+    let userID, speciesID, numberSpecimens: Int
+    let longitude: Double
+    let latitude: Double
     let image: String
 
     enum CodingKeys: String, CodingKey {
