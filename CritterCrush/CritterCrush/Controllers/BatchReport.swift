@@ -13,7 +13,7 @@ import Alamofire
 //use individual report
 
 class BatchReport:NSObject {
-    
+    var batchReport:ParseBatch?
     //get reports using API call
     //last 5 days
     func getReports() -> Array<IndividualReport> {
@@ -23,18 +23,32 @@ class BatchReport:NSObject {
         //only if unwrapped
         //http://69.125.216.66/api/reports?userid=1
         
+        apiReport(userID: 1){ (result: Result<ParseBatch, Error>) in
+            switch result {
+            case .success(let report):
+                batchReport = report
+                print(report)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+            print(self.batchReport!.data[0])
+            
+            
+        }//apiReport(userID)
+
         return reports
     } //get report, return array
     
-    func apiReport(userID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
+    func apiReport(userID: Int, completionHandler: @escaping (Result<ParseBatch, Error>) -> Void) {
         //takes report ID of selected report
         //uses
         let hostname = "69.125.216.66"
-        let param = userID
+        let param = ["userid":userID]
         let url = "http://\(hostname)/api/reports"
         
         // make the GET request using Alamofire
-        AF.request(url, method:.get, encoding:URLEncoding.queryString).responseData { response in
+        AF.request(url, method:.get, parameters: param,  encoding:URLEncoding.queryString).responseData { response in
             //debugPrint(response)
             switch response.result {
             case .success(let data):
@@ -48,7 +62,7 @@ class BatchReport:NSObject {
                     do {
                         let decoder = JSONDecoder()
                         
-                        let result = try decoder.decode(IndividualReport.self, from: data)
+                        let result = try decoder.decode(ParseBatch.self, from: data)
                         DispatchQueue.main.async {
                             completionHandler(.success(result))
                         }

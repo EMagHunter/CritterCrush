@@ -34,9 +34,7 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
         super.viewDidLoad()
         
         mapView.centerToLocation(initialLocation)
-        for bug in testSLF {
-            mapView.addAnnotation(bug)
-        }
+        
         
         let nycCenter = CLLocation(latitude: 40.73, longitude: -73.8181)
             let region = MKCoordinateRegion(
@@ -50,11 +48,20 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
             let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
             mapView.setCameraZoomRange(zoomRange, animated: true)
         
-    }
+        //TEST DATA
+        for bug in testSLF {
+            mapView.addAnnotation(bug)
+        }
+        
+    } //viewload
+    
+    
     func mapView(_ mapView: MKMapView, didSelect annotationView: MKAnnotationView) {
         mapView.selectAnnotation(annotationView.annotation!, animated: true)
-    }
+    }//mapView
+    
 }
+
 extension MapViewController: MKMapViewDelegate {
 
     func mapView( _ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -65,12 +72,18 @@ extension MapViewController: MKMapViewDelegate {
             
         }
         print(annotation)
+        
+        //MARK: Search
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search Report"
         navigationItem.searchController = search
-           
+        
+        //USE species list to grab name
+       // let speciesList = [SLF,ALB,EAB,SPM]
+        
+        //MARK: Icon
         var image = ""
         var color = UIColor.red
         if annotation.speciesName == "Spotted Lanternfly"{
@@ -135,10 +148,12 @@ extension MapViewController: MKMapViewDelegate {
         annotationView?.markerTintColor = color
         return annotationView
    }
+    
     @objc func showDetail(_ sender: UIButton) {
         performSegue(withIdentifier: "EditReport", sender: sender)
         
        }
+    //MARK: EditReport open
     override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
            if segue.identifier == "EditReport" {
                let controller = segue.destination as! AddReportViewController
@@ -162,8 +177,9 @@ extension MapViewController: MKMapViewDelegate {
                controller.locationLon = editReport.locationLon
                controller.title = "Edit Report"
            }
-       }
+       } //edit report segue
 }
+
 private extension MKMapView {
   func centerToLocation(
     _ location: CLLocation,
