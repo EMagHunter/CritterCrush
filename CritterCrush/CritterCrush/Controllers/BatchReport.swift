@@ -26,7 +26,7 @@ class BatchReport:NSObject {
         apiReport(userID: 1){ (result: Result<ParseBatch, Error>) in
             switch result {
             case .success(let report):
-                batchReport = report
+               // batchReport = report
                 print(report)
             case .failure(let error):
                 print(error.localizedDescription)

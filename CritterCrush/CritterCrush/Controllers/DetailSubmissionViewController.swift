@@ -14,16 +14,19 @@ import AlamofireImage
 
 import UIKit
 import MapKit
-
+//STRUCT TO PASS REPORTS
+struct bugReport{
+    var subID: Int = 0 //report ID
+    var bugID: Int = 0 //bugID
+    var subDate: String
+    //we only need report ID
+    var reportImage:Image!
+    var reportLocationText = ""
+    
+}
 class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource{
     
-    //STRUCT TO PASS REPORTS
-    struct bugReport{
-        var subID: Int = 0 //report ID
-        var bugID: Int = 0 //bugID
-        var subDate: String
-        //we only need report ID
-    }
+  
     //
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var speciesName: UILabel!
@@ -34,6 +37,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     var titleStringViaSegue: String!
     var bugID: Int!
     var selectedBug: bugReport!
+    var reportImageHolder:Image!
     
     override func viewDidLoad() {
         addTopView()
@@ -89,10 +93,12 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReportCell", for: indexPath) as! ReportCell
         
         let labelDate = testSLF[indexPath.row].reportDate
+        
         let bug = testSLF[indexPath.row]
         
+        
         //update labels and images
-        print(labelDate)
+        //print(labelDate)
         cell.dateLabel?.text = labelDate
         if self.speciesName.text == "Spotted lanternfly"{
             cell.backgroundImage.image = UIImage(named: "backgroundFrame_bug1")
@@ -109,15 +115,16 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         cell.backgroundImage.contentMode = .scaleToFill
         let afLink = bug.imageURL
         AF.request(afLink).responseImage { response in
-            debugPrint(response)
+            //debugPrint(response)
 
            // print(response.request)
             //print(response.response)
            // debugPrint(response.result)
 
             if case .success(let image) = response.result {
-                print("image downloaded: \(image)")
+               // print("image downloaded: \(image)")
                 cell.reportImg?.image = image
+                //self.reportImageHolder = image
             }
         }
         
@@ -129,10 +136,12 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     
     // MARK: - Navigation
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    
         let bug = testSLF[indexPath.item]
-        
-        selectedBug = bugReport(subID:bug.reportID, bugID:bug.speciesID, subDate:bug.reportDate)
+        let selectedLocationText = "\(String(describing: bug.locationLon)),\(String(describing: bug.locationLat))"
+        let cell = collectionView.cellForItem(at: indexPath) as! ReportCell
+        selectedBug = bugReport(subID:bug.reportID, bugID:bugID, subDate:bug.reportDate,reportImage: cell.reportImg.image, reportLocationText: selectedLocationText)
+       
         
         let singleSegue = "showSingleReport"
         
@@ -147,6 +156,10 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         if segue.identifier == singleSegue {
             if let destVC = segue.destination as? SingleReportViewController {
                 destVC.selectedReportID = selectedBug.bugID
+                destVC.selectedReport = selectedBug
+                destVC.nameSpeciesHolder = titleStringViaSegue
+                
+        
             }
         }
     }
