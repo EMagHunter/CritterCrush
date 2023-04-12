@@ -24,9 +24,10 @@ struct bugReport{
     var reportLocationText = ""
     
 }
+
+
 class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource{
     
-  
     //
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var speciesName: UILabel!
@@ -38,6 +39,10 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     var bugID: Int!
     var selectedBug: bugReport!
     var reportImageHolder:Image!
+    
+    //API CALL
+    let batch = BatchReport()
+    var batchReports:[Datum] = []
     
     override func viewDidLoad() {
         addTopView()
@@ -54,7 +59,25 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     
         // Do any additional setup after loading the view.
         
-    }
+        
+        batch.apiReport(userID: 1){ [self] (result: Result<ParseBatch, Error>) in
+            switch result {
+            case .success(let report):
+                self.batch.batchReport = report
+                print(report)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            batchReports = self.batch.batchReport!.data
+            print("Update: \(batchReports[0])")
+            self.collectionView.reloadData()
+        }//apiReport(userID)
+
+        
+        //get the batch report
+    }//view did load
+    
+    
     func addTopView(){
         
         self.speciesName.text = self.titleStringViaSegue
@@ -81,25 +104,31 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     //MARK:
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testSLF.count
+        
+        return batchReports.count
+        
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // @IBOutlet weak var reportImg: UIImageView!
         //@IBOutlet weak var dateLabel: UILabel!
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReportCell", for: indexPath) as! ReportCell
         
-        let labelDate = testSLF[indexPath.row].reportDate
+        let labelDate = batchReports[indexPath.row].reportDate
         
-        let bug = testSLF[indexPath.row]
+        let bug = batchReports[indexPath.row]
         
         
         //update labels and images
         //print(labelDate)
         cell.dateLabel?.text = labelDate
+        
+        cell.backgroundImage.image = UIImage(named:"backgroundFrame_bug\(self.bugID!)")
+        /*
         if self.speciesName.text == "Spotted lanternfly"{
             cell.backgroundImage.image = UIImage(named: "backgroundFrame_bug1")
         }else if speciesName.text == "Asian longhorned beetle"{
@@ -111,22 +140,22 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
             }
         else if speciesName.text == "Spongy moth"{
                 cell.backgroundImage.image = UIImage(named: "backgroundFrame_bug4")
-        }
+        } */
+        
+        //MARK: Image
+        
         cell.backgroundImage.contentMode = .scaleToFill
-        let afLink = bug.imageURL
+        let imgName = bug.image
+        let hostName =   "69.125.216.66"
+        let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
         AF.request(afLink).responseImage { response in
-            //debugPrint(response)
-
-           // print(response.request)
-            //print(response.response)
-           // debugPrint(response.result)
-
+            
             if case .success(let image) = response.result {
                // print("image downloaded: \(image)")
                 cell.reportImg?.image = image
                 //self.reportImageHolder = image
             }
-        }
+        } //image
         
         
         //get bug.id into navigation segue
@@ -137,10 +166,11 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     // MARK: - Navigation
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-        let bug = testSLF[indexPath.item]
-        let selectedLocationText = "\(String(describing: bug.locationLon)),\(String(describing: bug.locationLat))"
+        let bug = batchReports[indexPath.item]
+        
+        let selectedLocationText = "\(String(describing: bug.longitude)),\(String(describing: bug.latitude))"
         let cell = collectionView.cellForItem(at: indexPath) as! ReportCell
-        selectedBug = bugReport(subID:bug.reportID, bugID:bugID, subDate:bug.reportDate,reportImage: cell.reportImg.image, reportLocationText: selectedLocationText)
+        selectedBug = bugReport(subID:bug.reportID, bugID:bug.speciesID, subDate:bug.reportDate,reportImage: cell.reportImg.image, reportLocationText: selectedLocationText)
        
         
         let singleSegue = "showSingleReport"

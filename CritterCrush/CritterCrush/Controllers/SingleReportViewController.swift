@@ -106,7 +106,7 @@ class SingleReportViewController: UIViewController{
        
         
         
-    }
+    }//style
     func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
         //takes report ID of selected report
         //uses
