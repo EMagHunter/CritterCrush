@@ -10,9 +10,11 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var speciesName: UILabel!
     
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bugDescribe: UILabel!
     
     var titleStringViaSegue: String!
@@ -32,7 +34,7 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         
         self.speciesName.text = self.titleStringViaSegue
         
-        
+        scrollView.delegate = self
         if (bugID == 1){
             //images = ["id_species\(bugID)_1","id_species\(bugID)_2","id_species\(bugID)_3"]
             images = ["id_species1_1","id_species1_2","id_species1_3"]
@@ -49,17 +51,48 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
             
             let imageView = UIImageView(frame: frame)
             imageView.image = UIImage(named: images[index])
+           
             self.scrollView.addSubview(imageView)
+            self.scrollView.contentMode = .scaleAspectFill
+            
         }
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(images.count), height: scrollView.frame.size.height)
         scrollView.delegate = self
         //SCROLL
-        
+
         apiURL = wikiMedia()
         apiCall(url:apiURL!)
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = 3
+        //self.scrollView.bringSubviewToFront(pageControl)
+        style()
         
     }
-    
+    func style(){
+        self.scrollView.contentMode = .scaleAspectFill
+        self.scrollView.layer.masksToBounds = true
+        self.scrollView.layer.cornerRadius = 10
+        self.scrollView.contentMode = .scaleAspectFill
+        
+        //self.topView.backgroundColor = UIColor(red: 0.98, green: 0.6, blue: 0.52, alpha: 1)
+        self.topView.layer.shadowColor = UIColor.black.cgColor
+        self.topView.layer.shadowOpacity = 0.3
+        self.topView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.topView.layer.shadowRadius = 15
+        self.topView.layer.cornerRadius = 20
+        self.topView.layer.masksToBounds = false
+        //view.backgroundColor = UIColor(red: 1, green: 0.9, blue: 0.79, alpha: 1)
+        
+        
+
+
+        
+
+        
+        
+        
+        
+    }
     //Image scrolling
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var page = scrollView.contentOffset.x/scrollView.frame.size.width
