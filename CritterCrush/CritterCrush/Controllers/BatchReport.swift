@@ -16,8 +16,7 @@ class BatchReport:NSObject {
     var batchReport:ParseBatch?
     //get reports using API call
     //last 5 days
-    func getReports() -> Array<IndividualReport> {
-        let reports = [IndividualReport]()
+    func getReports() {
         
         //use apiReport to return report
         //only if unwrapped
@@ -26,19 +25,20 @@ class BatchReport:NSObject {
         apiReport(userID: 1){ (result: Result<ParseBatch, Error>) in
             switch result {
             case .success(let report):
-               // batchReport = report
+                self.batchReport = report
                 print(report)
             case .failure(let error):
                 print(error.localizedDescription)
             }
             
-            print(self.batchReport!.data[0])
+            print("FIRST DATA: \(self.batchReport!.data[0].reportID)")
             
+            print("Second DATA: \(self.batchReport!.data[1])")
             
         }//apiReport(userID)
 
-        return reports
     } //get report, return array
+    
     
     func apiReport(userID: Int, completionHandler: @escaping (Result<ParseBatch, Error>) -> Void) {
         //takes report ID of selected report
