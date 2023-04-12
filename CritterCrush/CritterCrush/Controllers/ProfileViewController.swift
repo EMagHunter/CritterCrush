@@ -61,7 +61,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          cell.iconImage.image = UIImage(named: imgName)
          
          return cell
-     }     
+     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0;
+    }
 
      // MARK: - Navigation
     
