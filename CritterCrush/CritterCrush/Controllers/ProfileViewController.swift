@@ -61,8 +61,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          cell.iconImage.image = UIImage(named: imgName)
          
          return cell
-     }
-     
+     }     
 
      // MARK: - Navigation
     
