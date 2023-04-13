@@ -104,6 +104,9 @@ extension MapViewController: MKMapViewDelegate {
                     color = .yellow
         
                 }
+        
+        
+        
 
         let identifier = "Submission"
         var annotationView = mapView.dequeueReusableAnnotationView(

@@ -53,7 +53,7 @@ class SpeciesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.scienceLabel.text = speciesList[indexPath.row].science
         
-        let imgName = "icon/icon_bug\(speciesList[indexPath.row].id)"
+        let imgName = "bugicon\(speciesList[indexPath.row].id)"
         cell.iconImage.image = UIImage(named: imgName)
         
         return cell
