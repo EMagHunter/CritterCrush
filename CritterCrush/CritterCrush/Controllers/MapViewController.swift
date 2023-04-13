@@ -29,7 +29,11 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     var managedObjectContext: NSManagedObjectContext!
     var annotationView = MKMarkerAnnotationView()
     
+    //API CALL
+    let batch = BatchReport()
+    var batchReports:[Datum] = []
     
+    //view
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,10 +52,29 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
             let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
             mapView.setCameraZoomRange(zoomRange, animated: true)
         
+        //API Call
+        
+        batch.mapApiReport(mapNo: 20){ [self] (result: Result<ParseBatch, Error>) in
+            switch result {
+            case .success(let report):
+                self.batch.batchReport = report
+                print(report)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            batchReports = self.batch.batchReport!.data
+            print("Update: \(batchReports[0])")
+            
+           // self.mapView.reloadData()
+        }//apiReport(userID)
+
+        
         //TEST DATA
         for bug in testSLF {
             mapView.addAnnotation(bug)
         }
+        
+        
         
     } //viewload
     
@@ -88,20 +111,20 @@ extension MapViewController: MKMapViewDelegate {
         var color = UIColor.red
         if annotation.speciesName == "Spotted Lanternfly"{
             image = "icon/icon_bug1"
-            color = .blue
+            color = speciesList[0].color
         }
         else if annotation.speciesName == "Asian Longhorned Beetle"{
             image = "icon/icon_bug2"
-            color = .red
+            color = speciesList[1].color
         }
                 else if annotation.speciesName == "Emerald ash borer"{
                     image = "icon/icon_bug3"
-                    color = .white
+                    color = speciesList[2].color
         
                 }
                 else if annotation.speciesName == "Spongy moth"{
                     image = "icon/icon_bug4"
-                    color = .yellow
+                    color = speciesList[3].color
         
                 }
 
