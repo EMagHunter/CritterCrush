@@ -74,15 +74,11 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.layer.cornerRadius = 10
         self.scrollView.contentMode = .scaleAspectFill
         
-        //self.topView.backgroundColor = UIColor(red: 0.98, green: 0.6, blue: 0.52, alpha: 1)
         self.topView.layer.shadowColor = UIColor.black.cgColor
         self.topView.layer.shadowOpacity = 0.3
         self.topView.layer.shadowOffset = CGSize(width: 0, height: 5)
         self.topView.layer.shadowRadius = 15
         self.topView.layer.cornerRadius = 20
-        self.topView.layer.masksToBounds = false
-        //view.backgroundColor = UIColor(red: 1, green: 0.9, blue: 0.79, alpha: 1)
-        
         
 
 
