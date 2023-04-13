@@ -1102,19 +1102,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUF-a8-0xk">
-                                <rect key="frame" x="14" y="75" width="365" height="361"/>
+                                <rect key="frame" x="14" y="75" width="365" height="377"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4u-20-1dV">
-                                        <rect key="frame" x="0.0" y="-17" width="365" height="394"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="377"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="V4u-20-1dV" firstAttribute="trailing" secondItem="yUF-a8-0xk" secondAttribute="trailingMargin" constant="8" id="7Fj-ea-Dao"/>
                                     <constraint firstItem="V4u-20-1dV" firstAttribute="leading" secondItem="yUF-a8-0xk" secondAttribute="leading" id="OIT-Ii-Ewe"/>
-                                    <constraint firstItem="V4u-20-1dV" firstAttribute="top" secondItem="yUF-a8-0xk" secondAttribute="top" constant="-17" id="gPJ-eh-R1u"/>
+                                    <constraint firstItem="V4u-20-1dV" firstAttribute="top" secondItem="yUF-a8-0xk" secondAttribute="top" id="gPJ-eh-R1u"/>
                                     <constraint firstItem="V4u-20-1dV" firstAttribute="leading" secondItem="yUF-a8-0xk" secondAttribute="leading" id="iez-7i-nHt"/>
-                                    <constraint firstItem="V4u-20-1dV" firstAttribute="centerY" secondItem="yUF-a8-0xk" secondAttribute="centerY" constant="-0.5" id="nV7-ce-ygO"/>
+                                    <constraint firstItem="V4u-20-1dV" firstAttribute="centerY" secondItem="yUF-a8-0xk" secondAttribute="centerY" id="nV7-ce-ygO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1124,7 +1124,7 @@
                             <constraint firstItem="Yzl-es-AG4" firstAttribute="trailing" secondItem="REE-jo-EA3" secondAttribute="trailing" constant="22" id="5S4-La-kwN"/>
                             <constraint firstItem="yUF-a8-0xk" firstAttribute="leading" secondItem="Yzl-es-AG4" secondAttribute="leading" constant="14" id="8I0-LY-Zu8"/>
                             <constraint firstItem="yUF-a8-0xk" firstAttribute="top" secondItem="Yzl-es-AG4" secondAttribute="top" constant="31" id="9rB-2u-l7b"/>
-                            <constraint firstItem="REE-jo-EA3" firstAttribute="top" secondItem="yUF-a8-0xk" secondAttribute="bottom" constant="46" id="HkE-tb-kCn"/>
+                            <constraint firstItem="REE-jo-EA3" firstAttribute="top" secondItem="yUF-a8-0xk" secondAttribute="bottom" constant="30" id="HkE-tb-kCn"/>
                             <constraint firstItem="yUF-a8-0xk" firstAttribute="centerX" secondItem="REE-jo-EA3" secondAttribute="centerX" id="vCG-py-HSt"/>
                             <constraint firstItem="REE-jo-EA3" firstAttribute="leading" secondItem="Yzl-es-AG4" secondAttribute="leading" constant="22" id="vD4-Dc-wvE"/>
                             <constraint firstItem="Yzl-es-AG4" firstAttribute="bottom" secondItem="REE-jo-EA3" secondAttribute="bottom" constant="79" id="xbI-Vi-vnZ"/>
@@ -1402,10 +1402,10 @@
             </objects>
             <point key="canvasLocation" x="1101.5267175572519" y="2214.7887323943664"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="TQe-uw-L9L">
             <objects>
-                <tabBarController storyboardIdentifier="tabbar" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="NUe-Cm-v35" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="NUe-Cm-v35" customClass="TabBarViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZGp-G8-Nkf"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4eo-eQ-XZ1">
@@ -1414,6 +1414,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBAR" destination="4eo-eQ-XZ1" id="3mH-gt-XHU"/>
                         <segue destination="xZv-0W-0wv" kind="relationship" relationship="viewControllers" id="Zjg-AE-V6j"/>
                         <segue destination="Bme-ki-p7k" kind="relationship" relationship="viewControllers" id="1cI-vP-a5v"/>
                         <segue destination="vud-gu-xlU" kind="relationship" relationship="viewControllers" id="KOG-B6-bN0"/>
@@ -1696,7 +1697,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mE5-pP-MiW"/>
-        <segue reference="gFk-Ta-dGx"/>
+        <segue reference="a04-oL-Tzu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ant" catalog="system" width="106" height="128"/>
