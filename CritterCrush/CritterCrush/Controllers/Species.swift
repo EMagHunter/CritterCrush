@@ -22,13 +22,13 @@ class Species: NSObject {
     var id: Int
     var color: UIColor
 
-    let salmon = UIColor(red: 0.89, green: 0.62, blue: 0.55, alpha: 1.00)
+    let salmon = UIColor(red: 1.00, green: 0.54, blue: 0.53, alpha: 1.00)
         
-    let mustard = UIColor(red: 0.88, green: 0.65, blue: 0.51, alpha: 1.00)
+    let mustard = UIColor(red: 0.96, green: 0.64, blue: 0.38, alpha: 1.00)
         
-    let periwinkle = UIColor(red: 0.59, green: 0.72, blue: 0.81, alpha: 1.00)
+    let periwinkle = UIColor(red: 0.59, green: 0.69, blue: 0.97, alpha: 1.00)
         
-    let jade = UIColor(red: 0.55, green: 0.65, blue: 0.64, alpha: 1.00)
+    let jade = UIColor(red: 0.49, green: 0.70, blue: 0.58, alpha: 1.00)
     
     //initialize
     init(name: String, science: String, id: Int){
