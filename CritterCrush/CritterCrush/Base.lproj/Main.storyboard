@@ -750,16 +750,21 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjT-r4-fFA">
                                                     <rect key="frame" x="20" y="11" width="113" height="94"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-DS-kIU">
                                                     <rect key="frame" x="141" y="11" width="61" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iwC-DS-kIU" firstAttribute="leading" secondItem="gjT-r4-fFA" secondAttribute="trailing" constant="8" id="BGd-ke-w21"/>
+                                                <constraint firstItem="iwC-DS-kIU" firstAttribute="top" secondItem="gjT-r4-fFA" secondAttribute="top" id="BNU-9k-eFF"/>
+                                                <constraint firstItem="iwC-DS-kIU" firstAttribute="top" secondItem="lZn-c1-PQ2" secondAttribute="topMargin" id="IAf-yw-cmB"/>
+                                                <constraint firstItem="iwC-DS-kIU" firstAttribute="leading" secondItem="lZn-c1-PQ2" secondAttribute="leading" constant="141" id="NeO-Zj-bi7"/>
+                                                <constraint firstItem="iwC-DS-kIU" firstAttribute="leading" secondItem="gjT-r4-fFA" secondAttribute="trailing" constant="8" symbolic="YES" id="m2c-NT-bmV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="zgM-AU-ALk" kind="show" identifier="showDetailReport" id="w8w-6J-tc5"/>
@@ -816,8 +821,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTf-CJ-goo">
-                                <rect key="frame" x="342" y="44" width="51" height="34.333333333333343"/>
-                                <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
+                                <rect key="frame" x="141" y="149" width="132" height="39"/>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.3921568627" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="WH8-Cl-PLE"/>
+                                    <constraint firstAttribute="width" constant="132" id="pSa-ZL-eYu"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system" title="  Settings"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="lQE-U6-hhh" kind="show" id="Wve-ww-PMp"/>
                                 </connections>
@@ -826,16 +842,15 @@
                         <viewLayoutGuide key="safeArea" id="aWE-Br-aIE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gTf-CJ-goo" firstAttribute="trailing" secondItem="aWE-Br-aIE" secondAttribute="trailing" id="013-pS-ipt"/>
                             <constraint firstItem="aWE-Br-aIE" firstAttribute="trailing" secondItem="u25-de-1ny" secondAttribute="trailing" constant="286" id="0G6-e2-9zk"/>
                             <constraint firstItem="TV6-Ge-2g5" firstAttribute="leading" secondItem="Y1H-A8-heU" secondAttribute="trailing" constant="32" id="16I-XK-eJs"/>
                             <constraint firstItem="fra-sz-020" firstAttribute="bottom" secondItem="aWE-Br-aIE" secondAttribute="bottom" constant="10" id="2Tf-7x-PJk"/>
+                            <constraint firstItem="gTf-CJ-goo" firstAttribute="top" secondItem="Y1H-A8-heU" secondAttribute="bottom" constant="34" id="2xD-46-kuh"/>
                             <constraint firstItem="BAH-6a-60I" firstAttribute="leading" secondItem="aWE-Br-aIE" secondAttribute="leading" id="5K9-ob-KCa"/>
                             <constraint firstItem="TV6-Ge-2g5" firstAttribute="top" secondItem="QRW-2N-h1L" secondAttribute="bottom" constant="9" id="8Fd-Zw-YQc"/>
                             <constraint firstItem="BAH-6a-60I" firstAttribute="trailing" secondItem="aWE-Br-aIE" secondAttribute="trailing" id="8s4-yn-CwB"/>
                             <constraint firstItem="fra-sz-020" firstAttribute="leading" secondItem="BAH-6a-60I" secondAttribute="leading" id="9BD-tA-hbM"/>
                             <constraint firstItem="aWE-Br-aIE" firstAttribute="trailing" secondItem="QRW-2N-h1L" secondAttribute="trailing" constant="73" id="ANV-rf-lUX"/>
-                            <constraint firstItem="gTf-CJ-goo" firstAttribute="top" secondItem="aWE-Br-aIE" secondAttribute="top" id="E6q-kI-JLe"/>
                             <constraint firstItem="u25-de-1ny" firstAttribute="leading" secondItem="aWE-Br-aIE" secondAttribute="leading" constant="34" id="FPt-kx-C76"/>
                             <constraint firstItem="67I-Hp-JLk" firstAttribute="leading" secondItem="aWE-Br-aIE" secondAttribute="leading" constant="16" id="FYq-6t-dHC"/>
                             <constraint firstItem="Y1H-A8-heU" firstAttribute="leading" secondItem="67I-Hp-JLk" secondAttribute="trailing" constant="25" id="IN3-7W-noq"/>
@@ -843,7 +858,9 @@
                             <constraint firstItem="fra-sz-020" firstAttribute="trailing" secondItem="BAH-6a-60I" secondAttribute="trailing" id="ODQ-fw-Bwv"/>
                             <constraint firstItem="Y1H-A8-heU" firstAttribute="top" secondItem="ERY-CO-3Ou" secondAttribute="bottom" constant="8" symbolic="YES" id="Q6j-ks-Gpq"/>
                             <constraint firstItem="QRW-2N-h1L" firstAttribute="leading" secondItem="ERY-CO-3Ou" secondAttribute="trailing" constant="81" id="QBg-BN-QWR"/>
+                            <constraint firstItem="gTf-CJ-goo" firstAttribute="leading" secondItem="u25-de-1ny" secondAttribute="trailing" constant="34" id="Ryx-Bm-v6L"/>
                             <constraint firstItem="ERY-CO-3Ou" firstAttribute="leading" secondItem="67I-Hp-JLk" secondAttribute="trailing" constant="52" id="XTi-MR-fBM"/>
+                            <constraint firstItem="aWE-Br-aIE" firstAttribute="trailing" secondItem="gTf-CJ-goo" secondAttribute="trailing" constant="120" id="Yxb-C0-rxR"/>
                             <constraint firstItem="BAH-6a-60I" firstAttribute="top" secondItem="u25-de-1ny" secondAttribute="bottom" constant="24" id="Yza-cz-nwY"/>
                             <constraint firstItem="67I-Hp-JLk" firstAttribute="top" secondItem="aWE-Br-aIE" secondAttribute="top" constant="10" id="ZBb-n5-axn"/>
                             <constraint firstItem="ERY-CO-3Ou" firstAttribute="top" secondItem="aWE-Br-aIE" secondAttribute="top" constant="25" id="abu-Ze-zOg"/>
@@ -1179,14 +1196,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t74-Tb-aNx">
-                                <rect key="frame" x="146" y="146" width="120" height="34.333333333333343"/>
+                                <rect key="frame" x="146" y="146" width="120" height="35"/>
                                 <color key="backgroundColor" red="0.35294117650000001" green="0.3921568627" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system" title="  Edit"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="17"/>
+                                        <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -1251,7 +1268,7 @@
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Delete Data"/>
+                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title="  Delete Data"/>
                                 <connections>
                                     <action selector="onDelete:" destination="lQE-U6-hhh" eventType="touchUpInside" id="6Tw-cx-hrQ"/>
                                 </connections>
@@ -1265,7 +1282,7 @@
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
+                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="  Log Out"/>
                                 <connections>
                                     <action selector="onLogout:" destination="lQE-U6-hhh" eventType="touchUpInside" id="aJa-q1-kg9"/>
                                 </connections>
@@ -1716,10 +1733,12 @@
         <image name="icon/icons8-moon-and-stars-30" width="30" height="30"/>
         <image name="icon/icons8-multiple-stars-48" width="48" height="48"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
