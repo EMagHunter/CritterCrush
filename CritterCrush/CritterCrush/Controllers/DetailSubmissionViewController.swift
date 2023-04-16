@@ -35,6 +35,12 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     @IBOutlet weak var bugIcon: UIImageView!
     
     @IBOutlet weak var viewBug: UIView!
+    
+    /*
+         destination.titleStringViaSegue = speciesList[bugIndex].name
+         destination.bugID = speciesList[bugIndex].id
+     */
+    
     var titleStringViaSegue: String!
     var bugID: Int!
     var selectedBug: bugReport!
@@ -58,9 +64,9 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         
     
         // Do any additional setup after loading the view.
+        let loginUser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
         
-        
-        batch.apiReport(userID: 1){ [self] (result: Result<ParseBatch, Error>) in
+        batch.apiReport(userID: loginUser, speciesID: self.bugID){ [self] (result: Result<ParseBatch, Error>) in
             switch result {
             case .success(let report):
                 self.batch.batchReport = report
@@ -85,6 +91,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         // Do any additional setup after loading the view.
         
         self.speciesName.text = self.titleStringViaSegue
+        //self.bugIcon.image = UIImage(named:"bugicon\(bugID ?? 1)")
         self.bugIcon.image = UIImage(named:"icon/icon_bug\(bugID ?? 1)")
         if let i = speciesList.firstIndex(where: { $0.id == bugID }) {
             self.scienceName.text = speciesList[i].science
@@ -127,20 +134,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         //print(labelDate)
         cell.dateLabel?.text = labelDate
         
-        cell.backgroundImage.image = UIImage(named:"backgroundFrame_bug\(self.bugID!)")
-        /*
-        if self.speciesName.text == "Spotted lanternfly"{
-            cell.backgroundImage.image = UIImage(named: "backgroundFrame_bug1")
-        }else if speciesName.text == "Asian longhorned beetle"{
-            cell.backgroundImage.image = UIImage(named: "backgroundFrame_bug2")
-        }
-        else if speciesName.text == "Emerald ash borer"{
-                cell.backgroundImage.image = UIImage(named: "backgroundFrame_bug3")
-    
-            }
-        else if speciesName.text == "Spongy moth"{
-                cell.backgroundImage.image = UIImage(named: "backgroundFrame_bug4")
-        } */
+        cell.backgroundImage.image = UIImage(named:"frame_bug\(self.bugID!)")
         
         //MARK: Image
         

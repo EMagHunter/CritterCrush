@@ -65,15 +65,20 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
             batchReports = self.batch.batchReport!.data
             print("Update: \(batchReports[0])")
             
-           // self.mapView.reloadData()
+            
+            for bug in batchReports {
+                mapView.addAnnotation(bug)
+            }
+             
+            
         }//apiReport(userID)
 
-        
+        /*
         //TEST DATA
         for bug in testSLF {
             mapView.addAnnotation(bug)
         }
-        
+        */
         
         
     } //viewload
@@ -90,7 +95,14 @@ extension MapViewController: MKMapViewDelegate {
     func mapView( _ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
       
        //  1
+        /*
         guard let  annotation  = annotation as? Submission else {
+            return nil
+            
+        }
+        */
+        
+        guard let  annotation  = annotation as? Datum else {
             return nil
             
         }
@@ -109,25 +121,11 @@ extension MapViewController: MKMapViewDelegate {
         //MARK: Icon
         var image = ""
         var color = UIColor.red
-        if annotation.speciesName == "Spotted Lanternfly"{
-            image = "icon/icon_bug1"
-            color = speciesList[0].color
-        }
-        else if annotation.speciesName == "Asian Longhorned Beetle"{
-            image = "icon/icon_bug2"
-            color = speciesList[1].color
-        }
-                else if annotation.speciesName == "Emerald ash borer"{
-                    image = "icon/icon_bug3"
-                    color = speciesList[2].color
         
-                }
-                else if annotation.speciesName == "Spongy moth"{
-                    image = "icon/icon_bug4"
-                    color = speciesList[3].color
+        image = "icon/icon_bug\(annotation.speciesID)"
         
-                }
-
+        color = speciesList[(annotation.speciesID-1)].color
+        
         let identifier = "Submission"
         var annotationView = mapView.dequeueReusableAnnotationView(
             withIdentifier: identifier) as? MKMarkerAnnotationView
@@ -135,7 +133,12 @@ extension MapViewController: MKMapViewDelegate {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-            if let url = URL(string: annotation.imageURL) {
+            
+            let imgName = annotation.image
+            let hostName =   "69.125.216.66"
+            let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
+            
+            if let url = URL(string: afLink) {
                 AF.request(url).responseImage {
                     response in
                     switch response.result {
@@ -145,7 +148,7 @@ extension MapViewController: MKMapViewDelegate {
                         break
                     }
                 }
-            }
+            }//imageAPI
             annotationView?.leftCalloutAccessoryView = imageView
             let rightButton = UIButton(type: .detailDisclosure)
             rightButton.addTarget(self, action: #selector(showDetail(_:)), for: .touchUpInside)
@@ -158,7 +161,7 @@ extension MapViewController: MKMapViewDelegate {
             annotationView.annotation = annotation
             // a reference to part of the list it reference to
             let buttonRight = annotationView.rightCalloutAccessoryView as! UIButton
-            if let index = testSLF.firstIndex(of: annotation) {
+            if let index = batchReports.firstIndex(of: annotation) {
                 buttonRight.tag = index
             }
             
