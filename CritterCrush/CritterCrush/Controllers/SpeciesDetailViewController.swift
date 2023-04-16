@@ -35,10 +35,14 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         self.speciesName.text = self.titleStringViaSegue
         
         scrollView.delegate = self
+        
+        let bug: Int = bugID
+        images = ["id_species\(bug)_1","id_species\(bug)_2","id_species\(bug)_3"]
+        /*
         if (bugID == 1){
-            //images = ["id_species\(bugID)_1","id_species\(bugID)_2","id_species\(bugID)_3"]
+            
             images = ["id_species1_1","id_species1_2","id_species1_3"]
-        }
+        }*/
         
         // Do any additional setup after loading the view.
         //image scrolling gallery
@@ -74,24 +78,13 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.layer.cornerRadius = 10
         self.scrollView.contentMode = .scaleAspectFill
         
-        //self.topView.backgroundColor = UIColor(red: 0.98, green: 0.6, blue: 0.52, alpha: 1)
         self.topView.layer.shadowColor = UIColor.black.cgColor
         self.topView.layer.shadowOpacity = 0.3
         self.topView.layer.shadowOffset = CGSize(width: 0, height: 5)
         self.topView.layer.shadowRadius = 15
         self.topView.layer.cornerRadius = 20
-        self.topView.layer.masksToBounds = false
-        //view.backgroundColor = UIColor(red: 1, green: 0.9, blue: 0.79, alpha: 1)
-        
         
 
-
-        
-
-        
-        
-        
-        
     }
     //Image scrolling
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

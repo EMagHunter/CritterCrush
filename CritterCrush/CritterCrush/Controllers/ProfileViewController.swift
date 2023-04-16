@@ -16,12 +16,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // @IBOutlet var speciesTitle: UILabel!
      @IBOutlet weak var tableView: UITableView!
      
-     //let speciesList = listSpecies
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var crittercrushPointsLabel: UILabel!
+    @IBOutlet weak var totalPointsLabel: UILabel!
+    
+    //let speciesList = listSpecies
      
      //let speciesList:Array<Species> = [SLF,ALB,EAB,SPM]
      
      override func viewDidLoad() {
          super.viewDidLoad()
+         
+         usernameLabel.text = user.username
 
          let nib = UINib(nibName:"SpeciesCell", bundle: nil)
          tableView.register(nib, forCellReuseIdentifier: "SpeciesCell")
@@ -57,7 +63,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          
          cell.scienceLabel.text = speciesList[indexPath.row].science
          
-         let imgName = "icon/icon_bug\(speciesList[indexPath.row].id)"
+         let imgName = "bugicon\(speciesList[indexPath.row].id)"
          cell.iconImage.image = UIImage(named: imgName)
          
          return cell

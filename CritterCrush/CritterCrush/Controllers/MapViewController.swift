@@ -29,7 +29,11 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     var managedObjectContext: NSManagedObjectContext!
     var annotationView = MKMarkerAnnotationView()
     
+    //API CALL
+    let batch = BatchReport()
+    var batchReports:[Datum] = []
     
+    //view
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,10 +52,34 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
             let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
             mapView.setCameraZoomRange(zoomRange, animated: true)
         
+        //API Call
+        
+        batch.mapApiReport(mapNo: 20){ [self] (result: Result<ParseBatch, Error>) in
+            switch result {
+            case .success(let report):
+                self.batch.batchReport = report
+                print(report)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            batchReports = self.batch.batchReport!.data
+            print("Update: \(batchReports[0])")
+            
+            
+            for bug in batchReports {
+                mapView.addAnnotation(bug)
+            }
+             
+            
+        }//apiReport(userID)
+
+        /*
         //TEST DATA
         for bug in testSLF {
             mapView.addAnnotation(bug)
         }
+        */
+        
         
     } //viewload
     
@@ -67,7 +95,14 @@ extension MapViewController: MKMapViewDelegate {
     func mapView( _ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
       
        //  1
+        /*
         guard let  annotation  = annotation as? Submission else {
+            return nil
+            
+        }
+        */
+        
+        guard let  annotation  = annotation as? Datum else {
             return nil
             
         }
@@ -86,25 +121,11 @@ extension MapViewController: MKMapViewDelegate {
         //MARK: Icon
         var image = ""
         var color = UIColor.red
-        if annotation.speciesName == "Spotted Lanternfly"{
-            image = "icon/icon_bug1"
-            color = .blue
-        }
-        else if annotation.speciesName == "Asian Longhorned Beetle"{
-            image = "icon/icon_bug2"
-            color = .red
-        }
-                else if annotation.speciesName == "Emerald ash borer"{
-                    image = "icon/icon_bug3"
-                    color = .white
         
-                }
-                else if annotation.speciesName == "Spongy moth"{
-                    image = "icon/icon_bug4"
-                    color = .yellow
+        image = "icon/icon_bug\(annotation.speciesID)"
         
-                }
-
+        color = speciesList[(annotation.speciesID-1)].color
+        
         let identifier = "Submission"
         var annotationView = mapView.dequeueReusableAnnotationView(
             withIdentifier: identifier) as? MKMarkerAnnotationView
@@ -112,7 +133,12 @@ extension MapViewController: MKMapViewDelegate {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-            if let url = URL(string: annotation.imageURL) {
+            
+            let imgName = annotation.image
+            let hostName =   "69.125.216.66"
+            let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
+            
+            if let url = URL(string: afLink) {
                 AF.request(url).responseImage {
                     response in
                     switch response.result {
@@ -122,7 +148,7 @@ extension MapViewController: MKMapViewDelegate {
                         break
                     }
                 }
-            }
+            }//imageAPI
             annotationView?.leftCalloutAccessoryView = imageView
             let rightButton = UIButton(type: .detailDisclosure)
             rightButton.addTarget(self, action: #selector(showDetail(_:)), for: .touchUpInside)
@@ -135,7 +161,7 @@ extension MapViewController: MKMapViewDelegate {
             annotationView.annotation = annotation
             // a reference to part of the list it reference to
             let buttonRight = annotationView.rightCalloutAccessoryView as! UIButton
-            if let index = testSLF.firstIndex(of: annotation) {
+            if let index = batchReports.firstIndex(of: annotation) {
                 buttonRight.tag = index
             }
             
@@ -158,10 +184,16 @@ extension MapViewController: MKMapViewDelegate {
            if segue.identifier == "EditReport" {
                let controller = segue.destination as! AddReportViewController
                let buttonRight = sender as! UIButton
-               let editReport = testSLF[buttonRight.tag]
-               controller.selectedReportEdit = testSLF[buttonRight.tag]
-               controller.speciesName = editReport.speciesName
-               if let url = URL(string: editReport.imageURL) {
+               let editReport = batchReports[buttonRight.tag]
+               controller.selectedReportEdit = batchReports[buttonRight.tag]
+               controller.speciesName = speciesList[editReport.speciesID-1].name
+               
+               
+               let imgName = editReport.image
+               let hostName =   "69.125.216.66"
+               let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
+               
+               if let url = URL(string: afLink) {
                    AF.request(url).responseImage {
                        response in
                        switch response.result {
@@ -173,8 +205,8 @@ extension MapViewController: MKMapViewDelegate {
                    }
                }
 
-               controller.locationLat = editReport.locationLat
-               controller.locationLon = editReport.locationLon
+               controller.locationLat = editReport.latitude
+               controller.locationLon = editReport.longitude
                controller.title = "Edit Report"
            }
        } //edit report segue

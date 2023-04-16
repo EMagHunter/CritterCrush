@@ -82,7 +82,7 @@ class SingleReportViewController: UIViewController{
     }//view
     func style(){
         self.reportImg.contentMode = .scaleAspectFill
-        self.reportImg.layer.masksToBounds = true
+        //self.reportImg.layer.masksToBounds = true
         self.reportImg.layer.cornerRadius = 10
         self.reportImg.layer.borderColor = UIColor.lightGray.cgColor
         self.reportImg.layer.borderWidth = 1
@@ -101,12 +101,12 @@ class SingleReportViewController: UIViewController{
         self.reportImgView.layer.shadowOpacity = 0.3
         self.reportImgView.layer.shadowOffset = CGSize(width: 0, height: 5)
         self.reportImg.layer.shadowRadius = 15
-        self.reportImgView.layer.cornerRadius = 20
+        self.reportImgView.layer.cornerRadius = 10
         self.reportImgView.layer.masksToBounds = false
        
         
         
-    }
+    }//style
     func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
         //takes report ID of selected report
         //uses

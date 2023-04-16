@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         
         // Call /api/users/login end point
         AF.request(url, method: .get, parameters: paremeter, encoding: URLEncoding.queryString).responseData { response in
-//            debugPrint(response)
+            debugPrint(response)
             
             switch response.result {
             case .success(let data):
@@ -51,11 +51,11 @@ class LoginViewController: UIViewController {
                     
                     if let responseDict = asJSON as? [String: Any],
                         let dataDict = responseDict["data"] as? [String: Any],
-                        let token = dataDict["token"] as? String {
+                        let token = dataDict["token"] as? String,  let loginUser = dataDict["userid"] as? Int  {
                         
                         KeychainHelper.standard.save(token, service: "com.crittercrush.authToken", account: "authToken")
                         
-//                        UserDefaults.standard.set(token, forKey: "authToken")
+                        UserDefaults.standard.set(loginUser, forKey: "userid")
                     }
                     
                     // pass username and password to struct
