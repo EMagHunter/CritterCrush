@@ -69,11 +69,6 @@ class AddReportViewController: UITableViewController {
         
         let speciesReport = Report(userid: UserDefaults.standard.object(forKey: "userid") as! Int, speciesid: 0, numspecimens: 1, latitude: locationLat, longitude: locationLon, reportdate: Int(day))
         
-        /*
-        let speciesSubmission = Report(longitude: self.locationLon, locationLat: self.locationLat, speciesName: speciesName, numberSpecimens: 0, reportID: 0, userID: 0, speciesID: 0, verifyTrueCount: 0, verifyFalseCount: 0, reportDate: date, imageURL: "ok", coordinate: CLLocationCoordinate2D(latitude: locationLon, longitude: locationLat), title: self.speciesName)
-        
-        */
-        
         print(speciesReport)
         
         let hostName =   "69.125.216.66"
@@ -86,12 +81,13 @@ class AddReportViewController: UITableViewController {
             "Authorization": "\(authToken!)"
         ]
         
+        let param: [String: Any] = [:]
         
         AF.upload(
             multipartFormData: { multipartFormData in
-                multipartFormData.append(self.image!.jpegData(compressionQuality: 0.5)!, withName: "upload_data" , fileName: "\(self.locationLat)\(loguserID)\(self.date).jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(self.image!.jpegData(compressionQuality: 0.5)!, withName: "reportImage" , fileName: "\(self.locationLat)\(loguserID)\(self.date).jpeg", mimeType: "image/jpeg")
             },
-            to: afLink, method: .post , headers: headers)
+            to: afLink, method: .post, headers: headers)
         .response { resp in
             print(resp)
             
