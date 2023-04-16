@@ -9,6 +9,8 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import AlamofireImage
 //private let dateFormatter: DateFormatter = {
 //    let formatter = DateFormatter()
 //    formatter.dateStyle = .medium
@@ -32,26 +34,82 @@ class AddReportViewController: UITableViewController {
     var locationLat: Double = 0
     let formatter = DateFormatter()
     
+    
+    @IBOutlet weak var predictBug: UIButton!
+    
     var selectedReportEdit:Datum? = nil
     //var selectedReportEdit:Submission? = nil
    
   // MARK: - Actions
-    
+    @IBAction func predict() {
+        //API CALL FOR IMAGE RECOGNITION
+    }
   
+    struct Report {
+        var userid: Int
+        var speciesid: Int
+        var numspecimens: Int = 1
+        var latitude: Double
+        var longitude: Double
+        var reportdate: Int
+       // var image = UIImage()
+    }
+    //Submit
+    
+    
     @IBAction func submit() {
         formatter.locale = Locale(identifier: "en_us")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         date = formatter.string(from: datePicker.date)
-        let speciesSubmission = Submission(locationLon: self.locationLon, locationLat: self.locationLat, speciesName: speciesName, numberSpecimens: 0, reportID: 0, userID: 0, speciesID: 0, verifyTrueCount: 0, verifyFalseCount: 0, reportDate: date, imageURL: "ok", coordinate: CLLocationCoordinate2D(latitude: locationLon, longitude: locationLat), title: self.speciesName)
-       testSLF.append(speciesSubmission)
+        
+        //convert date to epoch time
+        let day = datePicker.date.timeIntervalSince1970
+        //Date().timeIntervalSince1970
+        let loguserID = UserDefaults.standard.object(forKey: "userid") as! Int
+        
+        let speciesReport = Report(userid: UserDefaults.standard.object(forKey: "userid") as! Int, speciesid: 0, numspecimens: 1, latitude: locationLat, longitude: locationLon, reportdate: Int(day))
+        
+        /*
+        let speciesSubmission = Report(longitude: self.locationLon, locationLat: self.locationLat, speciesName: speciesName, numberSpecimens: 0, reportID: 0, userID: 0, speciesID: 0, verifyTrueCount: 0, verifyFalseCount: 0, reportDate: date, imageURL: "ok", coordinate: CLLocationCoordinate2D(latitude: locationLon, longitude: locationLat), title: self.speciesName)
+        
+        */
+        
+        print(speciesReport)
+        
+        let hostName =   "69.125.216.66"
+        let afLink = "http://\(hostName)/api/reports"
+        
+        
+        let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "\(authToken!)"
+        ]
+        
+        
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(self.image!.jpegData(compressionQuality: 0.5)!, withName: "upload_data" , fileName: "\(self.locationLat)\(loguserID)\(self.date).jpeg", mimeType: "image/jpeg")
+            },
+            to: afLink, method: .post , headers: headers)
+        .response { resp in
+            print(resp)
+            
+        }
+        
+        
+      // testSLF.append(speciesSubmission)
         resetLabels()
     
         showSubmitAlert()
-    }
+    } //submit
+    
     @IBAction func reset() {
         showResetAlert()
         resetLabels()
     }
+    
+    //view
     override func viewDidLoad() {
       super.viewDidLoad()
         if title == "Edit Report"{
@@ -65,7 +123,7 @@ class AddReportViewController: UITableViewController {
         } else {
             addressLabel.text = "No Address Found"
         }
-    }
+    }//view
 
     @IBAction func AddressAdded(
       _ segue: UIStoryboardSegue

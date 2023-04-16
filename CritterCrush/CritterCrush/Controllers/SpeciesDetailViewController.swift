@@ -35,10 +35,14 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         self.speciesName.text = self.titleStringViaSegue
         
         scrollView.delegate = self
+        
+        let bug: Int = bugID
+        images = ["id_species\(bug)_1","id_species\(bug)_2","id_species\(bug)_3"]
+        /*
         if (bugID == 1){
-            //images = ["id_species\(bugID)_1","id_species\(bugID)_2","id_species\(bugID)_3"]
+            
             images = ["id_species1_1","id_species1_2","id_species1_3"]
-        }
+        }*/
         
         // Do any additional setup after loading the view.
         //image scrolling gallery
@@ -81,13 +85,6 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         self.topView.layer.cornerRadius = 20
         
 
-
-        
-
-        
-        
-        
-        
     }
     //Image scrolling
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
