@@ -1216,7 +1216,7 @@
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="393" id="Hbk-fD-yRD"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="393" id="Hbk-fD-yRD"/>
                                     <constraint firstAttribute="height" constant="43" id="taO-g3-Llz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1232,7 +1232,6 @@
                                 <rect key="frame" x="79" y="257" width="96" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="AfZ-LL-o9w"/>
-                                    <constraint firstAttribute="width" constant="96" id="d8g-s2-xRw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1242,7 +1241,6 @@
                                 <rect key="frame" x="79" y="302" width="96" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="8LK-Tp-mqe"/>
-                                    <constraint firstAttribute="width" constant="96" id="KDI-X8-7Qz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1254,48 +1252,34 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="2ef-rP-w5I"/>
-                                    <constraint firstAttribute="width" constant="393" id="tTL-gl-jvM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez4-hY-hRZ">
-                                <rect key="frame" x="0.0" y="480" width="393" height="60"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Kke-Re-Wl4"/>
-                                    <constraint firstAttribute="width" constant="393" id="ZgK-UQ-67h"/>
-                                </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title="  Delete Data"/>
-                                <connections>
-                                    <action selector="onDelete:" destination="lQE-U6-hhh" eventType="touchUpInside" id="6Tw-cx-hrQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYw-iC-bYb">
-                                <rect key="frame" x="0.0" y="412" width="393" height="60"/>
-                                <color key="backgroundColor" red="0.35294117650000001" green="0.3921568627" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYw-iC-bYb">
+                                <rect key="frame" x="0.0" y="404" width="393" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="P13-tX-tOc"/>
-                                    <constraint firstAttribute="width" constant="393" id="UEa-90-kAR"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="  Log Out"/>
                                 <connections>
                                     <action selector="onLogout:" destination="lQE-U6-hhh" eventType="touchUpInside" id="aJa-q1-kg9"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon/icons8-multiple-stars-48" translatesAutoresizingMaskIntoConstraints="NO" id="xbP-OL-mKa">
-                                <rect key="frame" x="26" y="302" width="36" height="39"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xbP-OL-mKa">
+                                <rect key="frame" x="23" y="304.66666666666669" width="36" height="38.666666666666686"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="7iY-tb-Pmf"/>
                                     <constraint firstAttribute="height" constant="39" id="uJX-vi-gft"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon/icons8-moon-and-stars-30" translatesAutoresizingMaskIntoConstraints="NO" id="daf-3r-f0o">
-                                <rect key="frame" x="26" y="264" width="30" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="moon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="daf-3r-f0o">
+                                <rect key="frame" x="26" y="265" width="30" height="28.333333333333314"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1lq-jV-S2b"/>
                                     <constraint firstAttribute="width" constant="30" id="ik7-vB-mtw"/>
@@ -1307,28 +1291,44 @@
                                 <color key="textColor" red="0.46666666670000001" green="0.4941176471" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.46666666670000001" green="0.4941176471" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez4-hY-hRZ">
+                                <rect key="frame" x="0.0" y="472" width="393" height="60"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Kke-Re-Wl4"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title="  Delete Data"/>
+                                <connections>
+                                    <action selector="onDelete:" destination="lQE-U6-hhh" eventType="touchUpInside" id="6Tw-cx-hrQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5mV-bH-zW2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5mV-bH-zW2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pvs-Lp-PbQ" secondAttribute="trailing" symbolic="YES" id="1jw-LS-YyQ"/>
                             <constraint firstItem="VAB-UB-CC9" firstAttribute="trailing" secondItem="5mV-bH-zW2" secondAttribute="trailing" id="20a-pw-zjI"/>
                             <constraint firstItem="Z5Q-ww-TnJ" firstAttribute="top" secondItem="pvs-Lp-PbQ" secondAttribute="bottom" constant="8" symbolic="YES" id="2Kx-rn-WEb"/>
                             <constraint firstItem="VAB-UB-CC9" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" id="340-XO-9MR"/>
-                            <constraint firstItem="xbP-OL-mKa" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" constant="26" id="37n-Cc-XKl"/>
-                            <constraint firstItem="OYw-iC-bYb" firstAttribute="top" secondItem="lZM-P5-w5b" secondAttribute="bottom" constant="8" symbolic="YES" id="76F-0k-R1T"/>
+                            <constraint firstItem="xbP-OL-mKa" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" constant="23" id="37n-Cc-XKl"/>
+                            <constraint firstItem="5mV-bH-zW2" firstAttribute="trailing" secondItem="Z5Q-ww-TnJ" secondAttribute="trailing" constant="127" id="4OO-5V-x6T"/>
+                            <constraint firstItem="OYw-iC-bYb" firstAttribute="top" secondItem="lZM-P5-w5b" secondAttribute="bottom" id="76F-0k-R1T"/>
                             <constraint firstItem="pvs-Lp-PbQ" firstAttribute="leading" secondItem="6pG-fK-t5K" secondAttribute="trailing" constant="22" id="7Ob-Xs-z9b"/>
                             <constraint firstItem="6pG-fK-t5K" firstAttribute="top" secondItem="5mV-bH-zW2" secondAttribute="top" constant="38" id="9H4-Hj-c1N"/>
                             <constraint firstItem="t74-Tb-aNx" firstAttribute="top" secondItem="Z5Q-ww-TnJ" secondAttribute="bottom" constant="18.670000000000002" id="B26-Bf-8mv"/>
                             <constraint firstItem="WJD-zk-Vsh" firstAttribute="leading" secondItem="UZw-zC-eax" secondAttribute="trailing" constant="118" id="B4z-uT-pcv"/>
                             <constraint firstItem="daf-3r-f0o" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" constant="26" id="CnJ-Tg-TPa"/>
                             <constraint firstItem="qbh-VE-EwV" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" constant="79" id="EAT-QR-Qle"/>
-                            <constraint firstItem="UZw-zC-eax" firstAttribute="leading" secondItem="xbP-OL-mKa" secondAttribute="trailing" constant="17" id="K0O-Gz-ahx"/>
+                            <constraint firstItem="UZw-zC-eax" firstAttribute="leading" secondItem="xbP-OL-mKa" secondAttribute="trailing" constant="20" id="K0O-Gz-ahx"/>
                             <constraint firstItem="lZM-P5-w5b" firstAttribute="trailing" secondItem="5mV-bH-zW2" secondAttribute="trailing" id="Kbs-Ty-GOd"/>
                             <constraint firstItem="WJD-zk-Vsh" firstAttribute="leading" secondItem="UZw-zC-eax" secondAttribute="trailing" constant="118" id="Mf0-Id-29m"/>
                             <constraint firstItem="pvs-Lp-PbQ" firstAttribute="top" secondItem="5mV-bH-zW2" secondAttribute="top" constant="38" id="N28-hg-vlC"/>
+                            <constraint firstItem="Z5Q-ww-TnJ" firstAttribute="leading" secondItem="6pG-fK-t5K" secondAttribute="trailing" constant="22" id="NqC-nd-FRG"/>
                             <constraint firstItem="ez4-hY-hRZ" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" id="OMS-2u-hTD"/>
                             <constraint firstItem="WJD-zk-Vsh" firstAttribute="top" secondItem="Gxg-Xm-maV" secondAttribute="bottom" constant="14" id="OQk-BC-Bhy"/>
-                            <constraint firstItem="xbP-OL-mKa" firstAttribute="top" secondItem="daf-3r-f0o" secondAttribute="bottom" constant="8" symbolic="YES" id="Og1-OD-Zb6"/>
+                            <constraint firstItem="xbP-OL-mKa" firstAttribute="top" secondItem="daf-3r-f0o" secondAttribute="bottom" constant="11.000000000000057" id="Og1-OD-Zb6"/>
                             <constraint firstItem="6pG-fK-t5K" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" constant="16" id="Qnc-Uz-ppg"/>
                             <constraint firstItem="Gxg-Xm-maV" firstAttribute="leading" secondItem="qbh-VE-EwV" secondAttribute="trailing" constant="118" id="Tas-Ie-l4O"/>
                             <constraint firstItem="VAB-UB-CC9" firstAttribute="top" secondItem="6pG-fK-t5K" secondAttribute="bottom" constant="25" id="TkF-Ug-2mh"/>
@@ -1340,7 +1340,6 @@
                             <constraint firstItem="lZM-P5-w5b" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" id="eUN-VF-0Xp"/>
                             <constraint firstItem="qbh-VE-EwV" firstAttribute="leading" secondItem="daf-3r-f0o" secondAttribute="trailing" constant="23" id="hSU-vb-Aod"/>
                             <constraint firstItem="t74-Tb-aNx" firstAttribute="leading" secondItem="6pG-fK-t5K" secondAttribute="trailing" constant="22" id="ioj-xB-xJG"/>
-                            <constraint firstItem="Z5Q-ww-TnJ" firstAttribute="leading" secondItem="6pG-fK-t5K" secondAttribute="trailing" constant="22" id="khp-7K-u3h"/>
                             <constraint firstItem="OYw-iC-bYb" firstAttribute="trailing" secondItem="5mV-bH-zW2" secondAttribute="trailing" id="lY4-MJ-HAP"/>
                             <constraint firstItem="UZw-zC-eax" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" constant="79" id="leD-zx-yEt"/>
                             <constraint firstItem="OYw-iC-bYb" firstAttribute="leading" secondItem="5mV-bH-zW2" secondAttribute="leading" id="nYc-YX-8Tb"/>
@@ -1730,9 +1729,8 @@
     <resources>
         <image name="ant" catalog="system" width="106" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
-        <image name="icon/icons8-moon-and-stars-30" width="30" height="30"/>
-        <image name="icon/icons8-multiple-stars-48" width="48" height="48"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="moon.fill" catalog="system" width="128" height="123"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
@@ -1740,15 +1738,13 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
