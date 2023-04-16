@@ -83,7 +83,7 @@ class AddReportViewController: UITableViewController {
         
         let parameter: [String: Data]? = [:]
         
-        
+        /*
         AF.upload(
             multipartFormData: { multipartFormData in
                 for (key, keyValue) in parameter {
@@ -97,8 +97,8 @@ class AddReportViewController: UITableViewController {
         .responseData { response in
             print(response)
             
-        }
-        // testSLF.append(speciesSubmission)
+        }*/
+        
         resetLabels()
         
         showSubmitAlert()
