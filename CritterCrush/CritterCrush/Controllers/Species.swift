@@ -52,8 +52,6 @@ class Species: NSObject {
         
     }//init
     
-
-    
 }
 
 

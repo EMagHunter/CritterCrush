@@ -22,7 +22,7 @@ class BatchReport:NSObject {
         //only if unwrapped
         //http://69.125.216.66/api/reports?userid=1
         
-        apiReport(userID: 1){ (result: Result<ParseBatch, Error>) in
+        apiReport(userID: 1, speciesID: 1){ (result: Result<ParseBatch, Error>) in
             switch result {
             case .success(let report):
                 self.batchReport = report
@@ -40,11 +40,11 @@ class BatchReport:NSObject {
     } //get report, return array
     
     
-    func apiReport(userID: Int, completionHandler: @escaping (Result<ParseBatch, Error>) -> Void) {
+    func apiReport(userID: Int, speciesID: Int, completionHandler: @escaping (Result<ParseBatch, Error>) -> Void) {
         //takes report ID of selected report
         //uses
         let hostname = "69.125.216.66"
-        let param = ["userid":userID]
+        let param = ["userid":userID,"speciesid":speciesID]
         let url = "http://\(hostname)/api/reports"
         
         // make the GET request using Alamofire
