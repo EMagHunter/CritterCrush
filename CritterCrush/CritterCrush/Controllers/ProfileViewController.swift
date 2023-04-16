@@ -70,7 +70,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
      }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200.0;
+        return 150.0;
     }
 
      // MARK: - Navigation
