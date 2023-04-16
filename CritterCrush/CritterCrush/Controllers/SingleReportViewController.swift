@@ -37,9 +37,6 @@ class SingleReportViewController: UIViewController{
         style()
         
         
-        
-        
-        
         //self.userName.text = "USER1"
 //        apiReport(repID: 1){ (result: Result<IndividualReport, Error>) in
 //            switch result {
@@ -80,6 +77,38 @@ class SingleReportViewController: UIViewController{
 //        }
         
     }//view
+    
+    
+//    //delete report
+    @IBAction func delReport() {
+        //get report id
+        //make report deletion call
+        //change to screen: this report has been deleted
+        //segue to previous screen
+        
+        
+        let hostName =   "69.125.216.66"
+        let afLink = "http://\(hostName)/api/reports/\(String(describing: selectedReportID))"
+        
+        
+        let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "\(authToken!)"
+        ]
+        
+        
+        // make the GET request using Alamofire
+        AF.request(afLink, method:.delete, encoding:URLEncoding.queryString, headers: headers).responseData { response in
+            //debugPrint(response)
+            debugPrint(response)
+        }
+        
+        
+    }//delete
+    
+    
+    
     func style(){
         self.reportImg.contentMode = .scaleAspectFill
         //self.reportImg.layer.masksToBounds = true
@@ -144,10 +173,7 @@ class SingleReportViewController: UIViewController{
             }
         }
     }//apiReport
-//
-//    //delete report
-//    // let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
-//
+    
 //    /*
 //    // MARK: - Navigation
 //

@@ -39,12 +39,12 @@ class AddReportViewController: UITableViewController {
     
     var selectedReportEdit:Datum? = nil
     //var selectedReportEdit:Submission? = nil
-   
-  // MARK: - Actions
+    
+    // MARK: - Actions
     @IBAction func predict() {
         //API CALL FOR IMAGE RECOGNITION
     }
-  
+    
     struct Report {
         var userid: Int
         var speciesid: Int
@@ -52,14 +52,14 @@ class AddReportViewController: UITableViewController {
         var latitude: Double
         var longitude: Double
         var reportdate: Int
-       // var image = UIImage()
+        // var image = UIImage()
     }
     //Submit
-    
     
     @IBAction func submit() {
         formatter.locale = Locale(identifier: "en_us")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
         date = formatter.string(from: datePicker.date)
         
         //convert date to epoch time
@@ -81,24 +81,28 @@ class AddReportViewController: UITableViewController {
             "Authorization": "\(authToken!)"
         ]
         
-        let param: [String: Any] = [:]
+        let parameter: [String: Data]? = [:]
+        
         
         AF.upload(
             multipartFormData: { multipartFormData in
+                for (key, keyValue) in parameter {
+                    if let keyData = keyValue.data(using: .utf8){
+                                    multipartFormData.append(keyData, withName: key)
+                                }
+                }
                 multipartFormData.append(self.image!.jpegData(compressionQuality: 0.5)!, withName: "reportImage" , fileName: "\(self.locationLat)\(loguserID)\(self.date).jpeg", mimeType: "image/jpeg")
             },
             to: afLink, method: .post, headers: headers)
-        .response { resp in
-            print(resp)
+        .responseData { response in
+            print(response)
             
         }
-        
-        
-      // testSLF.append(speciesSubmission)
+        // testSLF.append(speciesSubmission)
         resetLabels()
-    
+        
         showSubmitAlert()
-    } //submit
+    }//submit
     
     @IBAction func reset() {
         showResetAlert()
@@ -107,9 +111,9 @@ class AddReportViewController: UITableViewController {
     
     //view
     override func viewDidLoad() {
-      super.viewDidLoad()
+        super.viewDidLoad()
         if title == "Edit Report"{
-//            print(selectedReportEdit)
+            //            print(selectedReportEdit)
         }
         speciesDescriptionTextView.text = ""
         speciesNameLabel.text = speciesName
@@ -120,11 +124,11 @@ class AddReportViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
     }//view
-
+    
     @IBAction func AddressAdded(
-      _ segue: UIStoryboardSegue
+        _ segue: UIStoryboardSegue
     ){
-    let controller = segue.source as! AddressUploadViewController
+        let controller = segue.source as! AddressUploadViewController
         Address = controller.addressAdded
         placemark = controller.placemark
         addressLabel.text = Address
@@ -132,26 +136,26 @@ class AddReportViewController: UITableViewController {
         locationLon = controller.location!.coordinate.latitude
     }
     override func prepare(for segue: UIStoryboardSegue, sender:
-    Any?) {
+                          Any?) {
         if segue.identifier == "AddressAdder" {
             let controller = segue.destination as! AddressUploadViewController
             controller.placemark = placemark
             controller.addressAdded = Address
-      }
+        }
         if segue.identifier == "selectSpecies" {
             let controller = segue.destination as! selectSpeciesViewController
             controller.selectedSpecies = speciesName
         }
     }
     @IBAction func DidPickSpecies(
-      _ segue: UIStoryboardSegue
+        _ segue: UIStoryboardSegue
     ){
-    let controller = segue.source as! selectSpeciesViewController
+        let controller = segue.source as! selectSpeciesViewController
         speciesName = controller.selectedSpecies
         speciesNameLabel.text = speciesName
     }
     
-   
+    
     override func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath ) {
         if indexPath.section == 0 {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -166,18 +170,18 @@ class AddReportViewController: UITableViewController {
     
 }
 extension AddReportViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-  func getPicWithCamera() {
-      let pickerImg = UIImagePickerController()
-      pickerImg.sourceType = .camera
-      pickerImg.delegate = self
-      pickerImg.allowsEditing = true
-      present(pickerImg, animated: true, completion: nil)
-  }
+    func getPicWithCamera() {
+        let pickerImg = UIImagePickerController()
+        pickerImg.sourceType = .camera
+        pickerImg.delegate = self
+        pickerImg.allowsEditing = true
+        present(pickerImg, animated: true, completion: nil)
+    }
     func imagePickerController( _ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any] ){
         image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-          if let theImage = image {
+        if let theImage = image {
             show(image: theImage)
-          }
+        }
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel( _ picker: UIImagePickerController ){
@@ -190,14 +194,14 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
         pickerImg.allowsEditing = true
         
         
-      present(pickerImg, animated: true, completion: nil)
+        present(pickerImg, animated: true, completion: nil)
     }
     func choosePhoto() {
-      if UIImagePickerController.isSourceTypeAvailable(.camera) {
-        showPhotoMenu()
-      } else {
-          pickImgFromLibrary()
-      }
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            showPhotoMenu()
+        } else {
+            pickImgFromLibrary()
+        }
     }
     func showPhotoMenu() {
         let alert = UIAlertController(
@@ -222,48 +226,48 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
             }
         alert.addAction(actLibrary)
         present(alert, animated: true, completion: nil)
-        }
+    }
     func showSubmitAlert(){
-            let alert = UIAlertController(
-                title: "Submittion Sucess",
-                message: "Thank you For submitting. You can go to the map Screen to see your pins" ,
-                preferredStyle: .alert)
-            let Action = UIAlertAction(
-                title: "Exit",
-                style: .default,
-                handler: nil)
-            alert.addAction(Action)
-            present(alert, animated: true,completion: nil)
-            
+        let alert = UIAlertController(
+            title: "Submittion Sucess",
+            message: "Thank you For submitting. You can go to the map Screen to see your pins" ,
+            preferredStyle: .alert)
+        let Action = UIAlertAction(
+            title: "Exit",
+            style: .default,
+            handler: nil)
+        alert.addAction(Action)
+        present(alert, animated: true,completion: nil)
+        
+    }
+    func showResetAlert(){
+        let alert = UIAlertController(
+            title: "Reset Sucess",
+            message: "The information has been reset" ,
+            preferredStyle: .alert)
+        //        let Action = UIAlertAction(
+        //            title: "Exit",
+        //            style: .default,
+        //            handler: nil)
+        //        alert.addAction(Action)
+        present(alert, animated: true,completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true, completion: nil)
         }
-        func showResetAlert(){
-            let alert = UIAlertController(
-                title: "Reset Sucess",
-                message: "The information has been reset" ,
-                preferredStyle: .alert)
-    //        let Action = UIAlertAction(
-    //            title: "Exit",
-    //            style: .default,
-    //            handler: nil)
-    //        alert.addAction(Action)
-            present(alert, animated: true,completion: nil)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            alert.dismiss(animated: true, completion: nil)
-                        }
-        }
-        func resetLabels(){
-            speciesName = ""
-            speciesNameLabel.text = speciesName
-            speciesDescriptionTextView.text = ""
-            imageView.image = nil
-            imageView.isHidden = true
-            Address = ""
-            addressLabel.text = Address
-            locationLat = 0
-            locationLon = 0
-            placemark = nil
-            datePicker.setDate(Date(), animated: true)
-            
-        }
+    }
+    func resetLabels(){
+        speciesName = ""
+        speciesNameLabel.text = speciesName
+        speciesDescriptionTextView.text = ""
+        imageView.image = nil
+        imageView.isHidden = true
+        Address = ""
+        addressLabel.text = Address
+        locationLat = 0
+        locationLon = 0
+        placemark = nil
+        datePicker.setDate(Date(), animated: true)
+        
+    }
     
 }
