@@ -184,10 +184,16 @@ extension MapViewController: MKMapViewDelegate {
            if segue.identifier == "EditReport" {
                let controller = segue.destination as! AddReportViewController
                let buttonRight = sender as! UIButton
-               let editReport = testSLF[buttonRight.tag]
-               controller.selectedReportEdit = testSLF[buttonRight.tag]
-               controller.speciesName = editReport.speciesName
-               if let url = URL(string: editReport.imageURL) {
+               let editReport = batchReports[buttonRight.tag]
+               controller.selectedReportEdit = batchReports[buttonRight.tag]
+               controller.speciesName = speciesList[editReport.speciesID-1].name
+               
+               
+               let imgName = editReport.image
+               let hostName =   "69.125.216.66"
+               let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
+               
+               if let url = URL(string: afLink) {
                    AF.request(url).responseImage {
                        response in
                        switch response.result {
@@ -199,8 +205,8 @@ extension MapViewController: MKMapViewDelegate {
                    }
                }
 
-               controller.locationLat = editReport.locationLat
-               controller.locationLon = editReport.locationLon
+               controller.locationLat = editReport.latitude
+               controller.locationLon = editReport.longitude
                controller.title = "Edit Report"
            }
        } //edit report segue

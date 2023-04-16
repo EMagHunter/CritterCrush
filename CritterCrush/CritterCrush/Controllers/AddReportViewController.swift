@@ -31,7 +31,9 @@ class AddReportViewController: UITableViewController {
     var locationLon: Double = 0
     var locationLat: Double = 0
     let formatter = DateFormatter()
-    var selectedReportEdit:Submission? = nil
+    
+    var selectedReportEdit:Datum? = nil
+    //var selectedReportEdit:Submission? = nil
    
   // MARK: - Actions
     
