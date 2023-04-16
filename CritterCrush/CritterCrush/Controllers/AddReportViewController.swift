@@ -20,7 +20,6 @@ import AlamofireImage
 
 class AddReportViewController: UITableViewController {
     @IBOutlet var speciesNameLabel: UILabel!
-    @IBOutlet var speciesDescriptionTextView: UITextView!
     @IBOutlet var addressLabel: UILabel!
     var placemark: CLPlacemark?
     var Address = ""
@@ -115,7 +114,6 @@ class AddReportViewController: UITableViewController {
         if title == "Edit Report"{
             //            print(selectedReportEdit)
         }
-        speciesDescriptionTextView.text = ""
         speciesNameLabel.text = speciesName
         if Address != ""{
             addressLabel.text = ""
@@ -157,7 +155,7 @@ class AddReportViewController: UITableViewController {
     
     
     override func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath ) {
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && indexPath.row == 0{
             tableView.deselectRow(at: indexPath, animated: true)
             choosePhoto()
         }
@@ -258,7 +256,6 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
     func resetLabels(){
         speciesName = ""
         speciesNameLabel.text = speciesName
-        speciesDescriptionTextView.text = ""
         imageView.image = nil
         imageView.isHidden = true
         Address = ""

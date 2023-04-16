@@ -325,14 +325,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="sci-lc-UeN">
+                            <rect key="frame" x="0.0" y="529.33333015441895" width="393" height="123"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln0-Is-okb">
+                                    <rect key="frame" x="248" y="80" width="92" height="35"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="xmark.app.fill" catalog="system" title="Reset"/>
+                                    <connections>
+                                        <action selector="reset" destination="fHH-ZK-z7A" eventType="touchUpInside" id="Pkl-nk-9dd"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRk-6q-L0b">
+                                    <rect key="frame" x="46" y="79" width="102.33333333333331" height="35"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system" title="Submit"/>
+                                    <connections>
+                                        <action selector="submit" destination="fHH-ZK-z7A" eventType="touchUpInside" id="jyP-VV-yoZ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ln0-Is-okb" secondAttribute="trailing" constant="20" symbolic="YES" id="2vc-EG-Hsl"/>
+                                <constraint firstItem="Ln0-Is-okb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bRk-6q-L0b" secondAttribute="trailing" constant="8" symbolic="YES" id="9g9-Rw-Kgi"/>
+                                <constraint firstItem="Ln0-Is-okb" firstAttribute="top" secondItem="sci-lc-UeN" secondAttribute="top" constant="80" id="Mnc-nN-fgU"/>
+                                <constraint firstItem="bRk-6q-L0b" firstAttribute="leading" secondItem="sci-lc-UeN" secondAttribute="leading" constant="46" id="NYU-UF-yM5"/>
+                                <constraint firstItem="bRk-6q-L0b" firstAttribute="top" secondItem="sci-lc-UeN" secondAttribute="top" constant="79" id="c9S-Fr-ePg"/>
+                                <constraint firstAttribute="trailing" secondItem="Ln0-Is-okb" secondAttribute="trailing" constant="53" id="gys-fu-Ko4"/>
+                            </constraints>
+                        </view>
                         <sections>
-                            <tableViewSection headerTitle="Image recgonition" id="mD5-kY-Xtb">
+                            <tableViewSection headerTitle="Species Information" id="6Vw-TH-fHw">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Gxg-it-oNd">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="Gxg-it-oNd">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gxg-it-oNd" id="nlq-ar-Ko2">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5am-aY-2CD">
@@ -342,7 +373,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e94-PL-lOS">
-                                                    <rect key="frame" x="248" y="-4" width="125" height="44"/>
+                                                    <rect key="frame" x="248" y="-4" width="125" height="84"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -353,26 +384,50 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Species Information" id="6Vw-TH-fHw">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k5o-Gu-NcO" detailTextLabel="HXg-ca-pxh" style="IBUITableViewCellStyleValue1" id="brs-Pk-iA4">
-                                        <rect key="frame" x="0.0" y="154.99999809265137" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="2Qk-3T-mAL">
+                                        <rect key="frame" x="0.0" y="135.33333206176758" width="393" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Qk-3T-mAL" id="YR8-jg-Hki">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTE-8O-U4O">
+                                                    <rect key="frame" x="331" y="4" width="42" height="46"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="" image="predictSpeciesIcon"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Predict Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKu-5s-UCA">
+                                                    <rect key="frame" x="20" y="20" width="89" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mTE-8O-U4O" firstAttribute="top" secondItem="YR8-jg-Hki" secondAttribute="topMargin" constant="-7" id="2Ae-RU-iGT"/>
+                                                <constraint firstItem="mTE-8O-U4O" firstAttribute="leading" secondItem="UKu-5s-UCA" secondAttribute="trailing" constant="222" id="EHP-nn-10g"/>
+                                                <constraint firstItem="UKu-5s-UCA" firstAttribute="top" secondItem="YR8-jg-Hki" secondAttribute="topMargin" constant="9" id="OTf-6O-GcE"/>
+                                                <constraint firstItem="UKu-5s-UCA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YR8-jg-Hki" secondAttribute="leadingMargin" id="hUu-gu-xlm"/>
+                                                <constraint firstItem="mTE-8O-U4O" firstAttribute="trailing" secondItem="YR8-jg-Hki" secondAttribute="trailingMargin" id="sBE-ZF-hfA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k5o-Gu-NcO" detailTextLabel="HXg-ca-pxh" rowHeight="80" style="IBUITableViewCellStyleValue1" id="brs-Pk-iA4">
+                                        <rect key="frame" x="0.0" y="215.33333206176758" width="393" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brs-Pk-iA4" id="cBL-E8-cdx">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Species Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k5o-Gu-NcO">
-                                                    <rect key="frame" x="20" y="15" width="81" height="14.333333333333334"/>
+                                                    <rect key="frame" x="20" y="33" width="81" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HXg-ca-pxh">
-                                                    <rect key="frame" x="322" y="15" width="32.666666666666664" height="14.333333333333334"/>
+                                                    <rect key="frame" x="322" y="33" width="32.666666666666664" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -386,46 +441,13 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Species Description" id="Elo-ks-yfZ">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="84" id="9lz-fz-8vt">
-                                        <rect key="frame" x="0.0" y="254.66666603088379" width="393" height="84"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9lz-fz-8vt" id="uQp-Qf-AjQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="84"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="(Sepcies Description)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pBv-By-E4d">
-                                                    <rect key="frame" x="20" y="0.0" width="240" height="84"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTE-8O-U4O">
-                                                    <rect key="frame" x="230" y="24" width="143" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Predict Species"/>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="pBv-By-E4d" firstAttribute="top" secondItem="uQp-Qf-AjQ" secondAttribute="top" id="Df0-m7-yQ7"/>
-                                                <constraint firstItem="pBv-By-E4d" firstAttribute="leading" secondItem="uQp-Qf-AjQ" secondAttribute="leading" constant="20" id="P9m-Zo-sUK"/>
-                                                <constraint firstAttribute="bottom" secondItem="pBv-By-E4d" secondAttribute="bottom" id="o5g-Hg-kSC"/>
-                                                <constraint firstAttribute="trailing" secondItem="pBv-By-E4d" secondAttribute="trailing" id="wkA-RY-ldn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Time and Location Information" id="7Qa-C0-HqN">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6fn-SH-zft">
-                                        <rect key="frame" x="0.0" y="394.66666603088379" width="393" height="52.333332061767578"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="6fn-SH-zft">
+                                        <rect key="frame" x="0.0" y="351.33333015441895" width="393" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6fn-SH-zft" id="4ju-np-rz9">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="52.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpj-FU-WvH">
@@ -435,7 +457,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="DaR-cl-eJv">
-                                                    <rect key="frame" x="184" y="8" width="189" height="36.333333333333336"/>
+                                                    <rect key="frame" x="184" y="8" width="189" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="189" id="vVZ-z1-MYa"/>
                                                     </constraints>
@@ -451,11 +473,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6N3-qU-Xcs">
-                                        <rect key="frame" x="0.0" y="446.99999809265137" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="6N3-qU-Xcs">
+                                        <rect key="frame" x="0.0" y="431.33333015441895" width="393" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6N3-qU-Xcs" id="Z63-7p-JwV">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJA-3f-MAf">
@@ -485,43 +507,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="eDN-DP-zak">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="86" id="xCX-Hp-hm8">
-                                        <rect key="frame" x="0.0" y="526.66666603088379" width="393" height="86"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xCX-Hp-hm8" id="Wef-wV-115">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="86"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln0-Is-okb">
-                                                    <rect key="frame" x="245" y="26" width="68" height="35"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Reset"/>
-                                                    <connections>
-                                                        <action selector="reset" destination="fHH-ZK-z7A" eventType="touchUpInside" id="Pkl-nk-9dd"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRk-6q-L0b">
-                                                    <rect key="frame" x="67" y="26" width="78" height="35"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Submit"/>
-                                                    <connections>
-                                                        <action selector="submit" destination="fHH-ZK-z7A" eventType="touchUpInside" id="jyP-VV-yoZ"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ln0-Is-okb" firstAttribute="leading" secondItem="bRk-6q-L0b" secondAttribute="trailing" constant="100" id="HmW-7a-qQx"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ln0-Is-okb" secondAttribute="trailing" constant="20" symbolic="YES" id="IQ6-wv-A5E"/>
-                                                <constraint firstItem="bRk-6q-L0b" firstAttribute="top" secondItem="Wef-wV-115" secondAttribute="top" constant="26" id="ck0-ge-gwX"/>
-                                                <constraint firstItem="Ln0-Is-okb" firstAttribute="top" secondItem="Wef-wV-115" secondAttribute="top" constant="26" id="dR3-Be-YXu"/>
-                                                <constraint firstItem="bRk-6q-L0b" firstAttribute="leading" secondItem="Wef-wV-115" secondAttribute="leading" constant="67" id="xgp-5I-2Ap"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="fHH-ZK-z7A" id="fTK-hU-q4r"/>
@@ -533,7 +518,6 @@
                         <outlet property="addressLabel" destination="UPg-5G-Ubj" id="vQ1-yO-8II"/>
                         <outlet property="datePicker" destination="DaR-cl-eJv" id="KLh-0g-vd5"/>
                         <outlet property="imageView" destination="e94-PL-lOS" id="6QA-YW-NNd"/>
-                        <outlet property="speciesDescriptionTextView" destination="pBv-By-E4d" id="gEJ-H2-wZH"/>
                         <outlet property="speciesNameLabel" destination="HXg-ca-pxh" id="Gs0-6w-x78"/>
                         <outlet property="uploadImageLabel" destination="5am-aY-2CD" id="5YR-Ti-NtV"/>
                     </connections>
@@ -748,10 +732,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjT-r4-fFA">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjT-r4-fFA">
                                                     <rect key="frame" x="20" y="11" width="113" height="94"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-DS-kIU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwC-DS-kIU">
                                                     <rect key="frame" x="141" y="11" width="61" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1736,10 +1720,13 @@
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="predictSpeciesIcon" width="42" height="46"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="trash" catalog="system" width="117" height="128"/>
+        <image name="xmark.app.fill" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
