@@ -1221,7 +1221,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="envelope" catalog="system" title=""/>
                                 <connections>
-                                    <segue destination="F80-Nf-k2x" kind="show" id="1rK-iX-l4p"/>
+                                    <segue destination="F80-Nf-k2x" kind="show" identifier="editEmailSegue" id="1rK-iX-l4p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ6-6N-eo0">
