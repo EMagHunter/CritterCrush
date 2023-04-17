@@ -12,7 +12,6 @@
 		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
 		4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF8E29C6D8F60066ECBA /* ReportCell.swift */; };
 		4157DF9129C6D8F60066ECBA /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4157DF8F29C6D8F60066ECBA /* ReportCell.xib */; };
-		4157DF9329C6DFE20066ECBA /* WikiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9229C6DFE20066ECBA /* WikiImage.swift */; };
 		4157DF9529C7F9320066ECBA /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9429C7F9320066ECBA /* TestData.swift */; };
 		4157DF9729C7FA230066ECBA /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4157DF9629C7FA230066ECBA /* Submission.swift */; };
 		4157DFA729C8E2F50066ECBA /* test_slf.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4157DFA629C8E2F50066ECBA /* test_slf.csv */; };
@@ -74,7 +73,6 @@
 		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
 		4157DF8E29C6D8F60066ECBA /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		4157DF8F29C6D8F60066ECBA /* ReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCell.xib; sourceTree = "<group>"; };
-		4157DF9229C6DFE20066ECBA /* WikiImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiImage.swift; sourceTree = "<group>"; };
 		4157DF9429C7F9320066ECBA /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		4157DF9629C7FA230066ECBA /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		4157DFA629C8E2F50066ECBA /* test_slf.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_slf.csv; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				41E6AECA29BEED0A009031EF /* SpeciesCell.swift */,
 				41E6AECB29BEED0A009031EF /* SpeciesCell.xib */,
 				419CC03729BA88CE002A587A /* Species.swift */,
-				4157DF9229C6DFE20066ECBA /* WikiImage.swift */,
 			);
 			name = Species;
 			sourceTree = "<group>";
@@ -597,7 +594,6 @@
 				F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */,
 				F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */,
 				419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */,
-				4157DF9329C6DFE20066ECBA /* WikiImage.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
 				2B3A56E929CE39B0003690BC /* EditViewController.swift in Sources */,
 				4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */,
