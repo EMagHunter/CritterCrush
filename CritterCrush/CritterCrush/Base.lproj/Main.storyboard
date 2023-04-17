@@ -1219,6 +1219,9 @@
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="envelope" catalog="system" title=""/>
+                                <connections>
+                                    <segue destination="F80-Nf-k2x" kind="show" id="1rK-iX-l4p"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ6-6N-eo0">
                                 <rect key="frame" x="0.0" y="480" width="393" height="60"/>
@@ -1229,6 +1232,9 @@
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="lock" catalog="system" title=""/>
+                                <connections>
+                                    <segue destination="vLO-HA-f7O" kind="show" id="UgP-2E-0UP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpi-dO-hl0">
                                 <rect key="frame" x="49" y="568" width="61" height="20"/>
@@ -1362,6 +1368,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRF-Eo-v2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4901.5267175572517" y="1458.4507042253522"/>
+        </scene>
+        <!--Edit Password View Controller-->
+        <scene sceneID="ezG-lH-b02">
+            <objects>
+                <viewController id="vLO-HA-f7O" customClass="EditPasswordViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qXR-1A-VfA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLq-Ul-M01">
+                                <rect key="frame" x="130" y="74" width="134" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nko-36-Beg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QLq-Ul-M01" firstAttribute="top" secondItem="nko-36-Beg" secondAttribute="top" constant="30" id="ERt-ct-6nw"/>
+                            <constraint firstItem="QLq-Ul-M01" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="130" id="Ejs-gd-LBO"/>
+                            <constraint firstItem="nko-36-Beg" firstAttribute="trailing" secondItem="QLq-Ul-M01" secondAttribute="trailing" constant="129" id="JvV-SW-qSP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hRD-wy-jle"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTZ-hb-Uro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6278" y="1901"/>
+        </scene>
+        <!--Edit Email View Controller-->
+        <scene sceneID="byf-GI-FCK">
+            <objects>
+                <viewController id="F80-Nf-k2x" customClass="EditEmailViewController" customModule="CritterCrush" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0G3-MC-oSO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5D-y9-Vrn">
+                                <rect key="frame" x="150" y="74" width="93" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o0A-Ao-klj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="p5D-y9-Vrn" firstAttribute="leading" secondItem="o0A-Ao-klj" secondAttribute="leading" constant="150" id="2Dh-lw-qnd"/>
+                            <constraint firstItem="o0A-Ao-klj" firstAttribute="trailing" secondItem="p5D-y9-Vrn" secondAttribute="trailing" constant="150" id="Haa-jm-DWi"/>
+                            <constraint firstItem="p5D-y9-Vrn" firstAttribute="top" secondItem="o0A-Ao-klj" secondAttribute="top" constant="30" id="SPv-o5-kfi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CMD-kp-rNC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TeI-1h-iZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6257" y="1020"/>
         </scene>
         <!--Species Detail-->
         <scene sceneID="YI5-ms-BSY">
