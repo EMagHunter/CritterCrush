@@ -1121,6 +1121,7 @@
                     <connections>
                         <outlet property="DetailView" destination="REE-jo-EA3" id="AUY-l0-vMd"/>
                         <outlet property="dateLabel" destination="jud-MO-ItV" id="DEi-Vn-yqe"/>
+                        <outlet property="deleteButton" destination="dIk-T1-Yp6" id="vBp-pf-ffK"/>
                         <outlet property="locationLabel" destination="qJn-TI-iP5" id="VEm-TY-xvW"/>
                         <outlet property="reportImg" destination="V4u-20-1dV" id="mfX-Hl-aIu"/>
                         <outlet property="reportImgView" destination="yUF-a8-0xk" id="3p3-7c-W7T"/>

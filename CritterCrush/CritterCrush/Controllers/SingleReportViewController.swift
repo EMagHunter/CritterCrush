@@ -11,6 +11,7 @@ import UIKit
 class SingleReportViewController: UIViewController{
     
     
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var reportImg: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -21,10 +22,14 @@ class SingleReportViewController: UIViewController{
     @IBOutlet weak var reportImgView: UIView!
    // var selectedReportID: Int?
     var selectedReport: Datum!
+    let loginUser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if loginUser != selectedReport.userID{
+            deleteButton.isHidden = true
+        }
         self.dateLabel.text = selectedReport.reportDate 
         self.locationLabel.text = String(selectedReport.longitude)
         self.speciesIcon.image = UIImage(named:"icon/icon_bug\(String(describing: selectedReport.speciesID))")

@@ -179,6 +179,11 @@ extension MapViewController: MKMapViewDelegate {
         performSegue(withIdentifier: "showReport", sender: sender)
         
        }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+        viewDidLoad()
+    }
+
     //MARK: Single Report open
     override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
            if segue.identifier == "showReport" {
@@ -186,29 +191,6 @@ extension MapViewController: MKMapViewDelegate {
                let buttonRight = sender as! UIButton
                let showReport = batchReports[buttonRight.tag]
                controller.selectedReport = showReport
-//               controller.selectedReportEdit = batchReports[buttonRight.tag]
-//               controller.speciesName = speciesList[editReport.speciesID-1].name
-//               
-//               
-//               let imgName = editReport.image
-//               let hostName =   "69.125.216.66"
-//               let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
-//               
-//               if let url = URL(string: afLink) {
-//                   AF.request(url).responseImage {
-//                       response in
-//                       switch response.result {
-//                       case .success(let image1):
-//                           controller.show(image: image1)
-//                       case .failure(_):
-//                           break
-//                       }
-//                   }
-//               }
-//
-//               controller.locationLat = editReport.latitude
-//               controller.locationLon = editReport.longitude
-//               controller.title = "Edit Report"
            }
        } //edit report segue
 }
