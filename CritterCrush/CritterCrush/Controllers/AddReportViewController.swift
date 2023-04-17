@@ -61,10 +61,15 @@ class AddReportViewController: UITableViewController {
     //MARK: Predict
     @IBAction func predict() {
         //API CALL FOR IMAGE RECOGNITION
-        predictImage(useImage:image!){ (result: Result<Data, Error>) in
+        //UNWRAP THE RESULT
+        //ALSO MAKE IT SO I CANT CLICK IT IF PHOTO IS EMPTY
+        
+        let imgUp = image!
+        predictImage(useImage:imgUp){ (result: Result<Data, Error>) in
             switch result {
             case .success(let report):
-                print(report)
+                let str = String(decoding: report, as: UTF8.self)
+                print(str)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -75,7 +80,7 @@ class AddReportViewController: UITableViewController {
     } // predict
     
     func predictImage(useImage: UIImage, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let imageData = useImage.jpegData(compressionQuality: 0.8) else {
+        guard let imageData = useImage.jpegData(compressionQuality: 0.5) else {
             // Handle error if unable to convert image to data
             return
         }
@@ -102,7 +107,7 @@ class AddReportViewController: UITableViewController {
                     }
                 }
             },
-            to: urlString, method: .get
+            to: urlString, method: .post
         ).responseData { response in
             switch response.result {
             case .success(let data):
@@ -144,10 +149,41 @@ class AddReportViewController: UITableViewController {
     //Submit
     
     @IBAction func submit() {
-        formatter.locale = Locale(identifier: "en_us")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        date = formatter.string(from: datePicker.date)
+        let imgUp = image!
+        upImage(useImage:imgUp){ (result: Result<Data, Error>) in
+            switch result {
+            case .success(let report):
+                let str = String(decoding: report, as: UTF8.self)
+                print(str)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }//predictImage
+        
+        resetLabels()
+        
+        showSubmitAlert()
+    }//submit
+    
+    func upImage(useImage: UIImage, completion: @escaping (Result<Data, Error>) -> Void) {
+            guard let imageData = useImage.jpegData(compressionQuality: 0.5) else {
+                // Handle error if unable to convert image to data
+                return
+            }
+            
+            let hostName =   "69.125.216.66"
+            let urlString = "http://\(hostName)/api/reports"
+        //headers
+            let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
+            
+            let headers: HTTPHeaders = [
+                "Authorization": "\(authToken!)"
+            ]
+            
+            // Define the image upload parameters
+        
         
         //convert date to epoch time
         let day = datePicker.date.timeIntervalSince1970
@@ -158,38 +194,40 @@ class AddReportViewController: UITableViewController {
         
         print(speciesReport)
         
-        let hostName =   "69.125.216.66"
-        let afLink = "http://\(hostName)/api/reports"
-        
-        
-        let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
-        
-        let headers: HTTPHeaders = [
-            "Authorization": "\(authToken!)"
-        ]
-        
-        let parameter: [String: Data]? = [:]
-        
-        /*
-        AF.upload(
-            multipartFormData: { multipartFormData in
-                for (key, keyValue) in parameter {
-                    if let keyData = keyValue.data(using: .utf8){
-                                    multipartFormData.append(keyData, withName: key)
-                                }
-                }
-                multipartFormData.append(self.image!.jpegData(compressionQuality: 0.5)!, withName: "reportImage" , fileName: "\(self.locationLat)\(loguserID)\(self.date).jpeg", mimeType: "image/jpeg")
-            },
-            to: afLink, method: .post, headers: headers)
-        .responseData { response in
-            print(response)
+            let parameters: [String: Any] = [
+                "reportImage": imageData,
+                "speciesid": 1,
+                "numspecimens": 1,
+                "latitude": 0.0,
+                "longitude": 0.0,
+                "reportdate": day
+            ]
             
-        }*/
-        
-        resetLabels()
-        
-        showSubmitAlert()
-    }//submit
+            let imgName = randomName(length:7)
+            print(imgName)
+            
+            // Use Alamofire to upload the image as a parameter
+            AF.upload(
+                multipartFormData: { multipartFormData in
+                    for (key, value) in parameters {
+                        if let data = value as? Data {
+                            multipartFormData.append(data, withName: key, fileName: "\(imgName).jpg", mimeType: "image/jpeg")
+                        } else if let stringValue = value as? String, let data = stringValue.data(using: .utf8) {
+                            multipartFormData.append(data, withName: key)
+                        }
+                    }
+                },
+                to: urlString, method: .post, headers:headers
+            ).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        } //upimage
+    
     
     @IBAction func reset() {
         showResetAlert()
@@ -218,8 +256,8 @@ class AddReportViewController: UITableViewController {
         Address = controller.addressAdded
         placemark = controller.placemark
         addressLabel.text = Address
-        locationLat = controller.location!.coordinate.longitude
-        locationLon = controller.location!.coordinate.latitude
+        locationLat = controller.location?.coordinate.longitude ?? 0.0
+        locationLon = controller.location?.coordinate.latitude ?? 0.0
     }
     override func prepare(for segue: UIStoryboardSegue, sender:
                           Any?) {
