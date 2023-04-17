@@ -17,13 +17,13 @@ import AlamofireImage
 //    formatter.timeStyle = .short
 //    return formatter
 //}()
-
 class AddReportViewController: UITableViewController {
     @IBOutlet var speciesNameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     var placemark: CLPlacemark?
     var Address = ""
     var speciesName = ""
+    var speciesID = 1
     @IBOutlet weak var datePicker: UIDatePicker!
     var date:String = ""
     @IBOutlet var imageView: UIImageView!
@@ -33,6 +33,8 @@ class AddReportViewController: UITableViewController {
     var locationLat: Double = 0
     let formatter = DateFormatter()
     
+    //segue
+    var segCoordinate: CLLocationCoordinate2D?
     
     @IBOutlet weak var predictBug: UIButton!
     
@@ -68,13 +70,22 @@ class AddReportViewController: UITableViewController {
         predictImage(useImage:imgUp){ (result: Result<Data, Error>) in
             switch result {
             case .success(let report):
-                let str = String(decoding: report, as: UTF8.self)
-                print(str)
+                do {
+                    //let str = String(decoding: report, as: UTF8.self)
+                    let asJSON = try JSONSerialization.jsonObject(with: report)
+                    if let responseDict = asJSON as? [String: Any],
+                       let dataString = responseDict["data"] {
+                        self.showPredictAlert(message: dataString as! String)
+                        print(dataString)
+                    }
+                } catch {
+                    print("error")
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
         }//predictImage
+        
         
         
     } // predict
@@ -119,34 +130,24 @@ class AddReportViewController: UITableViewController {
     } //upimage
     
     
-    func showPredictAlert(){
+    func showPredictAlert(message: String){
         let alert = UIAlertController(
-            title: "Predict Image",
-            message: "Your image:" ,
+            title: "Image Prediction",
+            message: message,
             preferredStyle: .alert)
-        //        let Action = UIAlertAction(
-        //            title: "Exit",
-        //            style: .default,
-        //            handler: nil)
-        //        alert.addAction(Action)
+        let Action = UIAlertAction(
+            title: "Close",
+            style: .default,
+            handler: nil)
+        alert.addAction(Action)
         present(alert, animated: true,completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        /*
+         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             alert.dismiss(animated: true, completion: nil)
-        }
-    }
-    
+        }*/
+    } //predict alert
     
     //MARK: Add Report
-    struct Report {
-        var userid: Int
-        var speciesid: Int
-        var numspecimens: Int = 1
-        var latitude: Double
-        var longitude: Double
-        var reportdate: Int
-        // var image = UIImage()
-    }
-    //Submit
     
     @IBAction func submit() {
         
@@ -186,21 +187,31 @@ class AddReportViewController: UITableViewController {
         
         
         //convert date to epoch time
-        let day = datePicker.date.timeIntervalSince1970
+        let day = Int(datePicker.date.timeIntervalSince1970)
         //Date().timeIntervalSince1970
         let loguserID = UserDefaults.standard.object(forKey: "userid") as! Int
+        var bugID = 1
+        if let i = speciesList.firstIndex(where: { $0.name == speciesName }) {
+            bugID = speciesList[i].id
+            print(bugID)
+        }
+        var lat = 0.0
+        var lon = 0.0
+        if let unwrapped = segCoordinate {
+            lat = unwrapped.latitude
+            lon = unwrapped.longitude
+            print(segCoordinate)
+        } else {
+            print("no geocoding")
+        }
         
-        let speciesReport = Report(userid: UserDefaults.standard.object(forKey: "userid") as! Int, speciesid: 0, numspecimens: 1, latitude: locationLat, longitude: locationLon, reportdate: Int(day))
-        
-        print(speciesReport)
-        
-            let parameters: [String: Any] = [
-                "reportImage": imageData,
-                "speciesid": 1,
+        let param: [String:Any] = [
+                "speciesid": bugID,
                 "numspecimens": 1,
-                "latitude": 0.0,
-                "longitude": 0.0,
-                "reportdate": day
+                "latitude": lat,
+                "longitude": lon,
+                "reportdate": day,
+                "reportImage": imageData
             ]
             
             let imgName = randomName(length:7)
@@ -209,12 +220,21 @@ class AddReportViewController: UITableViewController {
             // Use Alamofire to upload the image as a parameter
             AF.upload(
                 multipartFormData: { multipartFormData in
-                    for (key, value) in parameters {
+                    for (key, value) in param {
+                        print("\(key), \(value)")
+                        if (key != "reportImage") {
+                            let entry:String = String(describing: value)
+                            multipartFormData.append(entry.data(using: .utf8)!, withName: key)
+                        }
+                        
                         if let data = value as? Data {
                             multipartFormData.append(data, withName: key, fileName: "\(imgName).jpg", mimeType: "image/jpeg")
+                            print("sent value: \(data)")
                         } else if let stringValue = value as? String, let data = stringValue.data(using: .utf8) {
+                            print("STRINGVALUE\(stringValue)")
                             multipartFormData.append(data, withName: key)
                         }
+                        
                     }
                 },
                 to: urlString, method: .post, headers:headers
@@ -228,11 +248,14 @@ class AddReportViewController: UITableViewController {
             }
         } //upimage
     
-    
+    //reset
     @IBAction func reset() {
         showResetAlert()
         resetLabels()
     }
+    
+    
+    
     
     //view
     override func viewDidLoad() {
@@ -256,15 +279,18 @@ class AddReportViewController: UITableViewController {
         Address = controller.addressAdded
         placemark = controller.placemark
         addressLabel.text = Address
+        segCoordinate = controller.addressCoord
         locationLat = controller.location?.coordinate.longitude ?? 0.0
         locationLon = controller.location?.coordinate.latitude ?? 0.0
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender:
                           Any?) {
         if segue.identifier == "AddressAdder" {
             let controller = segue.destination as! AddressUploadViewController
             controller.placemark = placemark
             controller.addressAdded = Address
+            controller.addressCoord = segCoordinate
         }
         if segue.identifier == "selectSpecies" {
             let controller = segue.destination as! selectSpeciesViewController
@@ -392,5 +418,6 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
         datePicker.setDate(Date(), animated: true)
         
     }
+    
     
 }

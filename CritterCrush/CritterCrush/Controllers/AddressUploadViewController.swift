@@ -31,6 +31,7 @@ class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
     var lastGeocodingError: Error?
     var timer: Timer?
     var addressAdded = ""
+    var addressCoord: CLLocationCoordinate2D?
     
     //MARK: -CCLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -273,6 +274,13 @@ class AddressUploadViewController: UIViewController, CLLocationManagerDelegate {
                 if error == nil {
                     self.placemark = nil
                     self.placemark = placemarks?[0]
+                    if let unwrapped = self.placemark?.location?.coordinate {
+                        self.addressCoord = unwrapped
+                        print("Adress Coord: \(unwrapped)")
+                    } else {
+                        print("Missing coord.")
+                    }
+                    
                     self.performSegue(withIdentifier: "AddressAdded", sender: self)
                     }
                 else {
