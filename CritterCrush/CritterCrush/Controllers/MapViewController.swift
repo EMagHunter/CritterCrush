@@ -176,38 +176,39 @@ extension MapViewController: MKMapViewDelegate {
    }
     
     @objc func showDetail(_ sender: UIButton) {
-        performSegue(withIdentifier: "EditReport", sender: sender)
+        performSegue(withIdentifier: "showReport", sender: sender)
         
        }
     //MARK: EditReport open
     override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
-           if segue.identifier == "EditReport" {
-               let controller = segue.destination as! AddReportViewController
+           if segue.identifier == "showReport" {
+               let controller = segue.destination as! SingleReportViewController
                let buttonRight = sender as! UIButton
-               let editReport = batchReports[buttonRight.tag]
-               controller.selectedReportEdit = batchReports[buttonRight.tag]
-               controller.speciesName = speciesList[editReport.speciesID-1].name
-               
-               
-               let imgName = editReport.image
-               let hostName =   "69.125.216.66"
-               let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
-               
-               if let url = URL(string: afLink) {
-                   AF.request(url).responseImage {
-                       response in
-                       switch response.result {
-                       case .success(let image1):
-                           controller.show(image: image1)
-                       case .failure(_):
-                           break
-                       }
-                   }
-               }
-
-               controller.locationLat = editReport.latitude
-               controller.locationLon = editReport.longitude
-               controller.title = "Edit Report"
+               let showReport = batchReports[buttonRight.tag]
+               controller.selectedReport = showReport
+//               controller.selectedReportEdit = batchReports[buttonRight.tag]
+//               controller.speciesName = speciesList[editReport.speciesID-1].name
+//               
+//               
+//               let imgName = editReport.image
+//               let hostName =   "69.125.216.66"
+//               let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
+//               
+//               if let url = URL(string: afLink) {
+//                   AF.request(url).responseImage {
+//                       response in
+//                       switch response.result {
+//                       case .success(let image1):
+//                           controller.show(image: image1)
+//                       case .failure(_):
+//                           break
+//                       }
+//                   }
+//               }
+//
+//               controller.locationLat = editReport.latitude
+//               controller.locationLon = editReport.longitude
+//               controller.title = "Edit Report"
            }
        } //edit report segue
 }

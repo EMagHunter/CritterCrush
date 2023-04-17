@@ -14,16 +14,16 @@ import AlamofireImage
 
 import UIKit
 import MapKit
-//STRUCT TO PASS REPORTS
-struct bugReport{
-    var subID: Int = 0 //report ID
-    var bugID: Int = 0 //bugID
-    var subDate: String
-    //we only need report ID
-    var reportImage:Image!
-    var reportLocationText = ""
-    
-}
+////STRUCT TO PASS REPORTS
+//struct bugReport{
+//    var subID: Int = 0 //report ID
+//    var bugID: Int = 0 //bugID
+//    var subDate: String
+//    //we only need report ID
+//    var reportImage:Image!
+//    var reportLocationText = ""
+//
+//}
 
 
 class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource{
@@ -43,7 +43,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     
     var titleStringViaSegue: String!
     var bugID: Int!
-    var selectedBug: bugReport!
+    var selectedBug: Datum!
     var reportImageHolder:Image!
     
     //API CALL
@@ -75,7 +75,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
                 print(error.localizedDescription)
             }
             batchReports = self.batch.batchReport!.data
-            print("Update: \(batchReports[0])")
+            //print("Update: \(batchReports[0])")
             self.collectionView.reloadData()
         }//apiReport(userID)
 
@@ -147,7 +147,6 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
             if case .success(let image) = response.result {
                // print("image downloaded: \(image)")
                 cell.reportImg?.image = image
-                //self.reportImageHolder = image
             }
         } //image
         
@@ -164,7 +163,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         
         let selectedLocationText = "\(String(describing: bug.longitude)),\(String(describing: bug.latitude))"
         let cell = collectionView.cellForItem(at: indexPath) as! ReportCell
-        selectedBug = bugReport(subID:bug.reportID, bugID:bug.speciesID, subDate:bug.reportDate,reportImage: cell.reportImg.image, reportLocationText: selectedLocationText)
+        selectedBug = batchReports[indexPath.row]
        
         
         let singleSegue = "showSingleReport"
@@ -179,9 +178,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     
         if segue.identifier == singleSegue {
             if let destVC = segue.destination as? SingleReportViewController {
-                destVC.selectedReportID = selectedBug.bugID
                 destVC.selectedReport = selectedBug
-                destVC.nameSpeciesHolder = titleStringViaSegue
                 
         
             }
