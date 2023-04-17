@@ -19,7 +19,7 @@ class SingleReportViewController: UIViewController{
     @IBOutlet weak var speciesName: UILabel!
     //var subID: Int = 0 //report ID
     @IBOutlet weak var reportImgView: UIView!
-    var selectedReportID: Int?
+   // var selectedReportID: Int?
     var selectedReport: Datum!
     
     
@@ -92,7 +92,7 @@ class SingleReportViewController: UIViewController{
         
         
         let hostName =   "69.125.216.66"
-        let afLink = "http://\(hostName)/api/reports/\(String(describing: selectedReportID))"
+        let afLink = "http://\(hostName)/api/reports/\(String(describing: selectedReport.reportID))"
         
         
         let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
@@ -108,7 +108,7 @@ class SingleReportViewController: UIViewController{
             debugPrint(response)
 //        case success:
 //            do {
-//                
+//
 //            }
         }
         
