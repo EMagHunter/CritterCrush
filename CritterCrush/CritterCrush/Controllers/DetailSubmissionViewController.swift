@@ -106,7 +106,8 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
         viewDidLoad()
-        }
+        
+    }
    
     //MARK: Image grabbing
     //TEST FILE
