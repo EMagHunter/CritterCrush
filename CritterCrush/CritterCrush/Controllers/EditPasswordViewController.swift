@@ -9,6 +9,20 @@ import UIKit
 
 class EditPasswordViewController: UIViewController {
 
+    
+    @IBOutlet weak var currPassTextField: UITextField!
+    @IBOutlet weak var currPassResLabel: UILabel!
+    
+    
+    @IBOutlet weak var newPassTextField: UITextField!
+    @IBOutlet weak var newPassResLabel: UILabel!
+    
+    
+    @IBAction func onEdit(_ sender: Any) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
