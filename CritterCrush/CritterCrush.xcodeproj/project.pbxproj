@@ -162,8 +162,6 @@
 				F7CAF3C229BE327D00404D96 /* AddReportViewController.swift */,
 				F77ADBDC29B5267F00045ABF /* AddressUploadViewController.swift */,
 				4159F48529DA6C1B00125FE1 /* SingleReportViewController.swift */,
-				4159F47F29DA214800125FE1 /* IndividualReport.swift */,
-				F70E95B229D1654C00F1EB4A /* DataModel.swift */,
 			);
 			name = Reports;
 			sourceTree = "<group>";
@@ -201,6 +199,8 @@
 		41AE477D29E0B756006E560C /* Offline Data */ = {
 			isa = PBXGroup;
 			children = (
+				F70E95B229D1654C00F1EB4A /* DataModel.swift */,
+				4159F47F29DA214800125FE1 /* IndividualReport.swift */,
 				4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */,
 				4157DFA629C8E2F50066ECBA /* test_slf.csv */,
 				4157DF9629C7FA230066ECBA /* Submission.swift */,

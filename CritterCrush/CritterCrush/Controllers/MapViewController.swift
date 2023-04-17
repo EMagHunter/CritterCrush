@@ -179,7 +179,7 @@ extension MapViewController: MKMapViewDelegate {
         performSegue(withIdentifier: "showReport", sender: sender)
         
        }
-    //MARK: EditReport open
+    //MARK: Single Report open
     override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
            if segue.identifier == "showReport" {
                let controller = segue.destination as! SingleReportViewController
