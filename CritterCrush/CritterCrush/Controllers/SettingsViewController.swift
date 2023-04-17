@@ -24,14 +24,13 @@ class SettingsViewController: UIViewController {
     var userEmailData = ""
     var userPasswordData = ""
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "editSegue") {
-//            if let editVC = segue.destination as? EditViewController {
-//                editVC.usernameData = usernameLabel.text
-//                editVC.userEmailData = userEmailLabel.text
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "editEmailSegue") {
+            if let editVC = segue.destination as? EditEmailViewController {
+                editVC.currEmail = userEmailLabel.text;
+            }
+        }
+    }
     
     @IBAction func onEdit(_ sender: Any) {}
     

@@ -15,16 +15,19 @@ class EditEmailViewController: UIViewController {
     @IBOutlet weak var newEmailTextField: UITextField!
     @IBOutlet weak var newEmailResLabel: UILabel!
     
+    var currEmail: String?
+    
     @IBAction func onEdit(_ sender: Any) {
         // edge cases: new email is empty and new email is same as current email, and new email is not a valid email
-        
+        if (newEmailTextField.text == currEmailTextField.text) {
+            newEmailResLabel.text = "Make sure your new email is different from current email"
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currEmailTextField.text = user.email
-
+        currEmailTextField.text = currEmail
     }
     
     // Check if a email is valid
