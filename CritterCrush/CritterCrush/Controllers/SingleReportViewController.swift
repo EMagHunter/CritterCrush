@@ -93,24 +93,26 @@ class SingleReportViewController: UIViewController{
         
         let hostName =   "69.125.216.66"
         let afLink = "http://\(hostName)/api/reports/\(String(describing: selectedReport.reportID))"
-        
-        
+
+
         let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
-        
+
         let headers: HTTPHeaders = [
             "Authorization": "\(authToken!)"
         ]
-        
-        
+
+
         // make the GET request using Alamofire
         AF.request(afLink, method:.delete, encoding:URLEncoding.queryString, headers: headers).responseData { response in
             //debugPrint(response)
             debugPrint(response)
-//        case success:
-//            do {
-//
-//            }
+            if (response.response?.statusCode == 200) {
+                self.showDeleteAlert()
+            } else {
+                self.showErrorAlert()
+            }
         }
+        //showDeleteAlert()
         
         
     }//delete
@@ -149,11 +151,18 @@ class SingleReportViewController: UIViewController{
             title: "Deletion Sucessul",
             message: "The information has been deleted" ,
             preferredStyle: .alert)
-        //        let Action = UIAlertAction(
-        //            title: "Exit",
-        //            style: .default,
-        //            handler: nil)
-        //        alert.addAction(Action)
+        present(alert, animated: true,completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+        }
+       
+    }
+    func showErrorAlert(){
+        let alert = UIAlertController(
+            title: "Error",
+            message: "A error occur and no deletion took place" ,
+            preferredStyle: .alert)
         present(alert, animated: true,completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             alert.dismiss(animated: true, completion: nil)
