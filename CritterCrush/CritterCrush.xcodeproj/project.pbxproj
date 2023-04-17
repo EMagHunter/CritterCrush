@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F55B6EEDBF9049DCB57831A /* Pods_CritterCrush_CritterCrushUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */; };
-		2B3A56E929CE39B0003690BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3A56E829CE39B0003690BC /* EditViewController.swift */; };
 		2BC2F08C29ED0134005E39A9 /* EditEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2F08B29ED0134005E39A9 /* EditEmailViewController.swift */; };
 		2BC2F08E29ED0140005E39A9 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2F08D29ED0140005E39A9 /* EditPasswordViewController.swift */; };
 		411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */; };
@@ -71,7 +70,6 @@
 		1416A7328B3E46B5A03744D8 /* Pods-CritterCrush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.release.xcconfig"; sourceTree = "<group>"; };
 		270BE991FBA9568061FF6665 /* Pods_CritterCrush_CritterCrushUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CritterCrush_CritterCrushUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1C8730B848420498A5869B /* Pods-CritterCrush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush.debug.xcconfig"; path = "Target Support Files/Pods-CritterCrush/Pods-CritterCrush.debug.xcconfig"; sourceTree = "<group>"; };
-		2B3A56E829CE39B0003690BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2BC2F08B29ED0134005E39A9 /* EditEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmailViewController.swift; sourceTree = "<group>"; };
 		2BC2F08D29ED0140005E39A9 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		411FE64629BBC1D300329B02 /* DetailSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubmissionViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 			children = (
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
-				2B3A56E829CE39B0003690BC /* EditViewController.swift */,
 				2BC2F08B29ED0134005E39A9 /* EditEmailViewController.swift */,
 				2BC2F08D29ED0140005E39A9 /* EditPasswordViewController.swift */,
 			);
@@ -602,7 +599,6 @@
 				F77ADBDB29B5264300045ABF /* ProfileViewController.swift in Sources */,
 				419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */,
 				F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */,
-				2B3A56E929CE39B0003690BC /* EditViewController.swift in Sources */,
 				4157DF9029C6D8F60066ECBA /* ReportCell.swift in Sources */,
 				2BC2F08C29ED0134005E39A9 /* EditEmailViewController.swift in Sources */,
 			);
