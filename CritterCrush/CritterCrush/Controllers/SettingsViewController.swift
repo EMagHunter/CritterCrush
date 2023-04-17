@@ -24,15 +24,6 @@ class SettingsViewController: UIViewController {
     var userEmailData = ""
     var userPasswordData = ""
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "editSegue") {
-            if let editVC = segue.destination as? EditViewController {
-                editVC.usernameData = usernameLabel.text
-                editVC.userEmailData = userEmailLabel.text
-            }
-        }
-    }
-    
     @IBAction func onEdit(_ sender: Any) {}
     
     @IBAction func onLogout(_ sender: Any) {
@@ -48,7 +39,6 @@ class SettingsViewController: UIViewController {
     @IBAction func onDelete(_ sender: Any) {
         print("Delete Data clicked")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
