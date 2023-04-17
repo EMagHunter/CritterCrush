@@ -20,7 +20,6 @@ class SingleReportViewController: UIViewController{
     //var subID: Int = 0 //report ID
     @IBOutlet weak var reportImgView: UIView!
     var selectedReportID: Int?
-    //var indReport:IndividualReport?
     var selectedReport: Datum!
     
     
@@ -107,6 +106,10 @@ class SingleReportViewController: UIViewController{
         AF.request(afLink, method:.delete, encoding:URLEncoding.queryString, headers: headers).responseData { response in
             //debugPrint(response)
             debugPrint(response)
+//        case success:
+//            do {
+//                
+//            }
         }
         
         
@@ -141,6 +144,22 @@ class SingleReportViewController: UIViewController{
         
         
     }//style
+    func showDeleteAlert(){
+        let alert = UIAlertController(
+            title: "Deletion Sucessul",
+            message: "The information has been deleted" ,
+            preferredStyle: .alert)
+        //        let Action = UIAlertAction(
+        //            title: "Exit",
+        //            style: .default,
+        //            handler: nil)
+        //        alert.addAction(Action)
+        present(alert, animated: true,completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true, completion: nil)
+        }
+        navigationController?.popViewController(animated: true)
+    }
 //    func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
 //        //takes report ID of selected report
 //        //uses
