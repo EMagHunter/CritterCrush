@@ -40,10 +40,98 @@ class AddReportViewController: UITableViewController {
     //var selectedReportEdit:Submission? = nil
     
     // MARK: - Actions
-    @IBAction func predict() {
-        //API CALL FOR IMAGE RECOGNITION
+    //https://stackoverflow.com/questions/26845307/generate-random-alphanumeric-string-in-swift
+    //for image name
+    func randomName(length: Int) -> String {
+        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let allowedCharsCount = UInt32(allowedChars.count)
+        var randomString = ""
+
+        for _ in 0 ..< length {
+            let randomNum = Int(arc4random_uniform(allowedCharsCount))
+            let randomIndex = allowedChars.index(allowedChars.startIndex, offsetBy: randomNum)
+            let newCharacter = allowedChars[randomIndex]
+            randomString += String(newCharacter)
+        }
+
+        return randomString
     }
     
+    
+    //MARK: Predict
+    @IBAction func predict() {
+        //API CALL FOR IMAGE RECOGNITION
+        predictImage(useImage:image!){ (result: Result<Data, Error>) in
+            switch result {
+            case .success(let report):
+                print(report)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }//predictImage
+        
+        
+    } // predict
+    
+    func predictImage(useImage: UIImage, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let imageData = useImage.jpegData(compressionQuality: 0.8) else {
+            // Handle error if unable to convert image to data
+            return
+        }
+        
+        let hostName =   "69.125.216.66"
+        let urlString = "http://\(hostName)/api/critterdetect"
+        
+        // Define the image upload parameters
+        let parameters: [String: Any] = [
+            "reportImage": imageData
+        ]
+        
+        let imgName = randomName(length:7)
+        print(imgName)
+        
+        // Use Alamofire to upload the image as a parameter
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                    if let data = value as? Data {
+                        multipartFormData.append(data, withName: key, fileName: "\(imgName).jpg", mimeType: "image/jpeg")
+                    } else if let stringValue = value as? String, let data = stringValue.data(using: .utf8) {
+                        multipartFormData.append(data, withName: key)
+                    }
+                }
+            },
+            to: urlString, method: .get
+        ).responseData { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    } //upimage
+    
+    
+    func showPredictAlert(){
+        let alert = UIAlertController(
+            title: "Predict Image",
+            message: "Your image:" ,
+            preferredStyle: .alert)
+        //        let Action = UIAlertAction(
+        //            title: "Exit",
+        //            style: .default,
+        //            handler: nil)
+        //        alert.addAction(Action)
+        present(alert, animated: true,completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
+    //MARK: Add Report
     struct Report {
         var userid: Int
         var speciesid: Int
