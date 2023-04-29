@@ -32,6 +32,8 @@ class SingleReportViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let spinner = view.viewWithTag(100) as! UIActivityIndicatorView
+        spinner.startAnimating()
         if loginUser != selectedReport.userID{
             deleteButton.isHidden = true
         }
@@ -48,6 +50,7 @@ class SingleReportViewController: UIViewController{
         AF.request(afLink).responseImage { response in
             
             if case .success(let image) = response.result {
+                spinner.isHidden = true
                 self.reportImg.image = image
             }
         } //

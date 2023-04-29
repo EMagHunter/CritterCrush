@@ -11,9 +11,11 @@ class ReportCell: UICollectionViewCell {
     @IBOutlet weak var reportImg: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var backgroundImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        //spinner.startAnimating()
         reportImg.contentMode = .scaleAspectFill
         //reportImg.backgroundColor = .black
        // reportImg.layer.borderColor = UIColor.black.cgColor

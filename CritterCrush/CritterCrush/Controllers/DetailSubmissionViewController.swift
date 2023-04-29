@@ -133,6 +133,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         let labelDate = batchReports[indexPath.row].reportDate
         
         let bug = batchReports[indexPath.row]
+        cell.spinner.startAnimating()
         
         
         //update labels and images
@@ -151,6 +152,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
             
             if case .success(let image) = response.result {
                // print("image downloaded: \(image)")
+                cell.spinner.isHidden = true
                 cell.reportImg?.image = image
             }
         } //image
