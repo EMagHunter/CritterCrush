@@ -8,6 +8,10 @@ import Alamofire
 import AlamofireImage
 import UIKit
 
+protocol SingleReportViewControllerDelegate:AnyObject{
+    func SingleReportViewControllerDelete(
+        _ controller: SingleReportViewController)
+}
 class SingleReportViewController: UIViewController{
     
     
@@ -17,9 +21,11 @@ class SingleReportViewController: UIViewController{
     @IBOutlet weak var DetailView: UIView!
     @IBOutlet weak var speciesIcon: UIImageView!
     @IBOutlet weak var speciesName: UILabel!
+    weak var delegate: SingleReportViewControllerDelegate?
     //var subID: Int = 0 //report ID
     @IBOutlet weak var reportImgView: UIView!
    // var selectedReportID: Int?
+    var indexOfReport: Int!
     var selectedReport: Datum!
     @IBOutlet weak var deleteButton: UIButton!
     let loginUser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
@@ -115,6 +121,7 @@ class SingleReportViewController: UIViewController{
             debugPrint(response)
             if (response.response?.statusCode == 200) {
                 self.showDeleteAlert()
+                self.delegate?.SingleReportViewControllerDelete(self)
             } else {
                 self.showErrorAlert()
             }
