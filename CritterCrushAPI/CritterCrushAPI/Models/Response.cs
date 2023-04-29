@@ -24,4 +24,14 @@
             data = d;
         }
     }
+
+    public class ResponseNoContent : Response
+    {
+        public string title { get; set; }
+        public ResponseNoContent()
+        {
+            status = 204;
+            title = "No Content";
+        }
+    }
 }

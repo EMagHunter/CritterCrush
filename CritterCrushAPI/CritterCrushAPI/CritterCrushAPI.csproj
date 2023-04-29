@@ -1,10 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ComputerVision\**" />
+    <Compile Remove="python\**" />
+    <Content Remove="ComputerVision\**" />
+    <Content Remove="python\**" />
+    <EmbeddedResource Remove="ComputerVision\**" />
+    <EmbeddedResource Remove="python\**" />
+    <None Remove="ComputerVision\**" />
+    <None Remove="python\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
@@ -18,5 +30,9 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /s /q /i /y $(ProjectDir)python  $(ProjectDir)$(OutDir)python&#xD;&#xA;xcopy /s /q /i /y $(ProjectDir)ComputerVision  $(ProjectDir)$(OutDir)ComputerVision" />
+  </Target>
 
 </Project>

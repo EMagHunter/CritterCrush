@@ -9,8 +9,7 @@
         public int NumberSpecimens { get; set; }
         public double Longitude { get; set; }
         public double Latitude { get; set; }
-        public int VerifyTrueCount { get; set; }
-        public int VerifyFalseCount { get; set; }
+        public string Image { get; set; }
 
     }
 }

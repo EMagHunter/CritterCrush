@@ -26,6 +26,17 @@ struct UserProfileObj
     }
 }
 
+struct UserTokenIDPair
+{
+    public string token { get; set; }
+    public int userid { get; set; }
+    public UserTokenIDPair(int userid, string token)
+    {
+        this.userid = userid;
+        this.token = token;
+    }
+}
+
 namespace CritterCrushAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -62,7 +73,8 @@ namespace CritterCrushAPI.Controllers
             _context.Users.Add(newuser);
             await _context.SaveChangesAsync();
             string token = await GetOrIssueAuthToken(newuser.UserID);
-            return new ResponseData<string>(token);
+
+            return new ResponseData<UserTokenIDPair>(new UserTokenIDPair(newuser.UserID, token));
         }
 
         [HttpGet("login")]
@@ -82,7 +94,7 @@ namespace CritterCrushAPI.Controllers
             if (passwordhash == user.Pass)
             {
                 string token = await GetOrIssueAuthToken(user.UserID);
-                return new ResponseData<string>(token);
+                return new ResponseData<UserTokenIDPair>(new UserTokenIDPair(user.UserID, token));
             } else
             {
                 return BadRequest(new ResponseError(400, "User and password do not match"));
@@ -132,6 +144,71 @@ namespace CritterCrushAPI.Controllers
             }
             return new ResponseData<UserProfileObj>(new UserProfileObj(u.UserID, u.UserName, u.Email));
 
+        }
+
+        [HttpPatch("userprofile")]
+        public async Task<ActionResult<Response>> EditUserData(string? email = null, string? password = null)
+        {
+            var h = Request.Headers;
+            if (!h.ContainsKey("Authorization"))
+            {
+                return new ResponseError(400, "Authorization header is required");
+            }
+            string token = h.Authorization.ToString();
+            if (IsStringEmpty(token))
+            {
+                return new ResponseError(400, "Authorization header is empty");
+            }
+            User u = GetUserFromToken(token);
+            if (u == null || !VerifyTokenForUser(u.UserID, token))
+            {
+                return new ResponseError(400, "Auth token not valid");
+            }
+            if (email != null)
+            {
+                u.Email = email;
+            }
+            if (password != null)
+            {
+                string passwordhash = HashPassword(password);
+                u.Pass = passwordhash;
+                await DeleteTokenForUser(u.UserID);
+                token = await GetOrIssueAuthToken(u.UserID);
+            }
+            await _context.SaveChangesAsync();
+
+            
+            return password != null ? new ResponseData<string>(token) : new ResponseNoContent();
+        }
+
+        [HttpDelete("userprofile")]
+        public async Task<ActionResult<Response>> DeleteUserData()
+        {
+            var h = Request.Headers;
+            if (!h.ContainsKey("Authorization"))
+            {
+                return new ResponseError(400, "Authorization header is required");
+            }
+            string token = h.Authorization.ToString();
+            if (IsStringEmpty(token))
+            {
+                return new ResponseError(400, "Authorization header is empty");
+            }
+            User u = GetUserFromToken(token);
+            if (u == null || !VerifyTokenForUser(u.UserID, token))
+            {
+                return new ResponseError(400, "Auth token not valid");
+            }
+            IQueryable<Report> query = (from r in _context.Reports where r.UserID == u.UserID select r);
+            List<Report> reports = await query.ToListAsync<Report>();
+            foreach (Report r in  reports)
+            {
+                r.UserID = 0;
+            }
+            await DeleteTokenForUser(u.UserID);
+            _context.Users.Remove(u);
+            await _context.SaveChangesAsync();
+            return new ResponseNoContent();
         }
 
         private async Task<string> GetOrIssueAuthToken(int UserID)
@@ -201,6 +278,13 @@ namespace CritterCrushAPI.Controllers
                 return false;
             }
             return t.Token == token;
+        }
+        private async Task DeleteTokenForUser(int UserID)
+        {
+            IQueryable<AuthToken> query = (from t in _context.AuthTokens where t.UserID == UserID select t);
+            AuthToken token = query.Count() == 0 ? null : query.First<AuthToken>();
+            _context.AuthTokens.Remove(token);
+            await _context.SaveChangesAsync();
         }
         private User GetUserFromToken(string token)
         {
