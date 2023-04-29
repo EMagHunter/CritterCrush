@@ -17,7 +17,15 @@ import CoreData
 import Alamofire
 import AlamofireImage
 
-class MapViewController: UIViewController, UISearchResultsUpdating {
+class MapViewController: UIViewController, UISearchResultsUpdating, SingleReportViewControllerDelegate {
+    func SingleReportViewControllerDelete(_ controller: SingleReportViewController) {
+        self.navigationController?.popViewController(animated: true)
+        mapView.removeAnnotations(batchReports)
+        batchReports.remove(at: controller.indexOfReport)
+        mapView.addAnnotations(batchReports)
+       
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
             print(text)
@@ -87,10 +95,7 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     func mapView(_ mapView: MKMapView, didSelect annotationView: MKAnnotationView) {
         mapView.selectAnnotation(annotationView.annotation!, animated: true)
     }//mapView
-    override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-        viewDidLoad()
-    }
+
     
 }
 
@@ -187,8 +192,10 @@ extension MapViewController: MKMapViewDelegate {
     override func prepare( for segue: UIStoryboardSegue, sender: Any? ){
            if segue.identifier == "showReport" {
                let controller = segue.destination as! SingleReportViewController
+               controller.delegate = self
                let buttonRight = sender as! UIButton
                let showReport = batchReports[buttonRight.tag]
+               controller.indexOfReport = buttonRight.tag;
                controller.selectedReport = showReport
 
            }

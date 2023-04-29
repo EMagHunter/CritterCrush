@@ -280,7 +280,6 @@
 		F71F8C5C29A473A0007B6909 /* CritterCrush */ = {
 			isa = PBXGroup;
 			children = (
-				F74C524029BA651100AAB7DA /* Models */,
 				F74C523F29BA64AC00AAB7DA /* Controllers */,
 				F71F8C5D29A473A0007B6909 /* AppDelegate.swift */,
 				F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */,
@@ -322,13 +321,6 @@
 				41AE477D29E0B756006E560C /* Offline Data */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		F74C524029BA651100AAB7DA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
