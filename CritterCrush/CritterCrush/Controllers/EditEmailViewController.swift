@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class EditEmailViewController: UIViewController {
 
@@ -33,7 +34,32 @@ class EditEmailViewController: UIViewController {
             newEmailResLabel.text = "Make sure it is a valid email"
         }
         
+        // call the api: /api/userprofile
+        let url = "http://69.125.216.66/api/users/userprofile"
+        let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
         
+        let headers: HTTPHeaders = [
+            "Authorization": "\(authToken!)"
+        ]
+        
+        let parameter = ["email": newEmail]
+        
+        AF.request(url, method: .patch, parameters: parameter, encoding: URLEncoding.queryString, headers: headers).responseData { response in
+            debugPrint(response)
+            switch response.result {
+            case .success(let data):
+                // Handle success response
+                print("Response: \(data)")
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil);
+                let profileViewController = storyboard.instantiateViewController(withIdentifier: "profile")
+                self.navigationController?.pushViewController(profileViewController, animated: true)
+                
+            case .failure(let error):
+                // Handle failure response
+                print("Error: \(error)")
+            }
+        }
         
     }
     
