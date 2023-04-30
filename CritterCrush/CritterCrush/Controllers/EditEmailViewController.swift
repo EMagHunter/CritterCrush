@@ -19,11 +19,22 @@ class EditEmailViewController: UIViewController {
     
     @IBAction func onEdit(_ sender: Any) {
         // edge cases: new email is empty and new email is same as current email, and new email is not a valid email
-        if (newEmailTextField.text == currEmailTextField.text) {
-            newEmailResLabel.text = "Make sure your new email is different from current email"
-        } else if (newEmailTextField.text == "") {
+        guard let newEmail = newEmailTextField.text, !newEmail.isEmpty else {
             newEmailResLabel.text = "Make sure your new email is not empty"
+            return
         }
+        
+        guard let currEmail = currEmailTextField.text, currEmail != newEmail else {
+            newEmailResLabel.text = "Make sure your new email is different from current email"
+            return
+        }
+        
+        if (!isValidEmail(newEmail)) {
+            newEmailResLabel.text = "Make sure it is a valid email"
+        }
+        
+        
+        
     }
     
     override func viewDidLoad() {
