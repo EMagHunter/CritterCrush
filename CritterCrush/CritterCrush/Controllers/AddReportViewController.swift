@@ -65,25 +65,26 @@ class AddReportViewController: UITableViewController {
         //API CALL FOR IMAGE RECOGNITION
         //UNWRAP THE RESULT
         //ALSO MAKE IT SO I CANT CLICK IT IF PHOTO IS EMPTY
-        
-        let imgUp = image!
-        predictImage(useImage:imgUp){ (result: Result<Data, Error>) in
-            switch result {
-            case .success(let report):
-                do {
-                    //let str = String(decoding: report, as: UTF8.self)
-                    let asJSON = try JSONSerialization.jsonObject(with: report)
-                    if let responseDict = asJSON as? [String: Any],
-                       let dataString = responseDict["data"] {
-                        self.showPredictAlert(message: dataString as! String)
-                        print(dataString)
+        if let imgUp = image {
+            
+            predictImage(useImage:imgUp){ (result: Result<Data, Error>) in
+                switch result {
+                case .success(let report):
+                    do {
+                        //let str = String(decoding: report, as: UTF8.self)
+                        let asJSON = try JSONSerialization.jsonObject(with: report)
+                        if let responseDict = asJSON as? [String: Any],
+                           let dataDict = responseDict["data"] as? [String: Any], let bugCount = dataDict["count"] as? Int, let predSpecies = dataDict["speciesid"] as? Int {
+                            self.showPredictAlert(message: "Count:  \(bugCount)\nSpecies: \(speciesList[predSpecies-1].name)")
+                        }
+                    } catch {
+                        print("error")
                     }
-                } catch {
-                    print("error")
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+        }
+        
         }//predictImage
         
         

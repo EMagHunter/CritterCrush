@@ -64,6 +64,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          tableView.delegate = self
          tableView.dataSource = self
          // Do any additional setup after loading the view.
+         self.tableView.reloadData()
      }
      
      
@@ -92,6 +93,38 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          cell.nameLabel.text = speciesList[indexPath.row].name
          
          cell.scienceLabel.text = speciesList[indexPath.row].science
+         
+         
+         cell.reportCount.text = ("Submissions")
+         
+         let url  = "http://69.125.216.66/api/reports/count"
+         let loginuser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
+         
+         let param: [String:Int] = [
+                         "userid": loginuser,
+                         "speciesid": speciesList[indexPath.row].id
+                     ]
+
+         // call /api/users/userprofile end point to get user information
+         AF.request(url, method: .get, parameters: param).responseData { response in
+             debugPrint(response)
+
+             switch response.result {
+             case .success(let data):
+                 do {
+                     // get the email and pass it to settings page
+                     let asJSON = try JSONSerialization.jsonObject(with: data)
+                     if let data = asJSON as? [String: Any] {
+                         if let count = data["data"] {
+                             cell.reportCount.text = "\(String(describing: count)) Submissions"
+                         }
+                         
+                     }
+                 } catch {
+                 }
+             case .failure(_): break
+             }
+         }
          
          let imgName = "bugicon\(speciesList[indexPath.row].id)"
          cell.iconImage.image = UIImage(named: imgName)

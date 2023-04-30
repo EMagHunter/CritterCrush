@@ -24,6 +24,7 @@ class Species: NSObject {
     var desc: String
     var risk: String
     var link: URL
+    var threat: Int
     
     //SLF
     let salmon = UIColor(red: 1.00, green: 0.54, blue: 0.53, alpha: 1.00)
@@ -50,11 +51,11 @@ class Species: NSObject {
     let link4 = URL(string:"https://www.dec.ny.gov/animals/83118.html")
     
     //initialize
-    init(name: String, science: String, id: Int){
+    init(name: String, science: String, id: Int, threat: Int){
         self.name = name
         self.science = science
         self.id = id
-        
+        self.threat = threat
         
         switch self.id {
         case 1:
@@ -90,9 +91,9 @@ class Species: NSObject {
 
 
 //global variables of Species
-let SLF = Species(name: "Spotted lanternfly", science: "Lycorma delicatula", id: 1)
-let ALB = Species(name: "Asian longhorned beetle", science: "Anoplophora glabripennis", id: 2)
-let EAB = Species(name: "Emerald ash borer", science:"Agrilus planipennis", id: 3)
-let SPM = Species(name: "Spongy moth", science:"Lymantria dispar", id: 4)
+let SLF = Species(name: "Spotted lanternfly", science: "Lycorma delicatula", id: 1, threat: 2)
+let ALB = Species(name: "Asian longhorned beetle", science: "Anoplophora glabripennis", id: 2, threat: 3)
+let EAB = Species(name: "Emerald ash borer", science:"Agrilus planipennis", id: 3, threat: 3)
+let SPM = Species(name: "Spongy moth", science:"Lymantria dispar", id: 4, threat: 1)
 
 let speciesList = [SLF,ALB,EAB,SPM]

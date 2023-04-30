@@ -11,7 +11,10 @@ class SpeciesCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var scienceLabel: UILabel!
+    @IBOutlet weak var reportCount: UILabel!
+    
     @IBOutlet weak var iconImage: UIImageView!
+    
     
     //@IBOutlet var bugImage: UIImage!
     //we dont have images yet
