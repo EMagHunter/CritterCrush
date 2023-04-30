@@ -46,6 +46,20 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onDelete(_ sender: Any) {
         print("Delete Data clicked")
+        
+        // Create an additional alert to handle misclick delete account
+        let deleteAlert = UIAlertController(title: "Delete", message: "Do you want to delete account?", preferredStyle: UIAlertController.Style.alert)
+    
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Canceled Pressed")
+            deleteAlert.dismiss(animated: true, completion: nil)
+        }))
+        
+        deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
+            print("Yes Pressed")
+        }))
+        
+        present(deleteAlert, animated: true, completion: nil)
     }
     
     
