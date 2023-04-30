@@ -35,13 +35,24 @@ class SettingsViewController: UIViewController {
     @IBAction func onEdit(_ sender: Any) {}
     
     @IBAction func onLogout(_ sender: Any) {
-        // Remove the auth token from keychain
-        KeychainHelper.standard.delete(service: "com.crittercrush.authToken", account: "authToken")
         
-        // redirect user to login screen
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = storyboard.instantiateViewController(withIdentifier: "login")
-        self.present(loginViewController, animated: true, completion: nil)
+        let signoutAlert = UIAlertController(title: "Sign Out?", message: "Do you want to sign out?", preferredStyle: UIAlertController.Style.alert)
+        
+        signoutAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            signoutAlert.dismiss(animated: true, completion: nil)
+        }))
+        
+        signoutAlert.addAction(UIAlertAction(title: "Log Out", style: .default, handler: { (action: UIAlertAction!) in
+            // Remove the auth token from keychain
+            KeychainHelper.standard.delete(service: "com.crittercrush.authToken", account: "authToken")
+            
+            // redirect user to login screen
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: "login")
+            self.present(loginViewController, animated: true, completion: nil)
+        }))
+        
+        present(signoutAlert, animated: true, completion: nil)
     }
     
     @IBAction func onDelete(_ sender: Any) {
@@ -51,7 +62,6 @@ class SettingsViewController: UIViewController {
         let deleteAlert = UIAlertController(title: "Delete", message: "Do you want to delete account?", preferredStyle: UIAlertController.Style.alert)
     
         deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Canceled Pressed")
             deleteAlert.dismiss(animated: true, completion: nil)
         }))
         
