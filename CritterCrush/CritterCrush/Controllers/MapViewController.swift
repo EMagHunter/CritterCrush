@@ -48,14 +48,22 @@ class MapViewController: UIViewController, UISearchResultsUpdating, SingleReport
         mapView.centerToLocation(initialLocation)
         
         
-        let nycCenter = CLLocation(latitude: 40.73, longitude: -73.8181)
+        let nycCenter = CLLocation(latitude: 40.7678, longitude: -73.9645)
             let region = MKCoordinateRegion(
               center: nycCenter.coordinate,
-              latitudinalMeters: 50000,
-              longitudinalMeters: 60000)
+              latitudinalMeters: 5000,
+              longitudinalMeters: 6000)
+        
+            let region2 = MKCoordinateRegion(
+              center: nycCenter.coordinate,
+              latitudinalMeters: 12000,
+              longitudinalMeters: 12000)
+        
             mapView.setCameraBoundary(
-              MKMapView.CameraBoundary(coordinateRegion: region),
+              MKMapView.CameraBoundary(coordinateRegion: region2),
               animated: true)
+        
+        mapView.setRegion(region, animated: false)
             
             let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
             mapView.setCameraZoomRange(zoomRange, animated: true)

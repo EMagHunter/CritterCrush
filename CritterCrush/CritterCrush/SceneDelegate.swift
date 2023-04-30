@@ -39,7 +39,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     do {
                         // get the email and pass it to settings page
                         // Automatically log the user in using the stored credentials
+                        // pull the auth token and store it in user defaults
+                        let asJSON = try JSONSerialization.jsonObject(with: data)
                         
+                        if let responseDict = asJSON as? [String: Any],
+                            let dataDict = responseDict["data"] as? [String: Any],
+                            let token = dataDict["token"] as? String,  let loginUser = dataDict["userid"] as? Int  {
+                            
+                            KeychainHelper.standard.save(token, service: "com.crittercrush.authToken", account: "authToken")
+                            
+                            UserDefaults.standard.set(loginUser, forKey: "userid")
+                        }
+                        
+                        //segue
                         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabbar")
                         
                         
