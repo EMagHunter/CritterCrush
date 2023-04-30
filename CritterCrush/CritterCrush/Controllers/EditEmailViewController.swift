@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class EditEmailViewController: UIViewController {
 
@@ -19,8 +20,49 @@ class EditEmailViewController: UIViewController {
     
     @IBAction func onEdit(_ sender: Any) {
         // edge cases: new email is empty and new email is same as current email, and new email is not a valid email
-        if (newEmailTextField.text == currEmailTextField.text) {
+        guard let newEmail = newEmailTextField.text, !newEmail.isEmpty else {
+            newEmailResLabel.text = "Make sure your new email is not empty"
+            return
+        }
+        
+        guard let currEmail = currEmailTextField.text, currEmail != newEmail else {
             newEmailResLabel.text = "Make sure your new email is different from current email"
+            return
+        }
+        
+        if (!isValidEmail(newEmail)) {
+            newEmailResLabel.text = "Make sure it is a valid email"
+        }
+        
+        // call the api: /api/userprofile
+        let url = "http://69.125.216.66/api/users/userprofile"
+        let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "\(authToken!)"
+        ]
+        
+        let parameter = ["email": newEmail]
+        
+        AF.request(url, method: .patch, parameters: parameter, encoding: URLEncoding.queryString, headers: headers).responseData { response in
+            debugPrint(response)
+            switch response.result {
+            case .success(let data):
+                // Handle success response
+                print("Response: \(data)")
+                
+            case .failure(let error):
+                // Handle failure response
+                print("Error: \(error)")
+            }
+            
+            if (response.response?.statusCode == 200) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil);
+                let profileViewController = storyboard.instantiateViewController(withIdentifier: "profile")
+                self.navigationController?.pushViewController(profileViewController, animated: true)
+            } else {
+                self.newEmailResLabel.text = "Email already in use"
+            }
         }
     }
     

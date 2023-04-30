@@ -52,9 +52,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameLabel.text = usernameData
         userEmailLabel.text = userEmailData
-        usernameLabel.text = user.username
         
         let url  = "http://69.125.216.66/api/users/userprofile"
         
@@ -76,6 +74,9 @@ class SettingsViewController: UIViewController {
                     if let data = asJSON as? [String: Any] {
                         if let dict = data["data"] as? [String: Any], let email = dict["email"] as? String {
                             self.userEmailLabel.text = email
+                        }
+                        if let dict = data["data"] as? [String: Any], let username = dict["username"] as? String {
+                            self.usernameLabel.text = username
                         }
                     }
                 } catch {
