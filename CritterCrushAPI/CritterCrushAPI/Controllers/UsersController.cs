@@ -25,6 +25,16 @@ struct UserProfileObj
         this.email = email;
     }
 }
+struct UserProfileOtherObj
+{
+    public int userid { get; set; }
+    public string username { get; set; }
+    public UserProfileOtherObj(int userid, string username)
+    {
+        this.userid = userid;
+        this.username = username;
+    }
+}
 
 struct UserTokenIDPair
 {
@@ -65,6 +75,8 @@ namespace CritterCrushAPI.Controllers
                 return BadRequest(new ResponseError(400, "All fields are required"));
             if (GetUserByName(username) != null)
                 return BadRequest(new ResponseError(400, "Username already in use"));
+            if (EmailInUse(email))
+                return BadRequest(new ResponseError(400, "Email already in use"));
             string passwordhash = HashPassword(password);
             User newuser = new User();
             newuser.UserName = username;
@@ -126,23 +138,24 @@ namespace CritterCrushAPI.Controllers
         }
 
         [HttpGet("userprofile")]
-        public ActionResult<Response> GetUserData()
+        public ActionResult<Response> GetUserData(int userid = -1)
         {
             var h = Request.Headers;
-            if (!h.ContainsKey("Authorization"))
+            string token = null;
+            if (h.ContainsKey("Authorization"))
             {
-                return new ResponseError(400, "Authorization header is required");
+                token = h.Authorization.ToString();
             }
-            string token = h.Authorization.ToString();
-            if (IsStringEmpty(token)) {
-                return new ResponseError(400, "Authorization header is empty");
-            }
-            User u = GetUserFromToken(token);
-            if (u == null || !VerifyTokenForUser(u.UserID, token))
+            User u = (userid == -1 && token != null) ? GetUserFromToken(token) : GetUserByID(userid);
+            if (u == null)
             {
-                return new ResponseError(400, "Auth token not valid");
+                return new ResponseError(404, "User not found");
             }
-            return new ResponseData<UserProfileObj>(new UserProfileObj(u.UserID, u.UserName, u.Email));
+            if (VerifyTokenForUser(u.UserID, token))
+            {
+                return new ResponseData<UserProfileObj>(new UserProfileObj(u.UserID, u.UserName, u.Email));
+            }
+            return new ResponseData<UserProfileOtherObj>(new UserProfileOtherObj(u.UserID, u.UserName));
 
         }
 
@@ -164,8 +177,11 @@ namespace CritterCrushAPI.Controllers
             {
                 return new ResponseError(400, "Auth token not valid");
             }
+
             if (email != null)
             {
+                if (EmailInUse(email))
+                    return BadRequest(new ResponseError(400, "Email already in use"));
                 u.Email = email;
             }
             if (password != null)
@@ -259,6 +275,14 @@ namespace CritterCrushAPI.Controllers
         private bool UserNameExists(string name)
         {
             return _context.Users.Any(e => e.UserName == name);
+        }
+        private bool EmailInUse(string email)
+        {
+            return _context.Users.Any(e => e.Email == email);
+        }
+        private User GetUserByID(int id)
+        {
+            return _context.Users.Find(id);
         }
         private bool TokenInUse(string token)
         {

@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /s /q /i /y $(ProjectDir)python  $(ProjectDir)$(OutDir)python&#xD;&#xA;xcopy /s /q /i /y $(ProjectDir)ComputerVision  $(ProjectDir)$(OutDir)ComputerVision" />
+    <Exec Command="xcopy /s /q /i /d /y $(ProjectDir)python  $(ProjectDir)$(OutDir)python&#xD;&#xA;xcopy /s /q /i /d /y $(ProjectDir)ComputerVision  $(ProjectDir)$(OutDir)ComputerVision" />
   </Target>
 
 </Project>
