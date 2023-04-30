@@ -21,6 +21,8 @@ class EditEmailViewController: UIViewController {
         // edge cases: new email is empty and new email is same as current email, and new email is not a valid email
         if (newEmailTextField.text == currEmailTextField.text) {
             newEmailResLabel.text = "Make sure your new email is different from current email"
+        } else if (newEmailTextField.text == "") {
+            newEmailResLabel.text = "Make sure your new email is not empty"
         }
     }
     
