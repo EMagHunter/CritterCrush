@@ -1454,13 +1454,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cb-RC-lZm">
                                 <rect key="frame" x="16" y="296" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Net-h7-kdO">
-                                <rect key="frame" x="16" y="220.66666666666666" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAp-fU-XuN">
@@ -1491,12 +1485,9 @@
                             <constraint firstItem="nko-36-Beg" firstAttribute="trailing" secondItem="9Tx-rL-7SG" secondAttribute="trailing" constant="16" id="68A-5x-pht"/>
                             <constraint firstItem="Om1-Vf-6bd" firstAttribute="top" secondItem="nko-36-Beg" secondAttribute="top" constant="20" id="6e0-JK-igV"/>
                             <constraint firstItem="nko-36-Beg" firstAttribute="trailing" secondItem="UjG-gU-h2F" secondAttribute="trailing" constant="16" id="9Pz-qt-Fev"/>
-                            <constraint firstItem="9Tx-rL-7SG" firstAttribute="top" secondItem="Net-h7-kdO" secondAttribute="bottom" constant="5" id="CSO-wT-1BM"/>
                             <constraint firstItem="UjG-gU-h2F" firstAttribute="top" secondItem="RKR-3a-yC2" secondAttribute="bottom" constant="5" id="DQc-O9-oVq"/>
-                            <constraint firstItem="Net-h7-kdO" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="16" id="DZ1-ix-dh8"/>
                             <constraint firstItem="UjG-gU-h2F" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="16" id="Fmu-TP-TPV"/>
                             <constraint firstItem="3Cb-RC-lZm" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="16" id="HRV-T5-FIK"/>
-                            <constraint firstItem="nko-36-Beg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Net-h7-kdO" secondAttribute="trailing" symbolic="YES" id="MT8-sR-cCh"/>
                             <constraint firstItem="nko-36-Beg" firstAttribute="trailing" secondItem="0f8-2u-XJy" secondAttribute="trailing" constant="16" id="R8v-pt-Hje"/>
                             <constraint firstItem="rAp-fU-XuN" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="16" id="V7A-Vw-M6M"/>
                             <constraint firstItem="RKR-3a-yC2" firstAttribute="top" secondItem="lcj-tS-P3c" secondAttribute="bottom" constant="20" id="VEC-qi-qk4"/>
@@ -1504,8 +1495,8 @@
                             <constraint firstItem="lcj-tS-P3c" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="16" id="bhh-AN-Cva"/>
                             <constraint firstItem="0f8-2u-XJy" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="16" id="dSw-OL-DB5"/>
                             <constraint firstItem="nko-36-Beg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Om1-Vf-6bd" secondAttribute="trailing" symbolic="YES" id="emw-Tw-NEJ"/>
+                            <constraint firstItem="9Tx-rL-7SG" firstAttribute="top" secondItem="UjG-gU-h2F" secondAttribute="bottom" constant="9.9999999999999716" id="fJN-2Z-yx7"/>
                             <constraint firstItem="lcj-tS-P3c" firstAttribute="trailing" secondItem="nko-36-Beg" secondAttribute="trailing" id="nHq-gc-wQr"/>
-                            <constraint firstItem="Net-h7-kdO" firstAttribute="top" secondItem="UjG-gU-h2F" secondAttribute="bottom" constant="5" id="nTd-Z5-cnN"/>
                             <constraint firstItem="nko-36-Beg" firstAttribute="trailing" secondItem="rAp-fU-XuN" secondAttribute="trailing" constant="16" id="pgU-1c-vVS"/>
                             <constraint firstItem="Om1-Vf-6bd" firstAttribute="leading" secondItem="nko-36-Beg" secondAttribute="leading" constant="16" id="r2Q-aJ-cxh"/>
                             <constraint firstItem="nko-36-Beg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Cb-RC-lZm" secondAttribute="trailing" symbolic="YES" id="ses-1V-cM8"/>
@@ -1516,10 +1507,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="hRD-wy-jle"/>
                     <connections>
-                        <outlet property="currPassResLabel" destination="Net-h7-kdO" id="FoU-Ej-JV5"/>
-                        <outlet property="currPassTextField" destination="UjG-gU-h2F" id="zb8-94-uSo"/>
-                        <outlet property="newPassResLabel" destination="3Cb-RC-lZm" id="jnq-YU-6Id"/>
-                        <outlet property="newPassTextField" destination="0f8-2u-XJy" id="Gbw-2N-TMc"/>
+                        <outlet property="confirmPassTextField" destination="0f8-2u-XJy" id="xe4-PB-8tD"/>
+                        <outlet property="newPassTextField" destination="UjG-gU-h2F" id="oKm-g9-42d"/>
+                        <outlet property="passResLabel" destination="3Cb-RC-lZm" id="uJs-np-xDd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTZ-hb-Uro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
