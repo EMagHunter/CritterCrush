@@ -39,8 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     do {
                         // get the email and pass it to settings page
                         // Automatically log the user in using the stored credentials
-                       // guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else { return }
-                        
                         
                         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabbar")
                         
