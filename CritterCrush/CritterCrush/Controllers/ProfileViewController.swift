@@ -10,6 +10,7 @@
 //400: fail, 201: get json, 401: unauthorized
 
 import UIKit
+import Alamofire
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //PROGRAM BUTTON TO GO TO SETTINGS
@@ -28,6 +29,35 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          super.viewDidLoad()
          
          usernameLabel.text = user.username
+         
+         let url  = "http://69.125.216.66/api/users/userprofile"
+         let loginuser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
+         
+         let param: [String:Int] = [
+                         "userid": loginuser
+                     ]
+
+         // call /api/users/userprofile end point to get user information
+         AF.request(url, method: .get, parameters: param).responseData { response in
+             debugPrint(response)
+
+             switch response.result {
+             case .success(let data):
+                 do {
+                     // get the email and pass it to settings page
+                     let asJSON = try JSONSerialization.jsonObject(with: data)
+                     if let data = asJSON as? [String: Any] {
+                         if let dict = data["data"] as? [String: Any], let username = dict["username"] as? String {
+                             self.usernameLabel.text = username
+                             print(username)
+                         }
+                     }
+                 } catch {
+                 }
+             case .failure(_): break
+             }
+         }
+         
 
          let nib = UINib(nibName:"SpeciesCell", bundle: nil)
          tableView.register(nib, forCellReuseIdentifier: "SpeciesCell")

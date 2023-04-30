@@ -59,8 +59,8 @@ class LoginViewController: UIViewController {
                     }
                     
                     // pass username and password to struct
-                    user.username = username
-                    user.password = password
+                    //user.username = username
+                   // user.password = password
                 } catch {
                 }
             case .failure(_): break

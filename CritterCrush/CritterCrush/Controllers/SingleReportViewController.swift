@@ -21,6 +21,7 @@ class SingleReportViewController: UIViewController{
     @IBOutlet weak var DetailView: UIView!
     @IBOutlet weak var speciesIcon: UIImageView!
     @IBOutlet weak var speciesName: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     weak var delegate: SingleReportViewControllerDelegate?
     //var subID: Int = 0 //report ID
     @IBOutlet weak var reportImgView: UIView!
@@ -56,45 +57,31 @@ class SingleReportViewController: UIViewController{
         } //
         style()
         
-        
-        //self.userName.text = "USER1"
-//        apiReport(repID: 1){ (result: Result<IndividualReport, Error>) in
-//            switch result {
-//            case .success(let report):
-//                self.indReport = report
-//                //print(report)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//            self.dateLabel.text = self.indReport!.data.reportDate
-//
-//            //location
-//            self.locationLabel.text = "\(String(describing: self.indReport!.data.longitude)),\(String(describing: self.indReport!.data.latitude))"
-//
-//            //image
-//            //print(self.indReport!.data.image)
-//
-//            let img = self.indReport!.data.image
-//            let hostname = "69.125.216.66"
-//            let url = "http://\(hostname)/api/reports/image/\(img)"
-//
-//            AF.request(url).responseImage { response in
-//                //debugPrint(response)
-//                //debugPrint(response.result)
-//
-//                if case .success(let image) = response.result {
-//                   // print("image downloaded: \(image)")
-//                    self.reportImg.image = image
-//                    self.reportImg.contentMode = .scaleAspectFill
-//                    self.reportImg.layer.masksToBounds = true
-//                    self.reportImg.layer.cornerRadius = 10
-//                    self.reportImg.layer.borderColor = UIColor.lightGray.cgColor
-//                    self.reportImg.layer.borderWidth = 1
-//
-//                }
-//            }
-//
-//        }
+        let userid = selectedReport.userID
+        let url  = "http://69.125.216.66/api/users/userprofile"
+        let param: [String:Int] = [
+                        "userid": userid
+                    ]
+
+        // call /api/users/userprofile end point to get user information
+        AF.request(url, method: .get, parameters: param).responseData { response in
+            debugPrint(response)
+
+            switch response.result {
+            case .success(let data):
+                do {
+                    // get the email and pass it to settings page
+                    let asJSON = try JSONSerialization.jsonObject(with: data)
+                    if let data = asJSON as? [String: Any] {
+                        if let dict = data["data"] as? [String: Any], let username = dict["username"] as? String {
+                            self.usernameLabel.text = username
+                        }
+                    }
+                } catch {
+                }
+            case .failure(_): break
+            }
+        }
         
     }//view
     
