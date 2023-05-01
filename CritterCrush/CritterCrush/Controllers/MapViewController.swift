@@ -222,7 +222,7 @@ class MapViewController: UIViewController, UISearchResultsUpdating, SingleReport
     func filterData(selectedSpecies:[Bool],AllReports: Bool,numSelectedSpecies:Int) -> [Datum]{
         //[SLF,ALB,EAB,SPM]
         var returnArray:[Datum] = []
-        if (numSelectedSpecies == 4 && AllReports == false){
+        if ((numSelectedSpecies == 4 || numSelectedSpecies == 0 ) && AllReports == false){
             for report in selectedReports{
                 if(report.userID == loginUser){
                     returnArray.append(report)
@@ -274,12 +274,20 @@ class MapViewController: UIViewController, UISearchResultsUpdating, SingleReport
     
     @IBAction func clickClearButton(_ sender: Any) {
         ALBButton.setImage(UIImage(systemName: "rectangle"), for: .normal)
+        ALBButton.tag = 0
         EABButton.setImage(UIImage(systemName: "rectangle"), for: .normal)
+        EABButton.tag = 0
         SLFButton.setImage(UIImage(systemName: "rectangle"), for: .normal)
+        SLFButton.tag = 0
         SPMButton.setImage(UIImage(systemName: "rectangle"), for: .normal)
+        SPMButton.tag = 0
+        
         yourReportsButton.setImage(UIImage(systemName: "rectangle"), for: .normal)
+        yourReportsButton.tag = 0
+        mapView.removeAnnotations(selectedReports)
         selectedReports.removeAll()
         selectedReports = batchReports
+        mapView.addAnnotations(selectedReports)
     }
     
     
@@ -361,7 +369,7 @@ extension MapViewController: MKMapViewDelegate {
             annotationView.annotation = annotation
             // a reference to part of the list it reference to
             let buttonRight = annotationView.rightCalloutAccessoryView as! UIButton
-            if let index = batchReports.firstIndex(of: annotation) {
+            if let index = selectedReports.firstIndex(of: annotation) {
                 buttonRight.tag = index
             }
             
