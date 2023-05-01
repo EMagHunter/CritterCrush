@@ -3,4 +3,69 @@
    uuid = "ACA903AB-7347-44A7-A2F8-3B9482CC067C"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAC600EA-506E-4C74-9610-18D512A83675"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CritterCrush/Controllers/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "MapViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "FAC600EA-506E-4C74-9610-18D512A83675 - 709d57dc887ba51d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CritterCrush.MapViewController.initialLocation.getter : __C.CLLocation"
+                  moduleName = "CritterCrush"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anafuentes/Desktop/CritterCrush/CritterCrush/CritterCrush/Controllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "FAC600EA-506E-4C74-9610-18D512A83675 - 5e6628fab4154d86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CritterCrush.MapViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; CritterCrush.MapViewController"
+                  moduleName = "CritterCrush"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anafuentes/Desktop/CritterCrush/CritterCrush/CritterCrush/Controllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "FAC600EA-506E-4C74-9610-18D512A83675 - 6fb1088305a13589"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CritterCrush.MapViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CritterCrush.MapViewController&gt;"
+                  moduleName = "CritterCrush"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anafuentes/Desktop/CritterCrush/CritterCrush/CritterCrush/Controllers/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
