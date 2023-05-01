@@ -32,7 +32,9 @@ class SingleReportViewController: UIViewController{
     let loginUser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         let spinner = view.viewWithTag(100) as! UIActivityIndicatorView
         spinner.startAnimating()
         if loginUser != selectedReport.userID{
