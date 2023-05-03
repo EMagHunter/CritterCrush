@@ -224,50 +224,25 @@ class MapViewController: UIViewController, UISearchResultsUpdating, SingleReport
         var returnArray:[Datum] = []
         if ((numSelectedSpecies == 4 || numSelectedSpecies == 0 ) && AllReports == false){
             for report in selectedReports{
-                if(report.userID == loginUser){
-                    returnArray.append(report)
-                }
+                if(report.userID == loginUser){returnArray.append(report)}
             }
         }
         else if( AllReports){
             for report in selectedReports{
-                if(selectedSpecies[0] && report.speciesID == SLF.id){
-                    returnArray.append(report)
-                }
-                if(selectedSpecies[1] && report.speciesID == ALB.id){
-                    returnArray.append(report)
-                
-                }
-                if(selectedSpecies[2] && report.speciesID == EAB.id){
-                    returnArray.append(report)
-                }
-                if(selectedSpecies[3] && report.speciesID == SPM.id){
-                    returnArray.append(report)
-                }
+                if(selectedSpecies[0] && report.speciesID == SLF.id){returnArray.append(report)}
+                if(selectedSpecies[1] && report.speciesID == ALB.id){returnArray.append(report)}
+                if(selectedSpecies[2] && report.speciesID == EAB.id){returnArray.append(report)}
+                if(selectedSpecies[3] && report.speciesID == SPM.id){returnArray.append(report)}
             }
         }
         else{
             for report in selectedReports{
-                if(selectedSpecies[0] && report.speciesID == SLF.id && report.userID == loginUser){
-                    returnArray.append(report)
-                
-                }
-                if(selectedSpecies[1] && report.speciesID == ALB.id && report.userID == loginUser){
-                    returnArray.append(report)
-                
-                }
-                if(selectedSpecies[2] && report.speciesID == EAB.id && report.userID == loginUser){
-                    returnArray.append(report)
-                
-                }
-                if(selectedSpecies[3] && report.speciesID == SPM.id && report.userID == loginUser){
-                    returnArray.append(report)
-                
-                }
+                if(selectedSpecies[0] && report.speciesID == SLF.id && report.userID == loginUser){returnArray.append(report)}
+                if(selectedSpecies[1] && report.speciesID == ALB.id && report.userID == loginUser){returnArray.append(report)}
+                if(selectedSpecies[2] && report.speciesID == EAB.id && report.userID == loginUser){returnArray.append(report)}
+                if(selectedSpecies[3] && report.speciesID == SPM.id && report.userID == loginUser){returnArray.append(report)}
             }
         }
-        
-        
         return returnArray
         
     }
