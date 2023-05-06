@@ -31,8 +31,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /s /q /i /d /y $(ProjectDir)python  $(ProjectDir)$(OutDir)python&#xD;&#xA;xcopy /s /q /i /d /y $(ProjectDir)ComputerVision  $(ProjectDir)$(OutDir)ComputerVision" />
-  </Target>
-
 </Project>
