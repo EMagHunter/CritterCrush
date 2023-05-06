@@ -21,8 +21,8 @@ namespace CritterCrushAPI.Controllers
     public class ReportsController : ControllerBase
     {
         private readonly CritterCrushAPIDBContext _context;
-        private readonly int MAX_IMAGE_SIZE = 10485760; // 10 MB
-        private readonly string IMAGE_PATH = @"C:\crittercrush_images\";
+        public static readonly int MAX_IMAGE_SIZE = 10485760; // 10 MB
+        public static readonly string IMAGE_PATH = @"C:\crittercrush_images\";
 
         public ReportsController(CritterCrushAPIDBContext context)
         {

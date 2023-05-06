@@ -27,8 +27,8 @@ namespace CritterCrushAPI.Controllers
     public class ImageDetectController : ControllerBase
     {
         private readonly CritterCrushAPIDBContext _context;
-        private readonly int MAX_IMAGE_SIZE = 10485760; // 10 MB
-        private readonly string IMAGE_PATH = @"C:\crittercrush_images\";
+        private readonly int MAX_IMAGE_SIZE = ReportsController.MAX_IMAGE_SIZE; // 10 MB
+        private readonly string IMAGE_PATH = ReportsController.IMAGE_PATH;
         private readonly Regex rx = new Regex("\\s(?<count>\\d)\\s(?<species>[^,]*)", RegexOptions.Compiled);
         public ImageDetectController(CritterCrushAPIDBContext context)
         {
