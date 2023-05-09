@@ -20,6 +20,7 @@ class Datum: NSObject, Codable, MKAnnotation{
     let longitude: Double
     let latitude: Double
     let image: String
+    let scoreValid: Bool
     
     //MKAnnotation
     var coordinate: CLLocationCoordinate2D {
@@ -27,7 +28,7 @@ class Datum: NSObject, Codable, MKAnnotation{
     }
     enum CodingKeys: String, CodingKey {
         case reportID = "reportId"
-        case reportDate, userID, speciesID, numberSpecimens, longitude, latitude, image
+        case reportDate, userID, speciesID, numberSpecimens, longitude, latitude, image, scoreValid
     }
     
     var title: String? {

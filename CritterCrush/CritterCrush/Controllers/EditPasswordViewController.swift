@@ -30,7 +30,7 @@ class EditPasswordViewController: UIViewController {
         }
         
         // call the api: /api/userprofile
-        let hostName = localhost
+        let hostName = localhost.hostname
         let url = "\(hostName)/api/users/userprofile"
         let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
         

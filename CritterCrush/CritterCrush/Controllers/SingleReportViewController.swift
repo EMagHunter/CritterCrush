@@ -48,7 +48,7 @@ class SingleReportViewController: UIViewController{
         self.speciesIcon.image = UIImage(named:"icon/icon_bug\(String(describing: selectedReport.speciesID))")
         self.speciesName.text = selectedReport.title
         let imgName = selectedReport.image
-        let hostName = localhost
+        let hostName = localhost.hostname
         let afLink = "\(hostName)/api/reports/image/\(imgName)"
         AF.request(afLink).responseImage { response in
             
@@ -97,7 +97,7 @@ class SingleReportViewController: UIViewController{
         //segue to previous screen
         
         
-        let hostName = localhost
+        let hostName = localhost.hostname
         let afLink = "\(hostName)/api/reports/\(String(describing: selectedReport.reportID))"
 
 

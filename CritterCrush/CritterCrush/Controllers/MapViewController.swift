@@ -337,7 +337,7 @@ extension MapViewController: MKMapViewDelegate {
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             
             let imgName = annotation.image
-            let hostName = localhost
+            let hostName = localhost.hostname
             let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
             
             if let url = URL(string: afLink) {
