@@ -117,7 +117,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                      // get the email and pass it to settings page
                      let asJSON = try JSONSerialization.jsonObject(with: data)
                      if let data = asJSON as? [String: Any] {
-                         if let count = data["data"] {
+                         if let dict = data["data"] as? [String:Any], let count = dict["count"] {
                              cell.reportCount.text = "\(String(describing: count)) Submissions"
                          }
                          

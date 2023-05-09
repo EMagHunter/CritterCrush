@@ -45,7 +45,7 @@ class BatchReport:NSObject {
         //uses
         let hostname = localhost.hostname
         let param = ["userid":userID,"speciesid":speciesID]
-        let url = "http://\(hostname)/api/reports"
+        let url = "\(hostname)/api/reports"
         
         // make the GET request using Alamofire
         AF.request(url, method:.get, parameters: param,  encoding:URLEncoding.queryString).responseData { response in
@@ -85,7 +85,7 @@ class BatchReport:NSObject {
         //uses
         let hostname = localhost.hostname
         let param = ["recentreports":mapNo]
-        let url = "http://\(hostname)/api/reports"
+        let url = "\(hostname)/api/reports"
         
         // make the GET request using Alamofire
         AF.request(url, method:.get, parameters: param,  encoding:URLEncoding.queryString).responseData { response in

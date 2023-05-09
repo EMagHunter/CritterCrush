@@ -90,18 +90,19 @@ class MapViewController: UIViewController, UISearchResultsUpdating, SingleReport
             switch result {
             case .success(let report):
                 self.batch.batchReport = report
+                batchReports = self.batch.batchReport!.data
+                print("Update: \(batchReports[0])")
+                
+                selectedReports = batchReports
+                mapView.addAnnotations(selectedReports)
+    //            for bug in batchReports {
+    //                mapView.addAnnotation(bug)
+    //            }
                 print(report)
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            batchReports = self.batch.batchReport!.data
-            print("Update: \(batchReports[0])")
             
-            selectedReports = batchReports
-            mapView.addAnnotations(selectedReports)
-//            for bug in batchReports {
-//                mapView.addAnnotation(bug)
-//            }
              
             
         }//apiReport(userID)
