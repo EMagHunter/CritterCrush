@@ -22,6 +22,7 @@
 		419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */; };
 		419CC03829BA88CE002A587A /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03729BA88CE002A587A /* Species.swift */; };
 		419CC03A29BA8AB7002A587A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419CC03929BA8AB7002A587A /* SettingsViewController.swift */; };
+		41ACFC222A0AD79D00560A20 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ACFC212A0AD79D00560A20 /* Server.swift */; };
 		41AE478029E0BC57006E560C /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE477F29E0BC57006E560C /* KeychainHelper.swift */; };
 		41AE478329E22E1E006E560C /* BatchReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE478229E22E1E006E560C /* BatchReport.swift */; };
 		41AE478729E3BAFF006E560C /* ParseBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE478629E3BAFF006E560C /* ParseBatch.swift */; };
@@ -84,6 +85,7 @@
 		419CC03529BA87AB002A587A /* SpeciesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailViewController.swift; sourceTree = "<group>"; };
 		419CC03729BA88CE002A587A /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		419CC03929BA8AB7002A587A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		41ACFC212A0AD79D00560A20 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		41AE477F29E0BC57006E560C /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		41AE478229E22E1E006E560C /* BatchReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchReport.swift; sourceTree = "<group>"; };
 		41AE478629E3BAFF006E560C /* ParseBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseBatch.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		41AE477A29E0B6E8006E560C /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				41ACFC212A0AD79D00560A20 /* Server.swift */,
 				F77ADBDA29B5264300045ABF /* ProfileViewController.swift */,
 				419CC03929BA8AB7002A587A /* SettingsViewController.swift */,
 				2BC2F08B29ED0134005E39A9 /* EditEmailViewController.swift */,
@@ -580,6 +583,7 @@
 				41AE478729E3BAFF006E560C /* ParseBatch.swift in Sources */,
 				411FE64729BBC1D300329B02 /* DetailSubmissionViewController.swift in Sources */,
 				419CC03629BA87AB002A587A /* SpeciesDetailViewController.swift in Sources */,
+				41ACFC222A0AD79D00560A20 /* Server.swift in Sources */,
 				2BC2F08E29ED0140005E39A9 /* EditPasswordViewController.swift in Sources */,
 				419CC03829BA88CE002A587A /* Species.swift in Sources */,
 				F700DB3C29AD25AA00E83929 /* MapViewController.swift in Sources */,

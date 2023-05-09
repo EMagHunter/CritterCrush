@@ -32,6 +32,7 @@ class AddReportViewController: UITableViewController {
     var locationLon: Double = 0
     var locationLat: Double = 0
     let formatter = DateFormatter()
+    var report_score = 0
     
     //segue
     var segCoordinate: CLLocationCoordinate2D?
@@ -86,9 +87,7 @@ class AddReportViewController: UITableViewController {
         }
         
         }//predictImage
-        
-        
-        
+    
     } // predict
     
     func predictImage(useImage: UIImage, completion: @escaping (Result<Data, Error>) -> Void) {
@@ -97,8 +96,8 @@ class AddReportViewController: UITableViewController {
             return
         }
         
-        let hostName =   "69.125.216.66"
-        let urlString = "http://\(hostName)/api/critterdetect"
+        let hostName =   localhost.hostname
+        let urlString = "\(hostName)/api/critterdetect"
         
         // Define the image upload parameters
         let parameters: [String: Any] = [
@@ -175,8 +174,8 @@ class AddReportViewController: UITableViewController {
                 return
             }
             
-            let hostName =   "69.125.216.66"
-            let urlString = "http://\(hostName)/api/reports"
+            let hostName = localhost.hostname
+            let urlString = "\(hostName)/api/reports"
         //headers
             let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
             
@@ -254,9 +253,6 @@ class AddReportViewController: UITableViewController {
         showResetAlert()
         resetLabels()
     }
-    
-    
-    
     
     //view
     override func viewDidLoad() {

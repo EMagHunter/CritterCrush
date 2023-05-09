@@ -78,7 +78,8 @@ class SettingsViewController: UIViewController {
         
         userEmailLabel.text = userEmailData
         
-        let url  = "http://69.125.216.66/api/users/userprofile"
+        let hostName = localhost.hostname
+        let url  = "\(hostName)/api/users/userprofile"
         
         let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
         

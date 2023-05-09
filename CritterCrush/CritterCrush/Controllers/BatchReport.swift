@@ -43,7 +43,7 @@ class BatchReport:NSObject {
     func apiReport(userID: Int, speciesID: Int, completionHandler: @escaping (Result<ParseBatch, Error>) -> Void) {
         //takes report ID of selected report
         //uses
-        let hostname = "69.125.216.66"
+        let hostname = localhost.hostname
         let param = ["userid":userID,"speciesid":speciesID]
         let url = "http://\(hostname)/api/reports"
         
@@ -83,7 +83,7 @@ class BatchReport:NSObject {
     func mapApiReport(mapNo: Int, completionHandler: @escaping (Result<ParseBatch, Error>) -> Void) {
         //takes report ID of selected report
         //uses
-        let hostname = "69.125.216.66"
+        let hostname = localhost.hostname
         let param = ["recentreports":mapNo]
         let url = "http://\(hostname)/api/reports"
         
