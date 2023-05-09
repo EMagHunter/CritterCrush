@@ -70,11 +70,12 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
             switch result {
             case .success(let report):
                 self.batch.batchReport = report
+                batchReports = self.batch.batchReport!.data
                 print(report)
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            batchReports = self.batch.batchReport!.data
+            
             //print("Update: \(batchReports[0])")
             self.collectionView.reloadData()
         }//apiReport(userID)
@@ -147,7 +148,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         cell.backgroundImage.contentMode = .scaleToFill
         let imgName = bug.image
         let hostName = localhost.hostname
-        let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
+        let afLink = "\(hostName)/api/reports/image/\(imgName)"
         AF.request(afLink).responseImage { response in
             
             if case .success(let image) = response.result {
