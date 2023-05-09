@@ -33,8 +33,8 @@ class SigninViewController: UIViewController {
         } else if (PasswordTextField.text!.count < 8) {
             ResultLabel.text = "Please Make Sure Password is greater than 8 characters "
         } else{
-            let hostname = "69.125.216.66"
-            let url  = "http://\(hostname)/api/users/register"
+            let hostname = localhost
+            let url  = "\(hostname)/api/users/register"
             let paremeter = ["username": UsernameTextField.text!, "password": PasswordTextField.text!, "email": EmailTextField.text!]
             
             // Call /api/users/register end point to create a user

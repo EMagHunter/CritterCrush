@@ -30,7 +30,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          
          usernameLabel.text = user.username
          
-         let url  = "http://69.125.216.66/api/users/userprofile"
+         let hostName = localhost
+         let url  = "\(hostName)/api/users/userprofile"
          let loginuser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
          
          let param: [String:Int] = [
@@ -97,7 +98,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          
          cell.reportCount.text = ("Submissions")
          
-         let url  = "http://69.125.216.66/api/reports/count"
+         let hostName = localhost
+         let url  = "\(hostName)/api/reports/count"
          let loginuser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
          
          let param: [String:Int] = [

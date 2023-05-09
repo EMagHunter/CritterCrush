@@ -35,7 +35,8 @@ class EditEmailViewController: UIViewController {
         }
         
         // call the api: /api/userprofile
-        let url = "http://69.125.216.66/api/users/userprofile"
+        let hostName = localhost
+        let url = "\(hostName)/api/users/userprofile"
         let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
         
         let headers: HTTPHeaders = [

@@ -146,7 +146,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
         
         cell.backgroundImage.contentMode = .scaleToFill
         let imgName = bug.image
-        let hostName =   "69.125.216.66"
+        let hostName = localhost
         let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
         AF.request(afLink).responseImage { response in
             

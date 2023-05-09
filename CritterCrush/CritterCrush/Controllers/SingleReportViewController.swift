@@ -48,8 +48,8 @@ class SingleReportViewController: UIViewController{
         self.speciesIcon.image = UIImage(named:"icon/icon_bug\(String(describing: selectedReport.speciesID))")
         self.speciesName.text = selectedReport.title
         let imgName = selectedReport.image
-        let hostName =   "69.125.216.66"
-        let afLink = "http://\(hostName)/api/reports/image/\(imgName)"
+        let hostName = localhost
+        let afLink = "\(hostName)/api/reports/image/\(imgName)"
         AF.request(afLink).responseImage { response in
             
             if case .success(let image) = response.result {
@@ -60,7 +60,8 @@ class SingleReportViewController: UIViewController{
         style()
         
         let userid = selectedReport.userID
-        let url  = "http://69.125.216.66/api/users/userprofile"
+        
+        let url  = "\(hostName)/api/users/userprofile"
         let param: [String:Int] = [
                         "userid": userid
                     ]
@@ -96,8 +97,8 @@ class SingleReportViewController: UIViewController{
         //segue to previous screen
         
         
-        let hostName =   "69.125.216.66"
-        let afLink = "http://\(hostName)/api/reports/\(String(describing: selectedReport.reportID))"
+        let hostName = localhost
+        let afLink = "\(hostName)/api/reports/\(String(describing: selectedReport.reportID))"
 
 
         let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
@@ -175,43 +176,7 @@ class SingleReportViewController: UIViewController{
         }
         navigationController?.popViewController(animated: true)
     }
-//    func apiReport(repID: Int, completionHandler: @escaping (Result<IndividualReport, Error>) -> Void) {
-//        //takes report ID of selected report
-//        //uses
-//        let hostname = "69.125.216.66"
-//        let url = "http://\(hostname)/api/reports/\(repID)"
-//
-//        // make the GET request using Alamofire
-//        AF.request(url, method:.get, encoding:URLEncoding.queryString).responseData { response in
-//            //debugPrint(response)
-//            switch response.result {
-//            case .success(let data):
-//                do {
-//
-//                    //print("Data retrieved: \(data)")
-//                    if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
-//                       //print(JSONString)
-//                    }
-//
-//                    do {
-//                        let decoder = JSONDecoder()
-//
-//                        let result = try decoder.decode(IndividualReport.self, from: data)
-//                        DispatchQueue.main.async {
-//                            completionHandler(.success(result))
-//                        }
-//                    } catch {
-//                        //print(error)
-//                        completionHandler(.failure(error))
-//                    }
-//                }
-//            case .failure(let error):
-//                completionHandler(.failure(error))
-//               // print("error")
-//                break
-//            }
-//        }
-//    }//apiReport
+
 //
 ////    /*
 //    // MARK: - Navigation

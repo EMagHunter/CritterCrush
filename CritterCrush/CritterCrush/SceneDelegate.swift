@@ -24,8 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         if let authToken: String = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self) {
-            
-            let url  = "http://69.125.216.66/api/users/userprofile"
+            let hostName = localhost
+            let url  = "\(localhost)/api/users/userprofile"
             
             let headers: HTTPHeaders = [
                 "Authorization": "\(authToken)"
