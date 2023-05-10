@@ -33,6 +33,8 @@ class AddReportViewController: UITableViewController {
     var locationLat: Double = 0
     let formatter = DateFormatter()
     var report_score = 0
+    var spinner = UIActivityIndicatorView(style: .large)
+    let spinnerView = UIView()
     
     //segue
     var segCoordinate: CLLocationCoordinate2D?
@@ -63,6 +65,7 @@ class AddReportViewController: UITableViewController {
     
     //MARK: Predict
     @IBAction func predict() {
+        addSpinner()
         //API CALL FOR IMAGE RECOGNITION
         //UNWRAP THE RESULT
         //ALSO MAKE IT SO I CANT CLICK IT IF PHOTO IS EMPTY
@@ -72,16 +75,25 @@ class AddReportViewController: UITableViewController {
                 switch result {
                 case .success(let report):
                     do {
+                        print("hi")
                         //let str = String(decoding: report, as: UTF8.self)
                         let asJSON = try JSONSerialization.jsonObject(with: report)
                         if let responseDict = asJSON as? [String: Any],
                            let dataDict = responseDict["data"] as? [String: Any], let bugCount = dataDict["count"] as? Int, let predSpecies = dataDict["speciesid"] as? Int {
+                            self.spinnerView.isHidden = true
+                            self.tableView.isUserInteractionEnabled = true
                             self.showPredictAlert(message: "Count:  \(bugCount)\nSpecies: \(speciesList[predSpecies-1].name)")
                         }
                     } catch {
+                        self.spinnerView.isHidden = true
+                        self.tableView.isUserInteractionEnabled = true
+                        self.showErrorAlert()
                         print("error")
                     }
                 case .failure(let error):
+                    self.spinnerView.isHidden = true
+                    self.tableView.isUserInteractionEnabled = true
+                    self.showErrorAlert()
                     print(error.localizedDescription)
                 }
         }
@@ -167,10 +179,13 @@ class AddReportViewController: UITableViewController {
             resetLabels()
             showSubmitAlert()
         }
-        if image == nil{setColorCell(numRow: 0, numSection: 0)}
-        if speciesName == ""{setColorCell(numRow: 2, numSection: 0)}
-        if Address == ""{setColorCell(numRow: 1, numSection: 1)}
-        showEmptyFieldAlert()
+        else{
+            if image == nil{setColorCell(numRow: 0, numSection: 0)}
+            if speciesName == ""{setColorCell(numRow: 2, numSection: 0)}
+            if Address == ""{setColorCell(numRow: 1, numSection: 1)}
+            showEmptyFieldAlert()
+        }
+        
         
     }//submit
     
@@ -263,6 +278,10 @@ class AddReportViewController: UITableViewController {
     //view
     override func viewDidLoad() {
         super.viewDidLoad()
+        //s
+        
+        
+        predictBug.isEnabled = false
         speciesNameLabel.text = speciesName
         if Address != ""{
             addressLabel.text = ""
@@ -316,6 +335,7 @@ class AddReportViewController: UITableViewController {
         }
     }
     func show(image: UIImage) {
+        predictBug.isEnabled = true
         imageView.image = image
         imageView.isHidden = false
         uploadImageLabel.text = "Image Uploaded"
@@ -404,17 +424,32 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
             alert.dismiss(animated: true, completion: nil)
         }
     }
+    func showErrorAlert(){
+        let alert = UIAlertController(
+            title: "Error",
+            message: "An Error took place. Try again" ,
+            preferredStyle: .alert)
+        present(alert, animated: true,completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
     func resetLabels(){
         speciesName = ""
         speciesNameLabel.text = speciesName
         imageView.image = nil
         imageView.isHidden = true
+        image = nil
         Address = ""
-        addressLabel.text = Address
+        addressLabel.text = "No Address Found"
         locationLat = 0
         locationLon = 0
         placemark = nil
         datePicker.setDate(Date(), animated: true)
+        predictBug.isEnabled = false
+        resetColorCell(numRow: 0, numSection: 0)
+        resetColorCell(numRow: 2, numSection: 0)
+        resetColorCell(numRow: 1, numSection: 1)
         
     }
     func showEmptyFieldAlert(){
@@ -433,7 +468,7 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
             cell.layer.borderWidth = 0
             cell.layer.cornerRadius = 0
         }
-        
+
     }
     func setColorCell(numRow:Int, numSection:Int){
         if let cell = tableView.cellForRow(at: IndexPath(row: numRow, section: numSection)){
@@ -442,7 +477,23 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
             cell.layer.borderWidth = 1
             cell.layer.cornerRadius = 10
         }
-        
+
+    }
+    func addSpinner(){
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        //spinner.startAnimating()
+       
+        spinnerView.addSubview(spinner)
+        tableView.addSubview(spinnerView)
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: spinnerView.centerXAnchor ),
+            spinner.centerYAnchor.constraint(equalTo: spinnerView.centerYAnchor)
+        ])
+        spinnerView.frame.size.height = tableView.frame.size.height - 240
+        spinnerView.frame.size.width = tableView.frame.size.width
+        spinner.startAnimating()
+        tableView.isUserInteractionEnabled = false
+        spinnerView.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
     
