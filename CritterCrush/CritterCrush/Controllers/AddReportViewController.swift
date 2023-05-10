@@ -150,22 +150,28 @@ class AddReportViewController: UITableViewController {
     //MARK: Add Report
     
     @IBAction func submit() {
-        
-        let imgUp = image!
-        upImage(useImage:imgUp){ (result: Result<Data, Error>) in
-            switch result {
-            case .success(let report):
-                let str = String(decoding: report, as: UTF8.self)
-                print(str)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+        if image != nil && speciesName != "" && Address != ""{
             
-        }//predictImage
+            let imgUp = image!
+            upImage(useImage:imgUp){ (result: Result<Data, Error>) in
+                switch result {
+                case .success(let report):
+                    let str = String(decoding: report, as: UTF8.self)
+                    print(str)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                
+                
+            }//predictImage
+            resetLabels()
+            showSubmitAlert()
+        }
+        if image == nil{setColorCell(numRow: 0, numSection: 0)}
+        if speciesName == ""{setColorCell(numRow: 2, numSection: 0)}
+        if Address == ""{setColorCell(numRow: 1, numSection: 1)}
+        showEmptyFieldAlert()
         
-        resetLabels()
-        
-        showSubmitAlert()
     }//submit
     
     func upImage(useImage: UIImage, completion: @escaping (Result<Data, Error>) -> Void) {
@@ -257,9 +263,6 @@ class AddReportViewController: UITableViewController {
     //view
     override func viewDidLoad() {
         super.viewDidLoad()
-        if title == "Edit Report"{
-            //            print(selectedReportEdit)
-        }
         speciesNameLabel.text = speciesName
         if Address != ""{
             addressLabel.text = ""
@@ -272,6 +275,7 @@ class AddReportViewController: UITableViewController {
     @IBAction func AddressAdded(
         _ segue: UIStoryboardSegue
     ){
+        resetColorCell(numRow: 1, numSection: 1)
         let controller = segue.source as! AddressUploadViewController
         Address = controller.addressAdded
         placemark = controller.placemark
@@ -297,6 +301,8 @@ class AddReportViewController: UITableViewController {
     @IBAction func DidPickSpecies(
         _ segue: UIStoryboardSegue
     ){
+        resetColorCell(numRow: 2, numSection: 0)
+        
         let controller = segue.source as! selectSpeciesViewController
         speciesName = controller.selectedSpecies
         speciesNameLabel.text = speciesName
@@ -344,6 +350,7 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
         present(pickerImg, animated: true, completion: nil)
     }
     func choosePhoto() {
+        resetColorCell(numRow: 0, numSection: 0)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             showPhotoMenu()
         } else {
@@ -392,11 +399,6 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
             title: "Reset Sucess",
             message: "The information has been reset" ,
             preferredStyle: .alert)
-        //        let Action = UIAlertAction(
-        //            title: "Exit",
-        //            style: .default,
-        //            handler: nil)
-        //        alert.addAction(Action)
         present(alert, animated: true,completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             alert.dismiss(animated: true, completion: nil)
@@ -413,6 +415,33 @@ extension AddReportViewController: UIImagePickerControllerDelegate, UINavigation
         locationLon = 0
         placemark = nil
         datePicker.setDate(Date(), animated: true)
+        
+    }
+    func showEmptyFieldAlert(){
+        let alert = UIAlertController(
+            title: "Submission unsuccessful",
+            message:"Please fill all the fields in red" ,
+            preferredStyle: .alert)
+        present(alert, animated: true,completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    func resetColorCell(numRow:Int, numSection:Int){
+        if let cell = tableView.cellForRow(at: IndexPath(row: numRow, section: numSection)){
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.layer.borderWidth = 0
+            cell.layer.cornerRadius = 0
+        }
+        
+    }
+    func setColorCell(numRow:Int, numSection:Int){
+        if let cell = tableView.cellForRow(at: IndexPath(row: numRow, section: numSection)){
+            cell.tintColor = .red
+            cell.layer.borderColor = UIColor.red.cgColor
+            cell.layer.borderWidth = 1
+            cell.layer.cornerRadius = 10
+        }
         
     }
     
