@@ -27,7 +27,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
      
      override func viewDidLoad() {
          super.viewDidLoad()
+         //see point
+         let boo = UserDefaults.standard.bool(forKey: "seepoints")
+         print("seepoints: \(boo)")
+         self.totalPointsLabel.isHidden =  !(UserDefaults.standard.bool(forKey: "seepoints"))
          
+         //labels
          usernameLabel.text = user.username
          
          let hostName = localhost.hostname

@@ -1,7 +1,7 @@
 //
 //  SettingsViewController.swift
 //  CritterCrush
-//
+//using switch: https://stackoverflow.com/questions/28555255/how-do-i-keep-uiswitch-state-when-changing-viewcontrollers
 //  Created by min joo on 3/9/23.
 //GET:
 //POST: Change password
@@ -30,6 +30,9 @@ class SettingsViewController: UIViewController {
                 editVC.currEmail = userEmailLabel.text;
             }
         }
+        
+        
+        
     }
     
     @IBAction func onEdit(_ sender: Any) {}
@@ -72,10 +75,14 @@ class SettingsViewController: UIViewController {
         present(deleteAlert, animated: true, completion: nil)
     }
     
+    @IBAction func switchStatus(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "seepoints")
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        seePointsSwitch.isOn =  UserDefaults.standard.bool(forKey: "seepoints")
         userEmailLabel.text = userEmailData
         
         let hostName = localhost.hostname
