@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
             return
         }
         let hostname = localhost.hostname
-        let url  = "http://\(hostname)/api/users/login"
+        let url  = "\(hostname)/api/users/login"
         let paremeter = ["username": username, "password": password]
         
         // Call /api/users/login end point
