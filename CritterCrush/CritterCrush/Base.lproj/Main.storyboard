@@ -593,23 +593,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="sci-lc-UeN">
-                            <rect key="frame" x="0.0" y="529.33333015441895" width="393" height="123"/>
+                            <rect key="frame" x="0.0" y="529.33333015441895" width="393" height="77"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln0-Is-okb">
-                                    <rect key="frame" x="248" y="80" width="92" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="xmark.app.fill" catalog="system" title="Reset"/>
-                                    <connections>
-                                        <action selector="reset" destination="fHH-ZK-z7A" eventType="touchUpInside" id="Pkl-nk-9dd"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRk-6q-L0b">
-                                    <rect key="frame" x="45.999999999999993" y="79" width="102.33333333333331" height="35"/>
+                                    <rect key="frame" x="44" y="32" width="102.33333333333331" height="35"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system" title="Submit"/>
                                     <connections>
                                         <action selector="submit" destination="fHH-ZK-z7A" eventType="touchUpInside" id="jyP-VV-yoZ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln0-Is-okb">
+                                    <rect key="frame" x="245" y="32" width="92" height="35"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="xmark.app.fill" catalog="system" title="Reset"/>
+                                    <connections>
+                                        <action selector="reset" destination="fHH-ZK-z7A" eventType="touchUpInside" id="Pkl-nk-9dd"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -617,10 +617,10 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ln0-Is-okb" secondAttribute="trailing" constant="20" symbolic="YES" id="2vc-EG-Hsl"/>
                                 <constraint firstItem="Ln0-Is-okb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bRk-6q-L0b" secondAttribute="trailing" constant="8" symbolic="YES" id="9g9-Rw-Kgi"/>
-                                <constraint firstItem="Ln0-Is-okb" firstAttribute="top" secondItem="sci-lc-UeN" secondAttribute="top" constant="80" id="Mnc-nN-fgU"/>
-                                <constraint firstItem="bRk-6q-L0b" firstAttribute="leading" secondItem="sci-lc-UeN" secondAttribute="leading" constant="46" id="NYU-UF-yM5"/>
-                                <constraint firstItem="bRk-6q-L0b" firstAttribute="top" secondItem="sci-lc-UeN" secondAttribute="top" constant="79" id="c9S-Fr-ePg"/>
-                                <constraint firstAttribute="trailing" secondItem="Ln0-Is-okb" secondAttribute="trailing" constant="53" id="gys-fu-Ko4"/>
+                                <constraint firstItem="Ln0-Is-okb" firstAttribute="top" secondItem="sci-lc-UeN" secondAttribute="top" constant="32" id="Mnc-nN-fgU"/>
+                                <constraint firstItem="bRk-6q-L0b" firstAttribute="leading" secondItem="sci-lc-UeN" secondAttribute="leading" constant="44" id="NYU-UF-yM5"/>
+                                <constraint firstItem="bRk-6q-L0b" firstAttribute="top" secondItem="sci-lc-UeN" secondAttribute="top" constant="32" id="c9S-Fr-ePg"/>
+                                <constraint firstAttribute="trailing" secondItem="Ln0-Is-okb" secondAttribute="trailing" constant="56" id="gys-fu-Ko4"/>
                             </constraints>
                         </view>
                         <sections>
@@ -658,23 +658,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTE-8O-U4O">
-                                                    <rect key="frame" x="331" y="4" width="42" height="46"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="" image="predictSpeciesIcon"/>
-                                                    <connections>
-                                                        <action selector="predict" destination="fHH-ZK-z7A" eventType="touchUpInside" id="iNb-VL-J0Z"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Predict Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKu-5s-UCA">
                                                     <rect key="frame" x="20" y="33" width="89" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTE-8O-U4O">
+                                                    <rect key="frame" x="331" y="17" width="42" height="46"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="" image="predictSpeciesIcon"/>
+                                                    <connections>
+                                                        <action selector="predict" destination="fHH-ZK-z7A" eventType="touchUpInside" id="iNb-VL-J0Z"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mTE-8O-U4O" firstAttribute="top" secondItem="YR8-jg-Hki" secondAttribute="topMargin" constant="-7" id="2Ae-RU-iGT"/>
+                                                <constraint firstItem="mTE-8O-U4O" firstAttribute="top" secondItem="YR8-jg-Hki" secondAttribute="topMargin" constant="6" id="2Ae-RU-iGT"/>
                                                 <constraint firstItem="mTE-8O-U4O" firstAttribute="leading" secondItem="UKu-5s-UCA" secondAttribute="trailing" constant="222" id="EHP-nn-10g"/>
                                                 <constraint firstItem="UKu-5s-UCA" firstAttribute="top" secondItem="YR8-jg-Hki" secondAttribute="topMargin" constant="22" id="OTf-6O-GcE"/>
                                                 <constraint firstItem="UKu-5s-UCA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YR8-jg-Hki" secondAttribute="leadingMargin" id="hUu-gu-xlm"/>
@@ -788,6 +788,7 @@
                         <outlet property="addressLabel" destination="UPg-5G-Ubj" id="vQ1-yO-8II"/>
                         <outlet property="datePicker" destination="DaR-cl-eJv" id="KLh-0g-vd5"/>
                         <outlet property="imageView" destination="e94-PL-lOS" id="6QA-YW-NNd"/>
+                        <outlet property="predictBug" destination="mTE-8O-U4O" id="Z5f-2A-4DB"/>
                         <outlet property="speciesNameLabel" destination="HXg-ca-pxh" id="Gs0-6w-x78"/>
                         <outlet property="uploadImageLabel" destination="5am-aY-2CD" id="5YR-Ti-NtV"/>
                     </connections>
