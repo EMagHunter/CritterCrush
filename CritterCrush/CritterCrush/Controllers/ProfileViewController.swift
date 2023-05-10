@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
              case .failure(_): break
              }
          }
-         
+         getScore()
 
          let nib = UINib(nibName:"SpeciesCell", bundle: nil)
          tableView.register(nib, forCellReuseIdentifier: "SpeciesCell")
@@ -68,7 +68,35 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
          self.tableView.reloadData()
      }
      
-     
+    func getScore(){
+        let hostName = localhost.hostname
+        let url  = "\(hostName)/api/reports/count"
+        let loginuser: Int = UserDefaults.standard.object(forKey: "userid") as! Int
+        
+        let param: [String:Int] = [ "userid": loginuser]
+        AF.request(url, method: .get, parameters: param).responseData { response in
+            debugPrint(response)
+            switch response.result {
+            case .success(let data):
+                do {
+                    // get the email and pass it to settings page
+                    let asJSON = try JSONSerialization.jsonObject(with: data)
+                    if let data = asJSON as? [String: Any] {
+                        if let dict = data["data"] as? [String:Any], let count = dict["count"] {
+                            self.crittercrushPointsLabel.text = String(describing: count)
+                        }
+                        if let dict = data["data"] as? [String:Any], let score = dict["score"] {
+                            self.totalPointsLabel.text = String(describing: score)
+                        }
+                        
+                    }
+                } catch {
+                }
+            case .failure(_): break
+            }
+        }
+        
+    }
      //MARK: table
      
      //TableView: icons of our bugs
