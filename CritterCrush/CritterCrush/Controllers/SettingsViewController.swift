@@ -69,7 +69,26 @@ class SettingsViewController: UIViewController {
         }))
         
         deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
-            print("Yes Pressed")
+            let hostName = localhost.hostname
+            let url  = "\(hostName)/api/users/userprofile"
+            let authToken: String? = KeychainHelper.standard.read(service: "com.crittercrush.authToken", account: "authToken", type: String.self)
+
+            let headers: HTTPHeaders = [
+                "Authorization": "\(authToken!)"
+            ]
+            
+            AF.request(url, method: .delete, headers: headers).responseData { response in
+                debugPrint(response);
+                
+                
+                // Remove the auth token from keychain
+                KeychainHelper.standard.delete(service: "com.crittercrush.authToken", account: "authToken")
+                
+                // redirect user to login screen
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginViewController = storyboard.instantiateViewController(withIdentifier: "login")
+                self.present(loginViewController, animated: true, completion: nil)
+            }
         }))
         
         present(deleteAlert, animated: true, completion: nil)
