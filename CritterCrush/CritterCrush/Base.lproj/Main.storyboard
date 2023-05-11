@@ -1095,15 +1095,27 @@
                                     <segue destination="lQE-U6-hhh" kind="show" id="Wve-ww-PMp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-Gn-Q9e">
+                                <rect key="frame" x="291" y="220" width="73.666666666666686" height="22"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Reload" image="arrow.clockwise" catalog="system">
+                                    <color key="titleColor" red="0.59215688710000003" green="0.72156864399999998" blue="0.8078432083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0dM-LC-rrt" kind="show" id="5u6-8g-4YS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aWE-Br-aIE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aWE-Br-aIE" firstAttribute="trailing" secondItem="u25-de-1ny" secondAttribute="trailing" constant="286" id="0G6-e2-9zk"/>
                             <constraint firstItem="TV6-Ge-2g5" firstAttribute="leading" secondItem="Y1H-A8-heU" secondAttribute="trailing" constant="32" id="16I-XK-eJs"/>
+                            <constraint firstItem="BAH-6a-60I" firstAttribute="top" secondItem="Iib-Gn-Q9e" secondAttribute="bottom" constant="23" id="2Rf-EK-Gb2"/>
                             <constraint firstItem="fra-sz-020" firstAttribute="bottom" secondItem="aWE-Br-aIE" secondAttribute="bottom" constant="10" id="2Tf-7x-PJk"/>
                             <constraint firstItem="gTf-CJ-goo" firstAttribute="top" secondItem="Y1H-A8-heU" secondAttribute="bottom" constant="34" id="2xD-46-kuh"/>
                             <constraint firstItem="BAH-6a-60I" firstAttribute="leading" secondItem="aWE-Br-aIE" secondAttribute="leading" id="5K9-ob-KCa"/>
+                            <constraint firstItem="Iib-Gn-Q9e" firstAttribute="leading" secondItem="gTf-CJ-goo" secondAttribute="trailing" constant="18" id="84W-cf-bz3"/>
                             <constraint firstItem="TV6-Ge-2g5" firstAttribute="top" secondItem="QRW-2N-h1L" secondAttribute="bottom" constant="9" id="8Fd-Zw-YQc"/>
                             <constraint firstItem="BAH-6a-60I" firstAttribute="trailing" secondItem="aWE-Br-aIE" secondAttribute="trailing" id="8s4-yn-CwB"/>
                             <constraint firstItem="fra-sz-020" firstAttribute="leading" secondItem="BAH-6a-60I" secondAttribute="leading" id="9BD-tA-hbM"/>
@@ -1124,11 +1136,13 @@
                             <constraint firstItem="aWE-Br-aIE" firstAttribute="trailing" secondItem="TV6-Ge-2g5" secondAttribute="trailing" constant="51" id="bw8-HZ-e8Z"/>
                             <constraint firstItem="QRW-2N-h1L" firstAttribute="top" secondItem="aWE-Br-aIE" secondAttribute="top" constant="25" id="hRn-CZ-2z9"/>
                             <constraint firstItem="u25-de-1ny" firstAttribute="top" secondItem="67I-Hp-JLk" secondAttribute="bottom" constant="12.67" id="mIU-ml-eWz"/>
+                            <constraint firstItem="Iib-Gn-Q9e" firstAttribute="top" secondItem="TV6-Ge-2g5" secondAttribute="bottom" constant="45" id="w29-aX-1Gy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aLC-Ca-lUE"/>
                     <connections>
                         <outlet property="crittercrushPointsLabel" destination="ERY-CO-3Ou" id="U89-2h-KYd"/>
+                        <outlet property="refreshButton" destination="Iib-Gn-Q9e" id="w91-ix-PLv"/>
                         <outlet property="tableView" destination="fra-sz-020" id="Jh0-50-NMC"/>
                         <outlet property="totalPointsLabel" destination="QRW-2N-h1L" id="Aal-8u-3fS"/>
                         <outlet property="usernameLabel" destination="u25-de-1ny" id="VyQ-d0-CQi"/>
@@ -2150,6 +2164,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ant" catalog="system" width="106" height="128"/>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="greaterthan" catalog="system" width="128" height="108"/>

@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var crittercrushPointsLabel: UILabel!
     @IBOutlet weak var totalPointsLabel: UILabel!
     
+    @IBOutlet weak var refreshButton: UIButton!
+    
     //let speciesList = listSpecies
      
      //let speciesList:Array<Species> = [SLF,ALB,EAB,SPM]
