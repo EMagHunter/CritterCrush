@@ -83,6 +83,8 @@ class AddReportViewController: UITableViewController {
                             self.spinnerView.isHidden = true
                             self.tableView.isUserInteractionEnabled = true
                             self.showPredictAlert(message: "Count:  \(bugCount)\nSpecies: \(speciesList[predSpecies-1].name)")
+                            self.speciesName = speciesList[predSpecies-1].name
+                            self.speciesNameLabel.text = self.speciesName
                         }
                     } catch {
                         self.spinnerView.isHidden = true
