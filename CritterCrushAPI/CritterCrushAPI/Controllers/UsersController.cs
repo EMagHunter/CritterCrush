@@ -13,6 +13,7 @@ using System.Numerics;
 using Microsoft.AspNetCore.Identity;
 using MessagePack;
 
+// return datatypes for HTTP calls returning more than one variable
 struct UserProfileObj
 {
     public int userid { get; set; }
@@ -35,7 +36,6 @@ struct UserProfileOtherObj
         this.username = username;
     }
 }
-
 struct UserTokenIDPair
 {
     public string token { get; set; }
@@ -54,6 +54,8 @@ namespace CritterCrushAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly CritterCrushAPIDBContext _context;
+
+        // one-way hashing function with hardcoded salt
         private static string HashPassword(string password)
         {
             byte[] salt = Encoding.Default.GetBytes("as8d72nd9g8n2b");
@@ -68,6 +70,7 @@ namespace CritterCrushAPI.Controllers
 
         // POST: api/users/register
         // username, email, password
+        // Registers new user to database. Returns auth token
         [HttpPost("register")]
         public async Task<ActionResult<Response>> RegisterUser(string username, string password, string email)
         {
@@ -89,6 +92,9 @@ namespace CritterCrushAPI.Controllers
             return new ResponseData<UserTokenIDPair>(new UserTokenIDPair(newuser.UserID, token));
         }
 
+        // GET: api/users/login
+        // username, password
+        // Returns auth token and userID for user
         [HttpGet("login")]
         public async Task<ActionResult<Response>> TryLogin(string username, string password)
         {
@@ -112,7 +118,8 @@ namespace CritterCrushAPI.Controllers
                 return BadRequest(new ResponseError(400, "User and password do not match"));
             }
         }
-
+        // deprecated: GET /api/users/verifylogin
+        // Return whether or not the auth token matches the username supplied
         [HttpGet("verifylogin")]
         public ActionResult<Response> VerifyToken(string username)
         {
@@ -137,6 +144,9 @@ namespace CritterCrushAPI.Controllers
             return new ResponseData<bool>(VerifyTokenForUser(u.UserID, token));
         }
 
+        // GET /api/users/userprofile
+        // optional: userid
+        // returns username and userID. If auth token is supplied and matches userid, also returns email
         [HttpGet("userprofile")]
         public ActionResult<Response> GetUserData(int userid = -1)
         {
@@ -159,6 +169,9 @@ namespace CritterCrushAPI.Controllers
 
         }
 
+        // PATCH /api/users/userprofile
+        // optional: email, password
+        // modified email or password for user. Returns new auth token if password is changed.
         [HttpPatch("userprofile")]
         public async Task<ActionResult<Response>> EditUserData(string? email = null, string? password = null)
         {
@@ -197,6 +210,9 @@ namespace CritterCrushAPI.Controllers
             return password != null ? new ResponseData<string>(token) : new ResponseNoContent();
         }
 
+        // DELETE /api/users/userprofile
+        // Delete a user from the database.
+        // Does not delete reports. All reports for user are changed to userid 0 (invalid user)
         [HttpDelete("userprofile")]
         public async Task<ActionResult<Response>> DeleteUserData()
         {
@@ -227,6 +243,9 @@ namespace CritterCrushAPI.Controllers
             return new ResponseNoContent();
         }
 
+        // ------------------------------------------ HELPER FUNCTIONS ------------------------------------
+
+        // Generate an auth token if one doesn't exist. Return existing token otherwise
         private async Task<string> GetOrIssueAuthToken(int UserID)
         {
             AuthToken t = GetTokenForUser(UserID);
@@ -239,6 +258,7 @@ namespace CritterCrushAPI.Controllers
                 return t.Token;
             }
         }
+        // Generate an auth token for a user
         private async Task<string> IssueAuthToken(int UserID)
         {
             AuthToken newtoken = new AuthToken();
@@ -251,6 +271,8 @@ namespace CritterCrushAPI.Controllers
             await _context.SaveChangesAsync();
             return newtoken.Token;
         }
+        // returns a 256-character long randomized string
+        // runs again if it matches an existing token
         private string GenerateRandomToken()
         {
             var random = new Random();
@@ -294,6 +316,7 @@ namespace CritterCrushAPI.Controllers
             AuthToken token = query.Count() == 0 ? null : query.First<AuthToken>();
             return token;
         }
+        // verify if a token matches a user ID
         private bool VerifyTokenForUser(int UserID, string token)
         {
             AuthToken t = GetTokenForUser(UserID);
@@ -310,6 +333,7 @@ namespace CritterCrushAPI.Controllers
             _context.AuthTokens.Remove(token);
             await _context.SaveChangesAsync();
         }
+        // retrieves User object from auth token
         private User GetUserFromToken(string token)
         {
             AuthToken tkn = _context.AuthTokens.FirstOrDefault(t => t.Token == token);

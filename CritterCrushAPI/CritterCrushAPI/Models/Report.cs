@@ -10,6 +10,7 @@
         public double Longitude { get; set; }
         public double Latitude { get; set; }
         public string Image { get; set; }
+        public bool ScoreValid { get; set; }
 
     }
 }

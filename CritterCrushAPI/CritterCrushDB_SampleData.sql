@@ -1,4 +1,5 @@
 USE CritterCrushDB;
 
-INSERT INTO Users (UserName, Pass, Email) VALUES ("EMagHunter", "not a valid password hash", "elyas.maggouh70@myhunter.cuny.edu");
-INSERT INTO Reports (ReportDate, UserID, SpeciesID, NumberSpecimens, Latitude, Longitude, VerifyTrueCount, VerifyFalseCount) VALUES (current_timestamp, 1, 1, 1, 0, 0, 0, 0);
+LOAD DATA INFILE "SampleData/crittercrush_users.csv" INTO TABLE Users FIELDS TERMINATED BY "," LINES TERMINATED BY "|";
+LOAD DATA INFILE "SampleData/crittercrush_reports.csv" INTO TABLE Reports FIELDS TERMINATED BY "," LINES TERMINATED BY "|" IGNORE 1 LINES (longitude,latitude,speciesID,userID,numberSpecimens,reportDate,image);
+UPDATE Reports SET ScoreValid = True;

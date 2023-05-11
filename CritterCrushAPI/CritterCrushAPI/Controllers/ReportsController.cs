@@ -15,6 +15,17 @@ using System.Diagnostics;
 
 namespace CritterCrushAPI.Controllers
 {
+    // return datatype for HTTP call returning more than one variable
+    struct ReportCountResult
+    {
+        public int count { get; set; }
+        public int score { get; set; }
+        public ReportCountResult(int count, int score)
+        {
+            this.count = count;
+            this.score = score;
+        }
+    }
 
     [Route("api/[controller]")]
     [ApiController]
@@ -30,6 +41,7 @@ namespace CritterCrushAPI.Controllers
         }
 
         // GET: api/Reports
+        // Parameters are optional, used to filter which reports are returned
         [HttpGet]
         public async Task<ActionResult<Response>> GetReports(int userid = 0, int speciesid = 0, int recentreports = -1)
         {
@@ -47,13 +59,42 @@ namespace CritterCrushAPI.Controllers
             return new ResponseData<List<Report>>(reports);
         }
 
-        // GET: api/Reports
+        // GET: api/Reports/count
+        // Count number of reports & score per user. Optional param to filter by species
         [HttpGet("count")]
         public async Task<ActionResult<Response>> GetReportCount(int userid, int speciesid = 0)
         {
             IQueryable<Report> query = (from r in _context.Reports where (r.UserID == userid) && (speciesid == 0 || r.SpeciesID == speciesid) select r);
             List<Report> reports = await query.ToListAsync<Report>();
-            return new ResponseData<int>(reports.Count);
+            int score = 0;
+            foreach (Report report in reports)
+            {
+                if (!report.ScoreValid)
+                    continue;
+                // Cap number of critters to 5; the image detect gets wonky when there's more
+                int count = report.NumberSpecimens > 5 ? 5 : report.NumberSpecimens;
+                int threat = 0;
+                // Pre-set "threat level" used for scoring.
+                switch (report.SpeciesID)
+                {
+                    case 1:
+                        threat = 2;
+                        break;
+                    case 2:
+                        threat = 3;
+                        break;
+                    case 3:
+                        threat = 3;
+                        break;
+                    case 4:
+                        threat = 1;
+                        break;
+                    default:
+                        break;
+                }
+                score += threat * 100 + (count * threat * 10);
+            }
+            return new ResponseData<ReportCountResult>(new ReportCountResult(reports.Count, score));
         }
 
         // GET: api/Reports/5
@@ -70,7 +111,8 @@ namespace CritterCrushAPI.Controllers
             return new ResponseData<Report>(report);
         }
 
-        // GET: api/Reports/image/{imagename}
+        // GET: api/Reports/image/4982737424.jpg
+        // Pulls images from IMAGEPATH.
         [HttpGet("image/{imagename}")]
         public IActionResult GetReportImage(string imagename)
         {
@@ -84,8 +126,9 @@ namespace CritterCrushAPI.Controllers
         }
 
         // POST: api/Reports/
+        // Post a report. Optional "imagerectoken" param is used to verify if a user is actually submitting a report after checking it with image rec. Used for scoring
         [HttpPost]
-        public async Task<ActionResult<Response>> SubmitReport([FromForm] int speciesid, [FromForm] int numspecimens, [FromForm] double latitude, [FromForm] double longitude, [FromForm] long reportdate)
+        public async Task<ActionResult<Response>> SubmitReport([FromForm] int speciesid, [FromForm] int numspecimens, [FromForm] double latitude, [FromForm] double longitude, [FromForm] long reportdate, [FromForm] string? imagerectoken = "")
         {
             var h = Request.Headers;
             if (!h.ContainsKey("Authorization"))
@@ -106,13 +149,13 @@ namespace CritterCrushAPI.Controllers
             {
                 return new ResponseError(400, "Image too large");
             }
+            //read image file into variable, then save it to IMAGEPATH
             byte[] imgFile = new byte[MAX_IMAGE_SIZE];
             img.OpenReadStream().Read(imgFile);
             string imagename = getRandomImageName();
             string imagepath = IMAGE_PATH + imagename;
             System.IO.File.WriteAllBytes(imagepath, imgFile);
-            //Console.WriteLine(Encoding.Default.GetString(imgFile));
-            //Console.Write(Request.Form.Files.GetFile("reportImage"));
+            //add in the rest of report's details then save
             Report r = new Report();
             r.UserID = u.UserID;
             r.SpeciesID = speciesid;
@@ -121,6 +164,11 @@ namespace CritterCrushAPI.Controllers
             r.Longitude = longitude;
             r.ReportDate = DateTimeOffset.FromUnixTimeSeconds(reportdate).DateTime;
             r.Image = imagename;
+            if (IsImageRecValid(imagerectoken, speciesid, numspecimens))
+            {
+                r.ScoreValid = true;
+                await RemoveImageRecToken(imagerectoken);
+            }
             _context.Reports.Add(r);
             await _context.SaveChangesAsync();
             return new ResponseData<Report>(r);
@@ -148,54 +196,10 @@ namespace CritterCrushAPI.Controllers
             await _context.SaveChangesAsync();
             return new ResponseNoContent();
         }
+        // ---------------------- HELPER FUNCTIONS -----------------------------
 
-        // PUT: api/Reports/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-/*
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutReport(int id, Report report)
-        {
-            if (id != report.ReportId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(report).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ReportExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // DELETE: api/Reports/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteReport(int id)
-        {
-            var report = await _context.Reports.FindAsync(id);
-            if (report == null)
-            {
-                return NotFound();
-            }
-
-            _context.Reports.Remove(report);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }*/
+        // Generate a random image name and make sure it's not conflicting with anything else.
+        // Just run the function again if there's a conflict. Would be better to modify the string with a +1, looping back to 0000000001
         private string getRandomImageName()
         {
             var random = new Random();
@@ -212,10 +216,11 @@ namespace CritterCrushAPI.Controllers
         }
         private AuthToken GetTokenForUser(int UserID)
         {
-            IQueryable<AuthToken> query = (from t in _context.AuthTokens where t.UserID == UserID select t);
-            AuthToken token = query.Count() == 0 ? null : query.First<AuthToken>();
-            return token;
+            return  _context.AuthTokens.FirstOrDefault(t => t.UserID == UserID);
+            //return token;
         }
+
+        //Pulls the User object from an auth token string.
         private User GetUserFromToken(string token)
         {
             AuthToken tkn = _context.AuthTokens.FirstOrDefault(t => t.Token == token);
@@ -234,6 +239,21 @@ namespace CritterCrushAPI.Controllers
                 return false;
             }
             return t.Token == token;
+        }
+        // Check if image recongition returned the same values the user submitted with their report.
+        // Rudimentary anti-cheat. Could be better
+        private bool IsImageRecValid(string token, int speciesid, int count)
+        {
+            return _context.ImageRecTokens.Any(e => e.Token == token && e.SpeciesID == speciesid && e.NumberSpecimens == count);
+        }
+        private async Task RemoveImageRecToken(string token)
+        {
+            ImageRecToken t = _context.ImageRecTokens.FirstOrDefault(t => t.Token == token);
+            if (t != null)
+            {
+                _context.ImageRecTokens.Remove(t);
+                await _context.SaveChangesAsync();
+            }
         }
         private bool ReportExists(int id)
         {

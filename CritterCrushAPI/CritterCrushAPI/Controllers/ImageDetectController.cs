@@ -13,10 +13,12 @@ struct ImageDetectResult
 {
     public int speciesid { get; set; }
     public int count { get; set; }
-    public ImageDetectResult(int speciesid, int count)
+    public string token { get; set; }
+    public ImageDetectResult(int speciesid, int count, string token)
     {
         this.speciesid = speciesid;
         this.count = count;
+        this.token = token;
     }
 }
 
@@ -29,11 +31,14 @@ namespace CritterCrushAPI.Controllers
         private readonly CritterCrushAPIDBContext _context;
         private readonly int MAX_IMAGE_SIZE = ReportsController.MAX_IMAGE_SIZE; // 10 MB
         private readonly string IMAGE_PATH = ReportsController.IMAGE_PATH;
+        //RegEx used to parse output of python script.
         private readonly Regex rx = new Regex("\\s(?<count>\\d)\\s(?<species>[^,]*)", RegexOptions.Compiled);
         public ImageDetectController(CritterCrushAPIDBContext context)
         {
             _context = context;
         }
+        // The only method in this route: run the ComputerVision Python script and return the result.
+        // Reads the image attached to the report, saves it at IMAGEPATH/temp.jpg for the python script to read.
         [HttpPost]
         public async Task<ActionResult<Response>> GetImageResult()
         {
@@ -63,11 +68,21 @@ namespace CritterCrushAPI.Controllers
             } 
             else
             {
-                return new ResponseData<ImageDetectResult>( (ImageDetectResult) result);
+                ImageDetectResult r = (ImageDetectResult)result;
+                ImageRecToken imageRecToken = new ImageRecToken();
+                imageRecToken.Token = r.token;
+                imageRecToken.SpeciesID = r.speciesid;
+                imageRecToken.NumberSpecimens = r.count;
+                _context.ImageRecTokens.Add(imageRecToken);
+                await _context.SaveChangesAsync();
+                return new ResponseData<ImageDetectResult>(r);
             }
  
         }
 
+        // Helper function for the HTTP method.
+        // The Python script returns the image size and lists which bugs it found, so RegEx and switch case are used
+        // to parse the output of the data.
         private async Task<ImageDetectResult?> runimagedetect()
         {
             ProcessStartInfo start = new ProcessStartInfo();
@@ -128,7 +143,7 @@ namespace CritterCrushAPI.Controllers
                             {
                                 return null;
                             }
-                            return new ImageDetectResult(speciesid, Int32.Parse(m.Groups["count"].Value));
+                            return new ImageDetectResult(speciesid, Int32.Parse(m.Groups["count"].Value), GenerateRandomToken());
                         } 
                         else
                         {
@@ -139,6 +154,28 @@ namespace CritterCrushAPI.Controllers
                         return null;
                     }
                 }
+            }
+        }
+
+        private bool TokenInUse(string token)
+        {
+            return _context.ImageRecTokens.Any(e => e.Token == token);
+        }
+        private string GenerateRandomToken()
+        {
+            var random = new Random();
+            string t = "";
+            for (int i = 0; i < 16; i++)
+            {
+                t = t + (char)((random.Next(0, 2) * 32) + random.Next(65, 91));
+            }
+            if (TokenInUse(t))
+            {
+                return GenerateRandomToken();
+            }
+            else
+            {
+                return t;
             }
         }
     }

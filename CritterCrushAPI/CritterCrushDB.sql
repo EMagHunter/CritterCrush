@@ -21,6 +21,7 @@ CREATE TABLE Reports(
 	Latitude double,
 	Longitude double,
 	Image varchar(256),
+    ScoreValid bool,
     PRIMARY KEY (ReportID)
 );
 
@@ -33,16 +34,15 @@ CREATE TABLE AuthTokens(
 	PRIMARY KEY (AuthTokenID)
 );
 
-CREATE TABLE LoginAttempts(
-	AttemptID INT NOT NULL AUTO_INCREMENT,
-	UserID int,
-	LoginTime datetime,
-	IPAddress varchar(20),
-	PRIMARY KEY (AttemptID)
+CREATE TABLE ImageRecTokens(
+	ImageRecTokenID INT NOT NULL AUTO_INCREMENT,
+    Token varchar(16),
+    SpeciesID int,
+    NumberSpecimens int,
+    PRIMARY KEY (ImageRecTokenID)
 );
 
 ALTER TABLE Reports ADD CONSTRAINT FK_Reports_UserID FOREIGN KEY (UserID) REFERENCES Users(UserID);
-ALTER TABLE LoginAttempts ADD CONSTRAINT FK_LoginAttempts_UserID FOREIGN KEY (UserID) REFERENCES Users(UserID);
 ALTER TABLE AuthTokens ADD CONSTRAINT FK_AuthTokens_UserID FOREIGN KEY (UserID) REFERENCES Users(UserID);
 
 #UserID 0 = deleted user for reports
