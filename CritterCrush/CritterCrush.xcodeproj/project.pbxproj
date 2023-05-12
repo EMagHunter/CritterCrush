@@ -32,7 +32,6 @@
 		DC5A6FA5BC2D8ED3FD3E6697 /* Pods_CritterCrushTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA263DE938F21F2F193B2B02 /* Pods_CritterCrushTests.framework */; };
 		F700DB3A29AD207B00E83929 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700DB3929AD207B00E83929 /* TabBarViewController.swift */; };
 		F700DB3C29AD25AA00E83929 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700DB3B29AD25AA00E83929 /* MapViewController.swift */; };
-		F70E95B329D1654C00F1EB4A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E95B229D1654C00F1EB4A /* DataModel.swift */; };
 		F71F8C5E29A473A0007B6909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C5D29A473A0007B6909 /* AppDelegate.swift */; };
 		F71F8C6029A473A1007B6909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */; };
 		F71F8C6529A473A1007B6909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F8C6329A473A1007B6909 /* Main.storyboard */; };
@@ -99,7 +98,6 @@
 		F4BC80174C54B743228FE08E /* Pods-CritterCrush-CritterCrushUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CritterCrush-CritterCrushUITests.release.xcconfig"; path = "Target Support Files/Pods-CritterCrush-CritterCrushUITests/Pods-CritterCrush-CritterCrushUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F700DB3929AD207B00E83929 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F700DB3B29AD25AA00E83929 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		F70E95B229D1654C00F1EB4A /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F71F8C5A29A473A0007B6909 /* CritterCrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CritterCrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71F8C5D29A473A0007B6909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F71F8C5F29A473A1007B6909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		41AE477D29E0B756006E560C /* Offline Data */ = {
 			isa = PBXGroup;
 			children = (
-				F70E95B229D1654C00F1EB4A /* DataModel.swift */,
 				4159F47F29DA214800125FE1 /* IndividualReport.swift */,
 				4157DFAA29CFEE9E0066ECBA /* qns_test_2.csv */,
 				4157DFA629C8E2F50066ECBA /* test_slf.csv */,
@@ -577,7 +574,6 @@
 				4159F48629DA6C1B00125FE1 /* SingleReportViewController.swift in Sources */,
 				4157DF9529C7F9320066ECBA /* TestData.swift in Sources */,
 				4159F48029DA214800125FE1 /* IndividualReport.swift in Sources */,
-				F70E95B329D1654C00F1EB4A /* DataModel.swift in Sources */,
 				F77ADBDD29B5267F00045ABF /* AddressUploadViewController.swift in Sources */,
 				F7CAF3C329BE327D00404D96 /* AddReportViewController.swift in Sources */,
 				41AE478729E3BAFF006E560C /* ParseBatch.swift in Sources */,
