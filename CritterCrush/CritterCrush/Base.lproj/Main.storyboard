@@ -1212,7 +1212,7 @@
                                         <rect key="frame" x="162" y="22" width="208" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="1hn-81-kCE"/>
-                                            <constraint firstAttribute="width" constant="208" id="oWy-sw-mo8"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="oWy-sw-mo8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1242,18 +1242,27 @@
                                     <constraint firstItem="zDg-HD-et0" firstAttribute="top" secondItem="tTH-qj-gM6" secondAttribute="top" constant="22" id="zS5-Bx-Lrj"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZOm-BH-Atc">
+                                <rect key="frame" x="165" y="167" width="63" height="41"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lcm-U6-Vtf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="lcm-U6-Vtf" firstAttribute="bottom" secondItem="ZOm-BH-Atc" secondAttribute="bottom" constant="595" id="4b2-QO-rXX"/>
                             <constraint firstItem="tTH-qj-gM6" firstAttribute="leading" secondItem="QUW-yT-xDi" secondAttribute="leadingMargin" id="91X-ZY-NJi"/>
+                            <constraint firstItem="ZOm-BH-Atc" firstAttribute="centerY" secondItem="QUW-yT-xDi" secondAttribute="centerY" constant="-238.5" id="G9O-by-v2H"/>
+                            <constraint firstItem="ZOm-BH-Atc" firstAttribute="top" secondItem="lcm-U6-Vtf" secondAttribute="top" constant="123" id="H8x-Fe-B4Z"/>
+                            <constraint firstItem="ZOm-BH-Atc" firstAttribute="centerX" secondItem="QUW-yT-xDi" secondAttribute="centerX" id="RPb-hb-U7W"/>
                             <constraint firstItem="tTH-qj-gM6" firstAttribute="leading" secondItem="7sI-y6-PHz" secondAttribute="leading" id="SqT-Dn-4Js"/>
+                            <constraint firstItem="ZOm-BH-Atc" firstAttribute="leading" secondItem="lcm-U6-Vtf" secondAttribute="leading" constant="165" id="UMJ-ar-g7F"/>
                             <constraint firstAttribute="bottom" secondItem="tTH-qj-gM6" secondAttribute="bottom" constant="660" id="UiG-oM-kfJ"/>
                             <constraint firstItem="tTH-qj-gM6" firstAttribute="top" secondItem="lcm-U6-Vtf" secondAttribute="top" id="Y78-zt-UPo"/>
                             <constraint firstItem="tTH-qj-gM6" firstAttribute="trailing" secondItem="7sI-y6-PHz" secondAttribute="trailing" id="aHY-oV-QYc"/>
                             <constraint firstItem="lcm-U6-Vtf" firstAttribute="bottom" secondItem="7sI-y6-PHz" secondAttribute="bottom" constant="34" id="anw-9v-eoB"/>
                             <constraint firstItem="7sI-y6-PHz" firstAttribute="top" secondItem="tTH-qj-gM6" secondAttribute="bottom" constant="8" id="e9f-Mq-NqY"/>
                             <constraint firstItem="tTH-qj-gM6" firstAttribute="trailing" secondItem="QUW-yT-xDi" secondAttribute="trailingMargin" id="hOf-JE-biE"/>
+                            <constraint firstItem="lcm-U6-Vtf" firstAttribute="trailing" secondItem="ZOm-BH-Atc" secondAttribute="trailing" constant="165" id="jdz-ne-2yV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Submission" id="3cL-xl-fAg"/>
@@ -2143,7 +2152,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="4Uc-as-k48"/>
         <segue reference="mE5-pP-MiW"/>
-        <segue reference="ln4-dd-WPt"/>
+        <segue reference="HHl-cd-fFQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ant" catalog="system" width="106" height="128"/>
