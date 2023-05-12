@@ -48,9 +48,11 @@ class SigninViewController: UIViewController {
                         let asJSON = try JSONSerialization.jsonObject(with: data)
                         if let responseDict = asJSON as? [String: Any],
                             let dataDict = responseDict["data"] as? [String: Any],
-                            let token = dataDict["token"] as? String {
+                            let token = dataDict["token"] as? String,  let loginUser = dataDict["userid"] as? Int  {
 
                             KeychainHelper.standard.save(token, service: "com.crittercrush.authToken", account: "authToken")
+                            
+                            UserDefaults.standard.set(loginUser, forKey: "userid")
                         }
                         
                         // pass username and password to struct
