@@ -134,6 +134,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          
          self.performSegue(withIdentifier: "showDetailReport", sender: self)
+         tableView.deselectRow(at: indexPath, animated: true)
          
      }
      
