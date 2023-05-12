@@ -36,6 +36,10 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         
+        
+        //Horizontal Scroll View code:
+        //https://github.com/zhiyao92/Horizontal-Sliding-Image
+        
         let bug: Int = bugID
         images = ["id_species\(bug)_1","id_species\(bug)_2","id_species\(bug)_3"]
         
@@ -63,11 +67,6 @@ class SpeciesDetailViewController: UIViewController, UIScrollViewDelegate {
         pageControl.numberOfPages = 3
         //self.scrollView.bringSubviewToFront(pageControl)
         style()
-        
-        /*
-        //text
-        self.bugDescribe.text = "\(speciesList[(bug - 1)].desc)\n\(speciesList[(bug - 1)].risk)\nFrom: \(speciesList[(bug - 1)].link)"
-        */
         
         //text
         self.bugDescribe.text = "\(speciesList[(bug - 1)].desc)\nFrom: \(speciesList[(bug - 1)].link)"
