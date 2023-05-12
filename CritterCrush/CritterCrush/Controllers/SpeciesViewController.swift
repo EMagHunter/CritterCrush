@@ -36,6 +36,7 @@ class SpeciesViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.performSegue(withIdentifier: "showDetailView", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
