@@ -14,6 +14,7 @@ import Alamofire
 
 class SigninViewController: UIViewController {
     
+    var userLogin: Int = 0
     
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var rePasswordTextField: UITextField!
@@ -52,6 +53,8 @@ class SigninViewController: UIViewController {
 
                             KeychainHelper.standard.save(token, service: "com.crittercrush.authToken", account: "authToken")
                             
+                            self.userLogin = loginUser
+                            
                             UserDefaults.standard.set(loginUser, forKey: "userid")
                         }
                         
@@ -66,6 +69,8 @@ class SigninViewController: UIViewController {
                 
                 // check if user exists in database
                 if (response.response?.statusCode == 200) {
+                    UserDefaults.standard.set(self.userLogin, forKey: "userid")
+                    
                     self.performSegue(withIdentifier: "signupSegue", sender: self)
                 } else {
                     self.ResultLabel.text = "A user already exists"
