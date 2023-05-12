@@ -52,6 +52,8 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
     
     override func viewDidLoad() {
         addTopView()
+        let spinner = view.viewWithTag(100) as! UIActivityIndicatorView
+        spinner.startAnimating()
         
         super.viewDidLoad()
         
@@ -75,7 +77,7 @@ class DetailSubmissionViewController: UIViewController,UICollectionViewDelegate,
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
+            spinner.isHidden = true
             //print("Update: \(batchReports[0])")
             self.collectionView.reloadData()
         }//apiReport(userID)
