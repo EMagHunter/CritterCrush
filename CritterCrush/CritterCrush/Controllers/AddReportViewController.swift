@@ -33,6 +33,7 @@ class AddReportViewController: UITableViewController {
     var locationLat: Double = 0
     let formatter = DateFormatter()
     var report_score = 0
+    var runPredict: Bool = false
     var spinner = UIActivityIndicatorView(style: .large)
     let spinnerView = UIView()
     
@@ -75,7 +76,7 @@ class AddReportViewController: UITableViewController {
                 switch result {
                 case .success(let report):
                     do {
-                        print("hi")
+                        print("Predict Image")
                         //let str = String(decoding: report, as: UTF8.self)
                         let asJSON = try JSONSerialization.jsonObject(with: report)
                         if let responseDict = asJSON as? [String: Any],
@@ -85,6 +86,7 @@ class AddReportViewController: UITableViewController {
                             self.showPredictAlert(message: "Count:  \(bugCount)\nSpecies: \(speciesList[predSpecies-1].name)")
                             self.speciesName = speciesList[predSpecies-1].name
                             self.speciesNameLabel.text = self.speciesName
+                            self.runPredict = true
                         }
                     } catch {
                         self.spinnerView.isHidden = true
@@ -234,7 +236,8 @@ class AddReportViewController: UITableViewController {
                 "latitude": lat,
                 "longitude": lon,
                 "reportdate": day,
-                "reportImage": imageData
+                "reportImage": imageData,
+                "scoreValid": runPredict
             ]
             
             let imgName = randomName(length:7)
