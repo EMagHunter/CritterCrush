@@ -26,10 +26,31 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     //let speciesList = listSpecies
      
      //let speciesList:Array<Species> = [SLF,ALB,EAB,SPM]
-     
+    
+    
+    //show navbar:
+    //https://stackoverflow.com/a/39679506
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    //hide navbar
+    
      override func viewDidLoad() {
          super.viewDidLoad()
-         //see point
+         
+         
          let boo = UserDefaults.standard.bool(forKey: "seepoints")
          print("seepoints: \(boo)")
          self.totalPointsLabel.isHidden =  !(UserDefaults.standard.bool(forKey: "seepoints"))
