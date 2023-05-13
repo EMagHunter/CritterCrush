@@ -3,7 +3,8 @@
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 3/5/23.
-//
+//Used tutorial from UIKit Apprentice (Second Edition): Beginning IOS Development with Swift, raywenderlich Tutorial Team, Farook, F., 9781950325474, 2021 chapter: 22,23
+
 
 import UIKit
 import CoreLocation

@@ -3,6 +3,8 @@
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 2/27/23.
+//UIKit Apprentice (Second Edition): Beginning IOS Development with Swift, raywenderlich Tutorial Team, Farook, F., 9781950325474, 2021 chapter: 25
+//https://makeapppie.com/2018/02/20/use-markers-instead-of-pins-for-map-annotations/
 //GET: Reports (last 7 days)
 //PARAM: current date
 //200: Success

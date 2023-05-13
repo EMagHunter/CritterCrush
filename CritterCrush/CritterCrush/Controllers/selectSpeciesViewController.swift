@@ -3,7 +3,8 @@
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 3/12/23.
-//
+// UIKit Apprentice (Second Edition): Beginning IOS Development with Swift, raywenderlich Tutorial Team, Farook, F., 9781950325474, 2021 chapter 25, pages: 624-626
+
 
 import UIKit
 

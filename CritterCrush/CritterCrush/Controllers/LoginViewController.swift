@@ -3,6 +3,9 @@
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 2/20/23.
+//https://www.youtube.com/watch?v=dbW8UMnrOj0
+//https://www.youtube.com/watch?v=-cYLkXKNDJA
+
 //MARK: API CALLS
 //GET: authentication token
 //PARAM: username, password
