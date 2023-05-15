@@ -3,8 +3,6 @@
 //  CritterCrush
 //
 //  Created by Ana Fuentes on 3/12/23.
-//UIKit Apprentice (Second Edition): Beginning IOS Development with Swift, raywenderlich Tutorial Team, Farook, F., 9781950325474, 2021 chapter: 25
-
 //POST: Report
 //200: Success
 //400: fail, 201: get json, 401: unauthorized
@@ -37,6 +35,7 @@ class AddReportViewController: UITableViewController {
     var report_score = 0
     var runPredict: Bool = false
     var spinner = UIActivityIndicatorView(style: .large)
+    var fileName: String?
     let spinnerView = UIView()
     
     //segue
@@ -124,6 +123,7 @@ class AddReportViewController: UITableViewController {
         
         let imgName = randomName(length:7)
         print(imgName)
+        fileName = imgName
         
         // Use Alamofire to upload the image as a parameter
         AF.upload(
@@ -232,6 +232,17 @@ class AddReportViewController: UITableViewController {
             print("no geocoding")
         }
         
+            var imgName = ""
+        
+        if let checkPredict = fileName {
+            imgName = checkPredict
+        }
+        else {
+            imgName = randomName(length:7)
+            self.runPredict = false
+        }
+            print(imgName)
+            
         let param: [String:Any] = [
                 "speciesid": bugID,
                 "numspecimens": 1,
@@ -241,10 +252,7 @@ class AddReportViewController: UITableViewController {
                 "reportImage": imageData,
                 "scoreValid": runPredict
             ]
-            
-            let imgName = randomName(length:7)
-            print(imgName)
-            
+        
             // Use Alamofire to upload the image as a parameter
             AF.upload(
                 multipartFormData: { multipartFormData in
