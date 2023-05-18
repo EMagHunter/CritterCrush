@@ -128,7 +128,7 @@ namespace CritterCrushAPI.Controllers
         // POST: api/Reports/
         // Post a report. Optional "imagerectoken" param is used to verify if a user is actually submitting a report after checking it with image rec. Used for scoring
         [HttpPost]
-        public async Task<ActionResult<Response>> SubmitReport([FromForm] int speciesid, [FromForm] int numspecimens, [FromForm] double latitude, [FromForm] double longitude, [FromForm] long reportdate, [FromForm] string? imagerectoken = "")
+        public async Task<ActionResult<Response>> SubmitReport([FromForm] int speciesid, [FromForm] int numspecimens, [FromForm] double latitude, [FromForm] double longitude, [FromForm] long reportdate, [FromForm] bool scorevalid = false)
         {
             var h = Request.Headers;
             if (!h.ContainsKey("Authorization"))
@@ -164,11 +164,8 @@ namespace CritterCrushAPI.Controllers
             r.Longitude = longitude;
             r.ReportDate = DateTimeOffset.FromUnixTimeSeconds(reportdate).DateTime;
             r.Image = imagename;
-            if (IsImageRecValid(imagerectoken, speciesid, numspecimens))
-            {
-                r.ScoreValid = true;
-                await RemoveImageRecToken(imagerectoken);
-            }
+            r.ScoreValid = scorevalid;
+
             _context.Reports.Add(r);
             await _context.SaveChangesAsync();
             return new ResponseData<Report>(r);

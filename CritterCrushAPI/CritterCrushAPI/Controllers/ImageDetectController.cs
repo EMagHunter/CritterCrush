@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using CritterCrushAPI.Models;
 using System.Diagnostics;
 
+// return datatype for HTTP call returning more than one variable
 struct ImageDetectResult
 {
     public int speciesid { get; set; }

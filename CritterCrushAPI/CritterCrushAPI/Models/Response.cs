@@ -1,5 +1,8 @@
 ﻿namespace CritterCrushAPI.Models
 {
+    // Classes used for standardization of API output
+    // Known bug: HTTP return codes are all 200 regardless of Response type used
+    
     public class Response
     {
         public int status {get; set;}
