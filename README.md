@@ -25,6 +25,29 @@ Develop an iOS app for users to take pictures of invasive species of insects in 
 | GET /api/users/verifylogin | Verify auth token | Username | Boolean (true if token is valid) |
 
 ### App_Demo
-<p>Login Screen<p>
+<p>SignUp Screen<p>
 <img src="https://github.com/EMagHunter/CritterCrush/assets/80727432/beaa4689-126e-4600-b239-5f1959dd7de6" width="150" height="300">
+  
+<p>Login Screen<p>
+<img src="https://github.com/EMagHunter/CritterCrush/assets/80727432/68c54b45-7c2c-4853-866b-d3917ade1d65" width="150" height="300">
+  
+<p>Species Screen<p>
+<img src="https://github.com/EMagHunter/CritterCrush/assets/80727432/fa7fb100-68f4-41cb-a68c-487467a03783" width="150" height="300">
+  
+<p>Map Screen<p>
+<img src="" width="150" height="300">
+
+<p>Profile Screen<p>
+<img src="" width="150" height="300">
+  
+<p>Setting Screen<p>
+<img src="" width="150" height="300">
+  
+<p>Add Report Screen<p>
+<img src="" width="150" height="300">
+  
+<p>Submit Report<p>
+<img src="" width="150" height="300">
+
+
 
