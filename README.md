@@ -4,6 +4,7 @@
 1. [Overview](#Overview)
 2. [Wireframes](#Wireframes)
 3. [API Reference](#API_Reference)
+4. [App Demo](#_Reference)
 
 ## Overview
 ### Description
@@ -22,3 +23,7 @@ Develop an iOS app for users to take pictures of invasive species of insects in 
 | GET /api/users/login | Recieve auth token for user from username and password | Username, Password | Auth token |
 | POST /api/users/register | Register new user into database | Username, Password, Email | Auth token |
 | GET /api/users/verifylogin | Verify auth token | Username | Boolean (true if token is valid) |
+
+### App Demo
+
+
