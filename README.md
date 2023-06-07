@@ -33,21 +33,17 @@ Develop an iOS app for users to take pictures of invasive species of insects in 
   
 <p>Species Screen<p>
 <img src="https://github.com/EMagHunter/CritterCrush/assets/80727432/fa7fb100-68f4-41cb-a68c-487467a03783" width="150" height="300">
-  
+
 <p>Map Screen<p>
-<img src="" width="150" height="300">
+<img src="https://github.com/EMagHunter/CritterCrush/assets/80727432/c977aa08-37c2-4837-a4c0-74f6b47af247" width="150" height="300">
 
 <p>Profile Screen<p>
-<img src="" width="150" height="300">
-  
-<p>Setting Screen<p>
-<img src="" width="150" height="300">
-  
-<p>Add Report Screen<p>
-<img src="" width="150" height="300">
-  
-<p>Submit Report<p>
-<img src="" width="150" height="300">
+<img src="https://github.com/EMagHunter/CritterCrush/assets/80727432/aa8eb991-2f49-4f92-8b2d-366826fc26d3" width="150" height="300">
 
+<p>Setting Screen<p>
+<img src= "https://github.com/EMagHunter/CritterCrush/assets/80727432/3989a615-3663-4c4e-95a9-1ad40c32f9f1" width="150" height="300">
+    
+<p>Submit Report<p>
+<img src="https://github.com/EMagHunter/CritterCrush/assets/80727432/129763f3-1d6c-4c85-9cab-eae31339520f" width="150" height="300">
 
 
